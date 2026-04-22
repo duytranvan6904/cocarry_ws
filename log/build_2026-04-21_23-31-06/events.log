@@ -1,0 +1,61 @@
+[0.000000] (-) TimerEvent: {}
+[0.000065] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000103] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000126] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000148] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000169] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000191] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000208] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.000225] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.000241] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.000257] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.000274] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.000290] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.000306] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.000322] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.000337] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.000353] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.000513] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.000851] (coord_transform) JobQueued: {'identifier': 'coord_transform', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001099] (coord_transform) JobStarted: {'identifier': 'coord_transform'}
+[0.099893] (-) TimerEvent: {}
+[0.200106] (-) TimerEvent: {}
+[0.300429] (-) TimerEvent: {}
+[0.400783] (-) TimerEvent: {}
+[0.474914] (coord_transform) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/duy/cocarry_ws/build/coord_transform/build', '--no-deps', 'symlink_data'], 'cwd': '/home/duy/cocarry_ws/build/coord_transform', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/duy', 'USER': 'duy', 'LC_TIME': 'en_US.UTF-8', 'VSCODE_NLS_CONFIG': '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}', 'XDG_SESSION_TYPE': 'wayland', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib:/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack', 'HOME': '/home/duy', 'CHROME_DESKTOP': 'antigravity.desktop', 'OLDPWD': '/home/duy/cocarry_ws', 'DESKTOP_SESSION': 'ubuntu', 'VSCODE_IPC_HOOK': '/run/user/1000/vscode-d3248cd9-1.10-main.sock', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/antigravity.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'cat', 'LC_MONETARY': 'en_US.UTF-8', 'MANAGERPID': '1098', 'SYSTEMD_EXEC_PID': '1223', 'IM_CONFIG_CHECK_ENV': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ANTIGRAVITY_AGENT': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '10269', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/duy/kinectv2/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'duy', 'JOURNAL_STREAM': '8:9523', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'USERNAME': 'duy', 'TERM': 'dumb', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'ROS_LOCALHOST_ONLY': '0', 'ANTIGRAVITY_EDITOR_APP_ROOT': '/usr/share/antigravity/resources/app', 'PATH': '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'SESSION_MANAGER': 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1193,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1193', 'INVOCATION_ID': '29c728a386dd410d9cde3e9a5bf6d4be', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.GRC9N3', 'LS_COLORS': '', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble', 'NUITRACK_HOME': '/usr/etc/nuitrack', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'QT_IM_MODULE': 'ibus', 'ANTIGRAVITY_TRAJECTORY_ID': '17938c62-b263-4ef0-9c70-fc46317e4fcb', 'PWD': '/home/duy/cocarry_ws/build/coord_transform', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'VSCODE_CODE_CACHE_PATH': '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/duy/cocarry_ws/build/coord_transform/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs:/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration', 'VSCODE_PID': '10269'}, 'shell': False}
+[0.500906] (-) TimerEvent: {}
+[0.601173] (-) TimerEvent: {}
+[0.704105] (-) TimerEvent: {}
+[0.806102] (-) TimerEvent: {}
+[0.825247] (coord_transform) StdoutLine: {'line': b'running develop\n'}
+[0.909079] (-) TimerEvent: {}
+[1.009344] (-) TimerEvent: {}
+[1.060928] (coord_transform) StdoutLine: {'line': b'running egg_info\n'}
+[1.061184] (coord_transform) StdoutLine: {'line': b'creating coord_transform.egg-info\n'}
+[1.061743] (coord_transform) StdoutLine: {'line': b'writing coord_transform.egg-info/PKG-INFO\n'}
+[1.062079] (coord_transform) StdoutLine: {'line': b'writing dependency_links to coord_transform.egg-info/dependency_links.txt\n'}
+[1.062215] (coord_transform) StdoutLine: {'line': b'writing entry points to coord_transform.egg-info/entry_points.txt\n'}
+[1.062328] (coord_transform) StdoutLine: {'line': b'writing requirements to coord_transform.egg-info/requires.txt\n'}
+[1.062440] (coord_transform) StdoutLine: {'line': b'writing top-level names to coord_transform.egg-info/top_level.txt\n'}
+[1.062564] (coord_transform) StdoutLine: {'line': b"writing manifest file 'coord_transform.egg-info/SOURCES.txt'\n"}
+[1.063915] (coord_transform) StdoutLine: {'line': b"reading manifest file 'coord_transform.egg-info/SOURCES.txt'\n"}
+[1.064531] (coord_transform) StdoutLine: {'line': b"writing manifest file 'coord_transform.egg-info/SOURCES.txt'\n"}
+[1.065791] (coord_transform) StdoutLine: {'line': b'running build_ext\n'}
+[1.066051] (coord_transform) StdoutLine: {'line': b'Creating /home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages/coord-transform.egg-link (link to .)\n'}
+[1.066662] (coord_transform) StdoutLine: {'line': b'Installing transform_node script to /home/duy/cocarry_ws/install/coord_transform/lib/coord_transform\n'}
+[1.067045] (coord_transform) StdoutLine: {'line': b'\n'}
+[1.067404] (coord_transform) StdoutLine: {'line': b'Installed /home/duy/cocarry_ws/build/coord_transform\n'}
+[1.067507] (coord_transform) StdoutLine: {'line': b'running symlink_data\n'}
+[1.067600] (coord_transform) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/coord_transform/share/ament_index\n'}
+[1.067670] (coord_transform) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/coord_transform/share/ament_index/resource_index\n'}
+[1.067726] (coord_transform) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/coord_transform/share/ament_index/resource_index/packages\n'}
+[1.067780] (coord_transform) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/coord_transform/resource/coord_transform -> /home/duy/cocarry_ws/install/coord_transform/share/ament_index/resource_index/packages\n'}
+[1.067841] (coord_transform) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/coord_transform/package.xml -> /home/duy/cocarry_ws/install/coord_transform/share/coord_transform\n'}
+[1.067897] (coord_transform) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/coord_transform/share/coord_transform/config\n'}
+[1.067950] (coord_transform) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/coord_transform/config/transform_params.yaml -> /home/duy/cocarry_ws/install/coord_transform/share/coord_transform/config\n'}
+[1.068018] (coord_transform) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/coord_transform/share/coord_transform/scripts\n'}
+[1.068074] (coord_transform) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/coord_transform/scripts/calibrate_camera_to_robot.py -> /home/duy/cocarry_ws/install/coord_transform/share/coord_transform/scripts\n'}
+[1.105234] (coord_transform) CommandEnded: {'returncode': 0}
+[1.109449] (-) TimerEvent: {}
+[1.121684] (coord_transform) JobEnded: {'identifier': 'coord_transform', 'rc': 0}
+[1.122391] (-) EventReactorShutdown: {}

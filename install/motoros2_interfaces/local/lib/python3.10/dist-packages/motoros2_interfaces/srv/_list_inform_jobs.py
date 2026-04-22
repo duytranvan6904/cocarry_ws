@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_generator_py/motoros2_interfaces/srv/_list_inform_jobs.py

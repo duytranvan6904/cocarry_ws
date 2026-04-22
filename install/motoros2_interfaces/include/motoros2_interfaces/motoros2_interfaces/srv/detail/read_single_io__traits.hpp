@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_generator_cpp/motoros2_interfaces/srv/detail/read_single_io__traits.hpp

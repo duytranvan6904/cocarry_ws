@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/src/hc10dtp_moveit_config/launch/hc10dtp_start.launch.py

@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/industrial_msgs/rosidl_generator_cpp/industrial_msgs/msg/robot_status.hpp

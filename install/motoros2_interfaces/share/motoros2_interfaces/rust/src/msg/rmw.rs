@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_generator_rs/motoros2_interfaces/rust/src/msg/rmw.rs

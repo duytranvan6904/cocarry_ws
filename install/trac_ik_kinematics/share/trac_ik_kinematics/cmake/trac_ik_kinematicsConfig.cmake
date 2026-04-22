@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/trac_ik_kinematics/ament_cmake_core/trac_ik_kinematicsConfig.cmake

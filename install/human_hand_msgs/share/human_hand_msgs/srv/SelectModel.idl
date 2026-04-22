@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from human_hand_msgs/srv/SelectModel.srv
+// generated code does not contain a copyright notice
+
+
+module human_hand_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request: select ML model for prediction")
+    struct SelectModel_Request {
+      string model_name;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct SelectModel_Response {
+      boolean success;
+
+      string message;
+
+      string active_model;
+    };
+  };
+};

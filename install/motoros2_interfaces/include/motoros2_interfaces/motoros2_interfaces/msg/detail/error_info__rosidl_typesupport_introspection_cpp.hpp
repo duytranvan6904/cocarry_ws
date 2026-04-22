@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/error_info__rosidl_typesupport_introspection_cpp.hpp

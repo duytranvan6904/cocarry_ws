@@ -1,0 +1,98 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-a4824e78b3b29ae5aecc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"build" : "trac_ik_kinematics_plugin",
+					"jsonFile" : "directory-trac_ik_kinematics_plugin-Release-a8a7ed0ef4b0be3a2ea6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "trac_ik_kinematics_plugin",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "trac_ik_kinematics",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "moveit_trac_ik_kinematics_plugin::@0436a5c9453dc59e894b",
+					"jsonFile" : "target-moveit_trac_ik_kinematics_plugin-Release-b74f128c85b11faf6be5.json",
+					"name" : "moveit_trac_ik_kinematics_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trac_ik_kinematics_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trac_ik_kinematics_uninstall-Release-c20c7b9db99f91bb78aa.json",
+					"name" : "trac_ik_kinematics_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-e311a39f6786ee926330.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/duy/cocarry_ws/build/trac_ik_kinematics",
+		"source" : "/home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

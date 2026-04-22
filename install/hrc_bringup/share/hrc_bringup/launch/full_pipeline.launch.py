@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/src/hrc_bringup/launch/full_pipeline.launch.py

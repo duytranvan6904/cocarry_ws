@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>trajectory_predictor</name>
+  <version>0.1.0</version>
+  <description>ML inference node for hand trajectory prediction (RNN/GRU/LSTM)</description>
+  <maintainer email="duy@experiment.local">Duy</maintainer>
+  <license>MIT</license>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>human_hand_msgs</depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

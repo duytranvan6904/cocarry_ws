@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_generator_py/motoros2_interfaces/motoros2_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" "TARGETS" "motoros2_interfaces__rosidl_typesupport_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/motoros2_interfaces")

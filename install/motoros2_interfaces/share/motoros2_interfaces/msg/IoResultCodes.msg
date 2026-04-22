@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/src/yaskawa-global/motoros2_interfaces/msg/IoResultCodes.msg

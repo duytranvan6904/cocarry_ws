@@ -1,0 +1,29 @@
+experiment_logger:
+  ros__parameters:
+    auto_start: true
+    log_dir: /home/duy/hrc_logs
+realsense_tracker:
+  ros__parameters:
+    # model_path is passed dynamically from the launch file
+    offset_x: 0.0029441434890031815
+    offset_y: 0.07468471676111221
+    offset_z: 0.9220000505447388
+trajectory_predictor:
+  ros__parameters:
+    auto_start: false
+    clear_on_tracking_lost: 1.0
+    default_model: gru
+    filter:
+      ema_alpha: 0.6
+      enabled: true
+      max_deviation: 0.1
+      max_rate: 0.06
+    model_dir: /home/duy/Experiment/Trained model
+    model_files:
+      gru: gru_velocity_3_layers.h5
+      lstm: lstm_velocity_3_layers.h5
+      rnn: rnn_velocity_3_layers.h5
+    num_features: 3
+    scaler_x_file: scaler_x.pkl
+    scaler_y_file: scaler_y.pkl
+    window_size: 20

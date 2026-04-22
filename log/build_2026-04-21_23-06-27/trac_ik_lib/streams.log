@@ -1,0 +1,87 @@
+[0.015s] Invoking command in '/home/duy/cocarry_ws/build/trac_ik_lib': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/trac_ik/trac_ik_lib -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/trac_ik_lib
+[0.168s] -- The C compiler identification is GNU 11.4.0
+[0.273s] -- The CXX compiler identification is GNU 11.4.0
+[0.283s] -- Detecting C compiler ABI info
+[0.363s] -- Detecting C compiler ABI info - done
+[0.374s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.374s] -- Detecting C compile features
+[0.374s] -- Detecting C compile features - done
+[0.377s] -- Detecting CXX compiler ABI info
+[0.459s] -- Detecting CXX compiler ABI info - done
+[0.470s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.470s] -- Detecting CXX compile features
+[0.471s] -- Detecting CXX compile features - done
+[0.474s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.644s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.724s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.761s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.777s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.779s] -- Found kdl_parser: 2.6.4 (/opt/ros/humble/share/kdl_parser/cmake)
+[0.794s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.810s] -- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+[0.852s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.857s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.865s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.877s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.893s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.951s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.957s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.072s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.116s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.167s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.187s] -- Looking for pthread.h
+[1.288s] -- Looking for pthread.h - found
+[1.290s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.371s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.372s] -- Found Threads: TRUE  
+[1.459s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[1.501s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.583s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.585s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.585s] -- Configured cpplint exclude dirs and/or files: 
+[1.586s] -- Added test 'lint_cmake' to check CMake code style
+[1.587s] -- Added test 'xmllint' to check XML markup files
+[1.590s] -- Configuring done
+[1.607s] -- Generating done
+[1.610s] -- Build files have been written to: /home/duy/cocarry_ws/build/trac_ik_lib
+[1.620s] Invoked command in '/home/duy/cocarry_ws/build/trac_ik_lib' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/trac_ik/trac_ik_lib -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/trac_ik_lib
+[1.622s] Invoking command in '/home/duy/cocarry_ws/build/trac_ik_lib': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/trac_ik_lib -- -j16 -l16
+[1.676s] [ 25%] [32mBuilding CXX object CMakeFiles/trac_ik_lib.dir/src/kdl_tl.cpp.o[0m
+[1.679s] [ 50%] [32mBuilding CXX object CMakeFiles/trac_ik_lib.dir/src/nlopt_ik.cpp.o[0m
+[1.680s] [ 75%] [32mBuilding CXX object CMakeFiles/trac_ik_lib.dir/src/trac_ik.cpp.o[0m
+[20.191s] [100%] [32m[1mLinking CXX shared library libtrac_ik_lib.so[0m
+[20.523s] [100%] Built target trac_ik_lib
+[20.534s] Invoked command in '/home/duy/cocarry_ws/build/trac_ik_lib' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/trac_ik_lib -- -j16 -l16
+[20.536s] Invoking command in '/home/duy/cocarry_ws/build/trac_ik_lib': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/trac_ik_lib
+[20.544s] -- Install configuration: ""
+[20.545s] -- Execute custom install script
+[20.545s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/environment/library_path.sh
+[20.553s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/environment/library_path.dsv
+[20.563s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/include/trac_ik/dual_quaternion.h
+[20.571s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/include/trac_ik/kdl_tl.hpp
+[20.580s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/include/trac_ik/math3d.h
+[20.588s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/include/trac_ik/nlopt_ik.hpp
+[20.595s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/include/trac_ik/trac_ik.hpp
+[20.604s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/include/trac_ik/visibility_control.hpp
+[20.614s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/ament_index/resource_index/package_run_dependencies/trac_ik_lib
+[20.625s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/ament_index/resource_index/parent_prefix_path/trac_ik_lib
+[20.633s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/environment/ament_prefix_path.sh
+[20.643s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/environment/ament_prefix_path.dsv
+[20.652s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/environment/path.sh
+[20.660s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/environment/path.dsv
+[20.667s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/local_setup.bash
+[20.675s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/local_setup.sh
+[20.683s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/local_setup.zsh
+[20.691s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/local_setup.dsv
+[20.699s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/package.dsv
+[20.710s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/ament_index/resource_index/packages/trac_ik_lib
+[20.718s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/cmake/ament_cmake_export_targets-extras.cmake
+[20.729s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/cmake/ament_cmake_export_dependencies-extras.cmake
+[20.740s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/cmake/trac_ik_libConfig.cmake
+[20.749s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/cmake/trac_ik_libConfig-version.cmake
+[20.757s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/package.xml
+[20.764s] -- Installing: /home/duy/cocarry_ws/install/trac_ik_lib/lib/libtrac_ik_lib.so
+[20.768s] -- Set runtime path of "/home/duy/cocarry_ws/install/trac_ik_lib/lib/libtrac_ik_lib.so" to ""
+[20.768s] -- Installing: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/cmake/export_trac_ik_libExport.cmake
+[20.768s] -- Installing: /home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/cmake/export_trac_ik_libExport-noconfig.cmake
+[20.770s] Invoked command in '/home/duy/cocarry_ws/build/trac_ik_lib' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/trac_ik_lib

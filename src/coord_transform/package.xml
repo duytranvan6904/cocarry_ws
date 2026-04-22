@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>coord_transform</name>
+  <version>0.1.0</version>
+  <description>
+    Coordinate transform node for HRC co-carrying:
+    transforms predicted hand position from camera frame to robot base frame,
+    applies object offset, and publishes PoseStamped for cartesian_streamer.
+  </description>
+  <maintainer email="duy@example.com">Duy Tran</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>human_hand_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

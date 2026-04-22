@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/industrial_msgs/rosidl_typesupport_fastrtps_cpp/industrial_msgs/msg/detail/robot_status__rosidl_typesupport_fastrtps_cpp.hpp

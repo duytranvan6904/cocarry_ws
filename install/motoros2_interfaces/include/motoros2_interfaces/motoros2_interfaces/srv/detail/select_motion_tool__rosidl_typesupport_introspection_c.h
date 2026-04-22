@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/select_motion_tool__rosidl_typesupport_introspection_c.h

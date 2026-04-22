@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_generator_cpp/motoros2_interfaces/msg/detail/alarm_info__type_support.hpp

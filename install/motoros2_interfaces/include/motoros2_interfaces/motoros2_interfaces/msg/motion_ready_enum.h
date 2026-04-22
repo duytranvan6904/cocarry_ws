@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_generator_c/motoros2_interfaces/msg/motion_ready_enum.h

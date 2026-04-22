@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/hc10dtp_moveit_config/ament_cmake_environment_hooks/local_setup.sh

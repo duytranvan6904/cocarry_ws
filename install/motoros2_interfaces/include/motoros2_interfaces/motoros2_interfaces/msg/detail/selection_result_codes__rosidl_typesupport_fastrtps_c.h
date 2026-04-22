@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/selection_result_codes__rosidl_typesupport_fastrtps_c.h

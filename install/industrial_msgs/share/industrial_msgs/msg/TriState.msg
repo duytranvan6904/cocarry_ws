@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs/msg/TriState.msg

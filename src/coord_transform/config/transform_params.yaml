@@ -1,0 +1,31 @@
+# transform_params.yaml
+# Default values — update after running calibration script
+
+coord_transform:
+  ros__parameters:
+    object_offset_x: 0.05
+    object_offset_y: 0.0
+    object_offset_z: 0.10
+
+    cam_to_base_qx: 0.0
+    cam_to_base_qy: 0.0
+    cam_to_base_qz: 0.0
+    cam_to_base_qw: 1.0
+
+    cam_to_base_tx: 0.5
+    cam_to_base_ty: 0.0
+    cam_to_base_tz: 1.2
+
+    ee_orient_x: 0.0
+    ee_orient_y: 1.0
+    ee_orient_z: 0.0
+    ee_orient_w: 0.0
+
+    prediction_step: 3
+
+    workspace_x_min: -1.0
+    workspace_x_max:  1.0
+    workspace_y_min: -1.0
+    workspace_y_max:  1.0
+    workspace_z_min:  0.05
+    workspace_z_max:  1.5

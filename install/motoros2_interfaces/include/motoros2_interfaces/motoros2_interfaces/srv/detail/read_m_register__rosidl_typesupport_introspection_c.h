@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/read_m_register__rosidl_typesupport_introspection_c.h

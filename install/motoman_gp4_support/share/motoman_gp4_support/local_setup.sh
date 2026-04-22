@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoman_gp4_support/ament_cmake_environment_hooks/local_setup.sh

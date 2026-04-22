@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/industrial_msgs/rosidl_generator_py/industrial_msgs/msg/_robot_mode_s.c

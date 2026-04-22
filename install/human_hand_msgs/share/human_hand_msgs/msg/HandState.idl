@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from human_hand_msgs/msg/HandState.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module human_hand_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Measured hand position from camera (world frame, post-calibration)")
+    struct HandState {
+      std_msgs::msg::Header header;
+
+      double x;
+
+      double y;
+
+      double z;
+
+      uint64 tracking_id;
+
+      boolean is_tracked;
+
+      double confidence;
+
+      string source;
+    };
+  };
+};

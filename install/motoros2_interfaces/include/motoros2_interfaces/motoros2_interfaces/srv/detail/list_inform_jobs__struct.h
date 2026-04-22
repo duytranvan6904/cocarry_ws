@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/motoros2_interfaces/rosidl_generator_c/motoros2_interfaces/srv/detail/list_inform_jobs__struct.h

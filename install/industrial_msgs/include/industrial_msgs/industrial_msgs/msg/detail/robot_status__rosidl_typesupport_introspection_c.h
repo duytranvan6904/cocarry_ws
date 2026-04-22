@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/industrial_msgs/rosidl_typesupport_introspection_c/industrial_msgs/msg/detail/robot_status__rosidl_typesupport_introspection_c.h
