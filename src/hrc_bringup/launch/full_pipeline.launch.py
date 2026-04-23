@@ -10,6 +10,9 @@ def generate_launch_description():
     # ──── Global Environment Fix for TensorFlow/ROS conflict ────
     # Forces python-based protobuf to avoid C++ descriptor database crashes
     env_fix = SetEnvironmentVariable('PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION', 'python')
+    
+    # ──── Disable VAAPI for libfreenect2 (Fixes corrupt RGB image) ────
+    libfreenect2_fix = SetEnvironmentVariable('LIBFREENECT2_PIPELINE', 'cpu')
 
     # ──── Launch arguments ────
     model_dir_arg = DeclareLaunchArgument(
@@ -20,9 +23,9 @@ def generate_launch_description():
 
     from ament_index_python.packages import get_package_share_directory
 
-    rs_model_arg = DeclareLaunchArgument(
-        'rs_model_path',
-        default_value=os.path.join(get_package_share_directory('realsense_tracker'), 'models', 'pose_landmarker_full.task'),
+    kinect_model_arg = DeclareLaunchArgument(
+        'kinect_model_path',
+        default_value=os.path.join(get_package_share_directory('kinect_tracker'), 'models', 'pose_landmarker_full.task'),
         description='Path to MediaPipe pose landmarker model'
     )
 
@@ -34,13 +37,25 @@ def generate_launch_description():
 
     # ──── Nodes ────
 
-    realsense_node = Node(
-        package='realsense_tracker',
-        executable='realsense_node',
-        name='realsense_tracker',
+    kinect_bridge_node = Node(
+        package='kinect2_bridge',
+        executable='kinect2_bridge_node',
+        name='kinect2_bridge',
         output='screen',
         parameters=[{
-            'model_path': LaunchConfiguration('rs_model_path'),
+            'fps_limit': 30.0,
+            'depth_method': 'cpu',
+            'reg_method': 'default'
+        }],
+    )
+
+    kinect_tracker_node = Node(
+        package='kinect_tracker',
+        executable='kinect_node',
+        name='kinect_tracker',
+        output='screen',
+        parameters=[{
+            'model_path': LaunchConfiguration('kinect_model_path'),
             'offset_x': 0.0,
             'offset_y': 0.0,
             'offset_z': 0.0,
@@ -88,10 +103,12 @@ def generate_launch_description():
 
     return LaunchDescription([
         env_fix,
+        libfreenect2_fix,
         model_dir_arg,
-        rs_model_arg,
+        kinect_model_arg,
         log_dir_arg,
-        realsense_node,
+        kinect_bridge_node,
+        kinect_tracker_node,
         predictor_node,
         logger_node,
         ui_node,

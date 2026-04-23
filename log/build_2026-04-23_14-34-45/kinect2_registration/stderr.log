@@ -1,0 +1,16 @@
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    freenect2_DIR
+
+
+/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:119: warning: ignoring ‘#pragma omp parallel’ [-Wunknown-pragmas]
+  119 | #pragma omp parallel for
+      | 
+/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:136: warning: ignoring ‘#pragma omp parallel’ [-Wunknown-pragmas]
+  136 | #pragma omp parallel for
+      | 
+/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp: In member function ‘virtual bool DepthRegistrationCPU::init(int)’:
+/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:29:43: warning: unused parameter ‘deviceId’ [-Wunused-parameter]
+   29 | bool DepthRegistrationCPU::init(const int deviceId)
+      |                                 ~~~~~~~~~~^~~~~~~~

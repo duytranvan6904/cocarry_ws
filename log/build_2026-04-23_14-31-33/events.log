@@ -1,0 +1,782 @@
+[0.000000] (-) TimerEvent: {}
+[0.000812] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000867] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000884] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000897] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000909] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000922] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000936] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000947] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000960] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.000974] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.000987] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.000999] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001010] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001021] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001037] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001049] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.001059] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001070] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001083] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001097] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001111] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.001127] (kinect2_bridge) JobQueued: {'identifier': 'kinect2_bridge', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration')])}
+[0.001150] (kinect2_calibration) JobQueued: {'identifier': 'kinect2_calibration', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration'), ('kinect2_bridge', '/home/duy/cocarry_ws/install/kinect2_bridge')])}
+[0.001167] (kinect2_bridge) JobStarted: {'identifier': 'kinect2_bridge'}
+[0.009292] (kinect2_bridge) JobProgress: {'identifier': 'kinect2_bridge', 'progress': 'cmake'}
+[0.009817] (kinect2_bridge) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge', '-Dfreenect2_DIR=/home/duy/cocarry_ws/libfreenect2/build', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_bridge'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[0.067959] (kinect2_bridge) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099767] (-) TimerEvent: {}
+[0.110413] (kinect2_bridge) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.115114] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.169135] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.173754] (kinect2_bridge) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.173875] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.174059] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.175913] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.199900] (-) TimerEvent: {}
+[0.235519] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.242306] (kinect2_bridge) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.242688] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.242937] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.248260] (kinect2_bridge) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.300019] (-) TimerEvent: {}
+[0.360260] (kinect2_bridge) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.400232] (-) TimerEvent: {}
+[0.436586] (kinect2_bridge) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.482567] (kinect2_bridge) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.487558] (kinect2_bridge) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.496331] (kinect2_bridge) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.500335] (-) TimerEvent: {}
+[0.507229] (kinect2_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.522465] (kinect2_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.568512] (kinect2_bridge) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.571245] (kinect2_bridge) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.600472] (-) TimerEvent: {}
+[0.646352] (kinect2_bridge) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.668038] (kinect2_bridge) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.700654] (-) TimerEvent: {}
+[0.711336] (kinect2_bridge) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.722163] (kinect2_bridge) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.775243] (kinect2_bridge) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.775499] (kinect2_bridge) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.800748] (-) TimerEvent: {}
+[0.835979] (kinect2_bridge) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.837214] (kinect2_bridge) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.900846] (-) TimerEvent: {}
+[0.902251] (kinect2_bridge) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.5.4") \n'}
+[0.904389] (kinect2_bridge) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.1 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[0.933753] (kinect2_bridge) StdoutLine: {'line': b'-- Found kinect2_registration: 0.0.1 (/home/duy/kinectv2/install/kinect2_registration/share/kinect2_registration/cmake)\n'}
+[0.938369] (kinect2_bridge) StdoutLine: {'line': b'-- Found tf2: 0.25.20 (/opt/ros/humble/share/tf2/cmake)\n'}
+[0.947649] (kinect2_bridge) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.20 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[1.000946] (-) TimerEvent: {}
+[1.029066] (kinect2_bridge) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.25.20 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)\n'}
+[1.040997] (kinect2_bridge) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[1.042503] (kinect2_bridge) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[1.042611] (kinect2_bridge) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[1.046581] (kinect2_bridge) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.101065] (-) TimerEvent: {}
+[1.118349] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.118508] (kinect2_bridge) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge\n'}
+[1.118584] (kinect2_bridge) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.118861] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[1.119233] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.119672] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[1.120418] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.120568] (kinect2_bridge) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.120907] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.122487] (kinect2_bridge) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.135079] (kinect2_bridge) StdoutLine: {'line': b'-- Generating done\n'}
+[1.138092] (kinect2_bridge) StdoutLine: {'line': b'-- Build files have been written to: /home/duy/cocarry_ws/build/kinect2_bridge\n'}
+[1.145499] (kinect2_bridge) CommandEnded: {'returncode': 0}
+[1.146077] (kinect2_bridge) JobProgress: {'identifier': 'kinect2_bridge', 'progress': 'build'}
+[1.147202] (kinect2_bridge) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/kinect2_bridge', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[1.189462] (kinect2_bridge) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/kinect2_bridge_node.dir/src/kinect2_bridge.cpp.o\x1b[0m\n'}
+[1.201204] (-) TimerEvent: {}
+[1.301513] (-) TimerEvent: {}
+[1.401776] (-) TimerEvent: {}
+[1.502087] (-) TimerEvent: {}
+[1.535855] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:162:59: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.536331] (kinect2_bridge) StderrLine: {'line': b'  162 |       OUT_ERROR(this, "kinect2_bridge is already running!");\n'}
+[1.536423] (kinect2_bridge) StderrLine: {'line': b'      |                                                           ^\n'}
+[1.536666] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.536801] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.536946] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.537079] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.537188] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.537286] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:167:47: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.537411] (kinect2_bridge) StderrLine: {'line': b'  167 |       OUT_ERROR(this, "Initialization failed!");\n'}
+[1.537507] (kinect2_bridge) StderrLine: {'line': b'      |                                               ^\n'}
+[1.537604] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.537665] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.537743] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.537819] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.537895] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.537990] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:190:55: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.538050] (kinect2_bridge) StderrLine: {'line': b'  190 |       OUT_ERROR(this, "kinect2_bridge is not running!");\n'}
+[1.538108] (kinect2_bridge) StderrLine: {'line': b'      |                                                       ^\n'}
+[1.538171] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.538229] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.538291] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.538364] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.538427] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.538489] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:209:47: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.538551] (kinect2_bridge) StderrLine: {'line': b'  209 |       OUT_ERROR(this, "could not stop device!");\n'}
+[1.538613] (kinect2_bridge) StderrLine: {'line': b'      |                                               ^\n'}
+[1.538674] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.538738] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.538801] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.538863] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.538926] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.538988] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:214:48: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.539051] (kinect2_bridge) StderrLine: {'line': b'  214 |       OUT_ERROR(this, "could not close device!");\n'}
+[1.539113] (kinect2_bridge) StderrLine: {'line': b'      |                                                ^\n'}
+[1.539175] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.539243] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.539310] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.539379] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.539441] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.539503] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:311:95: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.539566] (kinect2_bridge) StderrLine: {'line': b'  311 |        << "   worker_threads: " FG_CYAN << worker_threads << NO_COLOR);\n'}
+[1.539628] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.539690] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.539752] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.539820] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.539890] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.539957] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.540021] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.540085] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:340:50: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.540149] (kinect2_bridge) StderrLine: {'line': b'  340 |         OUT_ERROR(this, "could not close device!");\n'}
+[1.540212] (kinect2_bridge) StderrLine: {'line': b'      |                                                  ^\n'}
+[1.540275] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.540349] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.540418] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.540483] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.540549] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.540616] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:366:59: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.540683] (kinect2_bridge) StderrLine: {'line': b'  366 |       OUT_ERROR(this, "CPU registration is not available!");\n'}
+[1.540751] (kinect2_bridge) StderrLine: {'line': b'      |                                                           ^\n'}
+[1.540819] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.540892] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.540961] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.541028] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.541095] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.541162] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:375:62: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.541229] (kinect2_bridge) StderrLine: {'line': b'  375 |       OUT_ERROR(this, "OpenCL registration is not available!");\n'}
+[1.541300] (kinect2_bridge) StderrLine: {'line': b'      |                                                              ^\n'}
+[1.541374] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.541441] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.541509] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.541576] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.541642] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.541707] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:381:64: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.541774] (kinect2_bridge) StderrLine: {'line': b'  381 |       OUT_ERROR(this, "Unknown registration method: " << method);\n'}
+[1.541845] (kinect2_bridge) StderrLine: {'line': b'      |                                                                ^\n'}
+[1.541912] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.541985] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.542055] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.542124] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.542192] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.542263] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:424:64: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.542342] (kinect2_bridge) StderrLine: {'line': b'  424 |       OUT_ERROR(this, "Cuda depth processing is not available!");\n'}
+[1.542416] (kinect2_bridge) StderrLine: {'line': b'      |                                                                ^\n'}
+[1.542486] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.542555] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.542625] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.542695] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.542764] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.542833] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:433:66: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.542906] (kinect2_bridge) StderrLine: {'line': b'  433 |       OUT_ERROR(this, "OpenCL depth processing is not available!");\n'}
+[1.542974] (kinect2_bridge) StderrLine: {'line': b'      |                                                                  ^\n'}
+[1.543042] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.543115] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.543188] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.543260] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.543339] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.543414] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:451:66: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.543490] (kinect2_bridge) StderrLine: {'line': b'  451 |       OUT_ERROR(this, "OpenCL depth processing is not available!");\n'}
+[1.543563] (kinect2_bridge) StderrLine: {'line': b'      |                                                                  ^\n'}
+[1.543636] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.543705] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.543778] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.543847] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.543918] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.543989] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:460:64: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.544068] (kinect2_bridge) StderrLine: {'line': b'  460 |       OUT_ERROR(this, "Cuda depth processing is not available!");\n'}
+[1.544140] (kinect2_bridge) StderrLine: {'line': b'      |                                                                ^\n'}
+[1.544211] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.544283] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.544374] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.544452] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.544524] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.544597] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:466:68: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.544688] (kinect2_bridge) StderrLine: {'line': b'  466 |       OUT_ERROR(this, "Unknown depth processing method: " << method);\n'}
+[1.544761] (kinect2_bridge) StderrLine: {'line': b'      |                                                                    ^\n'}
+[1.544835] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.544905] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.544974] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.545044] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.545123] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.545192] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:553:50: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.545262] (kinect2_bridge) StderrLine: {'line': b'  553 |       OUT_ERROR(this, "no Kinect2 devices found!");\n'}
+[1.545342] (kinect2_bridge) StderrLine: {'line': b'      |                                                  ^\n'}
+[1.545413] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.545482] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.545551] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.545619] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.545689] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.545762] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:563:45: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.545835] (kinect2_bridge) StderrLine: {'line': b'  563 |     OUT_INFO(this, "Kinect2 devices found: ");\n'}
+[1.545903] (kinect2_bridge) StderrLine: {'line': b'      |                                             ^\n'}
+[1.545971] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.546046] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.546115] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.546184] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.546253] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.546327] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:568:112: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.546400] (kinect2_bridge) StderrLine: {'line': b'  568 | CYAN << s << (s == sensor ? FG_YELLOW " (selected)" : "") << NO_COLOR);\n'}
+[1.546471] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.546541] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.546610] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.546683] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.546751] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.546820] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.546892] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.546961] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:573:73: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.547030] (kinect2_bridge) StderrLine: {'line': b'  573 |    OUT_ERROR(this, "Device with serial \'" << sensor << "\' not found!");\n'}
+[1.547101] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.547170] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.547239] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.547312] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.547388] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.547460] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.547533] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.547604] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:582:79: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.547676] (kinect2_bridge) StderrLine: {'line': b'  582 | _INFO(this, "no device connected or failure opening the default one!");\n'}
+[1.547749] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.547827] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.547899] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.547970] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.548045] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.548117] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.548189] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.548261] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:592:38: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.548340] (kinect2_bridge) StderrLine: {'line': b'  592 |     OUT_INFO(this, "starting kinect2");\n'}
+[1.548415] (kinect2_bridge) StderrLine: {'line': b'      |                                      ^\n'}
+[1.548486] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.548560] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.548634] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.548711] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.548785] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.548858] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:595:48: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.548933] (kinect2_bridge) StderrLine: {'line': b'  595 |       OUT_ERROR(this, "could not start device!");\n'}
+[1.549007] (kinect2_bridge) StderrLine: {'line': b'      |                                                ^\n'}
+[1.549081] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.549155] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.549231] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.549309] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.549387] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.549464] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:601:67: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.549537] (kinect2_bridge) StderrLine: {'line': b'  601 |     OUT_INFO(this, "device serial: " FG_CYAN << sensor << NO_COLOR);\n'}
+[1.549609] (kinect2_bridge) StderrLine: {'line': b'      |                                                                   ^\n'}
+[1.549681] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.549753] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.549825] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.549897] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.549990] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.550062] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:602:91: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.550139] (kinect2_bridge) StderrLine: {'line': b'  602 | evice firmware: " FG_CYAN << device->getFirmwareVersion() << NO_COLOR);\n'}
+[1.550211] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.550282] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.550362] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.550437] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.550507] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.550579] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.550650] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.550720] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:609:47: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.550794] (kinect2_bridge) StderrLine: {'line': b'  609 |       OUT_ERROR(this, "could not stop device!");\n'}
+[1.550869] (kinect2_bridge) StderrLine: {'line': b'      |                                               ^\n'}
+[1.550945] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.551027] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.551099] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.551171] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.551242] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.551320] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:615:53: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.551404] (kinect2_bridge) StderrLine: {'line': b'  615 |     OUT_DEBUG(this, "default ir camera parameters: ");\n'}
+[1.551476] (kinect2_bridge) StderrLine: {'line': b'      |                                                     ^\n'}
+[1.551547] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.551621] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.551694] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.551770] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.551842] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.551916] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:616:194: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.551989] (kinect2_bridge) StderrLine: {'line': b'  616 | < irParams.cx << NO_COLOR ", cy: " FG_CYAN << irParams.cy << NO_COLOR);\n'}
+[1.552071] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.552145] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.552216] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.552287] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.552367] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.552440] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.552512] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.552582] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:617:238: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.552653] (kinect2_bridge) StderrLine: {'line': b'  617 | < irParams.p2 << NO_COLOR ", k3: " FG_CYAN << irParams.k3 << NO_COLOR);\n'}
+[1.552725] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.552797] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.552867] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.552943] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.553015] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.553087] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.553159] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.553230] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:619:56: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.553306] (kinect2_bridge) StderrLine: {'line': b'  619 |     OUT_DEBUG(this, "default color camera parameters: ");\n'}
+[1.553385] (kinect2_bridge) StderrLine: {'line': b'      |                                                        ^\n'}
+[1.553458] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.553534] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.553605] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.553680] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.553752] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.553823] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:620:206: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.553896] (kinect2_bridge) StderrLine: {'line': b'  620 | rParams.cx << NO_COLOR ", cy: " FG_CYAN << colorParams.cy << NO_COLOR);\n'}
+[1.553971] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.554047] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.554118] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.554191] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.554267] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.554349] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.554424] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.554495] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:662:77: error: macro "OUT_WARN" passed 2 arguments, but takes just 1\n'}
+[1.554568] (kinect2_bridge) StderrLine: {'line': b'  662 | UT_WARN(this, "using sensor defaults for color intrinsic parameters.");\n'}
+[1.554640] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.554715] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.554787] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.554859] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.554932] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:66: note: macro "OUT_WARN" defined here\n'}
+[1.555004] (kinect2_bridge) StderrLine: {'line': b'   66 | #define OUT_WARN(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.555077] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.555149] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:667:74: error: macro "OUT_WARN" passed 2 arguments, but takes just 1\n'}
+[1.555221] (kinect2_bridge) StderrLine: {'line': b'  667 |   OUT_WARN(this, "using sensor defaults for ir intrinsic parameters.");\n'}
+[1.555292] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.555375] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.555567] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.555624] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.555660] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:66: note: macro "OUT_WARN" defined here\n'}
+[1.555693] (kinect2_bridge) StderrLine: {'line': b'   66 | #define OUT_WARN(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.555725] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.555756] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:672:68: error: macro "OUT_WARN" passed 2 arguments, but takes just 1\n'}
+[1.555788] (kinect2_bridge) StderrLine: {'line': b'  672 |       OUT_WARN(this, "using defaults for rotation and translation.");\n'}
+[1.555818] (kinect2_bridge) StderrLine: {'line': b'      |                                                                    ^\n'}
+[1.555849] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.555880] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.555910] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:66: note: macro "OUT_WARN" defined here\n'}
+[1.555948] (kinect2_bridge) StderrLine: {'line': b'   66 | #define OUT_WARN(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.555981] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.556009] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:677:55: error: macro "OUT_WARN" passed 2 arguments, but takes just 1\n'}
+[1.556040] (kinect2_bridge) StderrLine: {'line': b'  677 |       OUT_WARN(this, "using defaults for depth shift.");\n'}
+[1.556070] (kinect2_bridge) StderrLine: {'line': b'      |                                                       ^\n'}
+[1.556099] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.556128] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.556157] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:66: note: macro "OUT_WARN" defined here\n'}
+[1.556186] (kinect2_bridge) StderrLine: {'line': b'   66 | #define OUT_WARN(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.556216] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.556245] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:692:46: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.556274] (kinect2_bridge) StderrLine: {'line': b'  692 |     OUT_DEBUG(this, "camera parameters used:");\n'}
+[1.556316] (kinect2_bridge) StderrLine: {'line': b'      |                                              ^\n'}
+[1.556351] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.556382] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.556412] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.556442] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.556471] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.556499] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:694:84: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.556531] (kinect2_bridge) StderrLine: {'line': b'  694 |                                      << cameraMatrixColor << NO_COLOR);\n'}
+[1.556560] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.556588] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.556617] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.556646] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.556674] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.556703] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.556732] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.556760] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:696:92: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.556788] (kinect2_bridge) StderrLine: {'line': b'  696 |                                        << distortionColor << NO_COLOR);\n'}
+[1.556822] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.556852] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.556881] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.556911] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.556940] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.556968] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.557000] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.557033] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:698:78: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.557065] (kinect2_bridge) StderrLine: {'line': b'  698 |                                         << cameraMatrixIr << NO_COLOR);\n'}
+[1.557096] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.557127] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.557157] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.557187] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.557217] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.557249] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.557281] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.557319] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:700:86: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.557353] (kinect2_bridge) StderrLine: {'line': b'  700 |                                           << distortionIr << NO_COLOR);\n'}
+[1.557385] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.557422] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.557453] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.557489] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.557524] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.557561] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.557597] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.557632] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:702:84: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.557671] (kinect2_bridge) StderrLine: {'line': b'  702 |                                      << cameraMatrixDepth << NO_COLOR);\n'}
+[1.557708] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.557746] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.557783] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.557824] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.557861] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.557897] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.557935] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.557969] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:704:92: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.558003] (kinect2_bridge) StderrLine: {'line': b'  704 |                                        << distortionDepth << NO_COLOR);\n'}
+[1.558036] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.558068] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.558101] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.558132] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.558164] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.558198] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.558229] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.558258] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:706:64: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.558289] (kinect2_bridge) StderrLine: {'line': b'  706 |                                         << rotation << NO_COLOR);\n'}
+[1.558329] (kinect2_bridge) StderrLine: {'line': b'      |                                                                ^\n'}
+[1.558359] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.558390] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.558420] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.558452] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.558483] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.558514] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:708:70: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.558545] (kinect2_bridge) StderrLine: {'line': b'  708 |                                            << translation << NO_COLOR);\n'}
+[1.558574] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.558605] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.558639] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.558669] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.558698] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.558730] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.558760] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:710:69: error: macro "OUT_DEBUG" passed 2 arguments, but takes just 1\n'}
+[1.558789] (kinect2_bridge) StderrLine: {'line': b'  710 |                                            << depthShift << NO_COLOR);\n'}
+[1.558819] (kinect2_bridge) StderrLine: {'line': b'      |                                                                     ^\n'}
+[1.558847] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.558875] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.558903] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:64: note: macro "OUT_DEBUG" defined here\n'}
+[1.558935] (kinect2_bridge) StderrLine: {'line': b'   64 | #define OUT_DEBUG(msg) RCLCPP_DEBUG_STREAM(rclcpp::get_logger("logger"), msg)\n'}
+[1.558963] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.558992] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:724:66: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.559022] (kinect2_bridge) StderrLine: {'line': b'  724 |       OUT_ERROR(this, "can\'t open calibration file: " << filename);\n'}
+[1.559053] (kinect2_bridge) StderrLine: {'line': b'      |                                                                  ^\n'}
+[1.559083] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.559112] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.559141] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.559172] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.559201] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.559229] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:741:71: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.559258] (kinect2_bridge) StderrLine: {'line': b'  741 |      OUT_ERROR(this, "can\'t open calibration pose file: " << filename);\n'}
+[1.559287] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.559321] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.559351] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.559380] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.559409] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.559438] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.559467] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.559495] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:757:72: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.559524] (kinect2_bridge) StderrLine: {'line': b'  757 |     OUT_ERROR(this, "can\'t open calibration depth file: " << filename);\n'}
+[1.559555] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.559583] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.559611] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.559650] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.559680] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.559711] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.559741] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.559771] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:821:60: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.559800] (kinect2_bridge) StderrLine: {'line': b'  821 |       OUT_INFO(this, "client connected. starting device...");\n'}
+[1.559830] (kinect2_bridge) StderrLine: {'line': b'      |                                                            ^\n'}
+[1.559859] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.559890] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.559919] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.559949] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.559977] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.560006] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:824:50: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.560037] (kinect2_bridge) StderrLine: {'line': b'  824 |         OUT_ERROR(this, "could not start device!");\n'}
+[1.560066] (kinect2_bridge) StderrLine: {'line': b'      |                                                  ^\n'}
+[1.560095] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.560124] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.560154] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.560184] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.560215] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.560243] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:836:49: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.560274] (kinect2_bridge) StderrLine: {'line': b'  836 |         OUT_ERROR(this, "could not stop device!");\n'}
+[1.560306] (kinect2_bridge) StderrLine: {'line': b'      |                                                 ^\n'}
+[1.560338] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.560367] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.560398] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.560427] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.560455] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.560484] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:841:50: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.560514] (kinect2_bridge) StderrLine: {'line': b'  841 |         OUT_ERROR(this, "could not start device!");\n'}
+[1.560543] (kinect2_bridge) StderrLine: {'line': b'      |                                                  ^\n'}
+[1.560571] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.560599] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.560627] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.560656] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.560684] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.560712] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:899:52: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.560740] (kinect2_bridge) StderrLine: {'line': b'  899 |     OUT_INFO(this, "waiting for clients to connect");\n'}
+[1.560769] (kinect2_bridge) StderrLine: {'line': b'      |                                                    ^\n'}
+[1.560797] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.560825] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.560854] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.560882] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.560910] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.560939] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:935:229: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.560969] (kinect2_bridge) StderrLine: {'line': b'  935 | ing rate: " FG_YELLOW "~" << framesIrDepth / fpsTime << "Hz" NO_COLOR);\n'}
+[1.560998] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.561026] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.561054] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.561082] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.561110] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.561139] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.561167] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.561194] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:939:223: error: macro "OUT_INFO" passed 2 arguments, but takes just 1\n'}
+[1.561225] (kinect2_bridge) StderrLine: {'line': b'  939 | shing rate: " FG_YELLOW "~" << framesColor / fpsTime << "Hz" NO_COLOR);\n'}
+[1.561253] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.561281] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.561315] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.561345] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.561373] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:65: note: macro "OUT_INFO" defined here\n'}
+[1.561401] (kinect2_bridge) StderrLine: {'line': b'   65 | #define OUT_INFO(msg) RCLCPP_INFO_STREAM_ONCE(rclcpp::get_logger("logger"),msg)\n'}
+[1.561433] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.561460] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1033:76: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.561489] (kinect2_bridge) StderrLine: {'line': b' 1033 | OUT_ERROR(this, "failure in depth packet processor from libfreenect2");\n'}
+[1.561517] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.561544] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.561571] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.561602] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.561637] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.561670] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.561703] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.561735] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1041:54: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.561766] (kinect2_bridge) StderrLine: {'line': b' 1041 |       OUT_ERROR(this, "received invalid frame format");\n'}
+[1.561798] (kinect2_bridge) StderrLine: {'line': b'      |                                                      ^\n'}
+[1.561830] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.561862] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.561895] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.561930] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.561961] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.561993] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1095:74: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.562026] (kinect2_bridge) StderrLine: {'line': b' 1095 |   OUT_ERROR(this, "failure in rgb packet processor from libfreenect2");\n'}
+[1.562059] (kinect2_bridge) StderrLine: {'line': b'      |                                                                      ^\n'}
+[1.562093] (kinect2_bridge) StderrLine: {'line': b'\n'}
+[1.562125] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.562157] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.562190] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.562223] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.562254] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.562286] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1103:54: error: macro "OUT_ERROR" passed 2 arguments, but takes just 1\n'}
+[1.562324] (kinect2_bridge) StderrLine: {'line': b' 1103 |       OUT_ERROR(this, "received invalid frame format");\n'}
+[1.562358] (kinect2_bridge) StderrLine: {'line': b'      |                                                      ^\n'}
+[1.562390] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h:20,\n'}
+[1.562423] (kinect2_bridge) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:53:\n'}
+[1.562454] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_console.h:67: note: macro "OUT_ERROR" defined here\n'}
+[1.562486] (kinect2_bridge) StderrLine: {'line': b'   67 | #define OUT_ERROR(msg) RCLCPP_WARN_STREAM_SKIPFIRST(rclcpp::get_logger("logger"),msg)\n'}
+[1.562518] (kinect2_bridge) StderrLine: {'line': b'      | \n'}
+[1.602281] (-) TimerEvent: {}
+[1.702522] (-) TimerEvent: {}
+[1.802787] (-) TimerEvent: {}
+[1.903047] (-) TimerEvent: {}
+[2.003296] (-) TimerEvent: {}
+[2.103608] (-) TimerEvent: {}
+[2.203937] (-) TimerEvent: {}
+[2.304287] (-) TimerEvent: {}
+[2.404621] (-) TimerEvent: {}
+[2.504976] (-) TimerEvent: {}
+[2.605207] (-) TimerEvent: {}
+[2.705439] (-) TimerEvent: {}
+[2.805662] (-) TimerEvent: {}
+[2.905994] (-) TimerEvent: {}
+[3.006325] (-) TimerEvent: {}
+[3.106657] (-) TimerEvent: {}
+[3.206988] (-) TimerEvent: {}
+[3.307404] (-) TimerEvent: {}
+[3.407646] (-) TimerEvent: {}
+[3.466543] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::start()\xe2\x80\x99:\n'}
+[3.466673] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:162:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.466708] (kinect2_bridge) StderrLine: {'line': b'  162 |       OUT_ERROR(this, "kinect2_bridge is already running!");\n'}
+[3.466736] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.471509] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:167:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.471583] (kinect2_bridge) StderrLine: {'line': b'  167 |       OUT_ERROR(this, "Initialization failed!");\n'}
+[3.471615] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.476593] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98void Kinect2BridgeNode::stop()\xe2\x80\x99:\n'}
+[3.476701] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:190:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.476734] (kinect2_bridge) StderrLine: {'line': b'  190 |       OUT_ERROR(this, "kinect2_bridge is not running!");\n'}
+[3.476762] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.481824] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:209:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.481920] (kinect2_bridge) StderrLine: {'line': b'  209 |       OUT_ERROR(this, "could not stop device!");\n'}
+[3.481953] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.487307] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:214:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.487389] (kinect2_bridge) StderrLine: {'line': b'  214 |       OUT_ERROR(this, "could not close device!");\n'}
+[3.487425] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.499040] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::initialize()\xe2\x80\x99:\n'}
+[3.499169] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:292:5: error: \xe2\x80\x98OUT_INFO\xe2\x80\x99 was not declared in this scope\n'}
+[3.499216] (kinect2_bridge) StderrLine: {'line': b'  292 |     OUT_INFO(this, "parameter:" << std::endl\n'}
+[3.499248] (kinect2_bridge) StderrLine: {'line': b'      |     ^~~~~~~~\n'}
+[3.504808] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:340:9: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.504902] (kinect2_bridge) StderrLine: {'line': b'  340 |         OUT_ERROR(this, "could not close device!");\n'}
+[3.504940] (kinect2_bridge) StderrLine: {'line': b'      |         ^~~~~~~~~\n'}
+[3.507811] (-) TimerEvent: {}
+[3.510905] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::initRegistration(const string&, int32_t, double)\xe2\x80\x99:\n'}
+[3.511008] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:366:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.511046] (kinect2_bridge) StderrLine: {'line': b'  366 |       OUT_ERROR(this, "CPU registration is not available!");\n'}
+[3.511077] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.516686] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:375:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.516798] (kinect2_bridge) StderrLine: {'line': b'  375 |       OUT_ERROR(this, "OpenCL registration is not available!");\n'}
+[3.516835] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.521894] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:381:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.521994] (kinect2_bridge) StderrLine: {'line': b'  381 |       OUT_ERROR(this, "Unknown registration method: " << method);\n'}
+[3.522029] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.522154] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:385:44: error: no matching function for call to \xe2\x80\x98DepthRegistration::New(std::shared_ptr<rclcpp::Node>, DepthRegistration::Method&)\xe2\x80\x99\n'}
+[3.522187] (kinect2_bridge) StderrLine: {'line': b'  385 |     depthRegLowRes = DepthRegistration::New(this->shared_from_this(), reg);\n'}
+[3.522215] (kinect2_bridge) StderrLine: {'line': b'      |                      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[3.522243] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:54:\n'}
+[3.522329] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_registration.h:54:29: note: candidate: \xe2\x80\x98static DepthRegistration* DepthRegistration::New(DepthRegistration::Method)\xe2\x80\x99\n'}
+[3.522356] (kinect2_bridge) StderrLine: {'line': b'   54 |   static DepthRegistration *New(Method method = DEFAULT);\n'}
+[3.522381] (kinect2_bridge) StderrLine: {'line': b'      |                             ^~~\n'}
+[3.522406] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_registration.h:54:29: note:   candidate expects 1 argument, 2 provided\n'}
+[3.522431] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:386:45: error: no matching function for call to \xe2\x80\x98DepthRegistration::New(std::shared_ptr<rclcpp::Node>, DepthRegistration::Method&)\xe2\x80\x99\n'}
+[3.522457] (kinect2_bridge) StderrLine: {'line': b'  386 |     depthRegHighRes = DepthRegistration::New(this->shared_from_this(), reg);\n'}
+[3.522482] (kinect2_bridge) StderrLine: {'line': b'      |                       ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[3.522507] (kinect2_bridge) StderrLine: {'line': b'In file included from /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:54:\n'}
+[3.522531] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_registration.h:54:29: note: candidate: \xe2\x80\x98static DepthRegistration* DepthRegistration::New(DepthRegistration::Method)\xe2\x80\x99\n'}
+[3.522557] (kinect2_bridge) StderrLine: {'line': b'   54 |   static DepthRegistration *New(Method method = DEFAULT);\n'}
+[3.522582] (kinect2_bridge) StderrLine: {'line': b'      |                             ^~~\n'}
+[3.522608] (kinect2_bridge) StderrLine: {'line': b'/home/duy/kinectv2/install/kinect2_registration/include/kinect2_registration/kinect2_registration.h:54:29: note:   candidate expects 1 argument, 2 provided\n'}
+[3.527939] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::initPipeline(const string&, int32_t)\xe2\x80\x99:\n'}
+[3.528054] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:424:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.528089] (kinect2_bridge) StderrLine: {'line': b'  424 |       OUT_ERROR(this, "Cuda depth processing is not available!");\n'}
+[3.528117] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.533091] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:433:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.533168] (kinect2_bridge) StderrLine: {'line': b'  433 |       OUT_ERROR(this, "OpenCL depth processing is not available!");\n'}
+[3.533201] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.538410] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:451:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.538449] (kinect2_bridge) StderrLine: {'line': b'  451 |       OUT_ERROR(this, "OpenCL depth processing is not available!");\n'}
+[3.538477] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.543476] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:460:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.543529] (kinect2_bridge) StderrLine: {'line': b'  460 |       OUT_ERROR(this, "Cuda depth processing is not available!");\n'}
+[3.543557] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.548581] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:466:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.548616] (kinect2_bridge) StderrLine: {'line': b'  466 |       OUT_ERROR(this, "Unknown depth processing method: " << method);\n'}
+[3.548642] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.548667] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:401:62: warning: unused parameter \xe2\x80\x98device\xe2\x80\x99 [-Wunused-parameter]\n'}
+[3.548692] (kinect2_bridge) StderrLine: {'line': b'  401 |   bool initPipeline(const std::string &method, const int32_t device)\n'}
+[3.548717] (kinect2_bridge) StderrLine: {'line': b'      |                                                ~~~~~~~~~~~~~~^~~~~~\n'}
+[3.564092] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::initDevice(std::string&)\xe2\x80\x99:\n'}
+[3.564249] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:553:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.564285] (kinect2_bridge) StderrLine: {'line': b'  553 |       OUT_ERROR(this, "no Kinect2 devices found!");\n'}
+[3.564319] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.569411] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:563:5: error: \xe2\x80\x98OUT_INFO\xe2\x80\x99 was not declared in this scope\n'}
+[3.569493] (kinect2_bridge) StderrLine: {'line': b'  563 |     OUT_INFO(this, "Kinect2 devices found: ");\n'}
+[3.569527] (kinect2_bridge) StderrLine: {'line': b'      |     ^~~~~~~~\n'}
+[3.574657] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:573:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.574748] (kinect2_bridge) StderrLine: {'line': b'  573 |       OUT_ERROR(this, "Device with serial \'" << sensor << "\' not found!");\n'}
+[3.574781] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.579885] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:595:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.579998] (kinect2_bridge) StderrLine: {'line': b'  595 |       OUT_ERROR(this, "could not start device!");\n'}
+[3.580032] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.585037] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:609:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.585127] (kinect2_bridge) StderrLine: {'line': b'  609 |       OUT_ERROR(this, "could not stop device!");\n'}
+[3.585162] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.590821] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:615:5: error: \xe2\x80\x98OUT_DEBUG\xe2\x80\x99 was not declared in this scope\n'}
+[3.590907] (kinect2_bridge) StderrLine: {'line': b'  615 |     OUT_DEBUG(this, "default ir camera parameters: ");\n'}
+[3.590941] (kinect2_bridge) StderrLine: {'line': b'      |     ^~~~~~~~~\n'}
+[3.597444] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98void Kinect2BridgeNode::initCalibration(const string&, const string&)\xe2\x80\x99:\n'}
+[3.597540] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:662:7: error: \xe2\x80\x98OUT_WARN\xe2\x80\x99 was not declared in this scope\n'}
+[3.597583] (kinect2_bridge) StderrLine: {'line': b'  662 |       OUT_WARN(this, "using sensor defaults for color intrinsic parameters.");\n'}
+[3.597622] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.602834] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:667:7: error: \xe2\x80\x98OUT_WARN\xe2\x80\x99 was not declared in this scope\n'}
+[3.602913] (kinect2_bridge) StderrLine: {'line': b'  667 |       OUT_WARN(this, "using sensor defaults for ir intrinsic parameters.");\n'}
+[3.602947] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.607894] (-) TimerEvent: {}
+[3.608192] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:672:7: error: \xe2\x80\x98OUT_WARN\xe2\x80\x99 was not declared in this scope\n'}
+[3.608271] (kinect2_bridge) StderrLine: {'line': b'  672 |       OUT_WARN(this, "using defaults for rotation and translation.");\n'}
+[3.608312] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.613702] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:677:7: error: \xe2\x80\x98OUT_WARN\xe2\x80\x99 was not declared in this scope\n'}
+[3.613818] (kinect2_bridge) StderrLine: {'line': b'  677 |       OUT_WARN(this, "using defaults for depth shift.");\n'}
+[3.613854] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.620360] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:692:5: error: \xe2\x80\x98OUT_DEBUG\xe2\x80\x99 was not declared in this scope\n'}
+[3.620468] (kinect2_bridge) StderrLine: {'line': b'  692 |     OUT_DEBUG(this, "camera parameters used:");\n'}
+[3.620504] (kinect2_bridge) StderrLine: {'line': b'      |     ^~~~~~~~~\n'}
+[3.626123] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::loadCalibrationFile(const string&, cv::Mat&, cv::Mat&) const\xe2\x80\x99:\n'}
+[3.626211] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:724:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.626246] (kinect2_bridge) StderrLine: {'line': b'  724 |       OUT_ERROR(this, "can\'t open calibration file: " << filename);\n'}
+[3.626275] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.631630] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::loadCalibrationPoseFile(const string&, cv::Mat&, cv::Mat&) const\xe2\x80\x99:\n'}
+[3.631735] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:741:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.631771] (kinect2_bridge) StderrLine: {'line': b'  741 |       OUT_ERROR(this, "can\'t open calibration pose file: " << filename);\n'}
+[3.631800] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.636729] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::loadCalibrationDepthFile(const string&, double&) const\xe2\x80\x99:\n'}
+[3.636805] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:757:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.636843] (kinect2_bridge) StderrLine: {'line': b'  757 |       OUT_ERROR(this, "can\'t open calibration depth file: " << filename);\n'}
+[3.636870] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.642473] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98void Kinect2BridgeNode::callbackStatus()\xe2\x80\x99:\n'}
+[3.642566] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:821:7: error: \xe2\x80\x98OUT_INFO\xe2\x80\x99 was not declared in this scope\n'}
+[3.642600] (kinect2_bridge) StderrLine: {'line': b'  821 |       OUT_INFO(this, "client connected. starting device...");\n'}
+[3.642627] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[3.647386] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:824:9: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.647484] (kinect2_bridge) StderrLine: {'line': b'  824 |         OUT_ERROR(this, "could not start device!");\n'}
+[3.647517] (kinect2_bridge) StderrLine: {'line': b'      |         ^~~~~~~~~\n'}
+[3.652355] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:836:9: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.652427] (kinect2_bridge) StderrLine: {'line': b'  836 |         OUT_ERROR(this, "could not stop device!");\n'}
+[3.652460] (kinect2_bridge) StderrLine: {'line': b'      |         ^~~~~~~~~\n'}
+[3.657265] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:841:9: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.657349] (kinect2_bridge) StderrLine: {'line': b'  841 |         OUT_ERROR(this, "could not start device!");\n'}
+[3.657383] (kinect2_bridge) StderrLine: {'line': b'      |         ^~~~~~~~~\n'}
+[3.662907] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98void Kinect2BridgeNode::main()\xe2\x80\x99:\n'}
+[3.662995] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:899:5: error: \xe2\x80\x98OUT_INFO\xe2\x80\x99 was not declared in this scope\n'}
+[3.663029] (kinect2_bridge) StderrLine: {'line': b'  899 |     OUT_INFO(this, "waiting for clients to connect");\n'}
+[3.663065] (kinect2_bridge) StderrLine: {'line': b'      |     ^~~~~~~~\n'}
+[3.663230] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:921:16: warning: unused variable \xe2\x80\x98framesIrDepth\xe2\x80\x99 [-Wunused-variable]\n'}
+[3.663304] (kinect2_bridge) StderrLine: {'line': b'  921 |         size_t framesIrDepth = frameIrDepth - oldFrameIrDepth;\n'}
+[3.663342] (kinect2_bridge) StderrLine: {'line': b'      |                ^~~~~~~~~~~~~\n'}
+[3.663369] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:922:16: warning: unused variable \xe2\x80\x98framesColor\xe2\x80\x99 [-Wunused-variable]\n'}
+[3.663397] (kinect2_bridge) StderrLine: {'line': b'  922 |         size_t framesColor = frameColor - oldFrameColor;\n'}
+[3.663423] (kinect2_bridge) StderrLine: {'line': b'      |                ^~~~~~~~~~~\n'}
+[3.663448] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:927:16: warning: unused variable \xe2\x80\x98tColor\xe2\x80\x99 [-Wunused-variable]\n'}
+[3.663474] (kinect2_bridge) StderrLine: {'line': b'  927 |         double tColor = elapsedTimeColor;\n'}
+[3.663498] (kinect2_bridge) StderrLine: {'line': b'      |                ^~~~~~\n'}
+[3.663522] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:928:16: warning: unused variable \xe2\x80\x98tDepth\xe2\x80\x99 [-Wunused-variable]\n'}
+[3.663546] (kinect2_bridge) StderrLine: {'line': b'  928 |         double tDepth = elapsedTimeIrDepth;\n'}
+[3.663570] (kinect2_bridge) StderrLine: {'line': b'      |                ^~~~~~\n'}
+[3.673159] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98void Kinect2BridgeNode::receiveIrDepth()\xe2\x80\x99:\n'}
+[3.673263] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1033:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.673302] (kinect2_bridge) StderrLine: {'line': b' 1033 |       OUT_ERROR(this, "failure in depth packet processor from libfreenect2");\n'}
+[3.673332] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.678050] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1041:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.678139] (kinect2_bridge) StderrLine: {'line': b' 1041 |       OUT_ERROR(this, "received invalid frame format");\n'}
+[3.678172] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.683856] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98void Kinect2BridgeNode::receiveColor()\xe2\x80\x99:\n'}
+[3.683932] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1095:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.683966] (kinect2_bridge) StderrLine: {'line': b' 1095 |       OUT_ERROR(this, "failure in rgb packet processor from libfreenect2");\n'}
+[3.683995] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.688701] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:1103:7: error: \xe2\x80\x98OUT_ERROR\xe2\x80\x99 was not declared in this scope\n'}
+[3.688782] (kinect2_bridge) StderrLine: {'line': b' 1103 |       OUT_ERROR(this, "received invalid frame format");\n'}
+[3.688816] (kinect2_bridge) StderrLine: {'line': b'      |       ^~~~~~~~~\n'}
+[3.708092] (-) TimerEvent: {}
+[3.808416] (-) TimerEvent: {}
+[3.908654] (-) TimerEvent: {}
+[4.008914] (-) TimerEvent: {}
+[4.109265] (-) TimerEvent: {}
+[4.209518] (-) TimerEvent: {}
+[4.309737] (-) TimerEvent: {}
+[4.410002] (-) TimerEvent: {}
+[4.510266] (-) TimerEvent: {}
+[4.610520] (-) TimerEvent: {}
+[4.710803] (-) TimerEvent: {}
+[4.731838] (kinect2_bridge) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/kinect2_bridge_node.dir/build.make:76: CMakeFiles/kinect2_bridge_node.dir/src/kinect2_bridge.cpp.o] Error 1\n'}
+[4.732102] (kinect2_bridge) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/kinect2_bridge_node.dir/all] Error 2\n'}
+[4.732318] (kinect2_bridge) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[4.734313] (kinect2_bridge) CommandEnded: {'returncode': 2}
+[4.746103] (kinect2_bridge) JobEnded: {'identifier': 'kinect2_bridge', 'rc': 2}
+[4.756594] (kinect2_calibration) JobSkipped: {'identifier': 'kinect2_calibration'}
+[4.756642] (-) EventReactorShutdown: {}

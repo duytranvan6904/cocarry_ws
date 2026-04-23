@@ -1,0 +1,536 @@
+[0.000000] (-) TimerEvent: {}
+[0.000605] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000666] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000698] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000710] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000720] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000729] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000738] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000746] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000755] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.000763] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.000772] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.000780] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.000789] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.000798] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.000806] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.000814] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.000822] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.000831] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.000840] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.000849] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.000862] (kinect2_registration) JobQueued: {'identifier': 'kinect2_registration', 'dependencies': OrderedDict()}
+[0.000875] (kinect2_bridge) JobQueued: {'identifier': 'kinect2_bridge', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration')])}
+[0.000887] (kinect2_calibration) JobQueued: {'identifier': 'kinect2_calibration', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration'), ('kinect2_bridge', '/home/duy/cocarry_ws/install/kinect2_bridge')])}
+[0.000900] (kinect2_registration) JobStarted: {'identifier': 'kinect2_registration'}
+[0.006533] (kinect2_registration) JobProgress: {'identifier': 'kinect2_registration', 'progress': 'cmake'}
+[0.006857] (kinect2_registration) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration', '-Dfreenect2_DIR=/home/duy/cocarry_ws/libfreenect2/build', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_registration'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_registration', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_registration'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[0.052290] (kinect2_registration) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.092415] (kinect2_registration) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.097114] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.099594] (-) TimerEvent: {}
+[0.152383] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.160504] (kinect2_registration) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.160759] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.161130] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.164099] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.199699] (-) TimerEvent: {}
+[0.228488] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.233357] (kinect2_registration) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.233639] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.233763] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.235244] (kinect2_registration) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.299866] (-) TimerEvent: {}
+[0.348062] (kinect2_registration) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.400043] (-) TimerEvent: {}
+[0.420931] (kinect2_registration) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.453242] (kinect2_registration) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.456236] (kinect2_registration) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.461290] (kinect2_registration) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.469139] (kinect2_registration) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.478990] (kinect2_registration) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.500219] (-) TimerEvent: {}
+[0.506771] (kinect2_registration) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.508344] (kinect2_registration) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.583956] (kinect2_registration) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.600361] (-) TimerEvent: {}
+[0.604615] (kinect2_registration) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.641405] (kinect2_registration) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.646831] (kinect2_registration) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.700564] (-) TimerEvent: {}
+[0.706334] (kinect2_registration) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.706533] (kinect2_registration) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.771580] (kinect2_registration) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.772733] (kinect2_registration) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.800749] (-) TimerEvent: {}
+[0.811513] (kinect2_registration) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.5.4") \n'}
+[0.812548] (kinect2_registration) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[0.817362] (kinect2_registration) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[0.900867] (-) TimerEvent: {}
+[1.001213] (-) TimerEvent: {}
+[1.024771] (kinect2_registration) StdoutLine: {'line': b'-- Found OpenMP_C: -fopenmp (found version "4.5") \n'}
+[1.091951] (kinect2_registration) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5") \n'}
+[1.092211] (kinect2_registration) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5")  \n'}
+[1.092392] (kinect2_registration) StdoutLine: {'line': b'-- CPU based depth registration enabled\n'}
+[1.095428] (kinect2_registration) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.101350] (-) TimerEvent: {}
+[1.154881] (kinect2_registration) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.155103] (kinect2_registration) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/;/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/include/internal;/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/include/\n'}
+[1.155193] (kinect2_registration) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.155562] (kinect2_registration) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.156578] (kinect2_registration) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.156673] (kinect2_registration) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.156821] (kinect2_registration) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.158186] (kinect2_registration) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.165647] (kinect2_registration) StdoutLine: {'line': b'-- Generating done\n'}
+[1.166334] (kinect2_registration) StderrLine: {'line': b'CMake Warning:\n'}
+[1.166477] (kinect2_registration) StderrLine: {'line': b'  Manually-specified variables were not used by the project:\n'}
+[1.166563] (kinect2_registration) StderrLine: {'line': b'\n'}
+[1.166646] (kinect2_registration) StderrLine: {'line': b'    freenect2_DIR\n'}
+[1.166730] (kinect2_registration) StderrLine: {'line': b'\n'}
+[1.166841] (kinect2_registration) StderrLine: {'line': b'\n'}
+[1.168468] (kinect2_registration) StdoutLine: {'line': b'-- Build files have been written to: /home/duy/cocarry_ws/build/kinect2_registration\n'}
+[1.177300] (kinect2_registration) CommandEnded: {'returncode': 0}
+[1.178447] (kinect2_registration) JobProgress: {'identifier': 'kinect2_registration', 'progress': 'build'}
+[1.178979] (kinect2_registration) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/kinect2_registration', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_registration', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_registration'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[1.201568] (-) TimerEvent: {}
+[1.224850] (kinect2_registration) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/kinect2_registration.dir/src/kinect2_registration.cpp.o\x1b[0m\n'}
+[1.225091] (kinect2_registration) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/kinect2_registration.dir/src/depth_registration_cpu.cpp.o\x1b[0m\n'}
+[1.301791] (-) TimerEvent: {}
+[1.402468] (-) TimerEvent: {}
+[1.479696] (kinect2_registration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:119: warning: ignoring \xe2\x80\x98#pragma omp parallel\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[1.479915] (kinect2_registration) StderrLine: {'line': b'  119 | #pragma omp parallel for\n'}
+[1.479998] (kinect2_registration) StderrLine: {'line': b'      | \n'}
+[1.480072] (kinect2_registration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:136: warning: ignoring \xe2\x80\x98#pragma omp parallel\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[1.480152] (kinect2_registration) StderrLine: {'line': b'  136 | #pragma omp parallel for\n'}
+[1.480224] (kinect2_registration) StderrLine: {'line': b'      | \n'}
+[1.502606] (-) TimerEvent: {}
+[1.602922] (-) TimerEvent: {}
+[1.703253] (-) TimerEvent: {}
+[1.803587] (-) TimerEvent: {}
+[1.903905] (-) TimerEvent: {}
+[2.004230] (-) TimerEvent: {}
+[2.104540] (-) TimerEvent: {}
+[2.204980] (-) TimerEvent: {}
+[2.305323] (-) TimerEvent: {}
+[2.405773] (-) TimerEvent: {}
+[2.506202] (-) TimerEvent: {}
+[2.606594] (-) TimerEvent: {}
+[2.707035] (-) TimerEvent: {}
+[2.807344] (-) TimerEvent: {}
+[2.907760] (-) TimerEvent: {}
+[3.008130] (-) TimerEvent: {}
+[3.108546] (-) TimerEvent: {}
+[3.208984] (-) TimerEvent: {}
+[3.236260] (kinect2_registration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp: In member function \xe2\x80\x98virtual bool DepthRegistrationCPU::init(int)\xe2\x80\x99:\n'}
+[3.236485] (kinect2_registration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:29:43: warning: unused parameter \xe2\x80\x98deviceId\xe2\x80\x99 [-Wunused-parameter]\n'}
+[3.236571] (kinect2_registration) StderrLine: {'line': b'   29 | bool DepthRegistrationCPU::init(const int deviceId)\n'}
+[3.236666] (kinect2_registration) StderrLine: {'line': b'      |                                 ~~~~~~~~~~^~~~~~~~\n'}
+[3.309110] (-) TimerEvent: {}
+[3.409497] (-) TimerEvent: {}
+[3.509823] (-) TimerEvent: {}
+[3.610202] (-) TimerEvent: {}
+[3.710581] (-) TimerEvent: {}
+[3.810934] (-) TimerEvent: {}
+[3.911397] (-) TimerEvent: {}
+[4.011741] (-) TimerEvent: {}
+[4.112117] (-) TimerEvent: {}
+[4.212437] (-) TimerEvent: {}
+[4.312829] (-) TimerEvent: {}
+[4.413244] (-) TimerEvent: {}
+[4.513608] (-) TimerEvent: {}
+[4.614153] (-) TimerEvent: {}
+[4.714644] (-) TimerEvent: {}
+[4.806192] (kinect2_registration) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX static library libkinect2_registration.a\x1b[0m\n'}
+[4.814775] (-) TimerEvent: {}
+[4.855071] (kinect2_registration) StdoutLine: {'line': b'[100%] Built target kinect2_registration\n'}
+[4.862530] (kinect2_registration) CommandEnded: {'returncode': 0}
+[4.863285] (kinect2_registration) JobProgress: {'identifier': 'kinect2_registration', 'progress': 'install'}
+[4.871004] (kinect2_registration) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/duy/cocarry_ws/build/kinect2_registration'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_registration', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_registration'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[4.876920] (kinect2_registration) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.877052] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/include/kinect2_registration\n'}
+[4.877090] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/include/kinect2_registration/kinect2_console.h\n'}
+[4.877208] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/include/kinect2_registration/kinect2_registration.h\n'}
+[4.877277] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/lib/libkinect2_registration.a\n'}
+[4.877336] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/library_path.sh\n'}
+[4.877475] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/library_path.dsv\n'}
+[4.877551] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/ament_index/resource_index/package_run_dependencies/kinect2_registration\n'}
+[4.877587] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/ament_index/resource_index/parent_prefix_path/kinect2_registration\n'}
+[4.877646] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/ament_prefix_path.sh\n'}
+[4.877688] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/ament_prefix_path.dsv\n'}
+[4.877715] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/path.sh\n'}
+[4.877754] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/path.dsv\n'}
+[4.877802] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.bash\n'}
+[4.877851] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.sh\n'}
+[4.877898] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.zsh\n'}
+[4.877953] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.dsv\n'}
+[4.877981] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/package.dsv\n'}
+[4.878023] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/ament_index/resource_index/packages/kinect2_registration\n'}
+[4.878064] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[4.878109] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[4.878158] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/kinect2_registrationConfig.cmake\n'}
+[4.878200] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/kinect2_registrationConfig-version.cmake\n'}
+[4.878244] (kinect2_registration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/package.xml\n'}
+[4.879402] (kinect2_registration) CommandEnded: {'returncode': 0}
+[4.891161] (kinect2_registration) JobEnded: {'identifier': 'kinect2_registration', 'rc': 0}
+[4.892362] (kinect2_bridge) JobStarted: {'identifier': 'kinect2_bridge'}
+[4.899158] (kinect2_bridge) JobProgress: {'identifier': 'kinect2_bridge', 'progress': 'cmake'}
+[4.899736] (kinect2_bridge) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge', '-Dfreenect2_DIR=/home/duy/cocarry_ws/libfreenect2/build', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_bridge'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/kinect2_registration/lib:/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[4.915042] (-) TimerEvent: {}
+[4.954882] (kinect2_bridge) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[5.003481] (kinect2_bridge) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[5.009495] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[5.015095] (-) TimerEvent: {}
+[5.063771] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[5.070224] (kinect2_bridge) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[5.070453] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[5.070740] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[5.073618] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[5.115310] (-) TimerEvent: {}
+[5.154568] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[5.162326] (kinect2_bridge) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[5.162481] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[5.162647] (kinect2_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[5.164627] (kinect2_bridge) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[5.215426] (-) TimerEvent: {}
+[5.290104] (kinect2_bridge) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[5.315619] (-) TimerEvent: {}
+[5.351607] (kinect2_bridge) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[5.381669] (kinect2_bridge) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[5.385756] (kinect2_bridge) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[5.391520] (kinect2_bridge) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[5.399577] (kinect2_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.409697] (kinect2_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.415709] (-) TimerEvent: {}
+[5.443806] (kinect2_bridge) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[5.445928] (kinect2_bridge) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[5.515810] (-) TimerEvent: {}
+[5.517624] (kinect2_bridge) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[5.537395] (kinect2_bridge) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[5.581736] (kinect2_bridge) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.588257] (kinect2_bridge) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[5.615949] (-) TimerEvent: {}
+[5.650949] (kinect2_bridge) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[5.651419] (kinect2_bridge) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[5.710476] (kinect2_bridge) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[5.711726] (kinect2_bridge) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[5.716033] (-) TimerEvent: {}
+[5.757329] (kinect2_bridge) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.5.4") \n'}
+[5.758503] (kinect2_bridge) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.1 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[5.779908] (kinect2_bridge) StdoutLine: {'line': b'-- Found kinect2_registration: 0.0.0 (/home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake)\n'}
+[5.781581] (kinect2_bridge) StdoutLine: {'line': b'-- Found tf2: 0.25.20 (/opt/ros/humble/share/tf2/cmake)\n'}
+[5.789512] (kinect2_bridge) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.20 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[5.816137] (-) TimerEvent: {}
+[5.855205] (kinect2_bridge) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.25.20 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)\n'}
+[5.864465] (kinect2_bridge) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[5.865406] (kinect2_bridge) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[5.865450] (kinect2_bridge) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[5.870446] (kinect2_bridge) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[5.916304] (-) TimerEvent: {}
+[5.944344] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[5.944562] (kinect2_bridge) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/include/kinect2_bridge\n'}
+[5.944662] (kinect2_bridge) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[5.944769] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[5.945112] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[5.945477] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[5.946268] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[5.946390] (kinect2_bridge) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[5.946639] (kinect2_bridge) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[5.947766] (kinect2_bridge) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.958371] (kinect2_bridge) StdoutLine: {'line': b'-- Generating done\n'}
+[5.961890] (kinect2_bridge) StdoutLine: {'line': b'-- Build files have been written to: /home/duy/cocarry_ws/build/kinect2_bridge\n'}
+[5.972092] (kinect2_bridge) CommandEnded: {'returncode': 0}
+[5.972759] (kinect2_bridge) JobProgress: {'identifier': 'kinect2_bridge', 'progress': 'build'}
+[5.973153] (kinect2_bridge) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/kinect2_bridge', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/kinect2_registration/lib:/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[6.013994] (kinect2_bridge) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/kinect2_bridge_node.dir/src/kinect2_bridge.cpp.o\x1b[0m\n'}
+[6.016389] (-) TimerEvent: {}
+[6.116692] (-) TimerEvent: {}
+[6.217152] (-) TimerEvent: {}
+[6.317618] (-) TimerEvent: {}
+[6.418046] (-) TimerEvent: {}
+[6.518471] (-) TimerEvent: {}
+[6.619043] (-) TimerEvent: {}
+[6.719531] (-) TimerEvent: {}
+[6.819841] (-) TimerEvent: {}
+[6.920177] (-) TimerEvent: {}
+[7.020603] (-) TimerEvent: {}
+[7.121041] (-) TimerEvent: {}
+[7.221597] (-) TimerEvent: {}
+[7.321915] (-) TimerEvent: {}
+[7.422247] (-) TimerEvent: {}
+[7.522584] (-) TimerEvent: {}
+[7.622952] (-) TimerEvent: {}
+[7.723423] (-) TimerEvent: {}
+[7.823736] (-) TimerEvent: {}
+[7.924047] (-) TimerEvent: {}
+[8.024378] (-) TimerEvent: {}
+[8.124802] (-) TimerEvent: {}
+[8.225159] (-) TimerEvent: {}
+[8.325506] (-) TimerEvent: {}
+[8.425897] (-) TimerEvent: {}
+[8.526238] (-) TimerEvent: {}
+[8.626570] (-) TimerEvent: {}
+[8.653851] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp: In member function \xe2\x80\x98bool Kinect2BridgeNode::initPipeline(const string&, int32_t)\xe2\x80\x99:\n'}
+[8.654132] (kinect2_bridge) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_bridge/src/kinect2_bridge.cpp:401:62: warning: unused parameter \xe2\x80\x98device\xe2\x80\x99 [-Wunused-parameter]\n'}
+[8.654239] (kinect2_bridge) StderrLine: {'line': b'  401 |   bool initPipeline(const std::string &method, const int32_t device)\n'}
+[8.654322] (kinect2_bridge) StderrLine: {'line': b'      |                                                ~~~~~~~~~~~~~~^~~~~~\n'}
+[8.726748] (-) TimerEvent: {}
+[8.827133] (-) TimerEvent: {}
+[8.927598] (-) TimerEvent: {}
+[9.027912] (-) TimerEvent: {}
+[9.128268] (-) TimerEvent: {}
+[9.228607] (-) TimerEvent: {}
+[9.328954] (-) TimerEvent: {}
+[9.429298] (-) TimerEvent: {}
+[9.529686] (-) TimerEvent: {}
+[9.629983] (-) TimerEvent: {}
+[9.730290] (-) TimerEvent: {}
+[9.830653] (-) TimerEvent: {}
+[9.931274] (-) TimerEvent: {}
+[10.031610] (-) TimerEvent: {}
+[10.131929] (-) TimerEvent: {}
+[10.232259] (-) TimerEvent: {}
+[10.332538] (-) TimerEvent: {}
+[10.432840] (-) TimerEvent: {}
+[10.533161] (-) TimerEvent: {}
+[10.633475] (-) TimerEvent: {}
+[10.733778] (-) TimerEvent: {}
+[10.834071] (-) TimerEvent: {}
+[10.934438] (-) TimerEvent: {}
+[11.034781] (-) TimerEvent: {}
+[11.135265] (-) TimerEvent: {}
+[11.235762] (-) TimerEvent: {}
+[11.336294] (-) TimerEvent: {}
+[11.436654] (-) TimerEvent: {}
+[11.537010] (-) TimerEvent: {}
+[11.637358] (-) TimerEvent: {}
+[11.737712] (-) TimerEvent: {}
+[11.838060] (-) TimerEvent: {}
+[11.938350] (-) TimerEvent: {}
+[11.948423] (kinect2_bridge) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable kinect2_bridge_node\x1b[0m\n'}
+[12.038449] (-) TimerEvent: {}
+[12.138694] (-) TimerEvent: {}
+[12.238977] (-) TimerEvent: {}
+[12.339286] (-) TimerEvent: {}
+[12.439674] (-) TimerEvent: {}
+[12.540197] (-) TimerEvent: {}
+[12.640699] (-) TimerEvent: {}
+[12.654218] (kinect2_bridge) StdoutLine: {'line': b'[100%] Built target kinect2_bridge_node\n'}
+[12.672610] (kinect2_bridge) CommandEnded: {'returncode': 0}
+[12.673806] (kinect2_bridge) JobProgress: {'identifier': 'kinect2_bridge', 'progress': 'install'}
+[12.674182] (kinect2_bridge) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/duy/cocarry_ws/build/kinect2_bridge'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/kinect2_registration/lib:/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[12.685778] (kinect2_bridge) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[12.686309] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/lib/kinect2_bridge/kinect2_bridge_node\n'}
+[12.688906] (kinect2_bridge) StdoutLine: {'line': b'-- Set runtime path of "/home/duy/cocarry_ws/install/kinect2_bridge/lib/kinect2_bridge/kinect2_bridge_node" to ""\n'}
+[12.689274] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge//launch\n'}
+[12.689376] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge//launch/rtabmap.launch.py\n'}
+[12.689449] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge//launch/kinect2_bridge_launch.yaml\n'}
+[12.689516] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/include\n'}
+[12.689585] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/include/kinect2_bridge\n'}
+[12.689770] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h\n'}
+[12.689870] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/ament_index/resource_index/package_run_dependencies/kinect2_bridge\n'}
+[12.689943] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/ament_index/resource_index/parent_prefix_path/kinect2_bridge\n'}
+[12.690012] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/environment/ament_prefix_path.sh\n'}
+[12.690083] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/environment/ament_prefix_path.dsv\n'}
+[12.690151] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/environment/path.sh\n'}
+[12.690289] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/environment/path.dsv\n'}
+[12.690436] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.bash\n'}
+[12.690509] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.sh\n'}
+[12.690576] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.zsh\n'}
+[12.690648] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.dsv\n'}
+[12.690799] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/package.dsv\n'}
+[12.690870] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/ament_index/resource_index/packages/kinect2_bridge\n'}
+[12.690940] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[12.691013] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/cmake/kinect2_bridgeConfig.cmake\n'}
+[12.691115] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/cmake/kinect2_bridgeConfig-version.cmake\n'}
+[12.691184] (kinect2_bridge) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/package.xml\n'}
+[12.693671] (kinect2_bridge) CommandEnded: {'returncode': 0}
+[12.707561] (kinect2_bridge) JobEnded: {'identifier': 'kinect2_bridge', 'rc': 0}
+[12.708753] (kinect2_calibration) JobStarted: {'identifier': 'kinect2_calibration'}
+[12.717569] (kinect2_calibration) JobProgress: {'identifier': 'kinect2_calibration', 'progress': 'cmake'}
+[12.718453] (kinect2_calibration) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration', '-Dfreenect2_DIR=/home/duy/cocarry_ws/libfreenect2/build', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_calibration'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_calibration', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/kinect2_registration/lib:/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_bridge:/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_calibration'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_bridge:/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[12.740807] (-) TimerEvent: {}
+[12.781106] (kinect2_calibration) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[12.840915] (-) TimerEvent: {}
+[12.841151] (kinect2_calibration) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[12.849312] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[12.925916] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[12.931352] (kinect2_calibration) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[12.931509] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[12.931855] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[12.934118] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[12.941071] (-) TimerEvent: {}
+[13.020491] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[13.026623] (kinect2_calibration) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[13.026769] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[13.027183] (kinect2_calibration) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[13.029056] (kinect2_calibration) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[13.041261] (-) TimerEvent: {}
+[13.141531] (-) TimerEvent: {}
+[13.165342] (kinect2_calibration) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[13.241749] (-) TimerEvent: {}
+[13.243039] (kinect2_calibration) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[13.270874] (kinect2_calibration) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[13.274209] (kinect2_calibration) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[13.279875] (kinect2_calibration) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[13.288136] (kinect2_calibration) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[13.299180] (kinect2_calibration) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[13.330485] (kinect2_calibration) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[13.332529] (kinect2_calibration) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[13.341846] (-) TimerEvent: {}
+[13.401884] (kinect2_calibration) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[13.427322] (kinect2_calibration) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[13.441964] (-) TimerEvent: {}
+[13.464801] (kinect2_calibration) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[13.473481] (kinect2_calibration) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[13.532983] (kinect2_calibration) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[13.533385] (kinect2_calibration) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[13.542089] (-) TimerEvent: {}
+[13.600150] (kinect2_calibration) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[13.601051] (kinect2_calibration) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[13.642235] (-) TimerEvent: {}
+[13.668459] (kinect2_calibration) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.5.4") \n'}
+[13.671911] (kinect2_calibration) StdoutLine: {'line': b'-- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)\n'}
+[13.702202] (kinect2_calibration) StdoutLine: {'line': b'-- Found message_filters: 4.3.15 (/opt/ros/humble/share/message_filters/cmake)\n'}
+[13.707413] (kinect2_calibration) StdoutLine: {'line': b'-- Found image_transport: 3.1.12 (/opt/ros/humble/share/image_transport/cmake)\n'}
+[13.736236] (kinect2_calibration) StdoutLine: {'line': b'-- Found compressed_image_transport: 2.5.4 (/opt/ros/humble/share/compressed_image_transport/cmake)\n'}
+[13.737839] (kinect2_calibration) StdoutLine: {'line': b'-- Found compressed_depth_image_transport: 2.5.4 (/opt/ros/humble/share/compressed_depth_image_transport/cmake)\n'}
+[13.738091] (kinect2_calibration) StdoutLine: {'line': b'-- Found kinect2_bridge: 0.0.0 (/home/duy/cocarry_ws/install/kinect2_bridge/share/kinect2_bridge/cmake)\n'}
+[13.738944] (kinect2_calibration) StdoutLine: {'line': b'-- Found kinect2_registration: 0.0.0 (/home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake)\n'}
+[13.742318] (-) TimerEvent: {}
+[13.842560] (-) TimerEvent: {}
+[13.942852] (-) TimerEvent: {}
+[13.958322] (kinect2_calibration) StdoutLine: {'line': b'-- Found OpenMP_C: -fopenmp (found version "4.5") \n'}
+[14.039607] (kinect2_calibration) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5") \n'}
+[14.039844] (kinect2_calibration) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5")  \n'}
+[14.042898] (-) TimerEvent: {}
+[14.043864] (kinect2_calibration) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[14.127504] (kinect2_calibration) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[14.127685] (kinect2_calibration) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/include\n'}
+[14.127744] (kinect2_calibration) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[14.128057] (kinect2_calibration) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[14.128855] (kinect2_calibration) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[14.129120] (kinect2_calibration) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[14.130530] (kinect2_calibration) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[14.130634] (kinect2_calibration) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[14.131131] (kinect2_calibration) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[14.132534] (kinect2_calibration) StdoutLine: {'line': b'-- Configuring done\n'}
+[14.140954] (kinect2_calibration) StdoutLine: {'line': b'-- Generating done\n'}
+[14.141753] (kinect2_calibration) StderrLine: {'line': b'CMake Warning:\n'}
+[14.141862] (kinect2_calibration) StderrLine: {'line': b'  Manually-specified variables were not used by the project:\n'}
+[14.141913] (kinect2_calibration) StderrLine: {'line': b'\n'}
+[14.141956] (kinect2_calibration) StderrLine: {'line': b'    freenect2_DIR\n'}
+[14.141992] (kinect2_calibration) StderrLine: {'line': b'\n'}
+[14.142031] (kinect2_calibration) StderrLine: {'line': b'\n'}
+[14.142975] (-) TimerEvent: {}
+[14.143828] (kinect2_calibration) StdoutLine: {'line': b'-- Build files have been written to: /home/duy/cocarry_ws/build/kinect2_calibration\n'}
+[14.151999] (kinect2_calibration) CommandEnded: {'returncode': 0}
+[14.152768] (kinect2_calibration) JobProgress: {'identifier': 'kinect2_calibration', 'progress': 'build'}
+[14.154366] (kinect2_calibration) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/kinect2_calibration', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_calibration', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/kinect2_registration/lib:/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_bridge:/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_calibration'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_bridge:/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[14.196566] (kinect2_calibration) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/kinect2_calibration_node.dir/src/kinect2_calibration.cpp.o\x1b[0m\n'}
+[14.243131] (-) TimerEvent: {}
+[14.343464] (-) TimerEvent: {}
+[14.443785] (-) TimerEvent: {}
+[14.462940] (kinect2_calibration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/src/kinect2_calibration.cpp:195: warning: ignoring \xe2\x80\x98#pragma omp parallel\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[14.463089] (kinect2_calibration) StderrLine: {'line': b'  195 | #pragma omp parallel for\n'}
+[14.463137] (kinect2_calibration) StderrLine: {'line': b'      | \n'}
+[14.463293] (kinect2_calibration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/src/kinect2_calibration.cpp:658: warning: ignoring \xe2\x80\x98#pragma omp parallel\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[14.463361] (kinect2_calibration) StderrLine: {'line': b'  658 | #pragma omp parallel for\n'}
+[14.463400] (kinect2_calibration) StderrLine: {'line': b'      | \n'}
+[14.463436] (kinect2_calibration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/src/kinect2_calibration.cpp:663: warning: ignoring \xe2\x80\x98#pragma omp critical\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[14.463482] (kinect2_calibration) StderrLine: {'line': b'  663 | #pragma omp critical\n'}
+[14.463516] (kinect2_calibration) StderrLine: {'line': b'      | \n'}
+[14.463549] (kinect2_calibration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/src/kinect2_calibration.cpp:669: warning: ignoring \xe2\x80\x98#pragma omp critical\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[14.463585] (kinect2_calibration) StderrLine: {'line': b'  669 | #pragma omp critical\n'}
+[14.463627] (kinect2_calibration) StderrLine: {'line': b'      | \n'}
+[14.464266] (kinect2_calibration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/src/kinect2_calibration.cpp:1162: warning: ignoring \xe2\x80\x98#pragma omp parallel\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[14.464368] (kinect2_calibration) StderrLine: {'line': b' 1162 | #pragma omp parallel for\n'}
+[14.464400] (kinect2_calibration) StderrLine: {'line': b'      | \n'}
+[14.464428] (kinect2_calibration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/src/kinect2_calibration.cpp:1167: warning: ignoring \xe2\x80\x98#pragma omp critical\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[14.464459] (kinect2_calibration) StderrLine: {'line': b' 1167 | #pragma omp critical\n'}
+[14.464485] (kinect2_calibration) StderrLine: {'line': b'      | \n'}
+[14.464510] (kinect2_calibration) StderrLine: {'line': b'/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_calibration/src/kinect2_calibration.cpp:1173: warning: ignoring \xe2\x80\x98#pragma omp critical\xe2\x80\x99 [-Wunknown-pragmas]\n'}
+[14.464535] (kinect2_calibration) StderrLine: {'line': b' 1173 | #pragma omp critical\n'}
+[14.464560] (kinect2_calibration) StderrLine: {'line': b'      | \n'}
+[14.544004] (-) TimerEvent: {}
+[14.644394] (-) TimerEvent: {}
+[14.744770] (-) TimerEvent: {}
+[14.845185] (-) TimerEvent: {}
+[14.945624] (-) TimerEvent: {}
+[15.045938] (-) TimerEvent: {}
+[15.146248] (-) TimerEvent: {}
+[15.246604] (-) TimerEvent: {}
+[15.346944] (-) TimerEvent: {}
+[15.447307] (-) TimerEvent: {}
+[15.547658] (-) TimerEvent: {}
+[15.648330] (-) TimerEvent: {}
+[15.748665] (-) TimerEvent: {}
+[15.848985] (-) TimerEvent: {}
+[15.949318] (-) TimerEvent: {}
+[16.049701] (-) TimerEvent: {}
+[16.150049] (-) TimerEvent: {}
+[16.250396] (-) TimerEvent: {}
+[16.350704] (-) TimerEvent: {}
+[16.451039] (-) TimerEvent: {}
+[16.551437] (-) TimerEvent: {}
+[16.651802] (-) TimerEvent: {}
+[16.752185] (-) TimerEvent: {}
+[16.852546] (-) TimerEvent: {}
+[16.953063] (-) TimerEvent: {}
+[17.053441] (-) TimerEvent: {}
+[17.153780] (-) TimerEvent: {}
+[17.254113] (-) TimerEvent: {}
+[17.354474] (-) TimerEvent: {}
+[17.454793] (-) TimerEvent: {}
+[17.555245] (-) TimerEvent: {}
+[17.655703] (-) TimerEvent: {}
+[17.756143] (-) TimerEvent: {}
+[17.856458] (-) TimerEvent: {}
+[17.956797] (-) TimerEvent: {}
+[18.057148] (-) TimerEvent: {}
+[18.157510] (-) TimerEvent: {}
+[18.257852] (-) TimerEvent: {}
+[18.358306] (-) TimerEvent: {}
+[18.458751] (-) TimerEvent: {}
+[18.559064] (-) TimerEvent: {}
+[18.659412] (-) TimerEvent: {}
+[18.759769] (-) TimerEvent: {}
+[18.860108] (-) TimerEvent: {}
+[18.960423] (-) TimerEvent: {}
+[19.060809] (-) TimerEvent: {}
+[19.161157] (-) TimerEvent: {}
+[19.261608] (-) TimerEvent: {}
+[19.362047] (-) TimerEvent: {}
+[19.462418] (-) TimerEvent: {}
+[19.562837] (-) TimerEvent: {}
+[19.588557] (kinect2_calibration) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable kinect2_calibration_node\x1b[0m\n'}
+[19.662936] (-) TimerEvent: {}
+[19.763253] (-) TimerEvent: {}
+[19.863602] (-) TimerEvent: {}
+[19.963959] (-) TimerEvent: {}
+[20.044078] (kinect2_calibration) StdoutLine: {'line': b'[100%] Built target kinect2_calibration_node\n'}
+[20.057429] (kinect2_calibration) CommandEnded: {'returncode': 0}
+[20.058292] (kinect2_calibration) JobProgress: {'identifier': 'kinect2_calibration', 'progress': 'install'}
+[20.058599] (kinect2_calibration) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/duy/cocarry_ws/build/kinect2_calibration'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_calibration', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/duy'), ('USER', 'duy'), ('LC_TIME', 'en_US.UTF-8'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/kinect2_registration/lib:/usr/local/lib/nuitrack:/home/duy/kinectv2/install/libfreenect2/lib:/home/duy/kinectv2/install/kinect2_registration/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack'), ('HOME', '/home/duy'), ('CHROME_DESKTOP', 'antigravity.desktop'), ('DESKTOP_SESSION', 'ubuntu'), ('VSCODE_IPC_HOOK', '/run/user/1000/vscode-d3248cd9-1.10-main.sock'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/antigravity.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'cat'), ('LC_MONETARY', 'en_US.UTF-8'), ('MANAGERPID', '1103'), ('SYSTEMD_EXEC_PID', '1227'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ANTIGRAVITY_AGENT', '1'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '23827'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/duy/kinectv2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'duy'), ('JOURNAL_STREAM', '8:19835'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'duy'), ('TERM', 'dumb'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('ANTIGRAVITY_EDITOR_APP_ROOT', '/usr/share/antigravity/resources/app'), ('PATH', '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('SESSION_MANAGER', 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1198,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1198'), ('INVOCATION_ID', '4b0f6c7bc4424cf09c23c53bb6d64ffe'), ('PAPERSIZE', 'letter'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_US.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'wayland'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'en_US.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMH1N3'), ('LS_COLORS', ''), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_bridge:/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('NUITRACK_HOME', '/usr/etc/nuitrack'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_US.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_US.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'en_US.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('ANTIGRAVITY_TRAJECTORY_ID', 'e0416c9f-7c65-434e-b985-4ab6dad42ffd'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_calibration'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('VSCODE_CODE_CACHE_PATH', '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_US.UTF-8'), ('LC_PAPER', 'en_US.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/kinect2_bridge:/home/duy/cocarry_ws/install/kinect2_registration:/home/duy/kinectv2/install/libfreenect2:/home/duy/kinectv2/install/kinect2_bridge:/home/duy/kinectv2/install/kinect2_registration:/opt/ros/humble'), ('VSCODE_PID', '23827')]), 'shell': False}
+[20.064044] (-) TimerEvent: {}
+[20.067005] (kinect2_calibration) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[20.067205] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/lib/kinect2_calibration/kinect2_calibration_node\n'}
+[20.067934] (kinect2_calibration) StdoutLine: {'line': b'-- Set runtime path of "/home/duy/cocarry_ws/install/kinect2_calibration/lib/kinect2_calibration/kinect2_calibration_node" to ""\n'}
+[20.068135] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/ament_index/resource_index/package_run_dependencies/kinect2_calibration\n'}
+[20.068233] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/ament_index/resource_index/parent_prefix_path/kinect2_calibration\n'}
+[20.068405] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/environment/ament_prefix_path.sh\n'}
+[20.068536] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/environment/ament_prefix_path.dsv\n'}
+[20.068626] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/environment/path.sh\n'}
+[20.068782] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/environment/path.dsv\n'}
+[20.068885] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/local_setup.bash\n'}
+[20.068997] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/local_setup.sh\n'}
+[20.069080] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/local_setup.zsh\n'}
+[20.069200] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/local_setup.dsv\n'}
+[20.069364] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/package.dsv\n'}
+[20.069534] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/ament_index/resource_index/packages/kinect2_calibration\n'}
+[20.069785] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/cmake/kinect2_calibrationConfig.cmake\n'}
+[20.069970] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/cmake/kinect2_calibrationConfig-version.cmake\n'}
+[20.070144] (kinect2_calibration) StdoutLine: {'line': b'-- Installing: /home/duy/cocarry_ws/install/kinect2_calibration/share/kinect2_calibration/package.xml\n'}
+[20.071995] (kinect2_calibration) CommandEnded: {'returncode': 0}
+[20.083780] (kinect2_calibration) JobEnded: {'identifier': 'kinect2_calibration', 'rc': 0}
+[20.084543] (-) EventReactorShutdown: {}

@@ -1,0 +1,98 @@
+[0.006s] Invoking command in '/home/duy/cocarry_ws/build/kinect2_registration': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration -Dfreenect2_DIR=/home/duy/cocarry_ws/libfreenect2/build -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_registration
+[0.054s] -- The C compiler identification is GNU 11.4.0
+[0.095s] -- The CXX compiler identification is GNU 11.4.0
+[0.102s] -- Detecting C compiler ABI info
+[0.157s] -- Detecting C compiler ABI info - done
+[0.163s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.163s] -- Detecting C compile features
+[0.164s] -- Detecting C compile features - done
+[0.165s] -- Detecting CXX compiler ABI info
+[0.225s] -- Detecting CXX compiler ABI info - done
+[0.230s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.230s] -- Detecting CXX compile features
+[0.230s] -- Detecting CXX compile features - done
+[0.232s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.346s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.409s] -- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+[0.444s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.449s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.456s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.466s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.477s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.509s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.511s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.576s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.593s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.620s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.625s] -- Looking for pthread.h
+[0.681s] -- Looking for pthread.h - found
+[0.681s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.744s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.745s] -- Found Threads: TRUE  
+[0.798s] -- Found OpenCV: /usr (found version "4.5.4") 
+[0.800s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.806s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.040s] -- Found OpenMP_C: -fopenmp (found version "4.5") 
+[1.109s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[1.109s] -- Found OpenMP: TRUE (found version "4.5")  
+[1.109s] -- CPU based depth registration enabled
+[1.111s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.165s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.165s] -- Configured cppcheck include dirs: /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/;/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/include/internal;/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/include/
+[1.165s] -- Configured cppcheck exclude dirs and/or files: 
+[1.165s] -- Added test 'lint_cmake' to check CMake code style
+[1.166s] -- Added test 'uncrustify' to check C / C++ code style
+[1.166s] -- Configured uncrustify additional arguments: 
+[1.167s] -- Added test 'xmllint' to check XML markup files
+[1.168s] -- Configuring done
+[1.174s] -- Generating done
+[1.175s] CMake Warning:
+[1.175s]   Manually-specified variables were not used by the project:
+[1.175s] 
+[1.175s]     freenect2_DIR
+[1.175s] 
+[1.176s] 
+[1.177s] -- Build files have been written to: /home/duy/cocarry_ws/build/kinect2_registration
+[1.185s] Invoked command in '/home/duy/cocarry_ws/build/kinect2_registration' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration -Dfreenect2_DIR=/home/duy/cocarry_ws/libfreenect2/build -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_registration
+[1.187s] Invoking command in '/home/duy/cocarry_ws/build/kinect2_registration': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/kinect2_registration -- -j16 -l16
+[1.228s] [ 33%] [32mBuilding CXX object CMakeFiles/kinect2_registration.dir/src/depth_registration_cpu.cpp.o[0m
+[1.228s] [ 66%] [32mBuilding CXX object CMakeFiles/kinect2_registration.dir/src/kinect2_registration.cpp.o[0m
+[1.503s] /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:119: warning: ignoring ‘#pragma omp parallel’ [-Wunknown-pragmas]
+[1.504s]   119 | #pragma omp parallel for
+[1.504s]       | 
+[1.504s] /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:136: warning: ignoring ‘#pragma omp parallel’ [-Wunknown-pragmas]
+[1.504s]   136 | #pragma omp parallel for
+[1.504s]       | 
+[3.065s] /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp: In member function ‘virtual bool DepthRegistrationCPU::init(int)’:
+[3.065s] /home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/src/depth_registration_cpu.cpp:29:43: warning: unused parameter ‘deviceId’ [-Wunused-parameter]
+[3.066s]    29 | bool DepthRegistrationCPU::init(const int deviceId)
+[3.066s]       |                                 ~~~~~~~~~~^~~~~~~~
+[4.346s] [100%] [32m[1mLinking CXX static library libkinect2_registration.a[0m
+[4.539s] [100%] Built target kinect2_registration
+[4.547s] Invoked command in '/home/duy/cocarry_ws/build/kinect2_registration' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/kinect2_registration -- -j16 -l16
+[4.559s] Invoking command in '/home/duy/cocarry_ws/build/kinect2_registration': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/kinect2_registration
+[4.566s] -- Install configuration: ""
+[4.566s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/include/kinect2_registration
+[4.566s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/include/kinect2_registration/kinect2_console.h
+[4.567s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/include/kinect2_registration/kinect2_registration.h
+[4.567s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/lib/libkinect2_registration.a
+[4.567s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/library_path.sh
+[4.567s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/library_path.dsv
+[4.567s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/ament_index/resource_index/package_run_dependencies/kinect2_registration
+[4.567s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/ament_index/resource_index/parent_prefix_path/kinect2_registration
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/ament_prefix_path.sh
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/ament_prefix_path.dsv
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/path.sh
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/environment/path.dsv
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.bash
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.sh
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.zsh
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/local_setup.dsv
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/package.dsv
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/ament_index/resource_index/packages/kinect2_registration
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/ament_cmake_export_libraries-extras.cmake
+[4.568s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/kinect2_registrationConfig.cmake
+[4.569s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/cmake/kinect2_registrationConfig-version.cmake
+[4.569s] -- Installing: /home/duy/cocarry_ws/install/kinect2_registration/share/kinect2_registration/package.xml
+[4.570s] Invoked command in '/home/duy/cocarry_ws/build/kinect2_registration' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/kinect2_registration

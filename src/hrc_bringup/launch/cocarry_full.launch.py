@@ -33,6 +33,8 @@ def generate_launch_description():
     env_fix = SetEnvironmentVariable(
         'PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION', 'python')
 
+    libfreenect2_fix = SetEnvironmentVariable('LIBFREENECT2_PIPELINE', 'cpu')
+
     # ── Launch arguments ──────────────────────────────────────────────────
     model_dir_arg = DeclareLaunchArgument(
         'model_dir',
@@ -45,8 +47,8 @@ def generate_launch_description():
         description='Directory for experiment CSV logs')
 
     # ── Config paths ──────────────────────────────────────────────────────
-    rs_model_path = os.path.join(
-        get_package_share_directory('realsense_tracker'),
+    kinect_model_path = os.path.join(
+        get_package_share_directory('kinect_tracker'),
         'models', 'pose_landmarker_full.task')
 
     transform_params = os.path.join(
@@ -55,14 +57,26 @@ def generate_launch_description():
 
     # ── Nodes ─────────────────────────────────────────────────────────────
 
-    # 1. Camera tracking node
-    realsense_node = Node(
-        package='realsense_tracker',
-        executable='realsense_node',
-        name='realsense_tracker',
+    # 1a. Kinect2 Bridge (Hardware driver)
+    kinect_bridge_node = Node(
+        package='kinect2_bridge',
+        executable='kinect2_bridge_node',
+        name='kinect2_bridge',
         output='screen',
         parameters=[{
-            'model_path': rs_model_path,
+            'fps_limit': 30.0,
+            'depth_method': 'cpu',
+            'reg_method': 'default'
+        }])
+
+    # 1b. Camera tracking node
+    kinect_tracker_node = Node(
+        package='kinect_tracker',
+        executable='kinect_node',
+        name='kinect_tracker',
+        output='screen',
+        parameters=[{
+            'model_path': kinect_model_path,
             'offset_x': 0.0,
             'offset_y': 0.0,
             'offset_z': 0.0,
@@ -123,9 +137,11 @@ def generate_launch_description():
 
     return LaunchDescription([
         env_fix,
+        libfreenect2_fix,
         model_dir_arg,
         log_dir_arg,
-        realsense_node,
+        kinect_bridge_node,
+        kinect_tracker_node,
         predictor_node,
         transform_node,
         streamer_node,
