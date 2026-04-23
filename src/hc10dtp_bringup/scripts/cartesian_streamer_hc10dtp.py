@@ -65,22 +65,22 @@ WS_Z = ( 0.05, 1.5)
 # ── Tunable stream parameters ──────────────────────────────────────
 # Tần suất stream tick (Hz). 20Hz là giá trị ổn định cho MotoROS2
 # HC10DTP cobot: 15Hz cho margin an toàn với collaborative mode.
-DEFAULT_STREAM_HZ = 15
+DEFAULT_STREAM_HZ = 20
 
 # Queue point duration: khoảng cách thời gian giữa mỗi điểm.
 # Phải ≥ STREAM_PERIOD_SEC. 0.05s = 20Hz motion rate — cho phép
 # robot đủ thời gian xử lý trước khi điểm tiếp theo đến.
-QUEUE_DT_SEC = 0.067  # ~15Hz motion rate cho HC10DTP
-QUEUE_RETRY_BACKOFF_SEC = 0.015
+QUEUE_DT_SEC = 0.05  # ~20Hz motion rate cho HC10DTP
+QUEUE_RETRY_BACKOFF_SEC = 0.02
 
 # IK timeout
-IK_TIMEOUT_SEC = 0.2
+IK_TIMEOUT_SEC = 0.3
 
 # Smooth: tỉ lệ tiến về target mỗi tick (0.0–1.0)
-SMOOTH_ALPHA = 0.4       # Thấp hơn GP4 cho chuyển động mượt hơn (cobot)
+SMOOTH_ALPHA = 0.5       # Thấp hơn GP4 cho chuyển động mượt hơn (cobot)
 
 # An toàn: bước nhảy joint tối đa cho phép mỗi điểm (rad)
-MAX_JOINT_DELTA = 0.3    # Thấp hơn GP4 cho collaborative safety
+MAX_JOINT_DELTA = 0.5    # Thấp hơn GP4 cho collaborative safety
 
 # Debug watchdog: nếu queue point được accept nhưng joint gần như đứng yên
 NO_MOTION_WARN_SEC = 5.0
@@ -880,7 +880,7 @@ class CartesianDemoPublisher(Node):
         python3 cartesian_streamer.py --demo lissajous
     """
 
-    def __init__(self, mode: str = 'line', omega: float = 0.5, amplitude: float = 0.05, stream_period_sec: float = 1.0/DEFAULT_STREAM_HZ):
+    def __init__(self, mode: str = 'line', omega: float = 0.5, amplitude: float = 0.1, stream_period_sec: float = 1.0/DEFAULT_STREAM_HZ):
         super().__init__('cartesian_demo')
         self._mode = mode
         self._omega = omega          # rad/s — tốc độ góc
@@ -942,15 +942,15 @@ class CartesianDemoPublisher(Node):
             z = self._base_z
 
         elif self._mode == 'circle':
-            # Vòng tròn trên mặt phẳng YZ
-            x = self._base_x
-            y = self._base_y + amp * math.cos(w * self._t)
-            z = self._base_z + amp * math.sin(w * self._t)
+            # Vòng tròn trên mặt phẳng XY, bắt đầu mượt mà từ gốc (t=0 -> x=0, y=0)
+            x = self._base_x + amp * math.sin(w * self._t)
+            y = self._base_y + amp * (1.0 - math.cos(w * self._t))
+            z = self._base_z
 
         elif self._mode == 'lissajous':
-            # Đường Lissajous trên mặt phẳng XY
-            x = self._base_x + amp * math.sin(2 * w * self._t)
-            y = self._base_y + amp * math.sin(w * self._t + math.pi / 4)
+            # Đường hình số 8 (Lissajous) trên mặt phẳng XY, bắt đầu từ gốc
+            x = self._base_x + amp * math.sin(w * self._t)
+            y = self._base_y + (amp / 2.0) * math.sin(2 * w * self._t)
             z = self._base_z
 
         else:

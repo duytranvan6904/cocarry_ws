@@ -42,4 +42,8 @@
     <disable_collisions link1="link_3_u" link2="link_6_t" reason="Never"/>
     <disable_collisions link1="link_4_r" link2="link_5_b" reason="Adjacent"/>
     <disable_collisions link1="link_5_b" link2="link_6_t" reason="Adjacent"/>
+
+    <!-- Safety cage: cho phép cage đè sát base (vì cage là rào an toàn, không phải link robot) -->
+    <disable_collisions link1="base_link" link2="safety_cage" reason="Adjacent"/>
+    <disable_collisions link1="link_1_s" link2="safety_cage" reason="Never"/>
 </robot>

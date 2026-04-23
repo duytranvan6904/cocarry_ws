@@ -19,4 +19,128 @@
         robot_ip="$(arg robot_ip)"
         controller_port="$(arg controller_port)"
     />
+
+    <!-- ========================================== -->
+    <!-- TẠO HÀNG RÀO AN TOÀN DẠNG KHUNG (CAGE)     -->
+    <!-- Hướng chính: Bàn làm việc dọc ở phía +X   -->
+    <!-- X: -0.4 to 2.0 (Sâu 2.4m)                  -->
+    <!-- Y: -0.8 to 0.8 (Rộng 1.0m)                 -->
+    <!-- Z: -0.5 to 1.5 (Sàn ở Z=-0.5)              -->
+    <!-- ========================================== -->
+
+    <material name="cage_color">
+        <color rgba="0.2 0.8 0.2 0.5"/>
+    </material>
+    <material name="cabinet_color">
+        <color rgba="0.4 0.2 0.1 0.8"/>
+    </material>
+    <material name="table_color">
+        <color rgba="0.8 0.8 0.8 0.5"/>
+    </material>
+
+    <link name="safety_cage">
+        <!-- ================= TỦ ĐỠ ROBOT (CABINET) ================= -->
+        <!-- Đặt chính giữa gốc, cao 0.5m, dài 0.8m (X), rộng 0.6m (Y) -->
+        <collision>
+            <origin xyz="0 0 -0.255" rpy="0 0 0" />
+            <geometry><box size="0.8 0.6 0.49" /></geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 0 -0.25" rpy="0 0 0" />
+            <geometry><box size="0.8 0.6 0.5" /></geometry>
+            <material name="cabinet_color"/>
+        </visual>
+
+        <!-- ================= BÀN LÀM VIỆC (WORK TABLE) ================= -->
+        <!-- Đặt CHÍNH DIỆN và QUAY DỌC (+X). Sâu 1.2m, rộng 0.6m, cao 0.7m -->
+        <!-- Bắt đầu từ mép tủ (X=0.4) kéo dài đến X=1.6. Tâm tại X=1.0 -->
+        <collision>
+            <origin xyz="1.0 0 -0.15" rpy="0 0 0" />
+            <geometry><box size="1.2 0.6 0.7" /></geometry>
+        </collision>
+        <visual>
+            <origin xyz="1.0 0 -0.15" rpy="0 0 0" />
+            <geometry><box size="1.2 0.6 0.7" /></geometry>
+            <material name="table_color"/>
+        </visual>
+
+
+        <!-- ================= VERTICAL POSTS ================= -->
+        <!-- Post 1: Front-Left (X=2.0, Y=0.5) -->
+        <collision><origin xyz="2.0 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
+        <visual><origin xyz="2.0 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Post 2: Front-Right (X=2.0, Y=-0.5) -->
+        <collision><origin xyz="2.0 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
+        <visual><origin xyz="2.0 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Post 3: Back-Left (X=-0.4, Y=0.5) -->
+        <collision><origin xyz="-0.4 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
+        <visual><origin xyz="-0.4 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Post 4: Back-Right (X=-0.4, Y=-0.5) -->
+        <collision><origin xyz="-0.4 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
+        <visual><origin xyz="-0.4 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
+
+
+        <!-- ================= HORIZONTAL BEAMS (TOP Z=1.5) ================= -->
+        <!-- Top Front (X=2.0) -->
+        <collision><origin xyz="2.0 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
+        <visual><origin xyz="2.0 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Top Back (X=-0.4) -->
+        <collision><origin xyz="-0.4 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
+        <visual><origin xyz="-0.4 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Top Left (Y=0.5) -->
+        <collision><origin xyz="0.8 0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
+        <visual><origin xyz="0.8 0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Top Right (Y=-0.5) -->
+        <collision><origin xyz="0.8 -0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
+        <visual><origin xyz="0.8 -0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
+
+
+        <!-- ================= HORIZONTAL BEAMS (MIDDLE Z=0.8) ================= -->
+        <!-- Mid Front (X=2.0) -->
+        <collision><origin xyz="2.0 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
+        <visual><origin xyz="2.0 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Mid Back (X=-0.4) -->
+        <collision><origin xyz="-0.4 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
+        <visual><origin xyz="-0.4 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Mid Left (Y=0.5) -->
+        <collision><origin xyz="0.8 0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
+        <visual><origin xyz="0.8 0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Mid Right (Y=-0.5) -->
+        <collision><origin xyz="0.8 -0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
+        <visual><origin xyz="0.8 -0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- ================= HORIZONTAL BEAMS (BOTTOM Z=-0.5) ================= -->
+        <!-- Bot Front (X=2.0) -->
+        <collision><origin xyz="2.0 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
+        <visual><origin xyz="2.0 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Bot Back (X=-0.4) -->
+        <collision><origin xyz="-0.4 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
+        <visual><origin xyz="-0.4 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Bot Left (Y=0.5) -->
+        <collision><origin xyz="0.8 0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
+        <visual><origin xyz="0.8 0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
+
+        <!-- Bot Right (Y=-0.5) -->
+        <collision><origin xyz="0.8 -0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
+        <visual><origin xyz="0.8 -0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
+
+    </link>
+
+    <joint name="safety_cage_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="safety_cage" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
 </robot>

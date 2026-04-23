@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/src/hc10dtp_simulation/scripts/motoros2_mock_node.py
