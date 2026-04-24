@@ -18,7 +18,7 @@ from collections import deque
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 from std_srvs.srv import SetBool, Trigger
 from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
@@ -70,7 +70,7 @@ class PredictorUiNode(Node):
         self._fps_t = time.time()
         self._fps_t = time.time()
         self._logging = False
-        self._is_drawing_ui = False
+        self._is_drawing_ui = True
         self._is_predicting = False
         self._is_calibrated = False
         self._is_init_pose_captured = False
@@ -85,6 +85,7 @@ class PredictorUiNode(Node):
 
         # ── Publishers ───────────────────────────────────────────────────────
         self._model_pub = self.create_publisher(String, '/predictor/model_cmd', 5)
+        self._run_status_pub = self.create_publisher(Bool, '/run_status', 5)
 
         # ── Service clients ──────────────────────────────────────────────────
         self._logger_cli = self.create_client(SetBool, '/logger/toggle')
@@ -94,6 +95,8 @@ class PredictorUiNode(Node):
         self._stop_traj_cli = self.create_client(Trigger, '/yaskawa/stop_traj_mode')
         self._servo_on_cli = self.create_client(Trigger, '/yaskawa/servo_on')
         self._reset_error_cli = self.create_client(Trigger, '/yaskawa/reset_error')
+
+        self._traj_mode_pub = self.create_publisher(String, '/trajectory_mode', 5)
 
         # ── Action clients ───────────────────────────────────────────────────
         self._go_home_sim_action = ActionClient(
@@ -190,6 +193,9 @@ class PredictorUiNode(Node):
             self.get_logger().warn(f'[UI] Invalid trajectory mode: {mode}')
             return
         self._trajectory_mode = mode
+        msg = String()
+        msg.data = mode
+        self._traj_mode_pub.publish(msg)
         self.get_logger().info(f'[UI] Trajectory mode set to: {mode}')
 
     def send_model_cmd(self, model_name: str):
@@ -442,9 +448,10 @@ class DashboardWindow:
         row_2.addWidget(self.btn_go_home)
 
         # Draw control toggle
-        self.btn_draw = QtWidgets.QPushButton('🖍 Start Draw')
+        self.btn_draw = QtWidgets.QPushButton('⏹ Stop Draw')
         self.btn_draw.setFixedWidth(130)
         self.btn_draw.setCheckable(True)
+        self.btn_draw.setChecked(True)
         self.btn_draw.setStyleSheet(self._btn_style('#8e44ad', '#9b59b6'))
         self.btn_draw.clicked.connect(self._toggle_draw)
         row_2.addWidget(self.btn_draw)
@@ -493,13 +500,23 @@ class DashboardWindow:
                 return
         
         # Only enable prediction if in prediction mode
-        if checked and self.node._trajectory_mode == 'prediction':
-            self.node.call_predictor_toggle(True)
-        elif not checked:
+        if checked:
+            if self.node._trajectory_mode == 'prediction':
+                self.node.call_predictor_toggle(True)
+            else:
+                self.node.call_predictor_toggle(False)
+                # Ensure the UI knows prediction is off
+                self.node._is_predicting = False
+        else:
             self.node.call_predictor_toggle(False)
         
         self.node.call_logger_toggle(checked)
         self.btn_pred.setText('⏸ Stop Run' if checked else '▶ Start Run')
+        
+        # Notify transform_node whether we are running
+        run_msg = Bool()
+        run_msg.data = checked
+        self.node._run_status_pub.publish(run_msg)
         
         mode_str = f'({self.node._trajectory_mode.replace("_", " ").upper()})'
         self._set_status('State: RUN | Streaming enabled ' + mode_str if checked else 'State: PREPARE | Run stopped')
