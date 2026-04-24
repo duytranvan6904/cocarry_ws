@@ -41,6 +41,8 @@ class CoordTransformNode(Node):
             f'  Translation cam→base:      {self._t_cam_to_base}\n'
             f'  EE orientation (xyzw):     {self._ee_orient}\n'
             f'  Prediction step:           {self._pred_step}\n'
+            f'  Axis remap:                {self._axis_remap}\n'
+            f'  Axis sign:                 {self._axis_sign}\n'
             f'  Workspace X: {self._ws_x}, Y: {self._ws_y}, Z: {self._ws_z}'
         )
 
@@ -82,6 +84,15 @@ class CoordTransformNode(Node):
         self.declare_parameter('workspace_y_max',  1.0)
         self.declare_parameter('workspace_z_min',  0.05)
         self.declare_parameter('workspace_z_max',  1.5)
+
+        # Axis remap: mapping camera axes → robot axes BEFORE rotation
+        # Default [1, 0, 2] means:
+        #   robot_input[0] (X) ← cam[1] (camera Y)
+        #   robot_input[1] (Y) ← cam[0] (camera X)
+        #   robot_input[2] (Z) ← cam[2] (camera Z)
+        self.declare_parameter('axis_remap', [1, 0, 2])
+        # Sign for each remapped axis (after remap, before rotation)
+        self.declare_parameter('axis_sign', [1.0, 1.0, 1.0])
 
     def _load_params(self):
         # Object offset
@@ -128,6 +139,10 @@ class CoordTransformNode(Node):
             self.get_parameter('workspace_z_min').value,
             self.get_parameter('workspace_z_max').value,
         )
+
+        # Axis remap
+        self._axis_remap = list(self.get_parameter('axis_remap').value)
+        self._axis_sign = list(self.get_parameter('axis_sign').value)
 
     def _setup_pubsub(self):
         # Subscribe: tọa độ dự đoán từ trajectory_predictor
@@ -280,9 +295,18 @@ class CoordTransformNode(Node):
         # Bước 2: Thêm object offset (Thường = 0 nếu dùng Relative Displacement)
         p_cam_obj = p_cam + self._obj_offset
 
+        # Bước 2.5: Axis remap (camera frame → robot frame trước khi xoay)
+        remap = self._axis_remap
+        signs = self._axis_sign
+        p_remapped = np.array([
+            signs[0] * p_cam_obj[remap[0]],
+            signs[1] * p_cam_obj[remap[1]],
+            signs[2] * p_cam_obj[remap[2]],
+        ])
+
         # Bước 3: Transform sang robot base frame
         # P_target = R * displacement + P_init
-        p_base = self._R_cam_to_base @ p_cam_obj + self._t_cam_to_base
+        p_base = self._R_cam_to_base @ p_remapped + self._t_cam_to_base
 
         # Bước 4: Safety clamp — giới hạn trong workspace robot
         p_clamped, was_clamped = self._clamp_to_workspace(p_base)

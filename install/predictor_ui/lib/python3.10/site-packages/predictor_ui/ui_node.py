@@ -95,6 +95,7 @@ class PredictorUiNode(Node):
         self._stop_traj_cli = self.create_client(Trigger, '/yaskawa/stop_traj_mode')
         self._servo_on_cli = self.create_client(Trigger, '/yaskawa/servo_on')
         self._reset_error_cli = self.create_client(Trigger, '/yaskawa/reset_error')
+        self._streamer_enable_cli = self.create_client(SetBool, '/cartesian_streamer/enable')
 
         self._traj_mode_pub = self.create_publisher(String, '/trajectory_mode', 5)
 
@@ -535,24 +536,41 @@ class DashboardWindow:
             self._set_status('State: ALIGN | Capture init pose failed')
 
     def _enable_robot(self):
-        ok_reset = self.node.call_trigger_service(self.node._reset_error_cli, '/yaskawa/reset_error')
-        ok_servo = self.node.call_trigger_service(self.node._servo_on_cli, '/yaskawa/servo_on')
-        if ok_reset and ok_servo:
-            self._set_status('State: PREPARE | Robot enabled (reset + servo_on)')
-        else:
-            self._set_status('State: PREPARE | Robot enable failed')
+        # Guard: phải calibrate và capture init pose trước
+        if not self.node._is_calibrated:
+            self._set_status('State: ALIGN | Calibrate camera first!')
+            return
+        if not self.node._is_init_pose_captured:
+            self._set_status('State: ALIGN | Capture init pose first!')
+            return
+        if not self.node._streamer_enable_cli.service_is_ready():
+            self._set_status('State: PREPARE | /cartesian_streamer/enable not ready')
+            return
+        req = SetBool.Request()
+        req.data = True
+        self.node._streamer_enable_cli.call_async(req)
+        # Publish run_status = true → transform_node starts forwarding
+        run_msg = Bool()
+        run_msg.data = True
+        self.node._run_status_pub.publish(run_msg)
+        self._set_status('State: ENABLED | Robot enabled — ready to receive coordinates')
 
     def _disable_robot(self):
-        ok = self.node.call_trigger_service(self.node._stop_traj_cli, '/yaskawa/stop_traj_mode')
+        # Tắt streamer
+        if self.node._streamer_enable_cli.service_is_ready():
+            req = SetBool.Request()
+            req.data = False
+            self.node._streamer_enable_cli.call_async(req)
+        # Dừng data flow
+        run_msg = Bool()
+        run_msg.data = False
+        self.node._run_status_pub.publish(run_msg)
+        # Tắt predictor + logger
         self.node.call_predictor_toggle(False)
         self.node.call_logger_toggle(False)
         self.btn_pred.setChecked(False)
         self.btn_pred.setText('▶ Start Run')
-        if ok:
-            mode_str = self.node._trajectory_mode.replace('_', ' ').upper()
-            self._set_status(f'State: RECOVER | Robot disabled ({mode_str} mode remains selected)')
-        else:
-            self._set_status('State: RECOVER | Disable request failed')
+        self._set_status('State: RECOVER | Robot disabled')
 
     def _soft_stop(self):
         ok = self.node.call_trigger_service(self.node._stop_traj_cli, '/yaskawa/stop_traj_mode')

@@ -46,7 +46,7 @@ from builtin_interfaces.msg import Duration
 from moveit_msgs.srv import GetPositionIK, GetPositionFK
 from moveit_msgs.msg import PositionIKRequest, RobotState
 from motoros2_interfaces.srv import StartPointQueueMode, QueueTrajPoint
-from std_srvs.srv import Trigger
+from std_srvs.srv import Trigger, SetBool
 
 # ── Hằng số ────────────────────────────────────────────────────────
 JOINT_NAMES = [
@@ -205,15 +205,21 @@ class CartesianStreamer(Node):
         self._servo_on_cli = self.create_client(
             Trigger, '/yaskawa/servo_on', callback_group=self._cb)
 
+        # ── Services (enable / disable từ UI) ────────────────────
+        self.create_service(
+            SetBool, '/cartesian_streamer/enable',
+            self._srv_enable, callback_group=self._cb)
+
         # ── Timers ───────────────────────────────────────────────
         self._stream_timer = self.create_timer(
             self._stream_period_sec, self._stream_tick, callback_group=self._cb)
 
+        # Chỉ chờ joint_states, KHÔNG tự động enable robot.
         self._startup_timer = self.create_timer(
-            0.5, self._startup, callback_group=self._cb)
+            0.5, self._wait_for_joints, callback_group=self._cb)
 
         self.get_logger().info(
-            'CartesianStreamer khởi động.\n'
+            'CartesianStreamer khởi động (chờ Enable Robot từ UI).\n'
             f'  Stream rate:       {self._stream_hz:.0f} Hz (period={self._stream_period_sec*1000:.1f}ms)\n'
             f'  Queue dt:          {self._queue_dt_sec:.3f} s\n'
             f'  Prebuffer points:  {self._prebuffer_target}\n'
@@ -255,6 +261,8 @@ class CartesianStreamer(Node):
 
     def _on_target_pose(self, msg: PoseStamped):
         """Nhận PoseStamped đầy đủ (position + orientation)."""
+        if not self._queue_mode_active:
+            return
         if not self._check_workspace(msg.pose.position):
             return
         self._target_pose = msg.pose
@@ -265,6 +273,8 @@ class CartesianStreamer(Node):
         Nhận chỉ XYZ [x, y, z].
         Orientation được giữ nguyên từ vị trí hiện tại hoặc default.
         """
+        if not self._queue_mode_active:
+            return
         if len(msg.data) < 3:
             return
         pos = Point(x=msg.data[0], y=msg.data[1], z=msg.data[2])
@@ -298,32 +308,75 @@ class CartesianStreamer(Node):
     # STARTUP
     # ═══════════════════════════════════════════════════════════════
 
-    def _startup(self):
-        """Khởi động tuần tự các chế độ driver."""
+    def _wait_for_joints(self):
+        """Chỉ chờ joint_states, KHÔNG tự động enable robot."""
         if not self._got_joints:
             self.get_logger().info('Chờ /yaskawa/joint_states...', throttle_duration_sec=2.0)
             return
         self._startup_timer.cancel()
 
-        # Bước 1: Reset Error
-        self.get_logger().info('Đang gọi reset_error...')
-        self._call_trigger_chained(self._reset_error_cli, 'reset_error', self._step_2_servo_on)
+        # Tính FK để biết EE hiện tại, publish /cartesian_streamer/current_pose
+        initial_pose = self._solve_fk_sync(list(self._current_joints))
+        if initial_pose:
+            self._current_ee_pose = initial_pose
+            fb = PoseStamped()
+            fb.header.frame_id = BASE_FRAME
+            fb.header.stamp = self.get_clock().now().to_msg()
+            fb.pose = initial_pose
+            self._ee_pub.publish(fb)
+            self.get_logger().info(
+                f'Đã nhận joint_states. EE hiện tại: '
+                f'({initial_pose.position.x:.4f}, '
+                f'{initial_pose.position.y:.4f}, '
+                f'{initial_pose.position.z:.4f}). '
+                f'Chờ Enable Robot từ UI...'
+            )
+        else:
+            self.get_logger().info('Đã nhận joint_states. Chờ Enable Robot từ UI...')
 
-    def _step_2_servo_on(self):
-        self.get_logger().info('Đang gọi servo_on...')
-        self._call_trigger_chained(self._servo_on_cli, 'servo_on', self._step_3_stop_traj_mode)
+    # ── Enable / Disable services (gọi từ UI) ────────────────────
 
-    def _step_3_stop_traj_mode(self):
-        self.get_logger().info('Gọi stop_traj_mode để giải phóng mode cũ...')
-        self._call_trigger_chained(self._stop_traj_cli, 'stop_traj_mode', self._step_4_start_queue_mode)
+    def _srv_enable(self, request, response):
+        """Service /cartesian_streamer/enable — bật/tắt robot."""
+        if request.data:
+            if self._queue_mode_active:
+                response.success = True
+                response.message = 'Robot đã enabled rồi'
+                return response
+            if not self._got_joints:
+                response.success = False
+                response.message = 'Chưa nhận được joint_states'
+                return response
+            # Bắt đầu chuỗi enable: reset_error → servo_on → stop_traj → start_queue
+            self.get_logger().info('Enable Robot: bắt đầu chuỗi khởi động...')
+            self._call_trigger_chained(
+                self._reset_error_cli, 'reset_error', self._enable_step_2_servo_on)
+            response.success = True
+            response.message = 'Đang enable robot...'
+        else:
+            # Disable
+            self._disable_robot()
+            response.success = True
+            response.message = 'Robot disabled'
+        return response
 
-    def _step_4_start_queue_mode(self):
-        self.get_logger().info('Bật StartPointQueueMode (queue_traj_point streaming)...')
+    def _enable_step_2_servo_on(self):
+        self.get_logger().info('Enable: servo_on...')
+        self._call_trigger_chained(
+            self._servo_on_cli, 'servo_on', self._enable_step_3_stop_traj)
+
+    def _enable_step_3_stop_traj(self):
+        self.get_logger().info('Enable: stop_traj_mode (giải phóng mode cũ)...')
+        self._call_trigger_chained(
+            self._stop_traj_cli, 'stop_traj_mode', self._enable_step_4_start_queue)
+
+    def _enable_step_4_start_queue(self):
+        self.get_logger().info('Enable: StartPointQueueMode...')
         if not self._start_queue_cli.wait_for_service(timeout_sec=3.0):
             self.get_logger().error('Service StartPointQueueMode không khả dụng!')
             return
         fut = self._start_queue_cli.call_async(StartPointQueueMode.Request())
-        
+
         def _done(f):
             res = f.result()
             self.get_logger().info(
@@ -335,13 +388,26 @@ class CartesianStreamer(Node):
                 self._accepted_since_seed = 0
                 self._seed_request_sent = False
                 self._pending_point_to_resend = None
-                self._cumulative_time_ns = 0          # reset cumulative timer
+                self._cumulative_time_ns = 0
                 self._hold_point_count = 0
                 self._next_send_not_before_ns = self.get_clock().now().nanoseconds
-                self.get_logger().info('✓ Point Queue Mode active. Sẵn sàng stream.')
+                self.get_logger().info('✓ Robot ENABLED — Point Queue Mode active.')
             else:
                 self.get_logger().error(f'StartPointQueueMode FAILED: {res.message}')
         fut.add_done_callback(_done)
+
+    def _disable_robot(self):
+        """Tắt Point Queue Mode và reset state."""
+        self.get_logger().info('Disable Robot: dừng stream, tắt traj mode...')
+        self._queue_mode_active = False
+        self._stream_state = STREAM_STATE_IDLE
+        self._target_pose = None
+        self._seed_request_sent = False
+        self._pending_point_to_resend = None
+        # Gọi stop_traj_mode
+        if self._stop_traj_cli.wait_for_service(timeout_sec=1.0):
+            self._stop_traj_cli.call_async(Trigger.Request())
+        self.get_logger().info('✗ Robot DISABLED.')
 
     def _call_trigger_chained(self, client, name, next_step_cb):
         """Helper để gọi service bất kỳ và chuyển sang bước tiếp theo."""
