@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/kinect2_registration/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake

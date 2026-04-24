@@ -1,0 +1,52 @@
+Starting >>> human_hand_msgs
+Starting >>> motoman_resources
+Starting >>> motoros2_interfaces
+Starting >>> kinect2_registration
+Starting >>> trac_ik_lib
+Starting >>> industrial_msgs
+Starting >>> libfreenect2
+Finished <<< libfreenect2 [0.45s]
+Finished <<< motoman_resources [0.67s]
+Starting >>> motoman_hc10dtp_support
+Starting >>> motoman_gp4_support
+Finished <<< motoman_gp4_support [1.01s]
+Finished <<< motoman_hc10dtp_support [1.14s]
+Starting >>> hc10dtp_moveit_config
+Finished <<< trac_ik_lib [2.09s]
+Starting >>> trac_ik_kinematics
+Finished <<< kinect2_registration [2.61s]
+Starting >>> kinect2_bridge
+Finished <<< hc10dtp_moveit_config [0.95s]
+Starting >>> hc10dtp_bringup
+Finished <<< hc10dtp_bringup [0.99s]
+Finished <<< industrial_msgs [6.16s]
+Finished <<< human_hand_msgs [6.27s]
+Starting >>> coord_transform
+Starting >>> experiment_logger
+Starting >>> predictor_ui
+Starting >>> realsense_tracker
+Starting >>> trajectory_predictor
+--- stderr: trac_ik_kinematics
+trac_ik_kinematics: You did not request a specific build type: Choosing 'Release' for maximum performance
+---
+Finished <<< trac_ik_kinematics [4.31s]
+Starting >>> trac_ik
+Finished <<< motoros2_interfaces [9.73s]
+Starting >>> hc10dtp_simulation
+Starting >>> motoros2_client_interface_dependencies
+Finished <<< kinect2_bridge [7.21s]
+Starting >>> kinect2_calibration
+Finished <<< trac_ik [1.53s]
+Finished <<< hc10dtp_simulation [1.29s]
+Finished <<< motoros2_client_interface_dependencies [1.34s]
+Finished <<< predictor_ui [6.94s]
+Finished <<< trajectory_predictor [7.06s]
+Finished <<< realsense_tracker [7.20s]
+Finished <<< coord_transform [7.48s]
+Finished <<< experiment_logger [7.51s]
+Starting >>> hrc_bringup
+Finished <<< hrc_bringup [0.84s]
+Finished <<< kinect2_calibration [5.12s]
+
+Summary: 23 packages finished [15.6s]
+  1 package had stderr output: trac_ik_kinematics

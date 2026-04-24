@@ -1,0 +1,59 @@
+[0.000000] (-) TimerEvent: {}
+[0.000291] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000588] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000905] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.001325] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.001388] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.001621] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.001821] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.001858] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.001892] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.001924] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001954] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001986] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.002045] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.002107] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.002124] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.002142] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.002167] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.002183] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.002198] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.002283] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.002300] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.002318] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.002363] (predictor_ui) JobQueued: {'identifier': 'predictor_ui', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.002431] (predictor_ui) JobStarted: {'identifier': 'predictor_ui'}
+[0.099681] (-) TimerEvent: {}
+[0.199910] (-) TimerEvent: {}
+[0.300140] (-) TimerEvent: {}
+[0.400375] (-) TimerEvent: {}
+[0.500633] (-) TimerEvent: {}
+[0.600852] (-) TimerEvent: {}
+[0.701118] (-) TimerEvent: {}
+[0.801417] (-) TimerEvent: {}
+[0.901666] (-) TimerEvent: {}
+[0.922358] (predictor_ui) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/duy/cocarry_ws/build/predictor_ui/build', '--no-deps', 'symlink_data'], 'cwd': '/home/duy/cocarry_ws/build/predictor_ui', 'env': {'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'duy', 'LC_TIME': 'en_US.UTF-8', 'FONTCONFIG_PATH': '/etc/fonts', 'GIT_EDITOR': ':', 'GIO_MODULE_DIR': '/home/duy/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/snap/code/234/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib:/usr/local/lib/nuitrack:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack', 'HOME': '/home/duy', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.116.0', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/234/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/duy/snap/code/common/.cache/immodules/immodules.cache', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/234/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/234/usr/share/code/code', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '1228', 'BUNDLED_DEBUGPY_PATH': '/home/duy/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'duy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'USERNAME': 'duy', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'ROS_LOCALHOST_ONLY': '0', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/duy/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/duy/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin:/home/duy/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/scripts/noConfigScripts:/home/duy/libfreenect2/build/bin', 'SESSION_MANAGER': 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1200,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1200', 'GTK_EXE_PREFIX': '/snap/code/234/usr', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/2b0003fc_3800_4558_b38d_529c984e2f43', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/234/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/duy/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-464a314979179ac3.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'PYTHONSTARTUP': '/home/duy/.config/Code/User/workspaceStorage/d823d4f43dba34104566aeef2716961e/ms-python.python/pythonrc.py', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/duy/snap/code/234/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.K05ZN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-01fb676857.sock', 'GNOME_TERMINAL_SERVICE': ':1.135', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/duy/snap/code/234/.local/share/glib-2.0/schemas', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'NUITRACK_HOME': '/usr/etc/nuitrack', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/duy/cocarry_ws/build/predictor_ui', 'GIT_MERGE_AUTOEDIT': 'no', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/duy/snap/code/234/.local/share:/home/duy/snap/code/234:/snap/code/234/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/duy/cocarry_ws/build/predictor_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[1.001780] (-) TimerEvent: {}
+[1.102039] (-) TimerEvent: {}
+[1.202284] (-) TimerEvent: {}
+[1.281395] (predictor_ui) StdoutLine: {'line': b'running develop\n'}
+[1.302515] (-) TimerEvent: {}
+[1.402795] (-) TimerEvent: {}
+[1.464014] (predictor_ui) StdoutLine: {'line': b'running egg_info\n'}
+[1.464896] (predictor_ui) StdoutLine: {'line': b'writing predictor_ui.egg-info/PKG-INFO\n'}
+[1.465373] (predictor_ui) StdoutLine: {'line': b'writing dependency_links to predictor_ui.egg-info/dependency_links.txt\n'}
+[1.465848] (predictor_ui) StdoutLine: {'line': b'writing entry points to predictor_ui.egg-info/entry_points.txt\n'}
+[1.466022] (predictor_ui) StdoutLine: {'line': b'writing requirements to predictor_ui.egg-info/requires.txt\n'}
+[1.466183] (predictor_ui) StdoutLine: {'line': b'writing top-level names to predictor_ui.egg-info/top_level.txt\n'}
+[1.470196] (predictor_ui) StdoutLine: {'line': b"reading manifest file 'predictor_ui.egg-info/SOURCES.txt'\n"}
+[1.471142] (predictor_ui) StdoutLine: {'line': b"writing manifest file 'predictor_ui.egg-info/SOURCES.txt'\n"}
+[1.473634] (predictor_ui) StdoutLine: {'line': b'running build_ext\n'}
+[1.474157] (predictor_ui) StdoutLine: {'line': b'Creating /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor-ui.egg-link (link to .)\n'}
+[1.474986] (predictor_ui) StdoutLine: {'line': b'Installing ui_node script to /home/duy/cocarry_ws/install/predictor_ui/lib/predictor_ui\n'}
+[1.475360] (predictor_ui) StdoutLine: {'line': b'\n'}
+[1.475517] (predictor_ui) StdoutLine: {'line': b'Installed /home/duy/cocarry_ws/build/predictor_ui\n'}
+[1.475657] (predictor_ui) StdoutLine: {'line': b'running symlink_data\n'}
+[1.503048] (-) TimerEvent: {}
+[1.511806] (predictor_ui) CommandEnded: {'returncode': 0}
+[1.524892] (predictor_ui) JobEnded: {'identifier': 'predictor_ui', 'rc': 0}
+[1.525797] (-) EventReactorShutdown: {}

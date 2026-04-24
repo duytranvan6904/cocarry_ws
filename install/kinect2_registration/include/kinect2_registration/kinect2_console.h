@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration/include/kinect2_registration/kinect2_console.h

@@ -1,0 +1,802 @@
+[0.095s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'hrc_bringup', 'hc10dtp_simulation', 'coord_transform', 'realsense_tracker', 'trajectory_predictor', 'predictor_ui', 'experiment_logger', 'hc10dtp_bringup']
+[0.095s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['hrc_bringup', 'hc10dtp_simulation', 'coord_transform', 'realsense_tracker', 'trajectory_predictor', 'predictor_ui', 'experiment_logger', 'hc10dtp_bringup'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7b3e00c48dc0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7b3e00d72230>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7b3e00d72230>>)
+[0.207s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.207s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.207s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.207s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.207s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.207s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.207s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/duy/cocarry_ws'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extensions ['ignore', 'ignore_ament_install']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extension 'ignore_ament_install'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extensions ['colcon_pkg']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extension 'colcon_pkg'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extensions ['colcon_meta']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extension 'colcon_meta'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extensions ['ros']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extension 'ros'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extensions ['cmake', 'python']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extension 'cmake'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(libfreenect2) by extension 'python'
+[0.227s] DEBUG:colcon.colcon_core.package_identification:Package 'libfreenect2' with type 'cmake' and name 'libfreenect2'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extensions ['ignore', 'ignore_ament_install']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extension 'ignore'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extension 'ignore_ament_install'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extensions ['colcon_pkg']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extension 'colcon_pkg'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extensions ['colcon_meta']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extension 'colcon_meta'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extensions ['ros']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/coord_transform) by extension 'ros'
+[0.230s] DEBUG:colcon.colcon_core.package_identification:Package 'src/coord_transform' with type 'ros.ament_python' and name 'coord_transform'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extensions ['ignore', 'ignore_ament_install']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extension 'ignore'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extension 'ignore_ament_install'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extensions ['colcon_pkg']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extension 'colcon_pkg'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extensions ['colcon_meta']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extension 'colcon_meta'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extensions ['ros']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/experiment_logger) by extension 'ros'
+[0.231s] DEBUG:colcon.colcon_core.package_identification:Package 'src/experiment_logger' with type 'ros.ament_python' and name 'experiment_logger'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extension 'ignore'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extension 'ignore_ament_install'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extensions ['colcon_pkg']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extension 'colcon_pkg'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extensions ['colcon_meta']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extension 'colcon_meta'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extensions ['ros']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_bringup) by extension 'ros'
+[0.231s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hc10dtp_bringup' with type 'ros.ament_cmake' and name 'hc10dtp_bringup'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extensions ['ignore', 'ignore_ament_install']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extension 'ignore'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extension 'ignore_ament_install'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extensions ['colcon_pkg']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extension 'colcon_pkg'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extensions ['colcon_meta']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extension 'colcon_meta'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extensions ['ros']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_moveit_config) by extension 'ros'
+[0.232s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hc10dtp_moveit_config' with type 'ros.ament_cmake' and name 'hc10dtp_moveit_config'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extensions ['ignore', 'ignore_ament_install']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extension 'ignore'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extension 'ignore_ament_install'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extensions ['colcon_pkg']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extension 'colcon_pkg'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extensions ['colcon_meta']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extension 'colcon_meta'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extensions ['ros']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/hc10dtp_simulation) by extension 'ros'
+[0.233s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hc10dtp_simulation' with type 'ros.ament_cmake' and name 'hc10dtp_simulation'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extension 'ignore'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extension 'ignore_ament_install'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extensions ['colcon_pkg']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extension 'colcon_pkg'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extensions ['colcon_meta']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extension 'colcon_meta'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extensions ['ros']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/hrc_bringup) by extension 'ros'
+[0.233s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hrc_bringup' with type 'ros.ament_cmake' and name 'hrc_bringup'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extension 'ignore'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extension 'ignore_ament_install'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extensions ['colcon_pkg']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extension 'colcon_pkg'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extensions ['colcon_meta']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extension 'colcon_meta'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extensions ['ros']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/human_hand_msgs) by extension 'ros'
+[0.234s] DEBUG:colcon.colcon_core.package_identification:Package 'src/human_hand_msgs' with type 'ros.catkin' and name 'human_hand_msgs'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'ignore_ament_install'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extensions ['colcon_pkg']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'colcon_pkg'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extensions ['colcon_meta']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'colcon_meta'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extensions ['ros']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'ros'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extensions ['cmake', 'python']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'cmake'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'python'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extensions ['python_setup_py']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2) by extension 'python_setup_py'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extension 'ignore_ament_install'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extensions ['colcon_pkg']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extension 'colcon_pkg'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extensions ['colcon_meta']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extension 'colcon_meta'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extensions ['ros']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_bridge) by extension 'ros'
+[0.235s] DEBUG:colcon.colcon_core.package_identification:Package 'src/kinect2_ros2/kinect2_bridge' with type 'ros.ament_cmake' and name 'kinect2_bridge'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extensions ['ignore', 'ignore_ament_install']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extension 'ignore'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extension 'ignore_ament_install'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extensions ['colcon_pkg']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extension 'colcon_pkg'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extensions ['colcon_meta']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extension 'colcon_meta'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extensions ['ros']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_calibration) by extension 'ros'
+[0.236s] DEBUG:colcon.colcon_core.package_identification:Package 'src/kinect2_ros2/kinect2_calibration' with type 'ros.ament_cmake' and name 'kinect2_calibration'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extensions ['ignore', 'ignore_ament_install']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extension 'ignore'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extension 'ignore_ament_install'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extensions ['colcon_pkg']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extension 'colcon_pkg'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extensions ['colcon_meta']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extension 'colcon_meta'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extensions ['ros']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/kinect2_ros2/kinect2_registration) by extension 'ros'
+[0.237s] DEBUG:colcon.colcon_core.package_identification:Package 'src/kinect2_ros2/kinect2_registration' with type 'ros.ament_cmake' and name 'kinect2_registration'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extensions ['ignore', 'ignore_ament_install']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'ignore'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'ignore_ament_install'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extensions ['colcon_pkg']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'colcon_pkg'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extensions ['colcon_meta']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'colcon_meta'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extensions ['ros']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'ros'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extensions ['cmake', 'python']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'cmake'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'python'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extensions ['python_setup_py']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages) by extension 'python_setup_py'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extensions ['ignore', 'ignore_ament_install']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extension 'ignore'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extension 'ignore_ament_install'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extensions ['colcon_pkg']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extension 'colcon_pkg'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extensions ['colcon_meta']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extension 'colcon_meta'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extensions ['ros']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_gp4_support) by extension 'ros'
+[0.238s] DEBUG:colcon.colcon_core.package_identification:Package 'src/motoman_ros2_support_packages/motoman_gp4_support' with type 'ros.ament_cmake' and name 'motoman_gp4_support'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extension 'ignore'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extension 'ignore_ament_install'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extensions ['colcon_pkg']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extension 'colcon_pkg'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extensions ['colcon_meta']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extension 'colcon_meta'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extensions ['ros']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_hc10dtp_support) by extension 'ros'
+[0.239s] DEBUG:colcon.colcon_core.package_identification:Package 'src/motoman_ros2_support_packages/motoman_hc10dtp_support' with type 'ros.ament_cmake' and name 'motoman_hc10dtp_support'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extensions ['colcon_pkg']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extension 'colcon_pkg'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extensions ['colcon_meta']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extension 'colcon_meta'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extensions ['ros']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoman_ros2_support_packages/motoman_resources) by extension 'ros'
+[0.239s] DEBUG:colcon.colcon_core.package_identification:Package 'src/motoman_ros2_support_packages/motoman_resources' with type 'ros.ament_cmake' and name 'motoman_resources'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extensions ['colcon_pkg']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extension 'colcon_pkg'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extensions ['colcon_meta']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extension 'colcon_meta'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extensions ['ros']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_interface_dependencies) by extension 'ros'
+[0.240s] DEBUG:colcon.colcon_core.package_identification:Package 'src/motoros2_client_interface_dependencies' with type 'ros.ament_cmake' and name 'motoros2_client_interface_dependencies'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extensions ['ignore', 'ignore_ament_install']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'ignore'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'ignore_ament_install'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extensions ['colcon_pkg']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'colcon_pkg'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extensions ['colcon_meta']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'colcon_meta'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extensions ['ros']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'ros'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extensions ['cmake', 'python']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'cmake'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'python'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extensions ['python_setup_py']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/motoros2_client_library) by extension 'python_setup_py'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extensions ['ignore', 'ignore_ament_install']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extension 'ignore'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extension 'ignore_ament_install'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extensions ['colcon_pkg']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extension 'colcon_pkg'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extensions ['colcon_meta']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extension 'colcon_meta'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extensions ['ros']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/predictor_ui) by extension 'ros'
+[0.241s] DEBUG:colcon.colcon_core.package_identification:Package 'src/predictor_ui' with type 'ros.ament_python' and name 'predictor_ui'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extensions ['ignore', 'ignore_ament_install']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extension 'ignore'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extension 'ignore_ament_install'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extensions ['colcon_pkg']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extension 'colcon_pkg'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extensions ['colcon_meta']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extension 'colcon_meta'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extensions ['ros']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(src/realsense_tracker) by extension 'ros'
+[0.242s] DEBUG:colcon.colcon_core.package_identification:Package 'src/realsense_tracker' with type 'ros.ament_python' and name 'realsense_tracker'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'ignore_ament_install'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extensions ['colcon_pkg']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'colcon_pkg'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extensions ['colcon_meta']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'colcon_meta'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extensions ['ros']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'ros'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extensions ['cmake', 'python']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'cmake'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'python'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extensions ['python_setup_py']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial) by extension 'python_setup_py'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'ignore_ament_install'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extensions ['colcon_pkg']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'colcon_pkg'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extensions ['colcon_meta']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'colcon_meta'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extensions ['ros']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'ros'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extensions ['cmake', 'python']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'cmake'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'python'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extensions ['python_setup_py']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only) by extension 'python_setup_py'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extension 'ignore'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extension 'ignore_ament_install'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extensions ['colcon_pkg']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extension 'colcon_pkg'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extensions ['colcon_meta']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extension 'colcon_meta'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extensions ['ros']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs) by extension 'ros'
+[0.243s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs' with type 'ros.ament_cmake' and name 'industrial_msgs'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extensions ['ignore', 'ignore_ament_install']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'ignore'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'ignore_ament_install'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extensions ['colcon_pkg']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'colcon_pkg'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extensions ['colcon_meta']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'colcon_meta'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extensions ['ros']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'ros'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extensions ['cmake', 'python']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'cmake'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'python'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extensions ['python_setup_py']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik) by extension 'python_setup_py'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extensions ['ignore', 'ignore_ament_install']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'ignore'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'ignore_ament_install'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extensions ['colcon_pkg']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'colcon_pkg'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extensions ['colcon_meta']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'colcon_meta'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extensions ['ros']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'ros'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extensions ['cmake', 'python']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'cmake'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'python'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extensions ['python_setup_py']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/nlopt) by extension 'python_setup_py'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extensions ['ignore', 'ignore_ament_install']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extension 'ignore'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extension 'ignore_ament_install'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extensions ['colcon_pkg']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extension 'colcon_pkg'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extensions ['colcon_meta']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extension 'colcon_meta'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extensions ['ros']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik) by extension 'ros'
+[0.245s] DEBUG:colcon.colcon_core.package_identification:Package 'src/trac_ik/trac_ik' with type 'ros.ament_cmake' and name 'trac_ik'
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_examples) by extensions ['ignore', 'ignore_ament_install']
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_examples) by extension 'ignore'
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_examples) ignored
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extensions ['ignore', 'ignore_ament_install']
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extension 'ignore'
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extension 'ignore_ament_install'
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extensions ['colcon_pkg']
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extension 'colcon_pkg'
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extensions ['colcon_meta']
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extension 'colcon_meta'
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extensions ['ros']
+[0.245s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_kinematics) by extension 'ros'
+[0.246s] DEBUG:colcon.colcon_core.package_identification:Package 'src/trac_ik/trac_ik_kinematics' with type 'ros.ament_cmake' and name 'trac_ik_kinematics'
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extensions ['ignore', 'ignore_ament_install']
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extension 'ignore'
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extension 'ignore_ament_install'
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extensions ['colcon_pkg']
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extension 'colcon_pkg'
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extensions ['colcon_meta']
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extension 'colcon_meta'
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extensions ['ros']
+[0.246s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_lib) by extension 'ros'
+[0.247s] DEBUG:colcon.colcon_core.package_identification:Package 'src/trac_ik/trac_ik_lib' with type 'ros.ament_cmake' and name 'trac_ik_lib'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_python) by extensions ['ignore', 'ignore_ament_install']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_python) by extension 'ignore'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trac_ik/trac_ik_python) ignored
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extensions ['ignore', 'ignore_ament_install']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extension 'ignore'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extension 'ignore_ament_install'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extensions ['colcon_pkg']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extension 'colcon_pkg'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extensions ['colcon_meta']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extension 'colcon_meta'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extensions ['ros']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/trajectory_predictor) by extension 'ros'
+[0.247s] DEBUG:colcon.colcon_core.package_identification:Package 'src/trajectory_predictor' with type 'ros.ament_python' and name 'trajectory_predictor'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extensions ['ignore', 'ignore_ament_install']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'ignore'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'ignore_ament_install'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extensions ['colcon_pkg']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'colcon_pkg'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extensions ['colcon_meta']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'colcon_meta'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extensions ['ros']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'ros'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extensions ['cmake', 'python']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'cmake'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'python'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extensions ['python_setup_py']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global) by extension 'python_setup_py'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extension 'ignore'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extension 'ignore_ament_install'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extensions ['colcon_pkg']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extension 'colcon_pkg'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extensions ['colcon_meta']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extension 'colcon_meta'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extensions ['ros']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/yaskawa-global/motoros2_interfaces) by extension 'ros'
+[0.248s] DEBUG:colcon.colcon_core.package_identification:Package 'src/yaskawa-global/motoros2_interfaces' with type 'ros.ament_cmake' and name 'motoros2_interfaces'
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'human_hand_msgs' in 'src/human_hand_msgs'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'industrial_msgs' in 'src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'kinect2_registration' in 'src/kinect2_ros2/kinect2_registration'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'libfreenect2' in 'libfreenect2'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'motoman_resources' in 'src/motoman_ros2_support_packages/motoman_resources'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'motoros2_interfaces' in 'src/yaskawa-global/motoros2_interfaces'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'trac_ik_lib' in 'src/trac_ik/trac_ik_lib'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'kinect2_bridge' in 'src/kinect2_ros2/kinect2_bridge'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'motoman_gp4_support' in 'src/motoman_ros2_support_packages/motoman_gp4_support'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'motoman_hc10dtp_support' in 'src/motoman_ros2_support_packages/motoman_hc10dtp_support'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'motoros2_client_interface_dependencies' in 'src/motoros2_client_interface_dependencies'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'trac_ik_kinematics' in 'src/trac_ik/trac_ik_kinematics'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hc10dtp_moveit_config' in 'src/hc10dtp_moveit_config'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'kinect2_calibration' in 'src/kinect2_ros2/kinect2_calibration'
+[0.265s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'trac_ik' in 'src/trac_ik/trac_ik'
+[0.266s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.266s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.267s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 383 installed packages in /opt/ros/humble
+[0.268s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'cmake_args' from command line to 'None'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'cmake_target' from command line to 'None'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'cmake_clean_cache' from command line to 'False'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'cmake_clean_first' from command line to 'False'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'cmake_force_configure' from command line to 'False'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'ament_cmake_args' from command line to 'None'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'catkin_cmake_args' from command line to 'None'
+[0.296s] Level 5:colcon.colcon_core.verb:set package 'coord_transform' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.297s] DEBUG:colcon.colcon_core.verb:Building package 'coord_transform' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/coord_transform', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/coord_transform', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/coord_transform', 'symlink_install': False, 'test_result_base': None}
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'cmake_target' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'cmake_clean_cache' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'cmake_clean_first' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'cmake_force_configure' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'ament_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'catkin_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'experiment_logger' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.297s] DEBUG:colcon.colcon_core.verb:Building package 'experiment_logger' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/experiment_logger', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/experiment_logger', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/experiment_logger', 'symlink_install': False, 'test_result_base': None}
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'cmake_target' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'cmake_clean_cache' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'cmake_clean_first' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'cmake_force_configure' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'ament_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'catkin_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'predictor_ui' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.297s] DEBUG:colcon.colcon_core.verb:Building package 'predictor_ui' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/predictor_ui', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/predictor_ui', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/predictor_ui', 'symlink_install': False, 'test_result_base': None}
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'cmake_target' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'cmake_clean_cache' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'cmake_clean_first' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'cmake_force_configure' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'ament_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'catkin_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'realsense_tracker' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.298s] DEBUG:colcon.colcon_core.verb:Building package 'realsense_tracker' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/realsense_tracker', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/realsense_tracker', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/realsense_tracker', 'symlink_install': False, 'test_result_base': None}
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'cmake_target' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'cmake_clean_first' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'cmake_force_configure' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'ament_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'trajectory_predictor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.298s] DEBUG:colcon.colcon_core.verb:Building package 'trajectory_predictor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/trajectory_predictor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/trajectory_predictor', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/trajectory_predictor', 'symlink_install': False, 'test_result_base': None}
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'cmake_target' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.298s] DEBUG:colcon.colcon_core.verb:Building package 'hc10dtp_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/hc10dtp_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/hc10dtp_bringup', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/hc10dtp_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'cmake_target' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'cmake_clean_first' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'cmake_force_configure' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'ament_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hc10dtp_simulation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.299s] DEBUG:colcon.colcon_core.verb:Building package 'hc10dtp_simulation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/hc10dtp_simulation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/hc10dtp_simulation', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/hc10dtp_simulation', 'symlink_install': False, 'test_result_base': None}
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'cmake_target' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'hrc_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.299s] DEBUG:colcon.colcon_core.verb:Building package 'hrc_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/duy/cocarry_ws/build/hrc_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/duy/cocarry_ws/install/hrc_bringup', 'merge_install': False, 'path': '/home/duy/cocarry_ws/src/hrc_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.299s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.300s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.300s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/duy/cocarry_ws/src/hc10dtp_bringup' with build type 'ament_cmake'
+[0.300s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/duy/cocarry_ws/src/hc10dtp_bringup'
+[0.302s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.303s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.303s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.305s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/duy/cocarry_ws/src/coord_transform' with build type 'ament_python'
+[0.305s] Level 1:colcon.colcon_core.shell:create_environment_hook('coord_transform', 'ament_prefix_path')
+[0.305s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/hook/ament_prefix_path.ps1'
+[0.306s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/hook/ament_prefix_path.dsv'
+[0.306s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/hook/ament_prefix_path.sh'
+[0.306s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.306s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.308s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/duy/cocarry_ws/src/experiment_logger' with build type 'ament_python'
+[0.308s] Level 1:colcon.colcon_core.shell:create_environment_hook('experiment_logger', 'ament_prefix_path')
+[0.308s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/hook/ament_prefix_path.ps1'
+[0.309s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/hook/ament_prefix_path.dsv'
+[0.309s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/hook/ament_prefix_path.sh'
+[0.309s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.309s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.311s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/duy/cocarry_ws/src/predictor_ui' with build type 'ament_python'
+[0.311s] Level 1:colcon.colcon_core.shell:create_environment_hook('predictor_ui', 'ament_prefix_path')
+[0.311s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/hook/ament_prefix_path.ps1'
+[0.311s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/hook/ament_prefix_path.dsv'
+[0.311s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/hook/ament_prefix_path.sh'
+[0.312s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.312s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.314s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/duy/cocarry_ws/src/realsense_tracker' with build type 'ament_python'
+[0.314s] Level 1:colcon.colcon_core.shell:create_environment_hook('realsense_tracker', 'ament_prefix_path')
+[0.314s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/hook/ament_prefix_path.ps1'
+[0.314s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/hook/ament_prefix_path.dsv'
+[0.314s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/hook/ament_prefix_path.sh'
+[0.315s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.315s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.316s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/duy/cocarry_ws/src/trajectory_predictor' with build type 'ament_python'
+[0.316s] Level 1:colcon.colcon_core.shell:create_environment_hook('trajectory_predictor', 'ament_prefix_path')
+[0.317s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/hook/ament_prefix_path.ps1'
+[0.317s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/hook/ament_prefix_path.dsv'
+[0.317s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/hook/ament_prefix_path.sh'
+[0.317s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.317s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.323s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/build/hc10dtp_bringup': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/hc10dtp_bringup -- -j16 -l16
+[0.496s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/duy/cocarry_ws/src/coord_transform'
+[0.497s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.497s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.667s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/duy/cocarry_ws/src/experiment_logger'
+[0.667s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.667s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.860s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/duy/cocarry_ws/src/predictor_ui'
+[0.861s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.861s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.027s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/duy/cocarry_ws/src/realsense_tracker'
+[1.028s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.028s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.197s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/duy/cocarry_ws/src/trajectory_predictor'
+[1.197s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.198s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.201s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/build/hc10dtp_bringup' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/hc10dtp_bringup -- -j16 -l16
+[1.211s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/build/hc10dtp_bringup': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/hc10dtp_bringup
+[1.229s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hc10dtp_bringup)
+[1.229s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/build/hc10dtp_bringup' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/hc10dtp_bringup
+[1.232s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup' for CMake module files
+[1.233s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup' for CMake config files
+[1.233s] Level 1:colcon.colcon_core.shell:create_environment_hook('hc10dtp_bringup', 'cmake_prefix_path')
+[1.233s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/hook/cmake_prefix_path.ps1'
+[1.234s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/hook/cmake_prefix_path.dsv'
+[1.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/hook/cmake_prefix_path.sh'
+[1.235s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/lib'
+[1.235s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/bin'
+[1.235s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/lib/pkgconfig/hc10dtp_bringup.pc'
+[1.236s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/lib/python3.10/site-packages'
+[1.236s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/bin'
+[1.236s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.ps1'
+[1.238s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.dsv'
+[1.239s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.sh'
+[1.239s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.bash'
+[1.240s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.zsh'
+[1.241s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/hc10dtp_bringup/share/colcon-core/packages/hc10dtp_bringup)
+[1.242s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hc10dtp_bringup)
+[1.242s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup' for CMake module files
+[1.242s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup' for CMake config files
+[1.243s] Level 1:colcon.colcon_core.shell:create_environment_hook('hc10dtp_bringup', 'cmake_prefix_path')
+[1.243s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/hook/cmake_prefix_path.ps1'
+[1.243s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/hook/cmake_prefix_path.dsv'
+[1.243s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/hook/cmake_prefix_path.sh'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/lib'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/bin'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/lib/pkgconfig/hc10dtp_bringup.pc'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/lib/python3.10/site-packages'
+[1.244s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_bringup/bin'
+[1.245s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.ps1'
+[1.245s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.dsv'
+[1.246s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.sh'
+[1.246s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.bash'
+[1.246s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_bringup/share/hc10dtp_bringup/package.zsh'
+[1.246s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/hc10dtp_bringup/share/colcon-core/packages/hc10dtp_bringup)
+[1.247s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/duy/cocarry_ws/src/hc10dtp_simulation' with build type 'ament_cmake'
+[1.247s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/duy/cocarry_ws/src/hc10dtp_simulation'
+[1.247s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.247s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.262s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/build/hc10dtp_simulation': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/duy/cocarry_ws/build/hc10dtp_simulation -- -j16 -l16
+[1.299s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/build/hc10dtp_simulation' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/duy/cocarry_ws/build/hc10dtp_simulation -- -j16 -l16
+[1.301s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/build/hc10dtp_simulation': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/duy/cocarry_ws/build/hc10dtp_simulation
+[1.326s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hc10dtp_simulation)
+[1.327s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation' for CMake module files
+[1.328s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/build/hc10dtp_simulation' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/duy/cocarry_ws/build/hc10dtp_simulation
+[1.328s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation' for CMake config files
+[1.329s] Level 1:colcon.colcon_core.shell:create_environment_hook('hc10dtp_simulation', 'cmake_prefix_path')
+[1.329s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/hook/cmake_prefix_path.ps1'
+[1.330s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/hook/cmake_prefix_path.dsv'
+[1.330s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/hook/cmake_prefix_path.sh'
+[1.331s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/lib'
+[1.331s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/bin'
+[1.331s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/lib/pkgconfig/hc10dtp_simulation.pc'
+[1.332s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/lib/python3.10/site-packages'
+[1.332s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/bin'
+[1.333s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.ps1'
+[1.334s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.dsv'
+[1.334s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.sh'
+[1.335s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.bash'
+[1.335s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.zsh'
+[1.335s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/hc10dtp_simulation/share/colcon-core/packages/hc10dtp_simulation)
+[1.336s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hc10dtp_simulation)
+[1.336s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation' for CMake module files
+[1.336s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation' for CMake config files
+[1.336s] Level 1:colcon.colcon_core.shell:create_environment_hook('hc10dtp_simulation', 'cmake_prefix_path')
+[1.337s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/hook/cmake_prefix_path.ps1'
+[1.337s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/hook/cmake_prefix_path.dsv'
+[1.337s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/hook/cmake_prefix_path.sh'
+[1.338s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/lib'
+[1.338s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/bin'
+[1.338s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/lib/pkgconfig/hc10dtp_simulation.pc'
+[1.338s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/lib/python3.10/site-packages'
+[1.338s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hc10dtp_simulation/bin'
+[1.339s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.ps1'
+[1.339s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.dsv'
+[1.340s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.sh'
+[1.340s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.bash'
+[1.340s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hc10dtp_simulation/share/hc10dtp_simulation/package.zsh'
+[1.341s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/hc10dtp_simulation/share/colcon-core/packages/hc10dtp_simulation)
+[1.560s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/src/predictor_ui': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/predictor_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/predictor_ui build --build-base /home/duy/cocarry_ws/build/predictor_ui/build install --record /home/duy/cocarry_ws/build/predictor_ui/install.log --single-version-externally-managed install_data
+[1.603s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/src/realsense_tracker': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/realsense_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/realsense_tracker build --build-base /home/duy/cocarry_ws/build/realsense_tracker/build install --record /home/duy/cocarry_ws/build/realsense_tracker/install.log --single-version-externally-managed install_data
+[1.620s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/src/trajectory_predictor': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/trajectory_predictor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/trajectory_predictor build --build-base /home/duy/cocarry_ws/build/trajectory_predictor/build install --record /home/duy/cocarry_ws/build/trajectory_predictor/install.log --single-version-externally-managed install_data
+[1.622s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/src/experiment_logger': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/experiment_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/experiment_logger build --build-base /home/duy/cocarry_ws/build/experiment_logger/build install --record /home/duy/cocarry_ws/build/experiment_logger/install.log --single-version-externally-managed install_data
+[1.787s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/src/coord_transform': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/coord_transform/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/coord_transform build --build-base /home/duy/cocarry_ws/build/coord_transform/build install --record /home/duy/cocarry_ws/build/coord_transform/install.log --single-version-externally-managed install_data
+[1.850s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/predictor_ui' for CMake module files
+[1.851s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/src/predictor_ui' returned '0': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/predictor_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/predictor_ui build --build-base /home/duy/cocarry_ws/build/predictor_ui/build install --record /home/duy/cocarry_ws/build/predictor_ui/install.log --single-version-externally-managed install_data
+[1.851s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/predictor_ui' for CMake config files
+[1.852s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/predictor_ui/lib'
+[1.852s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/predictor_ui/bin'
+[1.852s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/predictor_ui/lib/pkgconfig/predictor_ui.pc'
+[1.852s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages'
+[1.852s] Level 1:colcon.colcon_core.shell:create_environment_hook('predictor_ui', 'pythonpath')
+[1.853s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/hook/pythonpath.ps1'
+[1.853s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/hook/pythonpath.dsv'
+[1.853s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/hook/pythonpath.sh'
+[1.854s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/predictor_ui/bin'
+[1.854s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(predictor_ui)
+[1.854s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/package.ps1'
+[1.855s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/package.dsv'
+[1.855s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/package.sh'
+[1.856s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/package.bash'
+[1.856s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui/package.zsh'
+[1.856s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/predictor_ui/share/colcon-core/packages/predictor_ui)
+[1.898s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/experiment_logger' for CMake module files
+[1.899s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/src/experiment_logger' returned '0': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/experiment_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/experiment_logger build --build-base /home/duy/cocarry_ws/build/experiment_logger/build install --record /home/duy/cocarry_ws/build/experiment_logger/install.log --single-version-externally-managed install_data
+[1.899s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/experiment_logger' for CMake config files
+[1.900s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/experiment_logger/lib'
+[1.900s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/experiment_logger/bin'
+[1.900s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/experiment_logger/lib/pkgconfig/experiment_logger.pc'
+[1.900s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages'
+[1.900s] Level 1:colcon.colcon_core.shell:create_environment_hook('experiment_logger', 'pythonpath')
+[1.900s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/hook/pythonpath.ps1'
+[1.901s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/hook/pythonpath.dsv'
+[1.901s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/hook/pythonpath.sh'
+[1.901s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/experiment_logger/bin'
+[1.902s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(experiment_logger)
+[1.902s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/package.ps1'
+[1.902s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/package.dsv'
+[1.903s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/package.sh'
+[1.903s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/package.bash'
+[1.903s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger/package.zsh'
+[1.904s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/experiment_logger/share/colcon-core/packages/experiment_logger)
+[1.934s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/realsense_tracker' for CMake module files
+[1.934s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/src/realsense_tracker' returned '0': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/realsense_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/realsense_tracker build --build-base /home/duy/cocarry_ws/build/realsense_tracker/build install --record /home/duy/cocarry_ws/build/realsense_tracker/install.log --single-version-externally-managed install_data
+[1.935s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/realsense_tracker' for CMake config files
+[1.935s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/realsense_tracker/lib'
+[1.935s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/realsense_tracker/bin'
+[1.935s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/realsense_tracker/lib/pkgconfig/realsense_tracker.pc'
+[1.935s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages'
+[1.935s] Level 1:colcon.colcon_core.shell:create_environment_hook('realsense_tracker', 'pythonpath')
+[1.936s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/hook/pythonpath.ps1'
+[1.936s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/hook/pythonpath.dsv'
+[1.937s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/hook/pythonpath.sh'
+[1.937s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/realsense_tracker/bin'
+[1.937s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(realsense_tracker)
+[1.938s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/package.ps1'
+[1.938s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/package.dsv'
+[1.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/package.sh'
+[1.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/package.bash'
+[1.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/realsense_tracker/share/realsense_tracker/package.zsh'
+[1.940s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/realsense_tracker/share/colcon-core/packages/realsense_tracker)
+[1.986s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/trajectory_predictor' for CMake module files
+[1.987s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/src/trajectory_predictor' returned '0': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/trajectory_predictor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/trajectory_predictor build --build-base /home/duy/cocarry_ws/build/trajectory_predictor/build install --record /home/duy/cocarry_ws/build/trajectory_predictor/install.log --single-version-externally-managed install_data
+[1.987s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/trajectory_predictor' for CMake config files
+[1.987s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/trajectory_predictor/lib'
+[1.987s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/trajectory_predictor/bin'
+[1.987s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/trajectory_predictor/lib/pkgconfig/trajectory_predictor.pc'
+[1.988s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages'
+[1.988s] Level 1:colcon.colcon_core.shell:create_environment_hook('trajectory_predictor', 'pythonpath')
+[1.988s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/hook/pythonpath.ps1'
+[1.988s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/hook/pythonpath.dsv'
+[1.988s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/hook/pythonpath.sh'
+[1.989s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/trajectory_predictor/bin'
+[1.989s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trajectory_predictor)
+[1.989s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/package.ps1'
+[1.990s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/package.dsv'
+[1.990s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/package.sh'
+[1.990s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/package.bash'
+[1.990s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/package.zsh'
+[1.991s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/trajectory_predictor/share/colcon-core/packages/trajectory_predictor)
+[2.038s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/coord_transform' for CMake module files
+[2.039s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/src/coord_transform' returned '0': CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/build/coord_transform/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/coord_transform build --build-base /home/duy/cocarry_ws/build/coord_transform/build install --record /home/duy/cocarry_ws/build/coord_transform/install.log --single-version-externally-managed install_data
+[2.039s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/coord_transform' for CMake config files
+[2.040s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/coord_transform/lib'
+[2.040s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/coord_transform/bin'
+[2.040s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/coord_transform/lib/pkgconfig/coord_transform.pc'
+[2.040s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages'
+[2.041s] Level 1:colcon.colcon_core.shell:create_environment_hook('coord_transform', 'pythonpath')
+[2.041s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/hook/pythonpath.ps1'
+[2.041s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/hook/pythonpath.dsv'
+[2.042s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/hook/pythonpath.sh'
+[2.043s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/coord_transform/bin'
+[2.043s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(coord_transform)
+[2.043s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/package.ps1'
+[2.044s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/package.dsv'
+[2.044s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/package.sh'
+[2.045s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/package.bash'
+[2.045s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/coord_transform/share/coord_transform/package.zsh'
+[2.045s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/coord_transform/share/colcon-core/packages/coord_transform)
+[2.046s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/duy/cocarry_ws/src/hrc_bringup' with build type 'ament_cmake'
+[2.046s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/duy/cocarry_ws/src/hrc_bringup'
+[2.046s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.046s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.064s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/build/hrc_bringup': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/trajectory_predictor:/home/duy/cocarry_ws/install/realsense_tracker:/home/duy/cocarry_ws/install/predictor_ui:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/experiment_logger:/home/duy/cocarry_ws/install/coord_transform:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble:/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/cmake --build /home/duy/cocarry_ws/build/hrc_bringup -- -j16 -l16
+[2.255s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/build/hrc_bringup' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/trajectory_predictor:/home/duy/cocarry_ws/install/realsense_tracker:/home/duy/cocarry_ws/install/predictor_ui:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/experiment_logger:/home/duy/cocarry_ws/install/coord_transform:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble:/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/cmake --build /home/duy/cocarry_ws/build/hrc_bringup -- -j16 -l16
+[2.257s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/duy/cocarry_ws/build/hrc_bringup': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/trajectory_predictor:/home/duy/cocarry_ws/install/realsense_tracker:/home/duy/cocarry_ws/install/predictor_ui:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/experiment_logger:/home/duy/cocarry_ws/install/coord_transform:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble:/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/cmake --install /home/duy/cocarry_ws/build/hrc_bringup
+[2.280s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hrc_bringup)
+[2.281s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup' for CMake module files
+[2.281s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/duy/cocarry_ws/build/hrc_bringup' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/trajectory_predictor:/home/duy/cocarry_ws/install/realsense_tracker:/home/duy/cocarry_ws/install/predictor_ui:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/experiment_logger:/home/duy/cocarry_ws/install/coord_transform:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/opt/ros/humble:/home/duy/cocarry_ws/install/human_hand_msgs LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/motoros2_interfaces/lib:/home/duy/cocarry_ws/install/human_hand_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig PYTHONPATH=/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/duy/cocarry_ws/install/human_hand_msgs/share /usr/bin/cmake --install /home/duy/cocarry_ws/build/hrc_bringup
+[2.282s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup' for CMake config files
+[2.282s] Level 1:colcon.colcon_core.shell:create_environment_hook('hrc_bringup', 'cmake_prefix_path')
+[2.282s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/hook/cmake_prefix_path.ps1'
+[2.282s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/hook/cmake_prefix_path.dsv'
+[2.283s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/hook/cmake_prefix_path.sh'
+[2.283s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/bin'
+[2.283s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/lib/pkgconfig/hrc_bringup.pc'
+[2.284s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/lib/python3.10/site-packages'
+[2.284s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/bin'
+[2.284s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.ps1'
+[2.284s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.dsv'
+[2.285s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.sh'
+[2.285s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.bash'
+[2.285s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.zsh'
+[2.285s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/hrc_bringup/share/colcon-core/packages/hrc_bringup)
+[2.286s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hrc_bringup)
+[2.286s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup' for CMake module files
+[2.286s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup' for CMake config files
+[2.286s] Level 1:colcon.colcon_core.shell:create_environment_hook('hrc_bringup', 'cmake_prefix_path')
+[2.286s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/hook/cmake_prefix_path.ps1'
+[2.286s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/hook/cmake_prefix_path.dsv'
+[2.287s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/hook/cmake_prefix_path.sh'
+[2.287s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/bin'
+[2.287s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/lib/pkgconfig/hrc_bringup.pc'
+[2.287s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/lib/python3.10/site-packages'
+[2.287s] Level 1:colcon.colcon_core.environment:checking '/home/duy/cocarry_ws/install/hrc_bringup/bin'
+[2.288s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.ps1'
+[2.288s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.dsv'
+[2.288s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.sh'
+[2.288s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.bash'
+[2.289s] INFO:colcon.colcon_core.shell:Creating package script '/home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.zsh'
+[2.289s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/duy/cocarry_ws/install/hrc_bringup/share/colcon-core/packages/hrc_bringup)
+[2.289s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.289s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.289s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.289s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.292s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.293s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.293s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.304s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.304s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/duy/cocarry_ws/install/local_setup.ps1'
+[2.305s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/duy/cocarry_ws/install/_local_setup_util_ps1.py'
+[2.306s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/duy/cocarry_ws/install/setup.ps1'
+[2.307s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/duy/cocarry_ws/install/local_setup.sh'
+[2.308s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/duy/cocarry_ws/install/_local_setup_util_sh.py'
+[2.308s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/duy/cocarry_ws/install/setup.sh'
+[2.310s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/duy/cocarry_ws/install/local_setup.bash'
+[2.310s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/duy/cocarry_ws/install/setup.bash'
+[2.311s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/duy/cocarry_ws/install/local_setup.zsh'
+[2.311s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/duy/cocarry_ws/install/setup.zsh'

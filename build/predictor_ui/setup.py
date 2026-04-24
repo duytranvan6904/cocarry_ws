@@ -1,1 +1,0 @@
-/home/duy/cocarry_ws/src/predictor_ui/setup.py
