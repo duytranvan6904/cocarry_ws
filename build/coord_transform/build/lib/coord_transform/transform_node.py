@@ -20,8 +20,8 @@ from scipy.spatial.transform import Rotation
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped, Point, Quaternion
-from std_msgs.msg import String
-from human_hand_msgs.msg import HandPrediction
+from std_msgs.msg import String, Bool
+from human_hand_msgs.msg import HandPrediction, HandState
 from std_srvs.srv import Trigger
 
 
@@ -33,12 +33,16 @@ class CoordTransformNode(Node):
         self._load_params()
         self._setup_pubsub()
         self._current_robot_pose = None  # To store the latest EE pose
+        self._mode = 'ground_truth'      # Default mode
+        self._running = False            # Whether to forward data
         self.get_logger().info(
             'CoordTransformNode khởi động.\n'
             f'  Object offset (cam frame): {self._obj_offset}\n'
             f'  Translation cam→base:      {self._t_cam_to_base}\n'
             f'  EE orientation (xyzw):     {self._ee_orient}\n'
             f'  Prediction step:           {self._pred_step}\n'
+            f'  Axis remap:                {self._axis_remap}\n'
+            f'  Axis sign:                 {self._axis_sign}\n'
             f'  Workspace X: {self._ws_x}, Y: {self._ws_y}, Z: {self._ws_z}'
         )
 
@@ -80,6 +84,15 @@ class CoordTransformNode(Node):
         self.declare_parameter('workspace_y_max',  1.0)
         self.declare_parameter('workspace_z_min',  0.05)
         self.declare_parameter('workspace_z_max',  1.5)
+
+        # Axis remap: mapping camera axes → robot axes BEFORE rotation
+        # Default [1, 0, 2] means:
+        #   robot_input[0] (X) ← cam[1] (camera Y)
+        #   robot_input[1] (Y) ← cam[0] (camera X)
+        #   robot_input[2] (Z) ← cam[2] (camera Z)
+        self.declare_parameter('axis_remap', [1, 0, 2])
+        # Sign for each remapped axis (after remap, before rotation)
+        self.declare_parameter('axis_sign', [1.0, 1.0, 1.0])
 
     def _load_params(self):
         # Object offset
@@ -127,12 +140,40 @@ class CoordTransformNode(Node):
             self.get_parameter('workspace_z_max').value,
         )
 
+        # Axis remap
+        self._axis_remap = list(self.get_parameter('axis_remap').value)
+        self._axis_sign = list(self.get_parameter('axis_sign').value)
+
     def _setup_pubsub(self):
         # Subscribe: tọa độ dự đoán từ trajectory_predictor
         self._pred_sub = self.create_subscription(
             HandPrediction,
             '/ml/predicted_position',
             self._on_prediction,
+            10,
+        )
+
+        # Subscribe: tọa độ thô từ hand_position
+        self._hand_sub = self.create_subscription(
+            HandState,
+            '/hand_position',
+            self._on_hand_state,
+            10,
+        )
+
+        # Subscribe: chế độ stream từ UI
+        self._mode_sub = self.create_subscription(
+            String,
+            '/trajectory_mode',
+            self._on_mode,
+            10,
+        )
+
+        # Subscribe: trạng thái Run từ UI
+        self._run_status_sub = self.create_subscription(
+            Bool,
+            '/run_status',
+            self._on_run_status,
             10,
         )
 
@@ -205,24 +246,48 @@ class CoordTransformNode(Node):
         response.message = msg
         return response
 
+    def _on_run_status(self, msg: Bool):
+        self._running = msg.data
+        status_str = "RUNNING" if self._running else "STOPPED"
+        self.get_logger().info(f'Trạng thái tracking: {status_str}')
+
+    def _on_mode(self, msg: String):
+        self._mode = msg.data
+        self.get_logger().info(f'Đã chuyển mode: {self._mode}')
+
+    def _on_hand_state(self, msg: HandState):
+        """Xử lý HandState khi mode = ground_truth"""
+        if self._mode != 'ground_truth':
+            return
+        if not msg.is_tracked:
+            return
+            
+        p_cam = np.array([msg.x, msg.y, msg.z])
+        self._process_and_publish(p_cam)
+
     def _on_prediction(self, msg: HandPrediction):
-        """
-        Xử lý HandPrediction, transform sang robot base frame,
-        rồi publish PoseStamped.
-        """
+        """Xử lý HandPrediction khi mode = prediction"""
+        if self._mode != 'prediction':
+            return
+
         # Lấy tọa độ theo prediction_step
-        # Nếu msg có mảng pred_x (multi-step), dùng step được chọn
-        # Nếu chỉ có x,y,z scalar (backward compat), dùng trực tiếp
         if hasattr(msg, 'pred_x') and len(msg.pred_x) > 0:
             step = min(self._pred_step, len(msg.pred_x) - 1)
             p_cam = np.array([msg.pred_x[step], msg.pred_y[step], msg.pred_z[step]])
         else:
             p_cam = np.array([msg.x, msg.y, msg.z])
+            
+        self._process_and_publish(p_cam)
+
+    def _process_and_publish(self, p_cam: np.ndarray):
+        """Hàm dùng chung để clamp và tính pose đích"""
+        if not self._running:
+            return
 
         # Bước 1: Kiểm tra tọa độ hợp lệ (không phải NaN/Inf)
         if not np.all(np.isfinite(p_cam)):
             self.get_logger().warn(
-                f'Tọa độ dự đoán không hợp lệ: {p_cam}',
+                f'Tọa độ không hợp lệ: {p_cam}',
                 throttle_duration_sec=1.0,
             )
             return
@@ -230,12 +295,18 @@ class CoordTransformNode(Node):
         # Bước 2: Thêm object offset (Thường = 0 nếu dùng Relative Displacement)
         p_cam_obj = p_cam + self._obj_offset
 
+        # Bước 2.5: Axis remap (camera frame → robot frame trước khi xoay)
+        remap = self._axis_remap
+        signs = self._axis_sign
+        p_remapped = np.array([
+            signs[0] * p_cam_obj[remap[0]],
+            signs[1] * p_cam_obj[remap[1]],
+            signs[2] * p_cam_obj[remap[2]],
+        ])
+
         # Bước 3: Transform sang robot base frame
-        # Với Relative Displacement, p_cam_obj chính là vector dịch chuyển.
-        # R_cam_to_base xoay vector dịch chuyển cho khớp trục base_link.
-        # t_cam_to_base chính là P_init (vị trí ban đầu của robot).
         # P_target = R * displacement + P_init
-        p_base = self._R_cam_to_base @ p_cam_obj + self._t_cam_to_base
+        p_base = self._R_cam_to_base @ p_remapped + self._t_cam_to_base
 
         # Bước 4: Safety clamp — giới hạn trong workspace robot
         p_clamped, was_clamped = self._clamp_to_workspace(p_base)
@@ -261,8 +332,8 @@ class CoordTransformNode(Node):
         self._debug_pub.publish(target)
 
         self.get_logger().info(
-            f'Transform: cam{p_cam.round(3)} → base{p_clamped.round(3)}',
-            throttle_duration_sec=1.0,
+            f'[{self._mode.upper()}] Transform: cam{p_cam.round(3)} → base{p_clamped.round(3)}',
+            throttle_duration_sec=2.0,
         )
 
     def _clamp_to_workspace(self, p: np.ndarray):

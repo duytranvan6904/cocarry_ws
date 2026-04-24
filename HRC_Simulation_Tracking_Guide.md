@@ -58,15 +58,16 @@ python3 src/hc10dtp_bringup/scripts/cartesian_streamer_hc10dtp.py
 
 ## 🛠 Cách Thao tác Trong Lúc Chạy
 
-Trình tự chuẩn để robot ảo đi theo tay bạn:
+Để đảm bảo robot di chuyển đúng theo tọa độ người thật một cách an toàn và đúng trục, bạn bắt buộc phải tuân theo trình tự sau:
 
 1. Đứng vào vị trí chuẩn bị trước Camera, giữ tay ở tư thế tự nhiên.
-2. Trên GUI, bấm `Calibrate Camera`.
-3. Trên GUI, bấm `Capture Init Pose`.
-4. Nếu cần, bấm `Enable Robot` (reset + servo_on).
-5. Bấm `Start Run` để bắt đầu prediction + logging.
-6. Di chuyển tay: `transform_node` sẽ tính độ dời và gửi cho `cartesian_streamer`.
-7. Khi cần dừng an toàn: bấm `Soft Stop` hoặc `Disable Robot`.
+2. Trên GUI, bấm **`⌖ Calibrate Camera`** (Thiết lập gốc tọa độ của người).
+3. Trên GUI, bấm **`📌 Capture Init Pose`** (Chốt vị trí EE hiện tại của robot làm mốc tương đối).
+4. Chọn chế độ quỹ đạo: **`📍 Ground Truth`** (tọa độ thực) hoặc **`🧠 Prediction`** (tọa độ dự đoán từ AI).
+5. Bấm **`⚡ Enable Robot`**. Robot sẽ chuyển sang trạng thái chờ nhận lệnh (bật Point Queue Mode). *Lưu ý: Nút này sẽ báo lỗi nếu bạn chưa làm bước 2 và 3.*
+6. Bấm **`▶ Start Run`**. Dữ liệu sẽ bắt đầu stream xuống robot và được ghi log lại. Di chuyển tay, robot sẽ đi theo bạn. (Lưu ý: Tọa độ camera trục X, Y đã được tự động map chéo sang trục Y, X của robot để khớp với workspace thực tế).
+7. Khi cần dừng stream: bấm **`⏸ Stop Run`**. Đồ thị vẫn tiếp tục vẽ nhưng robot sẽ dừng nhận tọa độ.
+8. Khi thử nghiệm xong hoặc muốn reset: bấm **`⛔ Disable Robot`** (để thoát Point Queue Mode an toàn).
 
 ---
 
