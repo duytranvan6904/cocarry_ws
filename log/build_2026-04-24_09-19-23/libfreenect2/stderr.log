@@ -1,0 +1,56 @@
+[33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindOpenGL.cmake:315 (message):
+  Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
+  available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  FindOpenGL found both a legacy GL library:
+
+    OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
+
+  and GLVND libraries for OpenGL and GLX:
+
+    OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+    OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
+
+  OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
+  compatibility with CMake 3.10 and below the legacy GL library will be used.
+Call Stack (most recent call first):
+  CMakeLists.txt:269 (FIND_PACKAGE)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+[0mCUDA_TOOLKIT_ROOT_DIR not found or specified[0m
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:[m[K In member function ‘[01m[Kvirtual void libfreenect2::CpuDepthPacketProcessor::loadP0TablesFromCommandResponse(unsigned char*, size_t)[m[K’:
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:844:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  844 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table0[m[K), impl_->p0_table0);
+      |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:845:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  845 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table1[m[K), impl_->p0_table1);
+      |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:846:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  846 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table2[m[K), impl_->p0_table2);
+      |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:850:42:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  850 |     Mat<uint16_t> p00(424, 512, [01;35m[Kp0table->p0table0[m[K);
+      |                                 [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:852:38:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  852 |     Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table1[m[K).copyTo(impl_->p0_table1);
+      |                             [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:853:38:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  853 |     Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table2[m[K).copyTo(impl_->p0_table2);
+      |                             [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:157:7:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KdeviceId[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  157 |   int [01;35m[KdeviceId[m[K = -1;
+      |       [01;35m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/string.h:535[m[K,
+                 from [01m[K/usr/include/openni2/Linux-x86/OniPlatformLinux-x86.h:34[m[K,
+                 from [01m[K/usr/include/openni2/OniPlatform.h:42[m[K,
+                 from [01m[K/usr/include/openni2/Driver/OniDriverAPI.h:24[m[K,
+                 from [01m[K/home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:35[m[K:
+In function ‘[01m[Kchar* strncpy(char*, const char*, size_t)[m[K’,
+    inlined from ‘[01m[Kvoid Freenect2Driver::Driver::register_uri(std::string)[m[K’ at [01m[K/home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:404:14[m[K:
+[01m[K/usr/include/x86_64-linux-gnu/bits/string_fortified.h:95:34:[m[K [01;35m[Kwarning: [m[K‘[01m[Kchar* __builtin_strncpy(char*, const char*, long unsigned int)[m[K’ specified bound 256 equals destination size [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wstringop-truncation-Wstringop-truncation]8;;[m[K]
+   95 |   return [01;35m[K__builtin___strncpy_chk (__dest, __src, __len,[m[K
+      |          [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+   96 | [01;35m[K                                  __glibc_objsize (__dest))[m[K;
+      |                                   [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~[m[K

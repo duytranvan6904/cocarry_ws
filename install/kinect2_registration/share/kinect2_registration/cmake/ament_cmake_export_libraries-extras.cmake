@@ -1,0 +1,1 @@
+/home/duy/cocarry_ws/build/kinect2_registration/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake

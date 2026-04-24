@@ -13,18 +13,27 @@ Tài liệu này hướng dẫn cách chạy hệ thống **Human-Robot Co-Carry
 
 ## 🚀 Các Bước Chạy Thử Nghiệm
 
-Mở **4 Terminal** khác nhau. Ở mỗi Terminal, đảm bảo bạn đã source không gian làm việc:
+Ưu tiên chạy theo profile mới để giảm số terminal. Ở mỗi terminal, đảm bảo bạn đã source không gian làm việc:
 ```bash
 cd ~/cocarry_ws
 source install/setup.bash
 ```
 
+### Cách khuyến nghị (1 terminal cho simulation)
+Chạy toàn bộ pipeline simulation + GUI trong một lệnh:
+```bash
+ros2 launch hrc_bringup cocarry_sim_gui.launch.py
+```
+Lệnh này sẽ tự gom:
+- Môi trường mô phỏng (MoveIt + fake hardware + MotoROS2 mock)
+- Camera tracking + predictor + transform + cartesian streamer
+- GUI dashboard/control panel
+
+### Cách cũ (4 terminal) — giữ lại để debug chi tiết
 ### Terminal 1: Khởi động Môi trường Mô phỏng
-Kích hoạt Robot Ảo và hệ thống giả lập MotoROS2:
 ```bash
 ros2 launch hc10dtp_simulation sim_start.launch.py
 ```
-*(Cửa sổ RViz sẽ mở ra hiển thị robot và lồng an toàn).*
 
 ### Terminal 2: Bật Camera và AI Tracking
 Bật camera RealSense thật và bắt đầu nhận diện khung xương:
@@ -52,16 +61,12 @@ python3 src/hc10dtp_bringup/scripts/cartesian_streamer_hc10dtp.py
 Trình tự chuẩn để robot ảo đi theo tay bạn:
 
 1. Đứng vào vị trí chuẩn bị trước Camera, giữ tay ở tư thế tự nhiên.
-2. **Reset Gốc Camera**: Để đồng bộ gốc camera với vị trí tay hiện tại, mở Terminal thứ 5 và gõ:
-   ```bash
-   ros2 service call /realsense/calibrate_origin std_srvs/srv/Trigger
-   ```
-3. **Khởi tạo Gốc Robot**: Để ghi nhớ tư thế bắt đầu của robot ảo (làm mốc cho chuyển động tương đối):
-   ```bash
-   ros2 service call /coord_transform/capture_init_pose std_srvs/srv/Trigger
-   ```
-4. **Bắt đầu di chuyển**: 
-   Khi bạn di chuyển tay lên/xuống, trái/phải, `transform_node` sẽ tính độ dời và gửi cho `cartesian_streamer`. Bạn sẽ thấy con robot trong RViz (Terminal 1) bám sát theo chuyển động tay của bạn ngoài đời thực!
+2. Trên GUI, bấm `Calibrate Camera`.
+3. Trên GUI, bấm `Capture Init Pose`.
+4. Nếu cần, bấm `Enable Robot` (reset + servo_on).
+5. Bấm `Start Run` để bắt đầu prediction + logging.
+6. Di chuyển tay: `transform_node` sẽ tính độ dời và gửi cho `cartesian_streamer`.
+7. Khi cần dừng an toàn: bấm `Soft Stop` hoặc `Disable Robot`.
 
 ---
 
@@ -69,9 +74,9 @@ Trình tự chuẩn để robot ảo đi theo tay bạn:
 
 Sau khi thử nghiệm xong, tay bạn có thể ở vị trí bất kỳ khiến robot bị kẹt ở góc khó. Để đưa robot ảo trở về tư thế thẳng đứng nguyên bản (tất cả khớp = 0), hãy làm theo 2 bước:
 
-**Bước 1:** Bấm `Ctrl+C` tại **Terminal 4** để tắt `cartesian_streamer.py` (giải phóng quyền điều khiển).
+Ưu tiên dùng nút `Go Home` trên GUI.
 
-**Bước 2:** Chạy lệnh Go Home:
+Nếu cần fallback bằng terminal:
 ```bash
 python3 src/hc10dtp_bringup/scripts/go_home.py
 ```

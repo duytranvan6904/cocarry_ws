@@ -1,0 +1,120 @@
+Determining if the CL_VERSION_2_0 exist failed with the following output:
+Change Dir: /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cd8f8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cd8f8.dir/build.make CMakeFiles/cmTC_cd8f8.dir/build
+gmake[1]: Entering directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd8f8.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_cd8f8.dir/CheckSymbolExists.c.o -c /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_cd8f8.dir/build.make:78: CMakeFiles/cmTC_cd8f8.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_cd8f8/fast] Error 2
+
+
+File /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_0
+  return ((int*)(&CL_VERSION_2_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_2 exist failed with the following output:
+Change Dir: /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5efd7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5efd7.dir/build.make CMakeFiles/cmTC_5efd7.dir/build
+gmake[1]: Entering directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5efd7.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5efd7.dir/CheckSymbolExists.c.o -c /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_5efd7.dir/build.make:78: CMakeFiles/cmTC_5efd7.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5efd7/fast] Error 2
+
+
+File /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_2
+  return ((int*)(&CL_VERSION_1_2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_1 exist failed with the following output:
+Change Dir: /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1b6c9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1b6c9.dir/build.make CMakeFiles/cmTC_1b6c9.dir/build
+gmake[1]: Entering directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b6c9.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_1b6c9.dir/CheckSymbolExists.c.o -c /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_1b6c9.dir/build.make:78: CMakeFiles/cmTC_1b6c9.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_1b6c9/fast] Error 2
+
+
+File /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_1
+  return ((int*)(&CL_VERSION_1_1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_0 exist failed with the following output:
+Change Dir: /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_275cd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_275cd.dir/build.make CMakeFiles/cmTC_275cd.dir/build
+gmake[1]: Entering directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_275cd.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_275cd.dir/CheckSymbolExists.c.o -c /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_275cd.dir/build.make:78: CMakeFiles/cmTC_275cd.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_275cd/fast] Error 2
+
+
+File /home/duy/cocarry_ws/build/libfreenect2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_0
+  return ((int*)(&CL_VERSION_1_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

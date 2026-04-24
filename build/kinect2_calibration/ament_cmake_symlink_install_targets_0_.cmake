@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/duy/cocarry_ws/build/kinect2_calibration/kinect2_calibration_node" "TARGETS" "kinect2_calibration_node" "DESTINATION" "lib/kinect2_calibration")

@@ -1,0 +1,194 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- using tinythread as threading library
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+-- Checking for module 'libusb-1.0>=1.0.20'
+--   Found libusb-1.0, version 1.0.25
+-- Checking for modules 'libva;libva-drm'
+--   Found libva, version 1.14.0
+--   Found libva-drm, version 1.14.0
+-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") 
+-- Could NOT find TegraJPEG (missing: TegraJPEG_LIBRARIES TegraJPEG_INCLUDE_DIRS TegraJPEG_WORKS) 
+-- Performing Test TURBOJPEG_WORKS
+-- Performing Test TURBOJPEG_WORKS - Success
+-- Found TurboJPEG: /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0  
+-- Checking for module 'glfw3'
+--   Found glfw3, version 3.3.6
+[33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindOpenGL.cmake:315 (message):
+  Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
+  available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  FindOpenGL found both a legacy GL library:
+
+    OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
+
+  and GLVND libraries for OpenGL and GLX:
+
+    OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+    OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
+
+  OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
+  compatibility with CMake 3.10 and below the legacy GL library will be used.
+Call Stack (most recent call first):
+  CMakeLists.txt:269 (FIND_PACKAGE)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+-- Looking for CL_VERSION_2_0
+-- Looking for CL_VERSION_2_0 - not found
+-- Looking for CL_VERSION_1_2
+-- Looking for CL_VERSION_1_2 - not found
+-- Looking for CL_VERSION_1_1
+-- Looking for CL_VERSION_1_1 - not found
+-- Looking for CL_VERSION_1_0
+-- Looking for CL_VERSION_1_0 - not found
+-- Could NOT find OpenCL (missing: OpenCL_LIBRARY OpenCL_INCLUDE_DIR) 
+[0mCUDA_TOOLKIT_ROOT_DIR not found or specified[0m
+-- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) 
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- Linking with these libraries: 
+ /usr/lib/x86_64-linux-gnu/libusb-1.0.so
+ pthread
+ va-drm
+ va
+ /usr/lib/x86_64-linux-gnu/libjpeg.so
+ /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0
+ /usr/lib/x86_64-linux-gnu/libglfw.so
+ /usr/lib/x86_64-linux-gnu/libGL.so
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- Configurating examples
+-- Using in-tree freenect2 target
+-- Checking for module 'libopenni2'
+--   Found libopenni2, version 2.2.0.3
+-- Found OpenNI2: /usr/lib/x86_64-linux-gnu  
+-- Feature list:
+--   CUDA    no
+--   CXX11    disabled
+--   Examples    yes
+--   OpenCL    no
+--   OpenGL    yes
+--   OpenNI2    yes
+--   TegraJPEG    no
+--   Threading    tinythread
+--   TurboJPEG    yes
+--   VAAPI    yes
+--   VideoToolbox    no (Apple only)
+--   streamer_recorder    disabled
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/duy/cocarry_ws/build/libfreenect2
+[  2%] [32mBuilding CXX object CMakeFiles/generate_resources_tool.dir/tools/generate_resources.cpp.o[0m
+[  5%] [32m[1mLinking CXX executable bin/generate_resources_tool[0m
+[  5%] Built target generate_resources_tool
+[  7%] [34m[1mGenerating resources.inc.h[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/transfer_pool.cpp.o[0m
+[ 15%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/frame_listener_impl.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/depth_packet_processor.cpp.o[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/usb_control.cpp.o[0m
+[ 23%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/rgb_packet_stream_parser.cpp.o[0m
+[ 26%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/cpu_depth_packet_processor.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/event_loop.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/packet_pipeline.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/depth_packet_stream_parser.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/allocator.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/rgb_packet_processor.cpp.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/resource.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/logging.cpp.o[0m
+[ 44%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/command_transaction.cpp.o[0m
+[ 47%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/registration.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/libfreenect2.cpp.o[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/tinythread/tinythread.cpp.o[0m
+[ 55%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/turbo_jpeg_rgb_packet_processor.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/vaapi_rgb_packet_processor.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/opengl_depth_packet_processor.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/flextGL.cpp.o[0m
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:[m[K In member function ‘[01m[Kvirtual void libfreenect2::CpuDepthPacketProcessor::loadP0TablesFromCommandResponse(unsigned char*, size_t)[m[K’:
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:844:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  844 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table0[m[K), impl_->p0_table0);
+      |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:845:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  845 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table1[m[K), impl_->p0_table1);
+      |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:846:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  846 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table2[m[K), impl_->p0_table2);
+      |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:850:42:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  850 |     Mat<uint16_t> p00(424, 512, [01;35m[Kp0table->p0table0[m[K);
+      |                                 [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:852:38:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  852 |     Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table1[m[K).copyTo(impl_->p0_table1);
+      |                             [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:853:38:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+  853 |     Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table2[m[K).copyTo(impl_->p0_table2);
+      |                             [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[ 65%] [32m[1mLinking CXX shared library lib/libfreenect2.so[0m
+[ 65%] Built target freenect2
+[ 68%] [32mBuilding CXX object examples/CMakeFiles/Protonect.dir/viewer.cpp.o[0m
+[ 71%] [32mBuilding CXX object examples/CMakeFiles/Protonect.dir/__/src/flextGL.cpp.o[0m
+[ 73%] [32mBuilding CXX object examples/CMakeFiles/Protonect.dir/Protonect.cpp.o[0m
+[ 76%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/DeviceDriver.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/ColorStream.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/DepthStream.cpp.o[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/IrStream.cpp.o[0m
+[ 86%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/Utility.cpp.o[0m
+[ 89%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/Registration.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/tinythread/tinythread.cpp.o[0m
+[ 94%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/VideoStream.cpp.o[0m
+[01m[K/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:157:7:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KdeviceId[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  157 |   int [01;35m[KdeviceId[m[K = -1;
+      |       [01;35m[K^~~~~~~~[m[K
+[ 97%] [32m[1mLinking CXX executable ../bin/Protonect[0m
+[ 97%] Built target Protonect
+In file included from [01m[K/usr/include/string.h:535[m[K,
+                 from [01m[K/usr/include/openni2/Linux-x86/OniPlatformLinux-x86.h:34[m[K,
+                 from [01m[K/usr/include/openni2/OniPlatform.h:42[m[K,
+                 from [01m[K/usr/include/openni2/Driver/OniDriverAPI.h:24[m[K,
+                 from [01m[K/home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:35[m[K:
+In function ‘[01m[Kchar* strncpy(char*, const char*, size_t)[m[K’,
+    inlined from ‘[01m[Kvoid Freenect2Driver::Driver::register_uri(std::string)[m[K’ at [01m[K/home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:404:14[m[K:
+[01m[K/usr/include/x86_64-linux-gnu/bits/string_fortified.h:95:34:[m[K [01;35m[Kwarning: [m[K‘[01m[Kchar* __builtin_strncpy(char*, const char*, long unsigned int)[m[K’ specified bound 256 equals destination size [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wstringop-truncation-Wstringop-truncation]8;;[m[K]
+   95 |   return [01;35m[K__builtin___strncpy_chk (__dest, __src, __len,[m[K
+      |          [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+   96 | [01;35m[K                                  __glibc_objsize (__dest))[m[K;
+      |                                   [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[100%] [32m[1mLinking CXX shared library lib/libfreenect2-openni2.so[0m
+[100%] Built target freenect2-openni2
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2.0
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/registration.h
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/packet_pipeline.h
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/libfreenect2.hpp
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener_impl.h
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/led_settings.h
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener.hpp
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/logger.h
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/color_settings.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/config.h
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/export.h
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2Config.cmake
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2ConfigVersion.cmake
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/pkgconfig/freenect2.pc
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so.0
+-- Set runtime path of "/home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so.0" to "/home/duy/cocarry_ws/install/libfreenect2/lib"
+-- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so
