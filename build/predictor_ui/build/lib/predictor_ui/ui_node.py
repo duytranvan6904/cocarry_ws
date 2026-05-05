@@ -549,11 +549,9 @@ class DashboardWindow:
         req = SetBool.Request()
         req.data = True
         self.node._streamer_enable_cli.call_async(req)
-        # Publish run_status = true → transform_node starts forwarding
-        run_msg = Bool()
-        run_msg.data = True
-        self.node._run_status_pub.publish(run_msg)
-        self._set_status('State: ENABLED | Robot enabled — ready to receive coordinates')
+        # Không publish run_status ở đây — chỉ bật Point Queue Mode.
+        # Robot sẽ gửi hold-points và chờ người dùng bấm Start Run.
+        self._set_status('State: ENABLED | Robot enabled — press ▶ Start Run to begin')
 
     def _disable_robot(self):
         # Tắt streamer
