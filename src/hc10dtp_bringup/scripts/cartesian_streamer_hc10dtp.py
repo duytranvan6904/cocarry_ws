@@ -80,7 +80,7 @@ IK_TIMEOUT_SEC = 0.3
 SMOOTH_ALPHA = 0.5       # Thấp hơn GP4 cho chuyển động mượt hơn (cobot)
 
 # An toàn: bước nhảy joint tối đa cho phép mỗi điểm (rad)
-MAX_JOINT_DELTA = 0.5    # Thấp hơn GP4 cho collaborative safety
+MAX_JOINT_DELTA = 1.5    # Thấp hơn GP4 cho collaborative safety
 
 # Debug watchdog: nếu queue point được accept nhưng joint gần như đứng yên
 NO_MOTION_WARN_SEC = 5.0

@@ -1,0 +1,96 @@
+[0.000000] (-) TimerEvent: {}
+[0.000869] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000965] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.001010] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.001047] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.001081] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.001112] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.001143] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.001176] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.001520] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001583] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001620] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001652] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001683] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001729] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001974] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.002058] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.002093] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.002110] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.002125] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.002141] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.002156] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.002174] (experiment_logger) JobQueued: {'identifier': 'experiment_logger', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.002197] (predictor_ui) JobQueued: {'identifier': 'predictor_ui', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.002220] (experiment_logger) JobStarted: {'identifier': 'experiment_logger'}
+[0.013137] (predictor_ui) JobStarted: {'identifier': 'predictor_ui'}
+[0.099278] (-) TimerEvent: {}
+[0.200008] (-) TimerEvent: {}
+[0.300535] (-) TimerEvent: {}
+[0.400980] (-) TimerEvent: {}
+[0.501414] (-) TimerEvent: {}
+[0.601901] (-) TimerEvent: {}
+[0.702420] (-) TimerEvent: {}
+[0.802882] (-) TimerEvent: {}
+[0.903359] (-) TimerEvent: {}
+[1.003767] (-) TimerEvent: {}
+[1.104270] (-) TimerEvent: {}
+[1.204659] (-) TimerEvent: {}
+[1.305261] (-) TimerEvent: {}
+[1.361464] (predictor_ui) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/predictor_ui', 'build', '--build-base', '/home/duy/cocarry_ws/build/predictor_ui/build', 'install', '--record', '/home/duy/cocarry_ws/build/predictor_ui/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/predictor_ui', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/duy', 'USER': 'duy', 'LC_TIME': 'en_US.UTF-8', 'VSCODE_NLS_CONFIG': '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}', 'XDG_SESSION_TYPE': 'wayland', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib:/usr/local/lib/nuitrack:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack', 'HOME': '/home/duy', 'CHROME_DESKTOP': 'antigravity.desktop', 'OLDPWD': '/home/duy/cocarry_ws', 'DESKTOP_SESSION': 'ubuntu', 'VSCODE_IPC_HOOK': '/run/user/1000/vscode-d3248cd9-1.10-main.sock', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/antigravity.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'cat', 'LC_MONETARY': 'en_US.UTF-8', 'MANAGERPID': '1100', 'SYSTEMD_EXEC_PID': '1231', 'IM_CONFIG_CHECK_ENV': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ANTIGRAVITY_AGENT': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4843', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'duy', 'JOURNAL_STREAM': '8:11619', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'USERNAME': 'duy', 'TERM': 'dumb', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'ROS_LOCALHOST_ONLY': '0', 'ANTIGRAVITY_EDITOR_APP_ROOT': '/usr/share/antigravity/resources/app', 'PATH': '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'SESSION_MANAGER': 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1196,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1196', 'INVOCATION_ID': '68b264a133c646bb938534804377aed8', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.0UZQO3', 'LS_COLORS': '', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '10', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'NUITRACK_HOME': '/usr/etc/nuitrack', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'QT_IM_MODULE': 'ibus', 'ANTIGRAVITY_TRAJECTORY_ID': 'c16776be-18db-4c0a-8633-f35b12c5d806', 'PWD': '/home/duy/cocarry_ws/build/predictor_ui', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'VSCODE_CODE_CACHE_PATH': '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/duy/cocarry_ws/build/predictor_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'VSCODE_PID': '4843', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[1.368626] (experiment_logger) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/experiment_logger', 'build', '--build-base', '/home/duy/cocarry_ws/build/experiment_logger/build', 'install', '--record', '/home/duy/cocarry_ws/build/experiment_logger/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/experiment_logger', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/duy', 'USER': 'duy', 'LC_TIME': 'en_US.UTF-8', 'VSCODE_NLS_CONFIG': '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}', 'XDG_SESSION_TYPE': 'wayland', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib:/usr/local/lib/nuitrack:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/local/lib/nuitrack:/usr/local/lib/nuitrack', 'HOME': '/home/duy', 'CHROME_DESKTOP': 'antigravity.desktop', 'OLDPWD': '/home/duy/cocarry_ws', 'DESKTOP_SESSION': 'ubuntu', 'VSCODE_IPC_HOOK': '/run/user/1000/vscode-d3248cd9-1.10-main.sock', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/antigravity.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'PAGER': 'cat', 'LC_MONETARY': 'en_US.UTF-8', 'MANAGERPID': '1100', 'SYSTEMD_EXEC_PID': '1231', 'IM_CONFIG_CHECK_ENV': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'ANTIGRAVITY_AGENT': '1', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4843', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'duy', 'JOURNAL_STREAM': '8:11619', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'USERNAME': 'duy', 'TERM': 'dumb', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'ROS_LOCALHOST_ONLY': '0', 'ANTIGRAVITY_EDITOR_APP_ROOT': '/usr/share/antigravity/resources/app', 'PATH': '/home/duy/.local/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'SESSION_MANAGER': 'local/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:@/tmp/.ICE-unix/1196,unix/duy-Vivobook-ASUSLaptop-X1503ZA-A1503ZA:/tmp/.ICE-unix/1196', 'INVOCATION_ID': '68b264a133c646bb938534804377aed8', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'wayland', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.0UZQO3', 'LS_COLORS': '', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '10', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'NUITRACK_HOME': '/usr/etc/nuitrack', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'QT_IM_MODULE': 'ibus', 'ANTIGRAVITY_TRAJECTORY_ID': 'c16776be-18db-4c0a-8633-f35b12c5d806', 'PWD': '/home/duy/cocarry_ws/build/experiment_logger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'VSCODE_CODE_CACHE_PATH': '/home/duy/.config/Antigravity/CachedData/15487b3041e65228cae24980a3f796c905ef582c', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/duy/cocarry_ws/build/experiment_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'VSCODE_PID': '4843', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[1.405368] (-) TimerEvent: {}
+[1.505780] (-) TimerEvent: {}
+[1.606192] (-) TimerEvent: {}
+[1.706592] (-) TimerEvent: {}
+[1.713493] (experiment_logger) StdoutLine: {'line': b'running egg_info\n'}
+[1.714575] (experiment_logger) StdoutLine: {'line': b'writing ../../build/experiment_logger/experiment_logger.egg-info/PKG-INFO\n'}
+[1.714842] (experiment_logger) StdoutLine: {'line': b'writing dependency_links to ../../build/experiment_logger/experiment_logger.egg-info/dependency_links.txt\n'}
+[1.715047] (predictor_ui) StdoutLine: {'line': b'running egg_info\n'}
+[1.715226] (experiment_logger) StdoutLine: {'line': b'writing entry points to ../../build/experiment_logger/experiment_logger.egg-info/entry_points.txt\n'}
+[1.715387] (experiment_logger) StdoutLine: {'line': b'writing requirements to ../../build/experiment_logger/experiment_logger.egg-info/requires.txt\n'}
+[1.715559] (experiment_logger) StdoutLine: {'line': b'writing top-level names to ../../build/experiment_logger/experiment_logger.egg-info/top_level.txt\n'}
+[1.715828] (predictor_ui) StdoutLine: {'line': b'writing ../../build/predictor_ui/predictor_ui.egg-info/PKG-INFO\n'}
+[1.716243] (predictor_ui) StdoutLine: {'line': b'writing dependency_links to ../../build/predictor_ui/predictor_ui.egg-info/dependency_links.txt\n'}
+[1.716522] (predictor_ui) StdoutLine: {'line': b'writing entry points to ../../build/predictor_ui/predictor_ui.egg-info/entry_points.txt\n'}
+[1.716663] (predictor_ui) StdoutLine: {'line': b'writing requirements to ../../build/predictor_ui/predictor_ui.egg-info/requires.txt\n'}
+[1.716914] (predictor_ui) StdoutLine: {'line': b'writing top-level names to ../../build/predictor_ui/predictor_ui.egg-info/top_level.txt\n'}
+[1.718573] (experiment_logger) StdoutLine: {'line': b"reading manifest file '../../build/experiment_logger/experiment_logger.egg-info/SOURCES.txt'\n"}
+[1.719254] (predictor_ui) StdoutLine: {'line': b"reading manifest file '../../build/predictor_ui/predictor_ui.egg-info/SOURCES.txt'\n"}
+[1.719744] (experiment_logger) StdoutLine: {'line': b"writing manifest file '../../build/experiment_logger/experiment_logger.egg-info/SOURCES.txt'\n"}
+[1.719929] (experiment_logger) StdoutLine: {'line': b'running build\n'}
+[1.720033] (experiment_logger) StdoutLine: {'line': b'running build_py\n'}
+[1.720126] (experiment_logger) StdoutLine: {'line': b'copying experiment_logger/logger_node.py -> /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger\n'}
+[1.720421] (experiment_logger) StdoutLine: {'line': b'running install\n'}
+[1.720629] (predictor_ui) StdoutLine: {'line': b"writing manifest file '../../build/predictor_ui/predictor_ui.egg-info/SOURCES.txt'\n"}
+[1.720795] (predictor_ui) StdoutLine: {'line': b'running build\n'}
+[1.720962] (experiment_logger) StdoutLine: {'line': b'running install_lib\n'}
+[1.721025] (predictor_ui) StdoutLine: {'line': b'running build_py\n'}
+[1.721116] (predictor_ui) StdoutLine: {'line': b'copying predictor_ui/ui_node.py -> /home/duy/cocarry_ws/build/predictor_ui/build/lib/predictor_ui\n'}
+[1.721537] (predictor_ui) StdoutLine: {'line': b'running install\n'}
+[1.722068] (predictor_ui) StdoutLine: {'line': b'running install_lib\n'}
+[1.722339] (experiment_logger) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger/logger_node.py -> /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger\n'}
+[1.723046] (experiment_logger) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger/logger_node.py to logger_node.cpython-310.pyc\n'}
+[1.723154] (predictor_ui) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/predictor_ui/build/lib/predictor_ui/ui_node.py -> /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui\n'}
+[1.723916] (predictor_ui) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui/ui_node.py to ui_node.cpython-310.pyc\n'}
+[1.728358] (experiment_logger) StdoutLine: {'line': b'running install_data\n'}
+[1.728671] (experiment_logger) StdoutLine: {'line': b'copying package.xml -> /home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger\n'}
+[1.728835] (experiment_logger) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.730022] (predictor_ui) StdoutLine: {'line': b'running install_data\n'}
+[1.730331] (predictor_ui) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.731098] (experiment_logger) StdoutLine: {'line': b"removing '/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger-0.1.0-py3.10.egg-info' (and everything under it)\n"}
+[1.731386] (experiment_logger) StdoutLine: {'line': b'Copying ../../build/experiment_logger/experiment_logger.egg-info to /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger-0.1.0-py3.10.egg-info\n'}
+[1.732221] (experiment_logger) StdoutLine: {'line': b'running install_scripts\n'}
+[1.732909] (predictor_ui) StdoutLine: {'line': b"removing '/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui-0.1.0-py3.10.egg-info' (and everything under it)\n"}
+[1.733404] (predictor_ui) StdoutLine: {'line': b'Copying ../../build/predictor_ui/predictor_ui.egg-info to /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui-0.1.0-py3.10.egg-info\n'}
+[1.734881] (predictor_ui) StdoutLine: {'line': b'running install_scripts\n'}
+[1.762344] (experiment_logger) StdoutLine: {'line': b'Installing logger_node script to /home/duy/cocarry_ws/install/experiment_logger/lib/experiment_logger\n'}
+[1.762930] (experiment_logger) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/experiment_logger/install.log'\n"}
+[1.770259] (predictor_ui) StdoutLine: {'line': b'Installing ui_node script to /home/duy/cocarry_ws/install/predictor_ui/lib/predictor_ui\n'}
+[1.770725] (predictor_ui) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/predictor_ui/install.log'\n"}
+[1.806803] (-) TimerEvent: {}
+[1.811502] (experiment_logger) CommandEnded: {'returncode': 0}
+[1.834674] (experiment_logger) JobEnded: {'identifier': 'experiment_logger', 'rc': 0}
+[1.836462] (predictor_ui) CommandEnded: {'returncode': 0}
+[1.849216] (predictor_ui) JobEnded: {'identifier': 'predictor_ui', 'rc': 0}
+[1.851043] (-) EventReactorShutdown: {}
