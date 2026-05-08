@@ -15,7 +15,7 @@ Pipeline data flow:
   RealSense → realsense_tracker → /hand_position
     → trajectory_predictor → /ml/predicted_position
     → coord_transform → /cartesian_streamer/target_pose
-    → cartesian_streamer_hc10dtp → /yaskawa/queue_traj_point
+    → cartesian_streamer_hc10dtp → /queue_traj_point
     → HC10DTP robot
 """
 

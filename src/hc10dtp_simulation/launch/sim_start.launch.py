@@ -15,8 +15,7 @@ Kiến trúc:
   └──────────┬─────────┘
              │
   ┌──────────▼─────────┐
-  │  motoros2_mock_node  │  ← relay /joint_states → /yaskawa/joint_states
-  │                     │     mock /yaskawa/* services
+  │  motoros2_mock_node  │  ← mock /* services (no namespace)
   │                     │     forward queue points → JTC
   └─────────────────────┘
 

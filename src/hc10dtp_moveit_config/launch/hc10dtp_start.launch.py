@@ -4,10 +4,10 @@ hc10dtp_start.launch.py
 Launch file hoàn chỉnh cho Yaskawa HC10DTP với MotoROS2 driver.
 
 Kiến trúc:
-  - MotoROS2 driver chạy trên robot (cung cấp /yaskawa/follow_joint_trajectory
-    và /yaskawa/joint_states)
+  - MotoROS2 driver chạy trên robot (cung cấp /follow_joint_trajectory
+    và /joint_states)
   - File này khởi động: move_group + RViz + robot_state_publisher +
-    restamp_joint_states + static TF
+    static TF
 
 Cách dùng:
   1. Đảm bảo MotoROS2 driver đang chạy trên robot
@@ -60,6 +60,9 @@ def generate_launch_description():
             moveit_config.to_dict(),
             planning_scene_monitor_parameters,
         ],
+        remappings=[
+            ("/joint_states", "/joint_states_restamped"),
+        ],
     )
 
     # ── RViz ─────────────────────────────────────────────────────────────
@@ -90,6 +93,9 @@ def generate_launch_description():
         name="robot_state_publisher",
         output="both",
         parameters=[moveit_config.robot_description],
+        remappings=[
+            ("/joint_states", "/joint_states_restamped"),
+        ],
     )
 
     # ── Static TF (world -> base_link) ───────────────────────────────────
@@ -102,7 +108,8 @@ def generate_launch_description():
                    "0.0", "0.0", "world", "base_link"],
     )
 
-    # ── Restamp Node ─────────────────────────────────────────────────────
+    # ── Restamp Node (Fix clock skew 10s) ────────────────────────────────
+    # MotoROS2 publish thẳng lên /joint_states, restamp re-publish lên /joint_states_restamped
     restamp_node = Node(
         package="hc10dtp_bringup",
         executable="restamp_joint_states.py",

@@ -20,15 +20,13 @@ node này đóng vai trò trung gian:
                                                       ▼
                                               /joint_states  ──► RViz
 
-Mock node cung cấp:
-  - /yaskawa/start_point_queue_mode   (StartPointQueueMode)  → trả READY
-  - /yaskawa/queue_traj_point         (QueueTrajPoint)       → forward tới JTC
-  - /yaskawa/queue_point              (QueueTrajPoint)       → alias
-  - /queue_point                      (QueueTrajPoint)       → alias
-  - /yaskawa/stop_traj_mode           (Trigger)              → trả success
-  - /yaskawa/reset_error              (Trigger)              → trả success
-  - /yaskawa/servo_on                 (Trigger)              → trả success
-  - /yaskawa/joint_states             (JointState publisher) → relay /joint_states
+Mock node cung cấp (không namespace, giống cấu hình node_namespace="" trên robot thật):
+  - /start_point_queue_mode   (StartPointQueueMode)  → trả READY
+  - /queue_traj_point         (QueueTrajPoint)       → forward tới JTC
+  - /queue_point              (QueueTrajPoint)       → alias
+  - /stop_traj_mode           (Trigger)              → trả success
+  - /reset_error              (Trigger)              → trả success
+  - /servo_on                 (Trigger)              → trả success
 
 Cách dùng:
   Terminal 1: ros2 launch hc10dtp_simulation sim_start.launch.py
@@ -75,7 +73,7 @@ class MotoROS2MockNode(Node):
         # 1. StartPointQueueMode
         self._start_queue_srv = self.create_service(
             StartPointQueueMode,
-            '/yaskawa/start_point_queue_mode',
+            '/start_point_queue_mode',
             self._handle_start_queue,
             callback_group=self._cb,
         )
@@ -83,17 +81,11 @@ class MotoROS2MockNode(Node):
         # 2. QueueTrajPoint (3 biến thể mà cartesian_streamer thử)
         self._queue_traj_srv = self.create_service(
             QueueTrajPoint,
-            '/yaskawa/queue_traj_point',
+            '/queue_traj_point',
             self._handle_queue_point,
             callback_group=self._cb,
         )
         self._queue_point_srv = self.create_service(
-            QueueTrajPoint,
-            '/yaskawa/queue_point',
-            self._handle_queue_point,
-            callback_group=self._cb,
-        )
-        self._queue_point_bare_srv = self.create_service(
             QueueTrajPoint,
             '/queue_point',
             self._handle_queue_point,
@@ -103,7 +95,7 @@ class MotoROS2MockNode(Node):
         # 3. stop_traj_mode (Trigger)
         self._stop_traj_srv = self.create_service(
             Trigger,
-            '/yaskawa/stop_traj_mode',
+            '/stop_traj_mode',
             self._handle_trigger_ok,
             callback_group=self._cb,
         )
@@ -111,7 +103,7 @@ class MotoROS2MockNode(Node):
         # 4. reset_error (Trigger)
         self._reset_error_srv = self.create_service(
             Trigger,
-            '/yaskawa/reset_error',
+            '/reset_error',
             self._handle_trigger_ok,
             callback_group=self._cb,
         )
@@ -119,16 +111,8 @@ class MotoROS2MockNode(Node):
         # 5. servo_on (Trigger)
         self._servo_on_srv = self.create_service(
             Trigger,
-            '/yaskawa/servo_on',
+            '/servo_on',
             self._handle_trigger_ok,
-            callback_group=self._cb,
-        )
-
-        # ── Relay /joint_states → /yaskawa/joint_states ──────────────
-        self._js_pub = self.create_publisher(JointState, '/yaskawa/joint_states', 10)
-        self._js_sub = self.create_subscription(
-            JointState, '/joint_states',
-            self._on_joint_state, 10,
             callback_group=self._cb,
         )
 
@@ -143,9 +127,8 @@ class MotoROS2MockNode(Node):
         self.get_logger().info(
             '╔══════════════════════════════════════════════╗\n'
             '║   MotoROS2 Mock Node — Simulation Mode      ║\n'
-            '║   Tất cả /yaskawa/* services đã sẵn sàng    ║\n'
-            '║   Joint states relay: /joint_states →        ║\n'
-            '║                       /yaskawa/joint_states  ║\n'
+            '║   Tất cả /* services đã sẵn sàng            ║\n'
+            '║   (node_namespace="" — không prefix)         ║\n'
             '╚══════════════════════════════════════════════╝'
         )
 
@@ -210,18 +193,6 @@ class MotoROS2MockNode(Node):
         response.success = True
         response.message = 'Mock: OK (simulation)'
         return response
-
-    # ── Joint State Relay ─────────────────────────────────────────────
-
-    def _on_joint_state(self, msg: JointState):
-        """Relay /joint_states → /yaskawa/joint_states."""
-        relay = JointState()
-        relay.header = msg.header
-        relay.name = msg.name
-        relay.position = msg.position
-        relay.velocity = msg.velocity
-        relay.effort = msg.effort
-        self._js_pub.publish(relay)
 
 
 def main():

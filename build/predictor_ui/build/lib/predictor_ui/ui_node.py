@@ -92,9 +92,9 @@ class PredictorUiNode(Node):
         self._predictor_cli = self.create_client(SetBool, '/predictor/toggle')
         self._calib_cli = self.create_client(Trigger, '/realsense/calibrate_origin')
         self._capture_init_cli = self.create_client(Trigger, '/coord_transform/capture_init_pose')
-        self._stop_traj_cli = self.create_client(Trigger, '/yaskawa/stop_traj_mode')
-        self._servo_on_cli = self.create_client(Trigger, '/yaskawa/servo_on')
-        self._reset_error_cli = self.create_client(Trigger, '/yaskawa/reset_error')
+        self._stop_traj_cli = self.create_client(Trigger, '/stop_traj_mode')
+        self._servo_on_cli = self.create_client(Trigger, '/servo_on')
+        self._reset_error_cli = self.create_client(Trigger, '/reset_error')
         self._streamer_enable_cli = self.create_client(SetBool, '/cartesian_streamer/enable')
 
         self._traj_mode_pub = self.create_publisher(String, '/trajectory_mode', 5)
@@ -108,7 +108,7 @@ class PredictorUiNode(Node):
         self._go_home_real_action = ActionClient(
             self,
             FollowJointTrajectory,
-            '/yaskawa/follow_joint_trajectory',
+            '/follow_joint_trajectory',
         )
 
         # ── FPS timer ───────────────────────────────────────────────────────
@@ -238,7 +238,7 @@ class PredictorUiNode(Node):
         elif sim_ready:
             self._backend_mode = 'SIM'
         elif self._stop_traj_cli.wait_for_service(timeout_sec=0.01):
-            # Có yaskawa service nhưng chưa có action ready => backend trung gian.
+            # Có MotoROS2 service nhưng chưa có action ready => backend trung gian.
             self._backend_mode = 'HYBRID'
         else:
             self._backend_mode = 'UNKNOWN'
@@ -571,7 +571,7 @@ class DashboardWindow:
         self._set_status('State: RECOVER | Robot disabled')
 
     def _soft_stop(self):
-        ok = self.node.call_trigger_service(self.node._stop_traj_cli, '/yaskawa/stop_traj_mode')
+        ok = self.node.call_trigger_service(self.node._stop_traj_cli, '/stop_traj_mode')
         if ok:
             self._set_status('State: RECOVER | Soft stop sent')
         else:
