@@ -13,7 +13,7 @@ Quy trình khởi động (2 terminal):
 
 Lưu ý kiến trúc:
   MotoROS2 driver chạy trực tiếp trên YRC1000/YRC1000micro
-  và tự expose /yaskawa/* services.
+  và tự expose các services (không namespace).
 
 AI node gửi lệnh qua:
   /cartesian_streamer/target_pose  → geometry_msgs/PoseStamped
@@ -159,7 +159,7 @@ class CartesianStreamer(Node):
 
         # ── Subscribers ──────────────────────────────────────────
         self._js_sub = self.create_subscription(
-            JointState, '/yaskawa/joint_states',
+            JointState, '/joint_states_restamped',
             self._on_joint_state, 10, callback_group=self._cb)
 
         self._pose_sub = self.create_subscription(
@@ -180,30 +180,27 @@ class CartesianStreamer(Node):
             GetPositionIK, '/compute_ik', callback_group=self._cb)
 
         self._start_queue_cli = self.create_client(
-            StartPointQueueMode, '/yaskawa/start_point_queue_mode',
+            StartPointQueueMode, '/start_point_queue_mode',
             callback_group=self._cb)
         self._queue_point_cli = self.create_client(
-            QueueTrajPoint, '/yaskawa/queue_traj_point',
+            QueueTrajPoint, '/queue_traj_point',
             callback_group=self._cb)
         self._queue_point_cli_alt = self.create_client(
-            QueueTrajPoint, '/yaskawa/queue_point',
-            callback_group=self._cb)
-        self._queue_point_cli_alt2 = self.create_client(
             QueueTrajPoint, '/queue_point',
             callback_group=self._cb)
 
         self._stop_traj_cli = self.create_client(
-            Trigger, '/yaskawa/stop_traj_mode',
+            Trigger, '/stop_traj_mode',
             callback_group=self._cb)
 
         self._fk_cli = self.create_client(
             GetPositionFK, '/compute_fk', callback_group=self._cb)
 
         self._reset_error_cli = self.create_client(
-            Trigger, '/yaskawa/reset_error', callback_group=self._cb)
+            Trigger, '/reset_error', callback_group=self._cb)
 
         self._servo_on_cli = self.create_client(
-            Trigger, '/yaskawa/servo_on', callback_group=self._cb)
+            Trigger, '/servo_on', callback_group=self._cb)
 
         # ── Services (enable / disable từ UI) ────────────────────
         self.create_service(
@@ -311,7 +308,7 @@ class CartesianStreamer(Node):
     def _wait_for_joints(self):
         """Chỉ chờ joint_states, KHÔNG tự động enable robot."""
         if not self._got_joints:
-            self.get_logger().info('Chờ /yaskawa/joint_states...', throttle_duration_sec=2.0)
+            self.get_logger().info('Chờ /joint_states...', throttle_duration_sec=2.0)
             return
         self._startup_timer.cancel()
 
@@ -869,8 +866,6 @@ class CartesianStreamer(Node):
             return self._queue_point_cli
         if self._queue_point_cli_alt.wait_for_service(timeout_sec=0.01):
             return self._queue_point_cli_alt
-        if self._queue_point_cli_alt2.wait_for_service(timeout_sec=0.01):
-            return self._queue_point_cli_alt2
         return None
 
     def _log_runtime_rates(self):

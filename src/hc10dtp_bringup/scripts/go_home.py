@@ -15,6 +15,7 @@ Cách dùng:
 
 import rclpy
 from rclpy.node import Node
+import time
 from rclpy.action import ActionClient
 from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
@@ -26,15 +27,33 @@ class GoHomeNode(Node):
         super().__init__('go_home_node')
 
         # Dùng hc10dtp_arm_controller/follow_joint_trajectory cho simulation/ros2_control
-        # Nếu robot thật sử dụng /yaskawa/follow_joint_trajectory, hãy đổi tên action
-        self._action_client = ActionClient(self, FollowJointTrajectory, '/hc10dtp_arm_controller/follow_joint_trajectory')
+        # Nếu robot thật sử dụng /follow_joint_trajectory, hãy đổi tên action
+        self._action_client = ActionClient(self, FollowJointTrajectory, '/follow_joint_trajectory')
         
         # Tắt point queue mode nếu nó đang chạy ngầm
-        self._stop_cli = self.create_client(Trigger, '/yaskawa/stop_traj_mode')
+        self._stop_cli = self.create_client(Trigger, '/stop_traj_mode')
         if self._stop_cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('Đang gửi lệnh tắt chế độ Stream (Point Queue Mode)...')
             req = Trigger.Request()
             self._stop_cli.call_async(req)
+            time.sleep(0.5)
+
+        # Bật servo_on trước và đợi
+        self._servo_cli = self.create_client(Trigger, '/servo_on')
+        if self._servo_cli.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Đang gửi lệnh bật Servo...')
+            req = Trigger.Request()
+            self._servo_cli.call_async(req)
+            self.get_logger().info('Đợi 2 giây để Servo kịp khởi động...')
+            time.sleep(2.0)
+            
+        # Bật Traj Mode để nhận follow_joint_trajectory
+        self._start_traj_cli = self.create_client(Trigger, '/start_traj_mode')
+        if self._start_traj_cli.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Đang gửi lệnh bật TRAJ MODE...')
+            req = Trigger.Request()
+            self._start_traj_cli.call_async(req)
+            time.sleep(0.5)
 
     def send_goal(self):
         self.get_logger().info('Đang chờ action server /hc10dtp_arm_controller/follow_joint_trajectory...')
@@ -47,13 +66,13 @@ class GoHomeNode(Node):
         ]
 
         point = JointTrajectoryPoint()
-        # Vị trí Home (0,0,0,0,0,0)
-        point.positions = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        # Vị trí Home đã được capture
+        point.positions = [0.000000, 0.000000, -1.571269, 0.000000, 0.000011, 0.000011]
         point.time_from_start = Duration(sec=3, nanosec=0)  # Mất 3 giây để về nhà
 
         goal_msg.trajectory.points = [point]
 
-        self.get_logger().info('Đang gửi lệnh về Home [0, 0, 0, 0, 0, 0]...')
+        self.get_logger().info('Đang gửi lệnh về Home mới đã capture...')
         self._send_goal_future = self._action_client.send_goal_async(goal_msg)
         self._send_goal_future.add_done_callback(self.goal_response_callback)
 
