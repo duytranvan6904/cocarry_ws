@@ -14,7 +14,7 @@ def generate_launch_description():
     # ──── Launch arguments ────
     model_dir_arg = DeclareLaunchArgument(
         'model_dir',
-        default_value=os.path.expanduser('~/Downloads/GRU-Model-main'),
+        default_value=os.path.expanduser('~/cocarry_ws/src/GRU-Model'),
         description='Path to directory containing .h5 models and .pkl scalers'
     )
 
@@ -55,15 +55,15 @@ def generate_launch_description():
         parameters=[{
             'model_dir': LaunchConfiguration('model_dir'),
             'default_model': 'gru',
-            'scaler_x_file': 'scaler_x.pkl',
-            'scaler_y_file': 'scaler_y.pkl',
+            'scaler_x_file': 'scaler_x_Ts3.pkl',
+            'scaler_y_file': 'scaler_y_Ts3.pkl',
             'window_size': 20,
             'num_features': 3,
             'auto_start': False,
             'clear_on_tracking_lost': 1.0,
-            'model_files.rnn': 'rnn_velocity_3_layers.h5',
-            'model_files.gru': 'gru_velocity_3_layers.h5',
-            'model_files.lstm': 'lstm_velocity_3_layers.h5',
+            'model_files.rnn': 'rnn_model_Ts3.h5',
+            'model_files.gru': 'gru_model_Ts3.h5',
+            'model_files.lstm': 'lstm_model_Ts3.h5',
         }],
     )
 
