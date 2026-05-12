@@ -67,8 +67,8 @@ class CaptureHomeNode(Node):
 
             new_positions = f'[{", ".join([f"{v:.6f}" for v in values])}]'
             go_home_content = re.sub(
-                r'goal_msg\.points\[0\]\.positions = \[.*?\]',
-                f'goal_msg.points[0].positions = {new_positions}',
+                r'HOME_JOINTS = \[.*?\]',
+                f'HOME_JOINTS = {new_positions}',
                 go_home_content,
                 flags=re.DOTALL
             )

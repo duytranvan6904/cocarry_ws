@@ -35,6 +35,9 @@ class CoordTransformNode(Node):
         self._current_robot_pose = None  # To store the latest EE pose
         self._mode = 'ground_truth'      # Default mode
         self._running = False            # Whether to forward data
+        self._last_p_cam = None          # Lưu tọa độ tay thô mới nhất từ camera
+        self._p_cam_init = None          # Lưu tọa độ tay thô tại thời điểm bấm Calibrate
+        self._last_p_base = None         # Lưu tọa độ target gần nhất (rate-limiting)
         self.get_logger().info(
             'CoordTransformNode khởi động.\n'
             f'  Object offset (cam frame): {self._obj_offset}\n'
@@ -85,14 +88,16 @@ class CoordTransformNode(Node):
         self.declare_parameter('workspace_z_min',  0.05)
         self.declare_parameter('workspace_z_max',  1.5)
 
-        # Axis remap: mapping camera axes → robot axes BEFORE rotation
-        # Default [1, 0, 2] means:
-        #   robot_input[0] (X) ← cam[1] (camera Y)
-        #   robot_input[1] (Y) ← cam[0] (camera X)
-        #   robot_input[2] (Z) ← cam[2] (camera Z)
-        self.declare_parameter('axis_remap', [1, 0, 2])
+        # Axis remap: mapping camera workspace axes → robot base frame axes
+        # Default [0, 1, 2] = direct mapping (no swap)
+        #   robot_input[0] (X) ← cam_ws[0] (x_ws: left-right)
+        #   robot_input[1] (Y) ← cam_ws[1] (y_ws: depth toward camera)
+        #   robot_input[2] (Z) ← cam_ws[2] (z_ws: up-down)
+        self.declare_parameter('axis_remap', [0, 1, 2])
         # Sign for each remapped axis (after remap, before rotation)
-        self.declare_parameter('axis_sign', [1.0, 1.0, 1.0])
+        # Default [-1, 1, 1]: negate X because camera X+ (left→right)
+        # is opposite to robot X+ (right→left from camera view)
+        self.declare_parameter('axis_sign', [-1.0, 1.0, 1.0])
 
     def _load_params(self):
         # Object offset
@@ -238,7 +243,14 @@ class CoordTransformNode(Node):
         # Reset object offset về 0 (vì dùng relative displacement)
         self._obj_offset = np.array([0.0, 0.0, 0.0])
 
+        if self._last_p_cam is None:
+            self._p_cam_init = np.array([0.0, 0.0, 0.0])
+            self.get_logger().warn("Chưa có tọa độ tay từ camera! Dùng [0,0,0] làm mốc.")
+        else:
+            self._p_cam_init = self._last_p_cam.copy()
+
         msg = (f"Captured Init Pose! P_init=({pos.x:.3f}, {pos.y:.3f}, {pos.z:.3f}), "
+               f"Cam_init=({self._p_cam_init[0]:.3f}, {self._p_cam_init[1]:.3f}, {self._p_cam_init[2]:.3f}), "
                f"Orientation=({ori.x:.3f}, {ori.y:.3f}, {ori.z:.3f}, {ori.w:.3f})")
         self.get_logger().info(msg)
         
@@ -263,7 +275,10 @@ class CoordTransformNode(Node):
             return
             
         p_cam = np.array([msg.x, msg.y, msg.z])
-        self._process_and_publish(p_cam)
+        self._last_p_cam = p_cam
+        
+        if self._running:
+            self._process_and_publish(p_cam)
 
     def _on_prediction(self, msg: HandPrediction):
         """Xử lý HandPrediction khi mode = prediction"""
@@ -277,14 +292,14 @@ class CoordTransformNode(Node):
         else:
             p_cam = np.array([msg.x, msg.y, msg.z])
             
-        self._process_and_publish(p_cam)
+        self._last_p_cam = p_cam
+        
+        if self._running:
+            self._process_and_publish(p_cam)
 
     def _process_and_publish(self, p_cam: np.ndarray):
         """Hàm dùng chung để clamp và tính pose đích"""
-        if not self._running:
-            return
 
-        # Bước 1: Kiểm tra tọa độ hợp lệ (không phải NaN/Inf)
         if not np.all(np.isfinite(p_cam)):
             self.get_logger().warn(
                 f'Tọa độ không hợp lệ: {p_cam}',
@@ -292,16 +307,20 @@ class CoordTransformNode(Node):
             )
             return
 
-        # Bước 2: Thêm object offset (Thường = 0 nếu dùng Relative Displacement)
-        p_cam_obj = p_cam + self._obj_offset
+        # Nếu chưa calibrate, bỏ qua xử lý
+        if self._p_cam_init is None:
+            return
+
+        # Bước 2: Lấy độ dời tương đối từ camera, cộng thêm object offset
+        p_cam_delta = p_cam - self._p_cam_init + self._obj_offset
 
         # Bước 2.5: Axis remap (camera frame → robot frame trước khi xoay)
         remap = self._axis_remap
         signs = self._axis_sign
         p_remapped = np.array([
-            signs[0] * p_cam_obj[remap[0]],
-            signs[1] * p_cam_obj[remap[1]],
-            signs[2] * p_cam_obj[remap[2]],
+            signs[0] * p_cam_delta[remap[0]],
+            signs[1] * p_cam_delta[remap[1]],
+            signs[2] * p_cam_delta[remap[2]],
         ])
 
         # Bước 3: Transform sang robot base frame
@@ -315,6 +334,15 @@ class CoordTransformNode(Node):
                 f'Tọa độ bị clamp: {p_base} → {p_clamped}',
                 throttle_duration_sec=1.0,
             )
+
+        # Bước 4.5: Rate-limiting — max 5cm/frame để tránh nhảy lớn
+        MAX_DELTA_PER_FRAME = 0.05  # 5cm
+        if self._last_p_base is not None:
+            for i in range(3):
+                delta = p_clamped[i] - self._last_p_base[i]
+                if abs(delta) > MAX_DELTA_PER_FRAME:
+                    p_clamped[i] = self._last_p_base[i] + MAX_DELTA_PER_FRAME * np.sign(delta)
+        self._last_p_base = p_clamped.copy()
 
         # Bước 5: Tạo và publish PoseStamped
         target = PoseStamped()

@@ -1,0 +1,54 @@
+[0.000000] (-) TimerEvent: {}
+[0.000044] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000059] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000068] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000076] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000083] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000090] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000097] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.000105] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.000113] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.000123] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.000132] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.000140] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.000147] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.000154] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.000162] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.000170] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.000177] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.000185] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.000193] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.000201] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.000208] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.000218] (coord_transform) JobQueued: {'identifier': 'coord_transform', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.000230] (hc10dtp_bringup) JobQueued: {'identifier': 'hc10dtp_bringup', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config')])}
+[0.000580] (coord_transform) JobStarted: {'identifier': 'coord_transform'}
+[0.003975] (hc10dtp_bringup) JobStarted: {'identifier': 'hc10dtp_bringup'}
+[0.099929] (-) TimerEvent: {}
+[0.143139] (hc10dtp_bringup) JobProgress: {'identifier': 'hc10dtp_bringup', 'progress': 'cmake'}
+[0.143609] (hc10dtp_bringup) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/hc10dtp_bringup', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/hc10dtp_bringup'], 'cwd': '/home/duy/cocarry_ws/build/hc10dtp_bringup', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('OLDPWD', '/home/duy/cocarry_ws'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/hc10dtp_bringup'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources')]), 'shell': False}
+[0.163360] (hc10dtp_bringup) StderrLine: {'line': b'CMake Error at CMakeLists.txt:4 (find_package):\n'}
+[0.163517] (hc10dtp_bringup) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.163588] (hc10dtp_bringup) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.163649] (hc10dtp_bringup) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.163708] (hc10dtp_bringup) StderrLine: {'line': b'\n'}
+[0.163767] (hc10dtp_bringup) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.163825] (hc10dtp_bringup) StderrLine: {'line': b'  any of the following names:\n'}
+[0.163883] (hc10dtp_bringup) StderrLine: {'line': b'\n'}
+[0.163941] (hc10dtp_bringup) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.164015] (hc10dtp_bringup) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.164082] (hc10dtp_bringup) StderrLine: {'line': b'\n'}
+[0.164142] (hc10dtp_bringup) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.164335] (hc10dtp_bringup) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.164480] (hc10dtp_bringup) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.164612] (hc10dtp_bringup) StderrLine: {'line': b'  has been installed.\n'}
+[0.164828] (hc10dtp_bringup) StderrLine: {'line': b'\n'}
+[0.165138] (hc10dtp_bringup) StderrLine: {'line': b'\n'}
+[0.165599] (hc10dtp_bringup) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.165724] (hc10dtp_bringup) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/hc10dtp_bringup/CMakeFiles/CMakeOutput.log".\n'}
+[0.165832] (hc10dtp_bringup) CommandEnded: {'returncode': 1}
+[0.179398] (hc10dtp_bringup) JobEnded: {'identifier': 'hc10dtp_bringup', 'rc': 1}
+[0.200149] (-) TimerEvent: {}
+[0.300325] (-) TimerEvent: {}
+[0.338215] (coord_transform) JobEnded: {'identifier': 'coord_transform', 'rc': 'SIGINT'}
+[0.348661] (-) EventReactorShutdown: {}

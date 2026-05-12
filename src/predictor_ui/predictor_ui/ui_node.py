@@ -245,14 +245,24 @@ class PredictorUiNode(Node):
         return self._backend_mode
 
     def go_home(self):
+        import subprocess
+        # Dùng script trực tiếp cho real robot/hybrid để đảm bảo an toàn với MotoROS2
+        if self._backend_mode in ['REAL', 'HYBRID'] or not (self._go_home_real_action.wait_for_server(timeout_sec=0.1) or self._go_home_sim_action.wait_for_server(timeout_sec=0.1)):
+            self.get_logger().info('[UI] Using standalone go_home.py script for real robot')
+            import os
+            script_path = os.path.expanduser('~/cocarry_ws/src/hc10dtp_bringup/scripts/go_home.py')
+            try:
+                subprocess.Popen(['python3', script_path])
+                return True
+            except Exception as e:
+                self.get_logger().error(f'[UI] Failed to run go_home.py: {e}')
+                return False
+
         action_client = None
         if self._go_home_real_action.wait_for_server(timeout_sec=0.1):
             action_client = self._go_home_real_action
         elif self._go_home_sim_action.wait_for_server(timeout_sec=0.1):
             action_client = self._go_home_sim_action
-        else:
-            self.get_logger().warn('[UI] No follow_joint_trajectory action server available')
-            return False
 
         goal_msg = FollowJointTrajectory.Goal()
         goal_msg.trajectory.joint_names = [

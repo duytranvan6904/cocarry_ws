@@ -318,8 +318,8 @@ message(STATUS "Execute custom install script")
 # install(DIRECTORY "launch" "DESTINATION" "share/hc10dtp_bringup")
 ament_cmake_symlink_install_directory("/home/duy/cocarry_ws/src/hc10dtp_bringup" DIRECTORY "launch" "DESTINATION" "share/hc10dtp_bringup")
 
-# install(PROGRAMS "scripts/cartesian_streamer_hc10dtp.py" "scripts/restamp_joint_states.py" "DESTINATION" "lib/hc10dtp_bringup")
-ament_cmake_symlink_install_programs("/home/duy/cocarry_ws/src/hc10dtp_bringup" PROGRAMS "scripts/cartesian_streamer_hc10dtp.py" "scripts/restamp_joint_states.py" "DESTINATION" "lib/hc10dtp_bringup")
+# install(PROGRAMS "scripts/cartesian_streamer_hc10dtp.py" "scripts/restamp_joint_states.py" "scripts/go_home.py" "scripts/capture_home.py" "scripts/test_queue_diagnostic.py" "DESTINATION" "lib/hc10dtp_bringup")
+ament_cmake_symlink_install_programs("/home/duy/cocarry_ws/src/hc10dtp_bringup" PROGRAMS "scripts/cartesian_streamer_hc10dtp.py" "scripts/restamp_joint_states.py" "scripts/go_home.py" "scripts/capture_home.py" "scripts/test_queue_diagnostic.py" "DESTINATION" "lib/hc10dtp_bringup")
 
 # install(FILES "/home/duy/cocarry_ws/build/hc10dtp_bringup/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/hc10dtp_bringup" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/duy/cocarry_ws/src/hc10dtp_bringup" FILES "/home/duy/cocarry_ws/build/hc10dtp_bringup/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/hc10dtp_bringup" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

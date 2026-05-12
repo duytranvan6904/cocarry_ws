@@ -1,0 +1,190 @@
+[0.000000] (-) TimerEvent: {}
+[0.000514] (human_hand_msgs) JobQueued: {'identifier': 'human_hand_msgs', 'dependencies': OrderedDict()}
+[0.000595] (industrial_msgs) JobQueued: {'identifier': 'industrial_msgs', 'dependencies': OrderedDict()}
+[0.000620] (kinect2_registration) JobQueued: {'identifier': 'kinect2_registration', 'dependencies': OrderedDict()}
+[0.000643] (libfreenect2) JobQueued: {'identifier': 'libfreenect2', 'dependencies': OrderedDict()}
+[0.000668] (motoman_resources) JobQueued: {'identifier': 'motoman_resources', 'dependencies': OrderedDict()}
+[0.005958] (motoros2_interfaces) JobQueued: {'identifier': 'motoros2_interfaces', 'dependencies': OrderedDict()}
+[0.006040] (trac_ik_lib) JobQueued: {'identifier': 'trac_ik_lib', 'dependencies': OrderedDict()}
+[0.006117] (coord_transform) JobQueued: {'identifier': 'coord_transform', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.006142] (experiment_logger) JobQueued: {'identifier': 'experiment_logger', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.006168] (kinect2_bridge) JobQueued: {'identifier': 'kinect2_bridge', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration')])}
+[0.006189] (motoman_gp4_support) JobQueued: {'identifier': 'motoman_gp4_support', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources')])}
+[0.006321] (motoman_hc10dtp_support) JobQueued: {'identifier': 'motoman_hc10dtp_support', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources')])}
+[0.006345] (motoros2_client_interface_dependencies) JobQueued: {'identifier': 'motoros2_client_interface_dependencies', 'dependencies': OrderedDict([('industrial_msgs', '/home/duy/cocarry_ws/install/industrial_msgs'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces')])}
+[0.006368] (predictor_ui) JobQueued: {'identifier': 'predictor_ui', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.006494] (realsense_tracker) JobQueued: {'identifier': 'realsense_tracker', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.006524] (trac_ik_kinematics) JobQueued: {'identifier': 'trac_ik_kinematics', 'dependencies': OrderedDict([('trac_ik_lib', '/home/duy/cocarry_ws/install/trac_ik_lib')])}
+[0.006571] (trajectory_predictor) JobQueued: {'identifier': 'trajectory_predictor', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.006593] (hc10dtp_moveit_config) JobQueued: {'identifier': 'hc10dtp_moveit_config', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support')])}
+[0.006613] (kinect2_calibration) JobQueued: {'identifier': 'kinect2_calibration', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration'), ('kinect2_bridge', '/home/duy/cocarry_ws/install/kinect2_bridge')])}
+[0.006649] (trac_ik) JobQueued: {'identifier': 'trac_ik', 'dependencies': OrderedDict([('trac_ik_lib', '/home/duy/cocarry_ws/install/trac_ik_lib'), ('trac_ik_kinematics', '/home/duy/cocarry_ws/install/trac_ik_kinematics')])}
+[0.006703] (hc10dtp_bringup) JobQueued: {'identifier': 'hc10dtp_bringup', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config')])}
+[0.006725] (hc10dtp_simulation) JobQueued: {'identifier': 'hc10dtp_simulation', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config'), ('hc10dtp_bringup', '/home/duy/cocarry_ws/install/hc10dtp_bringup')])}
+[0.006759] (hrc_bringup) JobQueued: {'identifier': 'hrc_bringup', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs'), ('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces'), ('coord_transform', '/home/duy/cocarry_ws/install/coord_transform'), ('experiment_logger', '/home/duy/cocarry_ws/install/experiment_logger'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('predictor_ui', '/home/duy/cocarry_ws/install/predictor_ui'), ('realsense_tracker', '/home/duy/cocarry_ws/install/realsense_tracker'), ('trajectory_predictor', '/home/duy/cocarry_ws/install/trajectory_predictor'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config'), ('hc10dtp_bringup', '/home/duy/cocarry_ws/install/hc10dtp_bringup'), ('hc10dtp_simulation', '/home/duy/cocarry_ws/install/hc10dtp_simulation')])}
+[0.006823] (human_hand_msgs) JobStarted: {'identifier': 'human_hand_msgs'}
+[0.008649] (motoman_resources) JobStarted: {'identifier': 'motoman_resources'}
+[0.009632] (motoros2_interfaces) JobStarted: {'identifier': 'motoros2_interfaces'}
+[0.010484] (kinect2_registration) JobStarted: {'identifier': 'kinect2_registration'}
+[0.012274] (trac_ik_lib) JobStarted: {'identifier': 'trac_ik_lib'}
+[0.012895] (industrial_msgs) JobStarted: {'identifier': 'industrial_msgs'}
+[0.013724] (libfreenect2) JobStarted: {'identifier': 'libfreenect2'}
+[0.015801] (human_hand_msgs) JobProgress: {'identifier': 'human_hand_msgs', 'progress': 'cmake'}
+[0.016306] (human_hand_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/human_hand_msgs', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCATKIN_SYMLINK_INSTALL=ON', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/human_hand_msgs'], 'cwd': '/home/duy/cocarry_ws/build/human_hand_msgs', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/human_hand_msgs'), ('COLCON', '1')]), 'shell': False}
+[0.017513] (motoman_resources) JobProgress: {'identifier': 'motoman_resources', 'progress': 'cmake'}
+[0.017721] (motoman_resources) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/motoman_ros2_support_packages/motoman_resources', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoman_resources'], 'cwd': '/home/duy/cocarry_ws/build/motoman_resources', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/motoman_resources'), ('COLCON', '1')]), 'shell': False}
+[0.018262] (motoros2_interfaces) JobProgress: {'identifier': 'motoros2_interfaces', 'progress': 'cmake'}
+[0.018658] (motoros2_interfaces) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/yaskawa-global/motoros2_interfaces', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoros2_interfaces'], 'cwd': '/home/duy/cocarry_ws/build/motoros2_interfaces', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/motoros2_interfaces'), ('COLCON', '1')]), 'shell': False}
+[0.019452] (kinect2_registration) JobProgress: {'identifier': 'kinect2_registration', 'progress': 'cmake'}
+[0.019859] (kinect2_registration) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_registration'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_registration', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_registration'), ('COLCON', '1')]), 'shell': False}
+[0.020601] (trac_ik_lib) JobProgress: {'identifier': 'trac_ik_lib', 'progress': 'cmake'}
+[0.020889] (trac_ik_lib) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/trac_ik/trac_ik_lib', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/trac_ik_lib'], 'cwd': '/home/duy/cocarry_ws/build/trac_ik_lib', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/trac_ik_lib'), ('COLCON', '1')]), 'shell': False}
+[0.021478] (industrial_msgs) JobProgress: {'identifier': 'industrial_msgs', 'progress': 'cmake'}
+[0.021874] (industrial_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/industrial_msgs'], 'cwd': '/home/duy/cocarry_ws/build/industrial_msgs', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/industrial_msgs'), ('COLCON', '1')]), 'shell': False}
+[0.024968] (libfreenect2) JobProgress: {'identifier': 'libfreenect2', 'progress': 'cmake'}
+[0.025657] (libfreenect2) JobProgress: {'identifier': 'libfreenect2', 'progress': 'build'}
+[0.026556] (libfreenect2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/libfreenect2', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/libfreenect2', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/libfreenect2'), ('COLCON', '1')]), 'shell': False}
+[0.028071] (motoman_resources) StderrLine: {'line': b'CMake Error at CMakeLists.txt:5 (find_package):\n'}
+[0.028275] (motoman_resources) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.028523] (motoman_resources) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.028898] (motoman_resources) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.028999] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.029089] (motoman_resources) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.029175] (motoman_resources) StderrLine: {'line': b'  any of the following names:\n'}
+[0.029287] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.029403] (motoman_resources) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.029480] (motoman_resources) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.029563] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.029648] (motoman_resources) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.029731] (motoman_resources) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.029818] (motoman_resources) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.029989] (motoman_resources) StderrLine: {'line': b'  has been installed.\n'}
+[0.030070] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.030147] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.030234] (motoman_resources) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.030670] (motoman_resources) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/motoman_resources/CMakeFiles/CMakeOutput.log".\n'}
+[0.030773] (motoman_resources) CommandEnded: {'returncode': 1}
+[0.030995] (human_hand_msgs) StderrLine: {'line': b'CMake Error at CMakeLists.txt:8 (find_package):\n'}
+[0.031197] (human_hand_msgs) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.031285] (human_hand_msgs) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.031357] (human_hand_msgs) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.031672] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[0.032040] (human_hand_msgs) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.032319] (human_hand_msgs) StderrLine: {'line': b'  any of the following names:\n'}
+[0.032489] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[0.032674] (human_hand_msgs) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.032778] (human_hand_msgs) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.032869] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[0.032945] (human_hand_msgs) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.033018] (human_hand_msgs) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.033090] (human_hand_msgs) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.033160] (human_hand_msgs) StderrLine: {'line': b'  has been installed.\n'}
+[0.033245] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[0.033550] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[0.033624] (human_hand_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.033716] (human_hand_msgs) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/human_hand_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[0.034449] (industrial_msgs) StderrLine: {'line': b'CMake Error at CMakeLists.txt:16 (find_package):\n'}
+[0.034664] (industrial_msgs) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.034827] (industrial_msgs) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.035181] (industrial_msgs) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.035314] (industrial_msgs) StderrLine: {'line': b'\n'}
+[0.035432] (industrial_msgs) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.035505] (industrial_msgs) StderrLine: {'line': b'  any of the following names:\n'}
+[0.035575] (industrial_msgs) StderrLine: {'line': b'\n'}
+[0.035644] (industrial_msgs) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.035711] (industrial_msgs) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.035779] (industrial_msgs) StderrLine: {'line': b'\n'}
+[0.035879] (industrial_msgs) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.035948] (industrial_msgs) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.036019] (industrial_msgs) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.036090] (industrial_msgs) StderrLine: {'line': b'  has been installed.\n'}
+[0.036157] (industrial_msgs) StderrLine: {'line': b'\n'}
+[0.036228] (industrial_msgs) StderrLine: {'line': b'\n'}
+[0.036399] (industrial_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.036495] (industrial_msgs) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/industrial_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[0.038185] (kinect2_registration) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.038777] (kinect2_registration) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/kinect2_registration/CMakeFiles/CMakeOutput.log".\n'}
+[0.038904] (kinect2_registration) StderrLine: {'line': b'CMake Error at CMakeLists.txt:9 (find_package):\n'}
+[0.039015] (kinect2_registration) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.039091] (kinect2_registration) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.039164] (kinect2_registration) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.039253] (kinect2_registration) StderrLine: {'line': b'\n'}
+[0.039497] (kinect2_registration) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.039579] (kinect2_registration) StderrLine: {'line': b'  any of the following names:\n'}
+[0.039657] (kinect2_registration) StderrLine: {'line': b'\n'}
+[0.039845] (kinect2_registration) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.039940] (kinect2_registration) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.040017] (kinect2_registration) StderrLine: {'line': b'\n'}
+[0.040093] (kinect2_registration) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.040167] (kinect2_registration) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.040250] (kinect2_registration) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.040330] (kinect2_registration) StderrLine: {'line': b'  has been installed.\n'}
+[0.040408] (kinect2_registration) StderrLine: {'line': b'\n'}
+[0.040481] (kinect2_registration) StderrLine: {'line': b'\n'}
+[0.040552] (motoros2_interfaces) StderrLine: {'line': b'CMake Error at CMakeLists.txt:9 (find_package):\n'}
+[0.040972] (motoros2_interfaces) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.041055] (motoros2_interfaces) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.041207] (motoros2_interfaces) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.041457] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[0.041808] (motoros2_interfaces) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.042110] (motoros2_interfaces) StderrLine: {'line': b'  any of the following names:\n'}
+[0.042264] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[0.042652] (motoros2_interfaces) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.044292] (motoros2_interfaces) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.045580] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[0.046973] (motoros2_interfaces) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.047071] (motoros2_interfaces) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.047184] (motoros2_interfaces) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.047355] (motoros2_interfaces) StderrLine: {'line': b'  has been installed.\n'}
+[0.047498] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[0.047568] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[0.047636] (motoros2_interfaces) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.048183] (motoros2_interfaces) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/motoros2_interfaces/CMakeFiles/CMakeOutput.log".\n'}
+[0.048366] (trac_ik_lib) StderrLine: {'line': b'CMake Error at CMakeLists.txt:18 (find_package):\n'}
+[0.049382] (trac_ik_lib) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.049522] (trac_ik_lib) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.049611] (trac_ik_lib) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.049786] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[0.049943] (trac_ik_lib) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.050021] (trac_ik_lib) StderrLine: {'line': b'  any of the following names:\n'}
+[0.050111] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[0.050203] (trac_ik_lib) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.050900] (trac_ik_lib) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.050997] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[0.051103] (trac_ik_lib) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.051180] (trac_ik_lib) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.051426] (trac_ik_lib) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.051506] (trac_ik_lib) StderrLine: {'line': b'  has been installed.\n'}
+[0.051579] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[0.051649] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[0.051718] (trac_ik_lib) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.052386] (trac_ik_lib) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/trac_ik_lib/CMakeFiles/CMakeOutput.log".\n'}
+[0.052801] (motoman_resources) JobEnded: {'identifier': 'motoman_resources', 'rc': 1}
+[0.054408] (human_hand_msgs) JobEnded: {'identifier': 'human_hand_msgs', 'rc': 'SIGINT'}
+[0.054857] (industrial_msgs) JobEnded: {'identifier': 'industrial_msgs', 'rc': 'SIGINT'}
+[0.055117] (kinect2_registration) JobEnded: {'identifier': 'kinect2_registration', 'rc': 'SIGINT'}
+[0.055382] (motoros2_interfaces) JobEnded: {'identifier': 'motoros2_interfaces', 'rc': 'SIGINT'}
+[0.055997] (trac_ik_lib) JobEnded: {'identifier': 'trac_ik_lib', 'rc': 'SIGINT'}
+[0.078841] (libfreenect2) StdoutLine: {'line': b'[  5%] Built target generate_resources_tool\n'}
+[0.099928] (-) TimerEvent: {}
+[0.114208] (libfreenect2) StdoutLine: {'line': b'[ 65%] Built target freenect2\n'}
+[0.134081] (libfreenect2) StdoutLine: {'line': b'[ 76%] Built target Protonect\n'}
+[0.139088] (libfreenect2) StdoutLine: {'line': b'[100%] Built target freenect2-openni2\n'}
+[0.148134] (libfreenect2) JobEnded: {'identifier': 'libfreenect2', 'rc': 'SIGINT'}
+[0.158800] (coord_transform) JobSkipped: {'identifier': 'coord_transform'}
+[0.158959] (experiment_logger) JobSkipped: {'identifier': 'experiment_logger'}
+[0.159031] (kinect2_bridge) JobSkipped: {'identifier': 'kinect2_bridge'}
+[0.159055] (motoman_gp4_support) JobSkipped: {'identifier': 'motoman_gp4_support'}
+[0.159102] (motoman_hc10dtp_support) JobSkipped: {'identifier': 'motoman_hc10dtp_support'}
+[0.159128] (motoros2_client_interface_dependencies) JobSkipped: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.159175] (predictor_ui) JobSkipped: {'identifier': 'predictor_ui'}
+[0.159197] (realsense_tracker) JobSkipped: {'identifier': 'realsense_tracker'}
+[0.159221] (trac_ik_kinematics) JobSkipped: {'identifier': 'trac_ik_kinematics'}
+[0.159268] (trajectory_predictor) JobSkipped: {'identifier': 'trajectory_predictor'}
+[0.159295] (hc10dtp_moveit_config) JobSkipped: {'identifier': 'hc10dtp_moveit_config'}
+[0.159315] (kinect2_calibration) JobSkipped: {'identifier': 'kinect2_calibration'}
+[0.159334] (trac_ik) JobSkipped: {'identifier': 'trac_ik'}
+[0.159376] (hc10dtp_bringup) JobSkipped: {'identifier': 'hc10dtp_bringup'}
+[0.159398] (hc10dtp_simulation) JobSkipped: {'identifier': 'hc10dtp_simulation'}
+[0.159417] (hrc_bringup) JobSkipped: {'identifier': 'hrc_bringup'}
+[0.159437] (-) EventReactorShutdown: {}
