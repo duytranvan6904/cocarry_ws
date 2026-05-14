@@ -133,7 +133,12 @@ def main():
 
     def scale_input(input_batch):
         scaled = input_batch.copy().astype(np.float64)
-        for i, axis in enumerate(['x', 'y', 'z']):
+        
+        features = ['x', 'y', 'z']
+        if num_features == 6:
+            features = ['x', 'y', 'z', 'vx', 'vy', 'vz']
+            
+        for i, axis in enumerate(features):
             if axis in scaler_x:
                 scaled[0, :, i] = scaler_x[axis].transform(
                     input_batch[0, :, i].reshape(-1, 1)

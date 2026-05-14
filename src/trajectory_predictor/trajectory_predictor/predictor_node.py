@@ -263,7 +263,6 @@ class PredictorNode(Node):
         """Nhận tọa độ từ /hand_position (HandState)."""
         if not msg.is_tracked:
             return
-        self._last_meas = [msg.x, msg.y, msg.z]
         self._ingest_point(msg.x, msg.y, msg.z)
 
     def _on_bridge_data(self, msg: HandPrediction):
@@ -278,16 +277,35 @@ class PredictorNode(Node):
             self._ingest_point(msg.x, msg.y, msg.z)
 
     def _ingest_point(self, x: float, y: float, z: float):
-        self._last_data_time = time.time()
-        self._buffer.append([x, y, z])
+        now = time.time()
+        
+        # Calculate velocity if we have a previous data point
+        if self._last_data_time > 0:
+            dt = now - self._last_data_time
+            if dt < 0.001:  # Prevent division by zero
+                dt = 0.033
+            vx = (x - self._last_meas[0]) / dt
+            vy = (y - self._last_meas[1]) / dt
+            vz = (z - self._last_meas[2]) / dt
+        else:
+            vx, vy, vz = 0.0, 0.0, 0.0
+            
+        self._last_data_time = now
+        self._last_meas = [x, y, z]
+
+        if self.num_features == 6:
+            self._buffer.append([x, y, z, vx, vy, vz])
+        else:
+            self._buffer.append([x, y, z])
 
         if not self._predicting or not self._worker_ready:
             return
 
         if len(self._buffer) < self.window_size:
             # Zero-pad ở đầu
+            pad_item = [0.0] * self.num_features
             pad_count = self.window_size - len(self._buffer)
-            padded = [[0.0, 0.0, 0.0]] * pad_count + list(self._buffer)
+            padded = [pad_item] * pad_count + list(self._buffer)
         else:
             padded = list(self._buffer)
 

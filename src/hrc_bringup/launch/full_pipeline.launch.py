@@ -58,7 +58,7 @@ def generate_launch_description():
             'scaler_x_file': 'scaler_x_Ts3.pkl',
             'scaler_y_file': 'scaler_y_Ts3.pkl',
             'window_size': 20,
-            'num_features': 3,
+            'num_features': 6,
             'auto_start': False,
             'clear_on_tracking_lost': 1.0,
             'model_files.rnn': 'rnn_model_Ts3.h5',
