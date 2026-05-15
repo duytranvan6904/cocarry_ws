@@ -42,7 +42,7 @@ class CoordTransformNode(Node):
         
         # Dynamic Deadband (chống nhiễu rung tay)
         self._calib_buffer = deque(maxlen=40)  # 2s ở 20fps cho calibration
-        self._recent_buffer = deque(maxlen=5)  # 0.25s ở 20fps để theo dõi dao động
+        self._recent_buffer = deque(maxlen=15)  # ~0.75s ở 20fps, đủ lớn để lọc noise camera
         self._noise_tolerance = 0.005          # Sẽ được cập nhật lúc calib
         self._is_holding_position = False
         self._hold_p_cam = None
@@ -264,10 +264,11 @@ class CoordTransformNode(Node):
             calib_data = np.array(self._calib_buffer)
             self._p_cam_init = np.mean(calib_data, axis=0)
             std_dev = np.std(calib_data, axis=0)
-            self._noise_tolerance = np.max(std_dev) * 3.0
+            self._noise_tolerance = np.max(std_dev) * 4.0
             
-            # Giới hạn dung sai trong khoảng 2mm -> 2cm
-            self._noise_tolerance = np.clip(self._noise_tolerance, 0.002, 0.02)
+            # Giới hạn dung sai trong khoảng 5mm -> 6cm
+            # Camera depth noise thực tế lên tới 50mm, cần headroom đủ lớn
+            self._noise_tolerance = np.clip(self._noise_tolerance, 0.005, 0.06)
             
             # Reset trạng thái hold position
             self._is_holding_position = True
@@ -286,7 +287,21 @@ class CoordTransformNode(Node):
         return response
 
     def _on_run_status(self, msg: Bool):
+        was_running = self._running
         self._running = msg.data
+        
+        if self._running and not was_running:
+            # Re-sync: cập nhật mốc camera về vị trí tay HIỆN TẠI
+            if self._last_p_cam is not None and self._p_cam_init is not None:
+                self._p_cam_init = self._last_p_cam.copy()
+                self._smoothed_p_cam = self._last_p_cam.copy()
+                self._hold_p_cam = self._last_p_cam.copy()
+                self._is_holding_position = True
+                self._recent_buffer.clear()
+                self._last_p_base = None  # Reset rate-limiter
+                self.get_logger().info(
+                    f'Re-sync camera init: {self._p_cam_init.round(3)}')
+
         status_str = "RUNNING" if self._running else "STOPPED"
         self.get_logger().info(f'Trạng thái tracking: {status_str}')
 
@@ -345,14 +360,24 @@ class CoordTransformNode(Node):
         
         if len(self._recent_buffer) == self._recent_buffer.maxlen:
             recent_data = np.array(self._recent_buffer)
-            recent_range = np.max(recent_data, axis=0) - np.min(recent_data, axis=0)
-            max_oscillation = np.max(recent_range)
+            # Sử dụng khoảng cách từ mean thay vì range để ổn định hơn
+            mean_pos = np.mean(recent_data, axis=0)
+            deviation_from_init = np.linalg.norm(mean_pos - self._p_cam_init)
 
-            if max_oscillation < self._noise_tolerance:
+            if deviation_from_init < self._noise_tolerance:
+                # Tay chưa rời khỏi vùng noise → giữ yên
                 if not self._is_holding_position:
                     self._is_holding_position = True
-                    self._hold_p_cam = np.mean(recent_data, axis=0)
+                    self._hold_p_cam = self._p_cam_init.copy()
+                    self.get_logger().info(
+                        f'Deadband: re-hold (dev={deviation_from_init*1000:.1f}mm < tol={self._noise_tolerance*1000:.1f}mm)',
+                        throttle_duration_sec=2.0)
             else:
+                # Tay đã di chuyển rõ ràng khỏi mốc ban đầu
+                if self._is_holding_position:
+                    self.get_logger().info(
+                        f'Deadband: release (dev={deviation_from_init*1000:.1f}mm > tol={self._noise_tolerance*1000:.1f}mm)',
+                        throttle_duration_sec=2.0)
                 self._is_holding_position = False
 
         if self._is_holding_position and self._hold_p_cam is not None:
@@ -365,8 +390,8 @@ class CoordTransformNode(Node):
         else:
             # EMA Filter: smooth transition
             # Đang hold -> từ từ hội tụ về hold_p_cam (alpha nhỏ)
-            # Đang move -> bám sát thực tế (alpha lớn)
-            alpha = 0.2 if self._is_holding_position else 0.7
+            # Đang move -> bám sát thực tế nhưng vẫn mượt (alpha vừa phải)
+            alpha = 0.1 if self._is_holding_position else 0.5
             self._smoothed_p_cam = alpha * target_p_cam + (1.0 - alpha) * self._smoothed_p_cam
 
         p_cam_to_use = self._smoothed_p_cam

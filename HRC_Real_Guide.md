@@ -13,6 +13,13 @@ Tài liệu này hướng dẫn chi tiết quy trình kiểm thử và vận hà
 
 ## 🛠️ Chuẩn bị chung (Áp dụng cho mọi bài test)
 
+Chạy docker microros-agent trước khi mở các terminal khác bằng script tự động restart để tránh crash:
+Mở **Terminal 0**:
+```bash
+cd ~/cocarry_ws
+./start_microros.sh
+```
+
 Mở **Terminal 1** và khởi động MoveIt Stack cùng RViz để theo dõi trạng thái robot:
 ```bash
 export ROS_DOMAIN_ID=10

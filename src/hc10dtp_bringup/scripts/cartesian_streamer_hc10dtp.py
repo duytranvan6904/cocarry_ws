@@ -64,13 +64,12 @@ WS_Z = ( 0.05, 1.5)
 
 # ── Tunable stream parameters ──────────────────────────────────────
 # Tần suất stream tick (Hz). 20Hz là giá trị ổn định cho MotoROS2
-# HC10DTP cobot: 15Hz cho margin an toàn với collaborative mode.
-DEFAULT_STREAM_HZ = 20
+# Tăng lên 50Hz để chuyển động mượt mà hơn (robot internal 100Hz)
+DEFAULT_STREAM_HZ = 50
 
 # Queue point duration: khoảng cách thời gian giữa mỗi điểm.
-# Phải ≥ STREAM_PERIOD_SEC. 0.05s = 20Hz motion rate — cho phép
-# robot đủ thời gian xử lý trước khi điểm tiếp theo đến.
-QUEUE_DT_SEC = 0.05  # ~20Hz motion rate cho HC10DTP
+# Phải ≥ STREAM_PERIOD_SEC.
+QUEUE_DT_SEC = 0.02  # ~50Hz motion rate cho HC10DTP
 QUEUE_RETRY_BACKOFF_SEC = 0.02
 
 # IK timeout
@@ -96,7 +95,7 @@ MAX_JOINT_DELTA_PER_AXIS = [
 # ── Giới hạn tốc độ Cartesian (Safety) ──────────────────────────
 # Tốc độ tối đa End-Effector trong không gian Cartesian (m/s)
 # ISO 10218-2 / ISO/TS 15066: collaborative speed limit thường 0.25 m/s
-MAX_CARTESIAN_VELOCITY = 0.25     # m/s — rất chậm, an toàn cho thí nghiệm
+MAX_CARTESIAN_VELOCITY = 0.1     # m/s — rất chậm, an toàn cho thí nghiệm
 MAX_CARTESIAN_ACCELERATION = 0.50 # m/s² — gia tốc tối đa, hạn chế giật
 
 # Tốc độ góc tối đa cho mỗi khớp (rad/s) — PER JOINT
@@ -117,9 +116,9 @@ MAX_JOINT_VELOCITIES = [
 SOFT_JOINT_LIMITS = [
     (0.00,   3.14),    # J1 (S) — chỉ cho phép 0°~180° (hướng về phía người)
     (-0.80,  1.20),    # J2 (L) — -45°~70° quanh home (0.07)
-    (-2.00,  0.50),    # J3 (U) — -115°~30° quanh home (-1.05), khuỷu xuống
+    (-2.00,  1.05),    # J3 (U) — -115°~60° quanh home (-1.05), khuỷu xuống
     (-1.05,  1.05),    # J4 (R) — ±60° quanh center (ngăn wrist roll flip)
-    (-1.57,  0.52),    # J5 (B) — -90°~30° quanh home (-0.52)
+    (-2.09,  0.52),    # J5 (B) — -120°~30° quanh home (-0.52)
     (-1.05,  1.05),    # J6 (T) — ±60° quanh center (ngăn wrist twist flip)
 ]
 
@@ -593,14 +592,22 @@ class CartesianStreamer(Node):
             self._latest_ik_solution = None
 
             # ── An toàn: kiểm tra soft joint limits ────────────────────
-            for i, (jval, (lo, hi)) in enumerate(zip(joint_solution, SOFT_JOINT_LIMITS)):
-                if jval < lo or jval > hi:
-                    self.get_logger().warn(
-                        f'IK solution J{i+1}={jval:.3f} rad ngoài soft limit '
-                        f'[{lo:.2f}, {hi:.2f}]. Bỏ qua để bảo vệ robot.',
-                        throttle_duration_sec=1.0)
-                    self._send_joint_point(list(self._last_queued_joints), is_hold=True)
-                    return
+            joint_solution_list = list(joint_solution)
+            was_limit_clamped = False
+            for i, (jval, (lo, hi)) in enumerate(zip(joint_solution_list, SOFT_JOINT_LIMITS)):
+                if jval < lo:
+                    joint_solution_list[i] = lo
+                    was_limit_clamped = True
+                elif jval > hi:
+                    joint_solution_list[i] = hi
+                    was_limit_clamped = True
+            
+            if was_limit_clamped:
+                self.get_logger().warn(
+                    f'IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.',
+                    throttle_duration_sec=1.0)
+            
+            joint_solution = tuple(joint_solution_list)
 
             # ── An toàn: CLAMP bước nhảy joint PER-AXIS ────────────
             # So sánh với _last_queued_joints (không phải _current_joints).

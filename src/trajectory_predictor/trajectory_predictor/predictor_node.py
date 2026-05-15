@@ -48,9 +48,9 @@ class PredictorNode(Node):
 
         # ── Output filter parameters ─────────────────────────────────────────
         # Proximity clamp: max deviation from last measured position (m)
-        self.declare_parameter('filter.max_deviation', 0.15)
+        self.declare_parameter('filter.max_deviation', 0.25)
         # Rate limiter: max change per frame (m). At ~30Hz, 0.07m ≈ 2.1 m/s
-        self.declare_parameter('filter.max_rate', 0.07)
+        self.declare_parameter('filter.max_rate', 0.10)
         # EMA smoothing factor (0 = no smoothing, 1 = raw prediction)
         self.declare_parameter('filter.ema_alpha', 0.4)
         # Enable/disable output filter
@@ -93,6 +93,10 @@ class PredictorNode(Node):
         self._last_meas = [0.0, 0.0, 0.0]      # last measured position
         self._last_filtered = None              # last filtered prediction [x,y,z]
         self._filter_reject_count = 0
+        
+        # ── EMA velocity smoothing state ──
+        self._smoothed_vel = [0.0, 0.0, 0.0]
+        self._vel_ema_alpha = 0.3
 
         # ── Publishers ───────────────────────────────────────────────────────
         self.pred_pub = self.create_publisher(
@@ -281,15 +285,20 @@ class PredictorNode(Node):
         
         # Calculate velocity if we have a previous data point
         if self._last_data_time > 0:
-            dt = now - self._last_data_time
-            if dt < 0.001:  # Prevent division by zero
-                dt = 0.033
-            vx = (x - self._last_meas[0]) / dt
-            vy = (y - self._last_meas[1]) / dt
-            vz = (z - self._last_meas[2]) / dt
+            # Cố định dt = 0.0625s (16Hz) để loại bỏ hoàn toàn nhiễu mạng/camera jitter
+            dt = 0.0625
+            raw_vx = (x - self._last_meas[0]) / dt
+            raw_vy = (y - self._last_meas[1]) / dt
+            raw_vz = (z - self._last_meas[2]) / dt
         else:
-            vx, vy, vz = 0.0, 0.0, 0.0
+            raw_vx, raw_vy, raw_vz = 0.0, 0.0, 0.0
             
+        # Apply EMA smoothing to velocity
+        self._smoothed_vel[0] = self._vel_ema_alpha * raw_vx + (1.0 - self._vel_ema_alpha) * self._smoothed_vel[0]
+        self._smoothed_vel[1] = self._vel_ema_alpha * raw_vy + (1.0 - self._vel_ema_alpha) * self._smoothed_vel[1]
+        self._smoothed_vel[2] = self._vel_ema_alpha * raw_vz + (1.0 - self._vel_ema_alpha) * self._smoothed_vel[2]
+        vx, vy, vz = self._smoothed_vel
+        
         self._last_data_time = now
         self._last_meas = [x, y, z]
 

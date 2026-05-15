@@ -27,8 +27,7 @@ coord_transform:
     # Robot Z+ = lên trên, camera z_ws+ = lên trên → cùng chiều
     axis_remap: [0, 1, 2]
     axis_sign: [-1.0, 1.0, 1.0]
-
-    prediction_step: 3
+    prediction_step: 0
 
     workspace_x_min: -1.0
     workspace_x_max:  1.0
