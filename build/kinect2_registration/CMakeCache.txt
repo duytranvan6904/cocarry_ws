@@ -23,9 +23,8 @@ AMENT_CMAKE_ENVIRONMENT_PACKAGE_GENERATION:BOOL=ON
 //Generate marker file containing the parent prefix path
 AMENT_CMAKE_ENVIRONMENT_PARENT_PREFIX_PATH_GENERATION:BOOL=ON
 
-//Replace the CMake install command with a custom implementation
-// using symlinks instead of copying resources
-AMENT_CMAKE_SYMLINK_INSTALL:BOOL=1
+//No help, variable specified on the command line.
+AMENT_CMAKE_SYMLINK_INSTALL:UNINITIALIZED=1
 
 //Generate an uninstall target to revert the effects of the install
 // step

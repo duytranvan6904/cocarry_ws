@@ -34,23 +34,23 @@ class PredictorNode(Node):
         # ── Parameters ──────────────────────────────────────────────────────
         self.declare_parameter('model_dir', '')
         self.declare_parameter('default_model', 'gru')
-        self.declare_parameter('scaler_x_file', 'scaler_x.pkl')
-        self.declare_parameter('scaler_y_file', 'scaler_y.pkl')
+        self.declare_parameter('scaler_x_file', 'scaler_x_Ts5.pkl')
+        self.declare_parameter('scaler_y_file', 'scaler_y_Ts5.pkl')
         self.declare_parameter('window_size', 20)
-        self.declare_parameter('num_features', 3)
+        self.declare_parameter('num_features', 6)
         self.declare_parameter('auto_start', False)
         self.declare_parameter('clear_on_tracking_lost', 1.0)
-        self.declare_parameter('model_files.rnn', 'rnn_velocity_3_layers.h5')
-        self.declare_parameter('model_files.gru', 'gru_velocity_3_layers.h5')
-        self.declare_parameter('model_files.lstm', 'lstm_velocity_3_layers.h5')
+        self.declare_parameter('model_files.rnn', 'rnn_model_Ts5.h5')
+        self.declare_parameter('model_files.gru', 'gru_model_Ts5.h5')
+        self.declare_parameter('model_files.lstm', 'lstm_model_Ts5.h5')
         # Path tới Python venv (nếu có), nếu không dùng sys.executable
         self.declare_parameter('venv_python', '')
 
         # ── Output filter parameters ─────────────────────────────────────────
         # Proximity clamp: max deviation from last measured position (m)
-        self.declare_parameter('filter.max_deviation', 0.15)
-        # Rate limiter: max change per frame (m). At ~30Hz, 0.07m ≈ 2.1 m/s
-        self.declare_parameter('filter.max_rate', 0.07)
+        self.declare_parameter('filter.max_deviation', 0.25)
+        # Rate limiter: max change per frame (m). At 30Hz, 0.04m ≈ 1.2 m/s
+        self.declare_parameter('filter.max_rate', 0.04)
         # EMA smoothing factor (0 = no smoothing, 1 = raw prediction)
         self.declare_parameter('filter.ema_alpha', 0.4)
         # Enable/disable output filter
@@ -93,6 +93,10 @@ class PredictorNode(Node):
         self._last_meas = [0.0, 0.0, 0.0]      # last measured position
         self._last_filtered = None              # last filtered prediction [x,y,z]
         self._filter_reject_count = 0
+        
+        # ── EMA velocity smoothing state ──
+        self._smoothed_vel = [0.0, 0.0, 0.0]
+        self._vel_ema_alpha = 0.3
 
         # ── Publishers ───────────────────────────────────────────────────────
         self.pred_pub = self.create_publisher(
@@ -263,7 +267,6 @@ class PredictorNode(Node):
         """Nhận tọa độ từ /hand_position (HandState)."""
         if not msg.is_tracked:
             return
-        self._last_meas = [msg.x, msg.y, msg.z]
         self._ingest_point(msg.x, msg.y, msg.z)
 
     def _on_bridge_data(self, msg: HandPrediction):
@@ -278,18 +281,60 @@ class PredictorNode(Node):
             self._ingest_point(msg.x, msg.y, msg.z)
 
     def _ingest_point(self, x: float, y: float, z: float):
-        self._last_data_time = time.time()
-        self._buffer.append([x, y, z])
+        now = time.time()
+        
+        # Calculate velocity if we have a previous data point
+        if self._last_data_time > 0:
+            dt = now - self._last_data_time
+            if dt > 0.001:
+                # Làm mượt khoảng thời gian dt bằng EMA để CHỐNG NHIỄU (Jitter)
+                # MediaPipe/RealSense khi chạy thật thường đẩy frame không đều (có lúc 0.002s, có lúc 0.06s)
+                # Nếu chia cho dt tức thời quá nhỏ, vận tốc sẽ nổ tung!
+                if hasattr(self, '_smoothed_dt'):
+                    self._smoothed_dt = 0.1 * dt + 0.9 * self._smoothed_dt
+                else:
+                    self._smoothed_dt = dt
+                    
+                # 1. Tính vận tốc vật lý thực tế bằng dt ĐÃ ĐƯỢC LÀM MƯỢT
+                true_vx = (x - self._last_meas[0]) / self._smoothed_dt
+                true_vy = (y - self._last_meas[1]) / self._smoothed_dt
+                true_vz = (z - self._last_meas[2]) / self._smoothed_dt
+                
+                # 2. Quy đổi về 'độ dời mỗi frame ở 16Hz' để phù hợp với môi trường lúc Train
+                raw_vx = true_vx / 16.0
+                raw_vy = true_vy / 16.0
+                raw_vz = true_vz / 16.0
+            else:
+                raw_vx, raw_vy, raw_vz = 0.0, 0.0, 0.0
+        else:
+            raw_vx, raw_vy, raw_vz = 0.0, 0.0, 0.0
+            
+        # Apply EMA smoothing to velocity
+        self._smoothed_vel[0] = self._vel_ema_alpha * raw_vx + (1.0 - self._vel_ema_alpha) * self._smoothed_vel[0]
+        self._smoothed_vel[1] = self._vel_ema_alpha * raw_vy + (1.0 - self._vel_ema_alpha) * self._smoothed_vel[1]
+        self._smoothed_vel[2] = self._vel_ema_alpha * raw_vz + (1.0 - self._vel_ema_alpha) * self._smoothed_vel[2]
+        vx, vy, vz = self._smoothed_vel
+        
+        self._last_data_time = now
+        self._last_meas = [x, y, z]
+
+        if self.num_features == 6:
+            self._buffer.append([x, y, z, vx, vy, vz])
+        else:
+            self._buffer.append([x, y, z])
 
         if not self._predicting or not self._worker_ready:
             return
 
-        if len(self._buffer) < self.window_size:
-            # Zero-pad ở đầu
+        if 0 < len(self._buffer) < self.window_size:
+            # Pad với điểm đầu tiên thay vì zero-pad để tránh nhảy tọa độ (Robot vọt)
+            first_point = list(self._buffer[0])
             pad_count = self.window_size - len(self._buffer)
-            padded = [[0.0, 0.0, 0.0]] * pad_count + list(self._buffer)
-        else:
+            padded = [first_point] * pad_count + list(self._buffer)
+        elif len(self._buffer) >= self.window_size:
             padded = list(self._buffer)
+        else:
+            return # Chờ ít nhất 1 điểm
 
         self._send_to_worker({'cmd': 'predict', 'data': padded})
 

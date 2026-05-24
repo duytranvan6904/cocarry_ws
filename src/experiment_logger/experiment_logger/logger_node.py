@@ -23,6 +23,7 @@ from datetime import datetime
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped
+from sensor_msgs.msg import JointState
 from std_msgs.msg import String
 from std_srvs.srv import SetBool
 
@@ -48,12 +49,16 @@ class ExperimentLoggerNode(Node):
         self.csv_writer = None
         self.csv_path = ''
         self.row_count = 0
+        self._log_buffer = []
 
         # Trajectory mode tracking
         self._trajectory_mode = 'ground_truth'  # default
 
         # Robot EE pose tracking (for jerk calculation)
         self._last_robot_ee = None  # (x, y, z)
+        
+        # Robot Joint tracking
+        self._last_joint_state = None
 
         # Task timing
         self._start_wall_time = 0.0
@@ -76,12 +81,11 @@ class ExperimentLoggerNode(Node):
         self.create_subscription(
             PoseStamped, '/cartesian_streamer/current_pose',
             self._on_robot_ee_pose, 10)
+        # Robot joint states for velocity/torque (effort)
+        self.create_subscription(JointState, '/joint_states', self._on_joint_states, 10)
 
         # Service to toggle recording
         self.toggle_srv = self.create_service(SetBool, '/logger/toggle', self._srv_toggle)
-
-        # Flush timer
-        self.create_timer(5.0, self._flush)
 
         self.get_logger().info('Logger ready.')
 
@@ -95,44 +99,56 @@ class ExperimentLoggerNode(Node):
                 model_tag = str(self.current_model).upper() if self.current_model else "UNKNOWN"
             self.csv_path = os.path.join(self.log_dir, f'experiment_{model_tag}_{ts}.csv')
             
-            self.get_logger().info(f'Attempting to open CSV file: {self.csv_path}')
-            
             # Ensure directory exists once more
             os.makedirs(self.log_dir, exist_ok=True)
             
-            self.csv_file = open(self.csv_path, 'w', newline='')
-            self.csv_writer = csv.writer(self.csv_file)
-            self.csv_writer.writerow([
-                'ros_timestamp_ns', 'wall_time', 'trajectory_mode',
-                'meas_x', 'meas_y', 'meas_z', 'is_tracked',
-                'pred_x', 'pred_y', 'pred_z',
-                'mae_x', 'mae_y', 'mae_z',
-                'inference_ms', 'buffer_size',
-                'robot_ee_x', 'robot_ee_y', 'robot_ee_z'
-            ])
-            self.csv_file.flush()
+            self._log_buffer = []
             self.row_count = 0
             self._start_wall_time = time.time()
-            self.get_logger().info(f'✓ SUCCESSFULLY started logging to {self.csv_path}')
+            self.is_logging = True
+            self.get_logger().info(f'✓ STARTED in-memory logging. Target file: {self.csv_path}')
         except Exception as e:
             self.get_logger().error(f'✗ FAILED to start logging: {e}')
             self.is_logging = False
-            self.csv_file = None
-            self.csv_writer = None
+
+    def _write_buffer_to_disk(self):
+        """Mở file CSV và ghi toàn bộ dữ liệu từ RAM xuống đĩa."""
+        if not self._log_buffer:
+            self.get_logger().warn('Log buffer is empty, nothing to write to disk.')
+            return False
+        
+        try:
+            self.get_logger().info(f'Writing {len(self._log_buffer)} rows from memory to {self.csv_path}...')
+            with open(self.csv_path, 'w', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    'ros_timestamp_ns', 'wall_time', 'trajectory_mode',
+                    'meas_x', 'meas_y', 'meas_z', 'is_tracked',
+                    'pred_x', 'pred_y', 'pred_z',
+                    'mae_x', 'mae_y', 'mae_z',
+                    'inference_ms', 'buffer_size',
+                    'robot_ee_x', 'robot_ee_y', 'robot_ee_z',
+                    'j1_vel', 'j2_vel', 'j3_vel', 'j4_vel', 'j5_vel', 'j6_vel',
+                    'j1_eff', 'j2_eff', 'j3_eff', 'j4_eff', 'j5_eff', 'j6_eff'
+                ])
+                writer.writerows(self._log_buffer)
+            self.get_logger().info(f'✓ Successfully wrote logs to disk.')
+            return True
+        except Exception as e:
+            self.get_logger().error(f'✗ Failed to write log buffer to disk: {e}')
+            return False
 
     def _stop_logging_and_calc_metrics(self):
         self._stop_wall_time = time.time()
-        if self.csv_file:
+        self.is_logging = False
+        if self._log_buffer:
             try:
-                self.csv_file.flush()
-                self.csv_file.close()
+                self._write_buffer_to_disk()
+                self._log_buffer = []
                 self.get_logger().info(f'Stopped logging. Saved {self.row_count} rows to {self.csv_path}')
                 self._calculate_metrics(self.csv_path)
             except Exception as e:
                 self.get_logger().error(f'Error during stop/metrics: {e}')
-            finally:
-                self.csv_file = None
-                self.csv_writer = None
 
     def _on_stop_command(self, msg: String):
         """Nhận scenario_id từ bridge khi Windows bấm Stop."""
@@ -149,12 +165,10 @@ class ExperimentLoggerNode(Node):
         self._stop_logging_and_rename(scenario_id)
 
     def _stop_logging_and_rename(self, scenario_id: str):
-        """Dừng ghi CSV và đổi tên file để thêm _ScenarioXXX."""
+        """Dừng ghi, đổi tên file trong bộ nhớ và ghi CSV."""
         self._stop_wall_time = time.time()
-        if self.csv_file:
+        if self._log_buffer:
             try:
-                self.csv_file.flush()
-                self.csv_file.close()
                 old_path = self.csv_path
 
                 if scenario_id:
@@ -166,22 +180,16 @@ class ExperimentLoggerNode(Node):
                     else:
                         new_name = base + f'_Scenario{scenario_id}'
                     new_path = os.path.join(dir_name, new_name)
-                    try:
-                        os.rename(old_path, new_path)
-                        self.csv_path = new_path
-                        self.get_logger().info(
-                            f'CSV renamed: {base} → {new_name}')
-                    except Exception as e_rename:
-                        self.get_logger().error(f'Rename failed: {e_rename}')
+                    self.csv_path = new_path
+                    self.get_logger().info(f'Target path updated with scenario ID: {new_name}')
 
+                self._write_buffer_to_disk()
+                self._log_buffer = []
                 self.get_logger().info(
                     f'Stopped logging. Saved {self.row_count} rows to {self.csv_path}')
                 self._calculate_metrics(self.csv_path)
             except Exception as e:
                 self.get_logger().error(f'Error during stop/rename: {e}')
-            finally:
-                self.csv_file = None
-                self.csv_writer = None
 
     def _srv_toggle(self, request, response):
         self.get_logger().info(f'Service called: /logger/toggle with data={request.data}')
@@ -194,9 +202,9 @@ class ExperimentLoggerNode(Node):
         self.is_logging = request.data
         if self.is_logging:
             self._start_logging()
-            if self.csv_file:
+            if self.is_logging:
                 response.success = True
-                response.message = 'Logger STARTED'
+                response.message = 'Logger STARTED (In-Memory)'
             else:
                 response.success = False
                 response.message = 'Logger FAILED TO START (check terminal)'
@@ -220,37 +228,37 @@ class ExperimentLoggerNode(Node):
             msg.pose.position.z,
         )
 
+    def _on_joint_states(self, msg: JointState):
+        """Lưu trạng thái khớp hiện tại (vận tốc, torque) của robot."""
+        # MotoROS2 thường publish tên khớp kiểu joint_1_s, joint_2_l...
+        # nhưng order thường là 1 đến 6. Cứ lưu toàn bộ mảng.
+        self._last_joint_state = msg
+
     def _on_hand(self, msg: HandState):
         self.last_meas = msg
         # Ở ground_truth mode: ghi row ngay từ hand data (không cần chờ prediction)
         if (self._trajectory_mode == 'ground_truth'
-                and self.is_logging
-                and self.csv_writer is not None):
+                and self.is_logging):
             self._write_row(msg, None)
 
     def _on_prediction(self, msg: HandPrediction):
         new_model = msg.model_name
         
-        # If we were logging with "UNKNOWN" and now know the model, rename the file
-        if self.is_logging and self.csv_file and self.current_model.lower() == 'unknown':
+        # If we were logging with "UNKNOWN" and now know the model, rename the file (in-memory)
+        if self.is_logging and self.current_model.lower() == 'unknown':
             if new_model.lower() != 'unknown':
                 self._rename_current_log(new_model)
 
         self.current_model = new_model
         # Ở prediction mode: ghi row khi nhận prediction
         if (self._trajectory_mode == 'prediction'
-                and self.is_logging
-                and self.csv_writer is not None):
+                and self.is_logging):
             self._write_row(self.last_meas, msg)
 
     def _rename_current_log(self, new_model_name):
-        """Renames the currently open log file to include the correct model name."""
+        """Đổi tên file trong bộ nhớ để thêm tên model chính xác (chưa ghi đĩa)."""
         try:
             old_path = self.csv_path
-            if not os.path.exists(old_path):
-                return
-
-            # Keep the original timestamp but replace UNKNOWN with the new model
             dir_name = os.path.dirname(old_path)
             file_name = os.path.basename(old_path)
             new_file_name = file_name.replace('UNKNOWN', new_model_name.upper())
@@ -259,20 +267,10 @@ class ExperimentLoggerNode(Node):
             if old_path == new_path:
                 return
 
-            self.get_logger().info(f'Renaming log file: {file_name} -> {new_file_name}')
-            
-            # Flush and close temporarily to rename
-            self.csv_file.flush()
-            self.csv_file.close()
-            
-            os.rename(old_path, new_path)
-            
-            # Re-open in append mode
+            self.get_logger().info(f'Target log path updated: {file_name} -> {new_file_name}')
             self.csv_path = new_path
-            self.csv_file = open(self.csv_path, 'a', newline='')
-            self.csv_writer = csv.writer(self.csv_file)
         except Exception as e:
-            self.get_logger().error(f'Failed to rename log file: {e}')
+            self.get_logger().error(f'Failed to update target log path: {e}')
 
     def _write_row(self, meas, pred):
         now_ns = self.get_clock().now().nanoseconds
@@ -302,12 +300,26 @@ class ExperimentLoggerNode(Node):
             rey = f'{self._last_robot_ee[1]:.6f}'
             rez = f'{self._last_robot_ee[2]:.6f}'
 
-        self.csv_writer.writerow([
+        # Robot joint states
+        jv = [''] * 6
+        je = [''] * 6
+        if self._last_joint_state is not None:
+            # Safely get up to 6 joints
+            vels = self._last_joint_state.velocity
+            effs = self._last_joint_state.effort
+            for i in range(min(6, len(vels))):
+                jv[i] = f'{vels[i]:.6f}'
+            for i in range(min(6, len(effs))):
+                je[i] = f'{effs[i]:.6f}'
+
+        self._log_buffer.append([
             now_ns, wall, self._trajectory_mode,
             mx, my, mz, tracked,
             px, py, pz, mae_x, mae_y, mae_z,
             inf_ms, buf,
-            rex, rey, rez
+            rex, rey, rez,
+            jv[0], jv[1], jv[2], jv[3], jv[4], jv[5],
+            je[0], je[1], je[2], je[3], je[4], je[5]
         ])
         self.row_count += 1
 
@@ -332,8 +344,8 @@ class ExperimentLoggerNode(Node):
                         rex = float(row['robot_ee_x'])
                         rey = float(row['robot_ee_y'])
                         rez = float(row['robot_ee_z'])
-                        wt = row['wall_time']
-                        ee_positions.append((wt, rex, rey, rez))
+                        ts_ns = row['ros_timestamp_ns']
+                        ee_positions.append((ts_ns, rex, rey, rez))
                     except (ValueError, KeyError):
                         pass
 
@@ -442,14 +454,24 @@ class ExperimentLoggerNode(Node):
         if len(ee_positions) < 4:
             return None
 
-        # Parse timestamps
+        # Parse timestamps and deduplicate positions
         timestamps = []
         positions = []  # list of (x, y, z)
-        for wt_str, x, y, z in ee_positions:
+        prev_pos = None
+        for ts_ns_str, x, y, z in ee_positions:
             try:
-                dt_obj = datetime.fromisoformat(wt_str)
-                timestamps.append(dt_obj.timestamp())
+                # Convert nanoseconds to seconds
+                ts = float(ts_ns_str) / 1e9
+                
+                # Deduplicate rows that have exactly the same EE position 
+                # (since EE topic is ~9Hz but logging is ~20Hz)
+                if prev_pos is not None:
+                    if abs(x - prev_pos[0]) < 1e-6 and abs(y - prev_pos[1]) < 1e-6 and abs(z - prev_pos[2]) < 1e-6:
+                        continue
+                        
+                timestamps.append(ts)
                 positions.append((x, y, z))
+                prev_pos = (x, y, z)
             except (ValueError, TypeError):
                 continue
 

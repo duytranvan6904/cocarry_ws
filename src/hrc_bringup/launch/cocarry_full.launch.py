@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env python3
 """
 cocarry_full.launch.py
@@ -111,7 +113,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'log_dir': LaunchConfiguration('log_dir'),
-            'auto_start': True,
+            'auto_start': False,
         }])
 
     # 6. UI dashboard

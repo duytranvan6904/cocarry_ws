@@ -23,6 +23,7 @@ from datetime import datetime
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped
+from sensor_msgs.msg import JointState
 from std_msgs.msg import String
 from std_srvs.srv import SetBool
 
@@ -54,6 +55,9 @@ class ExperimentLoggerNode(Node):
 
         # Robot EE pose tracking (for jerk calculation)
         self._last_robot_ee = None  # (x, y, z)
+        
+        # Robot Joint tracking
+        self._last_joint_state = None
 
         # Task timing
         self._start_wall_time = 0.0
@@ -76,6 +80,8 @@ class ExperimentLoggerNode(Node):
         self.create_subscription(
             PoseStamped, '/cartesian_streamer/current_pose',
             self._on_robot_ee_pose, 10)
+        # Robot joint states for velocity/torque (effort)
+        self.create_subscription(JointState, '/joint_states', self._on_joint_states, 10)
 
         # Service to toggle recording
         self.toggle_srv = self.create_service(SetBool, '/logger/toggle', self._srv_toggle)
@@ -108,7 +114,9 @@ class ExperimentLoggerNode(Node):
                 'pred_x', 'pred_y', 'pred_z',
                 'mae_x', 'mae_y', 'mae_z',
                 'inference_ms', 'buffer_size',
-                'robot_ee_x', 'robot_ee_y', 'robot_ee_z'
+                'robot_ee_x', 'robot_ee_y', 'robot_ee_z',
+                'j1_vel', 'j2_vel', 'j3_vel', 'j4_vel', 'j5_vel', 'j6_vel',
+                'j1_eff', 'j2_eff', 'j3_eff', 'j4_eff', 'j5_eff', 'j6_eff'
             ])
             self.csv_file.flush()
             self.row_count = 0
@@ -220,6 +228,12 @@ class ExperimentLoggerNode(Node):
             msg.pose.position.z,
         )
 
+    def _on_joint_states(self, msg: JointState):
+        """Lưu trạng thái khớp hiện tại (vận tốc, torque) của robot."""
+        # MotoROS2 thường publish tên khớp kiểu joint_1_s, joint_2_l...
+        # nhưng order thường là 1 đến 6. Cứ lưu toàn bộ mảng.
+        self._last_joint_state = msg
+
     def _on_hand(self, msg: HandState):
         self.last_meas = msg
         # Ở ground_truth mode: ghi row ngay từ hand data (không cần chờ prediction)
@@ -302,12 +316,26 @@ class ExperimentLoggerNode(Node):
             rey = f'{self._last_robot_ee[1]:.6f}'
             rez = f'{self._last_robot_ee[2]:.6f}'
 
+        # Robot joint states
+        jv = [''] * 6
+        je = [''] * 6
+        if self._last_joint_state is not None:
+            # Safely get up to 6 joints
+            vels = self._last_joint_state.velocity
+            effs = self._last_joint_state.effort
+            for i in range(min(6, len(vels))):
+                jv[i] = f'{vels[i]:.6f}'
+            for i in range(min(6, len(effs))):
+                je[i] = f'{effs[i]:.6f}'
+
         self.csv_writer.writerow([
             now_ns, wall, self._trajectory_mode,
             mx, my, mz, tracked,
             px, py, pz, mae_x, mae_y, mae_z,
             inf_ms, buf,
-            rex, rey, rez
+            rex, rey, rez,
+            jv[0], jv[1], jv[2], jv[3], jv[4], jv[5],
+            je[0], je[1], je[2], je[3], je[4], je[5]
         ])
         self.row_count += 1
 

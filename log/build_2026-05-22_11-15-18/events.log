@@ -1,0 +1,333 @@
+[0.000000] (-) TimerEvent: {}
+[0.000756] (human_hand_msgs) JobQueued: {'identifier': 'human_hand_msgs', 'dependencies': OrderedDict()}
+[0.000884] (industrial_msgs) JobQueued: {'identifier': 'industrial_msgs', 'dependencies': OrderedDict()}
+[0.000909] (kinect2_registration) JobQueued: {'identifier': 'kinect2_registration', 'dependencies': OrderedDict()}
+[0.000920] (libfreenect2) JobQueued: {'identifier': 'libfreenect2', 'dependencies': OrderedDict()}
+[0.000930] (motoman_resources) JobQueued: {'identifier': 'motoman_resources', 'dependencies': OrderedDict()}
+[0.000941] (motoros2_interfaces) JobQueued: {'identifier': 'motoros2_interfaces', 'dependencies': OrderedDict()}
+[0.000950] (trac_ik_lib) JobQueued: {'identifier': 'trac_ik_lib', 'dependencies': OrderedDict()}
+[0.000960] (coord_transform) JobQueued: {'identifier': 'coord_transform', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.000972] (experiment_logger) JobQueued: {'identifier': 'experiment_logger', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.000983] (kinect2_bridge) JobQueued: {'identifier': 'kinect2_bridge', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration')])}
+[0.000995] (motoman_gp4_support) JobQueued: {'identifier': 'motoman_gp4_support', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources')])}
+[0.001006] (motoman_hc10dtp_support) JobQueued: {'identifier': 'motoman_hc10dtp_support', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources')])}
+[0.001025] (motoros2_client_interface_dependencies) JobQueued: {'identifier': 'motoros2_client_interface_dependencies', 'dependencies': OrderedDict([('industrial_msgs', '/home/duy/cocarry_ws/install/industrial_msgs'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces')])}
+[0.001038] (predictor_ui) JobQueued: {'identifier': 'predictor_ui', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001049] (realsense_tracker) JobQueued: {'identifier': 'realsense_tracker', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001060] (trac_ik_kinematics) JobQueued: {'identifier': 'trac_ik_kinematics', 'dependencies': OrderedDict([('trac_ik_lib', '/home/duy/cocarry_ws/install/trac_ik_lib')])}
+[0.001071] (trajectory_predictor) JobQueued: {'identifier': 'trajectory_predictor', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001082] (hc10dtp_moveit_config) JobQueued: {'identifier': 'hc10dtp_moveit_config', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support')])}
+[0.001093] (kinect2_calibration) JobQueued: {'identifier': 'kinect2_calibration', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration'), ('kinect2_bridge', '/home/duy/cocarry_ws/install/kinect2_bridge')])}
+[0.001108] (trac_ik) JobQueued: {'identifier': 'trac_ik', 'dependencies': OrderedDict([('trac_ik_lib', '/home/duy/cocarry_ws/install/trac_ik_lib'), ('trac_ik_kinematics', '/home/duy/cocarry_ws/install/trac_ik_kinematics')])}
+[0.001120] (hc10dtp_bringup) JobQueued: {'identifier': 'hc10dtp_bringup', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config')])}
+[0.001133] (hc10dtp_simulation) JobQueued: {'identifier': 'hc10dtp_simulation', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config'), ('hc10dtp_bringup', '/home/duy/cocarry_ws/install/hc10dtp_bringup')])}
+[0.001167] (hrc_bringup) JobQueued: {'identifier': 'hrc_bringup', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs'), ('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces'), ('coord_transform', '/home/duy/cocarry_ws/install/coord_transform'), ('experiment_logger', '/home/duy/cocarry_ws/install/experiment_logger'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('predictor_ui', '/home/duy/cocarry_ws/install/predictor_ui'), ('realsense_tracker', '/home/duy/cocarry_ws/install/realsense_tracker'), ('trajectory_predictor', '/home/duy/cocarry_ws/install/trajectory_predictor'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config'), ('hc10dtp_bringup', '/home/duy/cocarry_ws/install/hc10dtp_bringup'), ('hc10dtp_simulation', '/home/duy/cocarry_ws/install/hc10dtp_simulation')])}
+[0.001189] (human_hand_msgs) JobStarted: {'identifier': 'human_hand_msgs'}
+[0.003839] (motoman_resources) JobStarted: {'identifier': 'motoman_resources'}
+[0.005329] (motoros2_interfaces) JobStarted: {'identifier': 'motoros2_interfaces'}
+[0.006515] (kinect2_registration) JobStarted: {'identifier': 'kinect2_registration'}
+[0.007580] (trac_ik_lib) JobStarted: {'identifier': 'trac_ik_lib'}
+[0.008657] (industrial_msgs) JobStarted: {'identifier': 'industrial_msgs'}
+[0.009936] (libfreenect2) JobStarted: {'identifier': 'libfreenect2'}
+[0.012681] (human_hand_msgs) JobProgress: {'identifier': 'human_hand_msgs', 'progress': 'cmake'}
+[0.013584] (human_hand_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/human_hand_msgs', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCATKIN_SYMLINK_INSTALL=ON', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/human_hand_msgs'], 'cwd': '/home/duy/cocarry_ws/build/human_hand_msgs', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/human_hand_msgs'), ('COLCON', '1')]), 'shell': False}
+[0.015631] (motoman_resources) JobProgress: {'identifier': 'motoman_resources', 'progress': 'cmake'}
+[0.016153] (motoman_resources) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/motoman_ros2_support_packages/motoman_resources', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoman_resources'], 'cwd': '/home/duy/cocarry_ws/build/motoman_resources', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/motoman_resources'), ('COLCON', '1')]), 'shell': False}
+[0.016991] (motoros2_interfaces) JobProgress: {'identifier': 'motoros2_interfaces', 'progress': 'cmake'}
+[0.017669] (motoros2_interfaces) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/yaskawa-global/motoros2_interfaces', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoros2_interfaces'], 'cwd': '/home/duy/cocarry_ws/build/motoros2_interfaces', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/motoros2_interfaces'), ('COLCON', '1')]), 'shell': False}
+[0.018907] (kinect2_registration) JobProgress: {'identifier': 'kinect2_registration', 'progress': 'cmake'}
+[0.019326] (kinect2_registration) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_registration'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_registration', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_registration'), ('COLCON', '1')]), 'shell': False}
+[0.020343] (trac_ik_lib) JobProgress: {'identifier': 'trac_ik_lib', 'progress': 'cmake'}
+[0.021011] (trac_ik_lib) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/trac_ik/trac_ik_lib', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/trac_ik_lib'], 'cwd': '/home/duy/cocarry_ws/build/trac_ik_lib', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/trac_ik_lib'), ('COLCON', '1')]), 'shell': False}
+[0.023464] (industrial_msgs) JobProgress: {'identifier': 'industrial_msgs', 'progress': 'cmake'}
+[0.023780] (industrial_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/industrial_msgs'], 'cwd': '/home/duy/cocarry_ws/build/industrial_msgs', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/industrial_msgs'), ('COLCON', '1')]), 'shell': False}
+[0.030335] (libfreenect2) JobProgress: {'identifier': 'libfreenect2', 'progress': 'cmake'}
+[0.031254] (libfreenect2) JobProgress: {'identifier': 'libfreenect2', 'progress': 'build'}
+[0.031343] (libfreenect2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/libfreenect2', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/libfreenect2', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/libfreenect2'), ('COLCON', '1')]), 'shell': False}
+[0.033464] (motoman_resources) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.039436] (trac_ik_lib) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.040735] (motoros2_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.041057] (human_hand_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.041302] (industrial_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.041660] (kinect2_registration) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099785] (-) TimerEvent: {}
+[0.107856] (libfreenect2) StdoutLine: {'line': b'[  2%] \x1b[32mBuilding CXX object CMakeFiles/generate_resources_tool.dir/tools/generate_resources.cpp.o\x1b[0m\n'}
+[0.180396] (trac_ik_lib) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[0.180667] (trac_ik_lib) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[0.180783] (trac_ik_lib) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[0.180905] (trac_ik_lib) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[0.187509] (motoman_resources) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[0.187872] (motoman_resources) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[0.188016] (motoman_resources) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[0.188125] (motoman_resources) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[0.194939] (trac_ik_lib) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[0.195183] (trac_ik_lib) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[0.195287] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[0.195439] (trac_ik_lib) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/trac_ik_lib/ament_cmake_package_templates/templates.cmake)\n'}
+[0.195535] (trac_ik_lib) StderrLine: {'line': b'  returned error code 1\n'}
+[0.195629] (trac_ik_lib) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.195724] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.195820] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.195995] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.196074] (trac_ik_lib) StderrLine: {'line': b'  CMakeLists.txt:18 (find_package)\n'}
+[0.196121] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[0.196164] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[0.196205] (trac_ik_lib) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.196255] (trac_ik_lib) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/trac_ik_lib/CMakeFiles/CMakeOutput.log".\n'}
+[0.199521] (trac_ik_lib) CommandEnded: {'returncode': 1}
+[0.199803] (-) TimerEvent: {}
+[0.200406] (human_hand_msgs) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[0.200915] (human_hand_msgs) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[0.200984] (human_hand_msgs) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[0.201039] (human_hand_msgs) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[0.202978] (motoman_resources) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[0.203337] (motoman_resources) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[0.203401] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[0.203456] (motoman_resources) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/motoman_resources/ament_cmake_package_templates/templates.cmake)\n'}
+[0.203507] (motoman_resources) StderrLine: {'line': b'  returned error code 1\n'}
+[0.203586] (motoman_resources) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.203635] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.203683] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.203731] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.203777] (motoman_resources) StderrLine: {'line': b'  CMakeLists.txt:5 (find_package)\n'}
+[0.203822] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.203877] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.203956] (motoman_resources) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.204012] (motoman_resources) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/motoman_resources/CMakeFiles/CMakeOutput.log".\n'}
+[0.213514] (human_hand_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.213938] (human_hand_msgs) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/human_hand_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[0.214044] (human_hand_msgs) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[0.214206] (human_hand_msgs) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[0.214259] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[0.214309] (human_hand_msgs) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/human_hand_msgs/ament_cmake_package_templates/templates.cmake)\n'}
+[0.214355] (human_hand_msgs) StderrLine: {'line': b'  returned error code 1\n'}
+[0.214402] (human_hand_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.214452] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.214499] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.214545] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.214590] (human_hand_msgs) StderrLine: {'line': b'  CMakeLists.txt:8 (find_package)\n'}
+[0.214634] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[0.214680] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[0.223043] (trac_ik_lib) JobEnded: {'identifier': 'trac_ik_lib', 'rc': 1}
+[0.224545] (motoman_resources) JobEnded: {'identifier': 'motoman_resources', 'rc': 'SIGINT'}
+[0.224812] (human_hand_msgs) JobEnded: {'identifier': 'human_hand_msgs', 'rc': 'SIGINT'}
+[0.226499] (kinect2_registration) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[0.226629] (kinect2_registration) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[0.226684] (kinect2_registration) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[0.226730] (kinect2_registration) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[0.227112] (motoros2_interfaces) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[0.227228] (motoros2_interfaces) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[0.227294] (motoros2_interfaces) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[0.227366] (motoros2_interfaces) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[0.229808] (industrial_msgs) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[0.229984] (industrial_msgs) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[0.230043] (industrial_msgs) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[0.230088] (industrial_msgs) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[0.241362] (motoros2_interfaces) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[0.241691] (motoros2_interfaces) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[0.241812] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[0.241940] (motoros2_interfaces) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/motoros2_interfaces/ament_cmake_package_templates/templates.cmake)\n'}
+[0.242048] (motoros2_interfaces) StderrLine: {'line': b'  returned error code 1\n'}
+[0.242153] (motoros2_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.242256] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.242358] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.242459] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.242563] (motoros2_interfaces) StderrLine: {'line': b'  CMakeLists.txt:9 (find_package)\n'}
+[0.242666] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[0.242770] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[0.242881] (kinect2_registration) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[0.242996] (kinect2_registration) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[0.243099] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[0.243203] (kinect2_registration) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/kinect2_registration/ament_cmake_package_templates/templates.cmake)\n'}
+[0.243307] (kinect2_registration) StderrLine: {'line': b'  returned error code 1\n'}
+[0.243412] (kinect2_registration) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.243515] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.243617] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.243768] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.243901] (kinect2_registration) StderrLine: {'line': b'  CMakeLists.txt:9 (find_package)\n'}
+[0.244292] (kinect2_registration) StderrLine: {'line': b'\n'}
+[0.244400] (kinect2_registration) StderrLine: {'line': b'\n'}
+[0.244509] (motoros2_interfaces) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.244837] (motoros2_interfaces) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/motoros2_interfaces/CMakeFiles/CMakeOutput.log".\n'}
+[0.245035] (kinect2_registration) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.245765] (kinect2_registration) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/kinect2_registration/CMakeFiles/CMakeOutput.log".\n'}
+[0.245940] (kinect2_registration) JobEnded: {'identifier': 'kinect2_registration', 'rc': 'SIGINT'}
+[0.246858] (motoros2_interfaces) JobEnded: {'identifier': 'motoros2_interfaces', 'rc': 'SIGINT'}
+[0.247383] (industrial_msgs) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[0.247544] (industrial_msgs) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[0.247662] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[0.247774] (industrial_msgs) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/industrial_msgs/ament_cmake_package_templates/templates.cmake)\n'}
+[0.247894] (industrial_msgs) StderrLine: {'line': b'  returned error code 1\n'}
+[0.248008] (industrial_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.248116] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.248224] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.248332] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.248440] (industrial_msgs) StderrLine: {'line': b'  CMakeLists.txt:16 (find_package)\n'}
+[0.248547] (industrial_msgs) StderrLine: {'line': b'\n'}
+[0.248659] (industrial_msgs) StderrLine: {'line': b'\n'}
+[0.248772] (industrial_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.248903] (industrial_msgs) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/industrial_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[0.250593] (industrial_msgs) JobEnded: {'identifier': 'industrial_msgs', 'rc': 'SIGINT'}
+[0.300065] (-) TimerEvent: {}
+[0.400441] (-) TimerEvent: {}
+[0.500892] (-) TimerEvent: {}
+[0.601234] (-) TimerEvent: {}
+[0.701580] (-) TimerEvent: {}
+[0.704543] (libfreenect2) StdoutLine: {'line': b'[  5%] \x1b[32m\x1b[1mLinking CXX executable bin/generate_resources_tool\x1b[0m\n'}
+[0.776473] (libfreenect2) StdoutLine: {'line': b'[  5%] Built target generate_resources_tool\n'}
+[0.791865] (libfreenect2) StdoutLine: {'line': b'[  7%] \x1b[34m\x1b[1mGenerating resources.inc.h\x1b[0m\n'}
+[0.801723] (-) TimerEvent: {}
+[0.830073] (libfreenect2) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/transfer_pool.cpp.o\x1b[0m\n'}
+[0.830668] (libfreenect2) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/frame_listener_impl.cpp.o\x1b[0m\n'}
+[0.830954] (libfreenect2) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/event_loop.cpp.o\x1b[0m\n'}
+[0.831208] (libfreenect2) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/usb_control.cpp.o\x1b[0m\n'}
+[0.831405] (libfreenect2) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/depth_packet_stream_parser.cpp.o\x1b[0m\n'}
+[0.831578] (libfreenect2) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/allocator.cpp.o\x1b[0m\n'}
+[0.831751] (libfreenect2) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/rgb_packet_processor.cpp.o\x1b[0m\n'}
+[0.831980] (libfreenect2) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/packet_pipeline.cpp.o\x1b[0m\n'}
+[0.832716] (libfreenect2) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/depth_packet_processor.cpp.o\x1b[0m\n'}
+[0.833124] (libfreenect2) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/cpu_depth_packet_processor.cpp.o\x1b[0m\n'}
+[0.834391] (libfreenect2) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/command_transaction.cpp.o\x1b[0m\n'}
+[0.842990] (libfreenect2) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/resource.cpp.o\x1b[0m\n'}
+[0.843416] (libfreenect2) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/registration.cpp.o\x1b[0m\n'}
+[0.843527] (libfreenect2) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/logging.cpp.o\x1b[0m\n'}
+[0.843608] (libfreenect2) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/libfreenect2.cpp.o\x1b[0m\n'}
+[0.849714] (libfreenect2) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/rgb_packet_stream_parser.cpp.o\x1b[0m\n'}
+[0.901905] (-) TimerEvent: {}
+[1.025937] (-) TimerEvent: {}
+[1.127551] (-) TimerEvent: {}
+[1.228928] (-) TimerEvent: {}
+[1.329527] (-) TimerEvent: {}
+[1.432228] (-) TimerEvent: {}
+[1.532988] (-) TimerEvent: {}
+[1.567878] (libfreenect2) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/tinythread/tinythread.cpp.o\x1b[0m\n'}
+[1.633979] (-) TimerEvent: {}
+[1.641950] (libfreenect2) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/vaapi_rgb_packet_processor.cpp.o\x1b[0m\n'}
+[1.665154] (libfreenect2) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/turbo_jpeg_rgb_packet_processor.cpp.o\x1b[0m\n'}
+[1.734134] (-) TimerEvent: {}
+[1.834868] (-) TimerEvent: {}
+[1.891952] (libfreenect2) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/freenect2.dir/src/opengl_depth_packet_processor.cpp.o\x1b[0m\n'}
+[1.934980] (-) TimerEvent: {}
+[2.036361] (-) TimerEvent: {}
+[2.137982] (-) TimerEvent: {}
+[2.238648] (-) TimerEvent: {}
+[2.342139] (-) TimerEvent: {}
+[2.442649] (-) TimerEvent: {}
+[2.543240] (-) TimerEvent: {}
+[2.586296] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp: In member function \xe2\x80\x98virtual void libfreenect2::CpuDepthPacketProcessor::loadP0TablesFromCommandResponse(unsigned char*, size_t)\xe2\x80\x99:\n'}
+[2.587113] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:844:53: warning: taking address of packed member of \xe2\x80\x98libfreenect2::protocol::P0TablesResponse\xe2\x80\x99 may result in an unaligned pointer value [-Waddress-of-packed-member]\n'}
+[2.587337] (libfreenect2) StderrLine: {'line': b'  844 |     flipHorizontal(Mat<uint16_t>(424, 512, p0table->p0table0), impl_->p0_table0);\n'}
+[2.587506] (libfreenect2) StderrLine: {'line': b'      |                                            ~~~~~~~~~^~~~~~~~\n'}
+[2.587663] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:845:53: warning: taking address of packed member of \xe2\x80\x98libfreenect2::protocol::P0TablesResponse\xe2\x80\x99 may result in an unaligned pointer value [-Waddress-of-packed-member]\n'}
+[2.587827] (libfreenect2) StderrLine: {'line': b'  845 |     flipHorizontal(Mat<uint16_t>(424, 512, p0table->p0table1), impl_->p0_table1);\n'}
+[2.588043] (libfreenect2) StderrLine: {'line': b'      |                                            ~~~~~~~~~^~~~~~~~\n'}
+[2.588213] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:846:53: warning: taking address of packed member of \xe2\x80\x98libfreenect2::protocol::P0TablesResponse\xe2\x80\x99 may result in an unaligned pointer value [-Waddress-of-packed-member]\n'}
+[2.588375] (libfreenect2) StderrLine: {'line': b'  846 |     flipHorizontal(Mat<uint16_t>(424, 512, p0table->p0table2), impl_->p0_table2);\n'}
+[2.588532] (libfreenect2) StderrLine: {'line': b'      |                                            ~~~~~~~~~^~~~~~~~\n'}
+[2.588687] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:850:42: warning: taking address of packed member of \xe2\x80\x98libfreenect2::protocol::P0TablesResponse\xe2\x80\x99 may result in an unaligned pointer value [-Waddress-of-packed-member]\n'}
+[2.588902] (libfreenect2) StderrLine: {'line': b'  850 |     Mat<uint16_t> p00(424, 512, p0table->p0table0);\n'}
+[2.589088] (libfreenect2) StderrLine: {'line': b'      |                                 ~~~~~~~~~^~~~~~~~\n'}
+[2.589246] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:852:38: warning: taking address of packed member of \xe2\x80\x98libfreenect2::protocol::P0TablesResponse\xe2\x80\x99 may result in an unaligned pointer value [-Waddress-of-packed-member]\n'}
+[2.589408] (libfreenect2) StderrLine: {'line': b'  852 |     Mat<uint16_t>(424, 512, p0table->p0table1).copyTo(impl_->p0_table1);\n'}
+[2.589580] (libfreenect2) StderrLine: {'line': b'      |                             ~~~~~~~~~^~~~~~~~\n'}
+[2.589737] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:853:38: warning: taking address of packed member of \xe2\x80\x98libfreenect2::protocol::P0TablesResponse\xe2\x80\x99 may result in an unaligned pointer value [-Waddress-of-packed-member]\n'}
+[2.589920] (libfreenect2) StderrLine: {'line': b'  853 |     Mat<uint16_t>(424, 512, p0table->p0table2).copyTo(impl_->p0_table2);\n'}
+[2.590087] (libfreenect2) StderrLine: {'line': b'      |                             ~~~~~~~~~^~~~~~~~\n'}
+[2.643420] (-) TimerEvent: {}
+[2.743963] (-) TimerEvent: {}
+[2.844447] (-) TimerEvent: {}
+[2.944945] (-) TimerEvent: {}
+[3.045383] (-) TimerEvent: {}
+[3.145925] (-) TimerEvent: {}
+[3.246423] (-) TimerEvent: {}
+[3.346774] (-) TimerEvent: {}
+[3.447137] (-) TimerEvent: {}
+[3.547720] (-) TimerEvent: {}
+[3.648332] (-) TimerEvent: {}
+[3.748770] (-) TimerEvent: {}
+[3.849120] (-) TimerEvent: {}
+[3.949501] (-) TimerEvent: {}
+[4.049917] (-) TimerEvent: {}
+[4.150305] (-) TimerEvent: {}
+[4.250739] (-) TimerEvent: {}
+[4.351175] (-) TimerEvent: {}
+[4.451567] (-) TimerEvent: {}
+[4.551902] (-) TimerEvent: {}
+[4.652284] (-) TimerEvent: {}
+[4.752562] (-) TimerEvent: {}
+[4.794302] (libfreenect2) StdoutLine: {'line': b'[ 63%] \x1b[32m\x1b[1mLinking CXX shared library lib/libfreenect2.so\x1b[0m\n'}
+[4.852800] (-) TimerEvent: {}
+[4.921801] (libfreenect2) StdoutLine: {'line': b'[ 65%] Built target freenect2\n'}
+[4.942561] (libfreenect2) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object examples/CMakeFiles/Protonect.dir/viewer.cpp.o\x1b[0m\n'}
+[4.944095] (libfreenect2) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object examples/CMakeFiles/Protonect.dir/Protonect.cpp.o\x1b[0m\n'}
+[4.949182] (libfreenect2) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/DepthStream.cpp.o\x1b[0m\n'}
+[4.949952] (libfreenect2) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/IrStream.cpp.o\x1b[0m\n'}
+[4.950277] (libfreenect2) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/Utility.cpp.o\x1b[0m\n'}
+[4.952343] (libfreenect2) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/ColorStream.cpp.o\x1b[0m\n'}
+[4.952879] (-) TimerEvent: {}
+[4.953272] (libfreenect2) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/DeviceDriver.cpp.o\x1b[0m\n'}
+[4.953708] (libfreenect2) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/VideoStream.cpp.o\x1b[0m\n'}
+[4.954057] (libfreenect2) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/Registration.cpp.o\x1b[0m\n'}
+[4.955544] (libfreenect2) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/tinythread/tinythread.cpp.o\x1b[0m\n'}
+[5.053071] (-) TimerEvent: {}
+[5.153580] (-) TimerEvent: {}
+[5.254276] (-) TimerEvent: {}
+[5.355268] (-) TimerEvent: {}
+[5.455738] (-) TimerEvent: {}
+[5.556234] (-) TimerEvent: {}
+[5.606333] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp: In function \xe2\x80\x98int main(int, char**)\xe2\x80\x99:\n'}
+[5.606674] (libfreenect2) StderrLine: {'line': b'/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:157:7: warning: variable \xe2\x80\x98deviceId\xe2\x80\x99 set but not used [-Wunused-but-set-variable]\n'}
+[5.606866] (libfreenect2) StderrLine: {'line': b'  157 |   int deviceId = -1;\n'}
+[5.607035] (libfreenect2) StderrLine: {'line': b'      |       ^~~~~~~~\n'}
+[5.656403] (-) TimerEvent: {}
+[5.756875] (-) TimerEvent: {}
+[5.857401] (-) TimerEvent: {}
+[5.958073] (-) TimerEvent: {}
+[6.058509] (-) TimerEvent: {}
+[6.159053] (-) TimerEvent: {}
+[6.214189] (libfreenect2) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking CXX executable ../bin/Protonect\x1b[0m\n'}
+[6.259178] (-) TimerEvent: {}
+[6.341341] (libfreenect2) StdoutLine: {'line': b'[ 97%] Built target Protonect\n'}
+[6.359283] (-) TimerEvent: {}
+[6.459660] (-) TimerEvent: {}
+[6.560103] (-) TimerEvent: {}
+[6.660551] (-) TimerEvent: {}
+[6.760960] (-) TimerEvent: {}
+[6.773381] (libfreenect2) StderrLine: {'line': b'In file included from /usr/include/string.h:535,\n'}
+[6.773632] (libfreenect2) StderrLine: {'line': b'                 from /usr/include/openni2/Linux-x86/OniPlatformLinux-x86.h:34,\n'}
+[6.773750] (libfreenect2) StderrLine: {'line': b'                 from /usr/include/openni2/OniPlatform.h:42,\n'}
+[6.773854] (libfreenect2) StderrLine: {'line': b'                 from /usr/include/openni2/Driver/OniDriverAPI.h:24,\n'}
+[6.773951] (libfreenect2) StderrLine: {'line': b'                 from /home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:35:\n'}
+[6.774040] (libfreenect2) StderrLine: {'line': b'In function \xe2\x80\x98char* strncpy(char*, const char*, size_t)\xe2\x80\x99,\n'}
+[6.774122] (libfreenect2) StderrLine: {'line': b'    inlined from \xe2\x80\x98void Freenect2Driver::Driver::register_uri(std::string)\xe2\x80\x99 at /home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:404:14:\n'}
+[6.774205] (libfreenect2) StderrLine: {'line': b'/usr/include/x86_64-linux-gnu/bits/string_fortified.h:95:34: warning: \xe2\x80\x98char* __builtin_strncpy(char*, const char*, long unsigned int)\xe2\x80\x99 specified bound 256 equals destination size [-Wstringop-truncation]\n'}
+[6.774290] (libfreenect2) StderrLine: {'line': b'   95 |   return __builtin___strncpy_chk (__dest, __src, __len,\n'}
+[6.774370] (libfreenect2) StderrLine: {'line': b'      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.774453] (libfreenect2) StderrLine: {'line': b'   96 |                                   __glibc_objsize (__dest));\n'}
+[6.774540] (libfreenect2) StderrLine: {'line': b'      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[6.861240] (-) TimerEvent: {}
+[6.961664] (-) TimerEvent: {}
+[7.061905] (-) TimerEvent: {}
+[7.162355] (-) TimerEvent: {}
+[7.262641] (-) TimerEvent: {}
+[7.329290] (libfreenect2) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library lib/libfreenect2-openni2.so\x1b[0m\n'}
+[7.362787] (-) TimerEvent: {}
+[7.421296] (libfreenect2) StdoutLine: {'line': b'[100%] Built target freenect2-openni2\n'}
+[7.434279] (libfreenect2) JobEnded: {'identifier': 'libfreenect2', 'rc': 'SIGINT'}
+[7.445760] (coord_transform) JobSkipped: {'identifier': 'coord_transform'}
+[7.445874] (experiment_logger) JobSkipped: {'identifier': 'experiment_logger'}
+[7.445924] (kinect2_bridge) JobSkipped: {'identifier': 'kinect2_bridge'}
+[7.445971] (motoman_gp4_support) JobSkipped: {'identifier': 'motoman_gp4_support'}
+[7.446011] (motoman_hc10dtp_support) JobSkipped: {'identifier': 'motoman_hc10dtp_support'}
+[7.446041] (motoros2_client_interface_dependencies) JobSkipped: {'identifier': 'motoros2_client_interface_dependencies'}
+[7.446071] (predictor_ui) JobSkipped: {'identifier': 'predictor_ui'}
+[7.446102] (realsense_tracker) JobSkipped: {'identifier': 'realsense_tracker'}
+[7.446194] (trac_ik_kinematics) JobSkipped: {'identifier': 'trac_ik_kinematics'}
+[7.446244] (trajectory_predictor) JobSkipped: {'identifier': 'trajectory_predictor'}
+[7.446285] (hc10dtp_moveit_config) JobSkipped: {'identifier': 'hc10dtp_moveit_config'}
+[7.446313] (kinect2_calibration) JobSkipped: {'identifier': 'kinect2_calibration'}
+[7.446342] (trac_ik) JobSkipped: {'identifier': 'trac_ik'}
+[7.446373] (hc10dtp_bringup) JobSkipped: {'identifier': 'hc10dtp_bringup'}
+[7.446401] (hc10dtp_simulation) JobSkipped: {'identifier': 'hc10dtp_simulation'}
+[7.446430] (hrc_bringup) JobSkipped: {'identifier': 'hrc_bringup'}
+[7.446458] (-) EventReactorShutdown: {}

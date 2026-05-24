@@ -1,102 +1,240 @@
-# HRC Co-Carrying Robot Workspace
+# Human-Robot Co-Carrying Workspace (HC10DTP)
 
-## Tổng quan
+## Tổng quan (Overview)
+Dự án này là một hệ thống **Human-Robot Collaborative (HRC) Co-Carrying** sử dụng cánh tay robot cộng tác Yaskawa HC10DTP. Hệ thống cho phép người và robot cùng khiêng một vật thể. Dựa vào dữ liệu hình ảnh 3D từ camera chiều sâu, hệ thống theo dõi chuyển động tay của người, đưa qua mạng nơ-ron hồi quy (GRU/LSTM) để dự đoán quỹ đạo (trajectory prediction) trong tương lai gần (multi-step prediction `Ts=3`), tự động bù trễ hệ thống, và liên tục nội suy tọa độ để điều khiển robot bám sát quỹ đạo phối hợp mượt mà ở tần số cao.
 
-Workspace tích hợp hệ thống **Human-Robot Co-Carrying** sử dụng robot cộng tác Yaskawa HC10DTP.
-Người và robot cùng mang một vật, robot dự đoán quỹ đạo chuyển động của tay người
-và stream tọa độ đặt real-time để phối hợp chuyển động mượt mà.
+## Yêu cầu Hệ thống (System Requirements)
 
-## Kiến trúc hệ thống
+### Phần cứng (Hardware)
+1. **Robot:** Yaskawa HC10DTP Collaborative Robot.
+2. **Controller:** YRC1000micro Controller, đã kích hoạt và cài đặt **MotoROS2**.
+3. **Camera:** Camera Depth RGB-D (Hỗ trợ Kinect V2, Intel RealSense D-series).
+4. **Máy tính:** PC/Laptop chạy Linux (Khuyến nghị có GPU rời để xử lý AI real-time mượt mà, nhưng hệ thống vẫn tương thích hoàn toàn khi chạy bằng CPU do kiến trúc GRU 1-layer đã được tối ưu).
 
-```
-RealSense D-series
-      ↓ depth + RGB
-realsense_tracker (MediaPipe)
-      ↓ /hand_position (HandState)
-trajectory_predictor (GRU/LSTM)
-      ↓ /ml/predicted_position (HandPrediction)
-coord_transform ← transform_params.yaml
-      ↓ /cartesian_streamer/target_pose (PoseStamped, robot base frame)
-cartesian_streamer_hc10dtp (IK + Point Queue)
-      ↓ /yaskawa/queue_traj_point
-HC10DTP cobot (YRC1000micro + MotoROS2)
-```
+### Phần mềm & Thư viện (Software & Libraries)
+1. **Hệ điều hành:** Ubuntu 22.04 LTS
+2. **Middle-ware:** ROS 2 Humble Hawksbill
+3. **Ngôn ngữ:** Python 3.10+
+4. **Thư viện Python Core:**
+   - `numpy`, `scipy`, `pyyaml` (Toán học, Lọc nhiễu & Config)
+   - `tensorflow`, `keras`, `scikit-learn` (AI Model Inference & Data Scaling)
+   - `mediapipe` / `pyrealsense2` (Computer Vision & Hand Tracking)
+   - `PyQt5`, `pyqtgraph` (Giao diện UI Dashboard Real-time)
+5. **ROS 2 Packages:** `ros-humble-moveit`, `ros-humble-tf2-tools`
+6. **Drivers:** Thư viện `motoros2_interfaces` (Dành cho Yaskawa MotoROS2).
 
-## Packages
+---
 
-| Package | Mô tả |
+## Cấu trúc Packages trong Workspace
+
+| Tên Package | Vai trò & Chức năng |
 |---|---|
-| `realsense_tracker` | Đọc camera, detect wrist landmark 3D |
-| `trajectory_predictor` | GRU/LSTM inference, dự đoán N bước tương lai |
-| `coord_transform` | Transform tọa độ camera → robot base |
-| `hc10dtp_bringup` | Cartesian streamer, launch files robot |
-| `hc10dtp_moveit_config` | URDF, SRDF, TRAC-IK, MoveIt config |
-| `experiment_logger` | Ghi CSV log, tính MAE |
-| `predictor_ui` | PyQtGraph dashboard real-time |
-| `human_hand_msgs` | Custom ROS 2 messages |
+| `realsense_tracker` | Đọc dữ liệu từ Camera, sử dụng MediaPipe trích xuất tọa độ 3D của cổ tay người (Wrist Landmark) ở tần số 16Hz-30Hz. |
+| `trajectory_predictor` | Node AI chứa logic dự đoán và tải mô hình Machine Learning (`gru_model_Ts3.h5`). Lấy chuỗi lịch sử XYZ và vận tốc để suy luận (Inference) ra vị trí tay N bước trong tương lai theo thời gian thực. |
+| `coord_transform` | Chuyển đổi tọa độ không gian: Mapping từ hệ trục Camera (Camera Frame) sang hệ trục gốc của Robot (Base Link Frame) bao gồm lật trục tọa độ theo hướng người đứng. |
+| `hc10dtp_bringup` | Chứa script điều khiển trung tâm `cartesian_streamer_hc10dtp.py`. Nhận tọa độ Cartesian, liên tục giải Inverse Kinematics (IK), và stream Joint Angles xuống bộ điều khiển MotoROS2 (qua `QueueTrajPoint`) với tần số **25Hz**. |
+| `hc10dtp_moveit_config` | Cấu hình MoveIt 2 (SRDF, URDF, TRAC-IK) dùng cho giả lập, collision checking và giải động học nghịch. |
+| `hc10dtp_simulation` | Môi trường giả lập tích hợp Gazebo/ROS Control. Bao gồm script `motoros2_mock_node.py` để giả lập các tín hiệu Service của MotoROS2 driver cho phép code streamer chạy mô phỏng 100% y như robot thật. |
+| `experiment_logger` | Lưu tọa độ thực tế của người, tọa độ dự đoán của AI, và dữ liệu khớp robot ra file `.csv`. Cung cấp báo cáo phân tích độ chính xác (MAE, MSE), tính toán thời gian phản hồi và độ giật (Jerk) sau mỗi lần thử. |
+| `predictor_ui` | Giao diện Dashboard (PyQtGraph) giám sát quỹ đạo đa trục X-Y-Z real-time. Cung cấp các nút điều khiển luồng thử nghiệm một cách an toàn và trực quan. |
+| `hrc_bringup` | Chứa các file `launch` chính liên kết tất cả các node của hệ thống với nhau (`cocarry_full.launch.py`, `cocarry_sim_gui.launch.py`). |
+| `GRU-Model` | Thư mục Jupyter Notebook chứa source code quá trình Offline Training, đánh giá Ablation Studies và lưu trữ các file mô hình (`.h5`) cùng scaler (`.pkl`). |
 
-## Cài đặt
+---
 
+## Hướng dẫn Cài đặt (Installation)
+
+1. **Cài đặt ROS 2 Dependencies và Python libs:**
 ```bash
-# Dependencies
+sudo apt update
 sudo apt install ros-humble-moveit ros-humble-tf2-tools
-pip install numpy scipy pyrealsense2 mediapipe tensorflow pyqtgraph PyQt5 pyyaml
+pip3 install numpy scipy mediapipe tensorflow scikit-learn pyqtgraph PyQt5 pyyaml
+```
+*(Lưu ý: Cài đặt thêm `pyrealsense2` nếu sử dụng camera Intel RealSense).*
 
-# Build
+2. **Build Workspace:**
+```bash
 cd ~/cocarry_ws
 colcon build --symlink-install
 source install/setup.bash
 ```
 
-## Cách chạy
+---
 
-### Terminal 1 — MoveIt stack (bắt buộc chạy trước)
-```bash
-source ~/cocarry_ws/install/setup.bash
-ros2 launch hc10dtp_moveit_config hc10dtp_start.launch.py
-```
+## Quy trình Thực thi (Execution Workflow)
 
-### Terminal 2 — Co-carry pipeline
-```bash
-source ~/cocarry_ws/install/setup.bash
-ros2 launch hrc_bringup cocarry_full.launch.py \
-  model_dir:=~/Downloads/GRU-Model-main
-```
+### Bước 0: Calibrate Camera - Robot (Bắt buộc trước khi thao tác lần đầu)
 
-## Calibration (bắt buộc trước thực nghiệm)
-
+Hệ thống cần biết Camera đang được đặt ở đâu và góc quay ra sao so với Robot để scale/transform quỹ đạo cho chính xác.
+1. Đo tọa độ của ít nhất 3 điểm chuẩn trên sàn thực tế (trong không gian Camera và không gian Base Robot).
+2. Nhập các thông số đo được vào biến `POINTS_CAM` và `POINTS_ROBOT` trong script `calibrate_camera_to_robot.py`.
+3. Chạy lệnh sinh file Config:
 ```bash
 cd ~/cocarry_ws/src/coord_transform/scripts
-# 1. Điền dữ liệu đo đạc vào POINTS_CAM và POINTS_ROBOT
-nano calibrate_camera_to_robot.py
-
-# 2. Chạy script
 python3 calibrate_camera_to_robot.py \
   --output ../config/transform_params.yaml \
   --update ../config/transform_params.yaml
 ```
 
-## Topics quan trọng
+---
 
-| Topic | Type | Mô tả |
-|---|---|---|
-| `/hand_position` | `HandState` | Tọa độ wrist real-time từ camera |
-| `/ml/predicted_position` | `HandPrediction` | Dự đoán quỹ đạo tương lai |
-| `/cartesian_streamer/target_pose` | `PoseStamped` | Target pose cho robot |
-| `/cartesian_streamer/current_pose` | `PoseStamped` | EE pose phản hồi từ robot |
-| `/coord_transform/debug_pose` | `PoseStamped` | Debug transform (xem trong RViz) |
-| `/yaskawa/joint_states` | `JointState` | Trạng thái khớp robot |
+### Tùy chọn A: Chạy Mô Phỏng (Simulation) - Đề xuất cho Dev/Test
 
-## Tuning parameters
+Mô phỏng sử dụng Camera thật (RealSense/Kinect) để thu nhận cử động người nhưng điều khiển Robot trên môi trường ảo (RViz/Gazebo). Hệ thống ảo hóa hoàn toàn MotoROS2 driver.
 
-Sau khi calibration, điều chỉnh trong `transform_params.yaml`:
+1. **Khởi chạy Hệ thống Simulation:**
+Mở Terminal 1:
+```bash
+source ~/cocarry_ws/install/setup.bash
+ros2 launch hrc_bringup cocarry_sim_gui.launch.py
+```
+*(Lệnh này tự động gom: MoveIt, fake hardware, MotoROS2 mock, Camera tracking, Predictor, Transform và Dashboard UI).*
 
-- `prediction_step`: Tăng (3→5) nếu robot phản ứng chậm so với tay người
-- `object_offset_*`: Điều chỉnh theo vị trí gắn handle thực tế
-- `workspace_*`: Giới hạn theo không gian làm việc thực nghiệm
+2. **Thao tác trên UI Dashboard:**
+   - Đứng trước Camera ở tư thế tự nhiên.
+   - Bấm **"⌖ Calibrate Camera"** (Thiết lập gốc tọa độ người).
+   - Bấm **"📌 Capture Init Pose"** (Chốt vị trí EE hiện tại làm mốc tương đối).
+   - Chọn chế độ: **"📍 Ground Truth"** (Trực tiếp) hoặc **"🧠 Prediction"** (AI Dự đoán).
+   - Bấm **"⚡ Enable Robot"** (Bật Point Queue Mode giả lập).
+   - Bấm **"▶ Start Run"** (Bắt đầu stream và ghi log CSV). Di chuyển tay, robot ảo sẽ bám theo.
+   - Kết thúc: Bấm **"⏸ Stop Run"** -> **"⛔ Disable Robot"** -> **"🏠 Go Home"**.
 
-Trong `cartesian_streamer_hc10dtp.py`:
+---
 
-- `SMOOTH_ALPHA`: Giảm (0.4→0.2) để chuyển động mượt hơn
-- `MAX_JOINT_DELTA`: Giảm (0.3→0.2 rad) cho safety cao hơn
-- `DEFAULT_STREAM_HZ`: 15 Hz là ổn định cho HC10DTP
+### Tùy chọn B: Chạy Thực Tế (Real HC10DTP Cobot)
+
+**⚠️ QUY TẮC AN TOÀN:** Luôn giữ tay ở nút **Emergency Stop**. Tốc độ robot trên Teach Pendant không quá **10-15%** cho lần test đầu. Đảm bảo robot ở chế độ **REMOTE**.
+
+1. **Terminal 0: Micro-ROS Agent (Nếu có cảm biến/gripper):**
+```bash
+cd ~/cocarry_ws && ./start_microros.sh
+```
+
+2. **Terminal 1: Khởi động MoveIt & Connect Robot:**
+```bash
+export ROS_DOMAIN_ID=10
+source ~/cocarry_ws/install/setup.bash
+ros2 launch hc10dtp_moveit_config hc10dtp_start.launch.py
+```
+
+3. **Terminal 2: Khởi động Co-Carry Pipeline & UI:**
+```bash
+export ROS_DOMAIN_ID=10
+source ~/cocarry_ws/install/setup.bash
+ros2 launch hrc_bringup cocarry_full.launch.py
+```
+
+4. **Các bài thử nghiệm khuyến nghị:**
+   - **Test 1 (Go Home):** Chạy `python3 src/hc10dtp_bringup/scripts/go_home.py` để kiểm tra kết nối.
+   - **Test 2 (Demo Pattern):** Chạy `python3 src/hc10dtp_bringup/scripts/cartesian_streamer_hc10dtp.py --demo line` để kiểm tra độ mượt.
+   - **Test 3 (HRC Full):** Thao tác trên UI: **Calibrate** -> **Capture Init Pose** -> **Enable Robot** -> **Start Run**.
+
+5. **Dừng an toàn:** Bấm nút **"🏠 Go Home"** trên UI hoặc Terminal 2 để robot về vị trí nghỉ và thoát Queue Mode sạch sẽ.
+
+---
+
+## Kiến trúc Luồng Dữ Liệu (Data Pipeline)
+
+Hệ thống được thiết kế để bù đắp các độ trễ từ Mạng nội bộ, Camera, và Quá trình giải IK, giúp robot bắt kịp với người ở thời gian thực `(Total system latency ≈ 165ms)`.
+
+1. Camera thu thập tọa độ thô `XYZ` của tay người `(~16Hz)`.
+2. Tọa độ `/hand_position` được đẩy vào buffer cửa sổ trượt của node `trajectory_predictor`.
+3. Node suy luận (TensorFlow Backend) sử dụng mô hình `gru_model_Ts3.h5` và bộ Scaler đã được train với Vector Vận Tốc, đưa ra dự đoán trước `Ts=3` frame (tương đương `+187.5ms` trong tương lai).
+4. Node `coord_transform` nội suy vị trí điểm bù trừ End-Effector, áp dụng bộ lọc Tín Hiệu (EMA) loại bỏ nhiễu rung (Jitter).
+5. Output được phát sóng lên `/cartesian_streamer/target_pose` tới script `cartesian_streamer_hc10dtp.py`.
+6. Streamer kích hoạt MoveIt giải ngược Inverse Kinematics liên tục, gài các bộ Constraint vận tốc/vị trí khớp để đảm bảo Safety ISO Limits.
+7. Gửi danh sách góc khớp thành công dưới dạng `QueueTrajPoint` xuống bộ điều khiển Yaskawa với khoảng ngắt thời gian là `0.04s` (**Tần số 25Hz**) để làm mượt hoàn toàn các bước giật của chuyển động khung hình chuẩn.
+
+---
+
+## Đo lường & Phân tích Độ trễ Hệ thống (System Latency Measurement & Analysis)
+
+Để tối ưu hóa độ trễ phản hồi của robot mà không gây thêm bất kỳ overhead nào trong quá trình vận hành thời gian thực (real-time), hệ thống sử dụng cơ chế **đệm ghi nhớ (in-memory buffer)** và công cụ **phân tích offline tương quan chéo (cross-correlation analysis)**.
+
+### 1. Cơ chế Logging Không Trễ (Zero-Overhead Logging)
+* Thay vì ghi file CSV trực tiếp từng frame xuống đĩa gây ra micro-stutters/jitter, dữ liệu thực nghiệm được lưu tạm trên RAM (`self._log_buffer`).
+* Khi dừng thực nghiệm (gọi service stop hoặc nhận lệnh dừng từ Windows), toàn bộ đệm dữ liệu được xuất hàng loạt xuống đĩa (`experiment_*.csv`) và tự động tính toán các chỉ số cơ bản (MAE, MSE, Jerk).
+
+### 2. Quy trình Đo & Phân tích Độ trễ (Offline Analysis Workflow)
+
+#### Bước 1: Thu thập dữ liệu thực nghiệm
+1. Chạy đầy đủ pipeline thực tế hoặc giả lập (Tùy chọn A hoặc B).
+2. Kích hoạt ghi log thông qua UI Dashboard hoặc gọi service:
+   ```bash
+   ros2 service call /logger/toggle std_srvs/srv/SetBool "{data: true}"
+   ```
+3. Đứng trước camera thực hiện chuyển động tay **lặp đi lặp lại nhịp nhàng (sinusoidal motion)** hoặc **di chuyển đột ngột (step input)** trên một trục (ví dụ trục Y hoặc Z) trong khoảng 15-30 giây.
+4. Dừng ghi log để kết xuất dữ liệu ra đĩa:
+   ```bash
+   ros2 service call /logger/toggle std_srvs/srv/SetBool "{data: false}"
+   ```
+
+#### Bước 2: Chạy phân tích offline
+Chạy công cụ phân tích tương quan chéo trên file log vừa tạo để tìm độ lệch thời gian chính xác:
+```bash
+# Tự động quét và phân tích file log mới nhất trong thư mục ~/hrc_logs hoặc ~/cocarry_logs
+ros2 run experiment_logger analyze_latency
+
+# Hoặc chỉ định chính xác file log cần phân tích
+ros2 run experiment_logger analyze_latency --csv ~/hrc_logs/experiment_GRU_20260524_120000.csv
+```
+
+#### Kết quả phân tích (Ví dụ):
+```text
+==================================================
+           LATENCY MEASUREMENT RESULTS
+==================================================
+Total rows analyzed: 580
+Sampling period (resampled): dt = 10 ms (100 Hz)
+--------------------------------------------------
+1. Hand tracking to Robot physical movement (Total delay):
+   ► Delay: 90.0 ms
+   ► Correlation: 0.814
+--------------------------------------------------
+2. Hand tracking to ML predictor output (Predictor phase shift):
+   ► Lead (Anticipation): 60.0 ms
+--------------------------------------------------
+3. ML Predictor to Robot physical movement:
+   ► Delay: 150.0 ms
+   ► Correlation: 0.785
+==================================================
+```
+*(Nếu môi trường chạy hỗ trợ giao diện đồ họa, script sẽ hiển thị biểu đồ so sánh tốc độ chuyển động trực quan và đỉnh tương quan chéo).*
+
+---
+
+## Các Tuning Parameters Đáng Lưu Ý
+Khi thực nghiệm trong môi trường mới, nếu robot phản hồi quá chậm hoặc hơi giật, hãy tinh chỉnh các chỉ số sau trong source code:
+
+* **Trong `hc10dtp_bringup/scripts/cartesian_streamer_hc10dtp.py`:**
+  * `DEFAULT_STREAM_HZ = 25` và `QUEUE_DT_SEC = 0.04`: Đây là tần suất giao tiếp 25Hz, phù hợp với giới hạn băng thông dịch vụ (Service Call) thực tế của robot.
+  * `SMOOTH_ALPHA = 0.5`: Hệ số làm mượt (Lọc hàm mũ). Điều chỉnh từ `0.1` (rất êm nhưng bám chậm) đến `1.0` (bám gắt nhưng dễ giật cục).
+  * `MAX_JOINT_DELTA_PER_AXIS`: Góc quay tối đa cho phép mỗi chu kì (Chống lật khớp khuỷu/cổ tay).
+* **Trong `hrc_bringup/config/transform_params.yaml`:**
+  * `prediction_step`: Số frame ngoại suy thêm (fallback nếu ML model delay).
+  * `workspace_limits`: Giới hạn lồng giam không gian 3D ngăn robot đập vào tường.
+* **Đổi Model AI Mới:** 
+  * Cập nhật lại các tham số Default Param trong `trajectory_predictor/predictor_node.py` để trỏ vào đúng bộ `weights (.h5)` và `scalers (.pkl)` mới của bạn trong file config tương ứng.
+
+---
+
+## Giám sát & Chẩn đoán hệ thống (Diagnostics)
+
+Trong quá trình robot chạy (Streaming), script `cartesian_streamer_hc10dtp.py` sẽ in log định kỳ mỗi 5 giây về tình trạng thực tế của luồng dữ liệu. Người vận hành cần chú ý các thông số sau để đảm bảo an toàn:
+
+### Ý nghĩa các thông số log:
+*   **`tick_hz` (~50Hz):** Tần suất vòng lặp điều khiển. Nếu < 45Hz, cần kiểm tra tải CPU.
+*   **`queue_send_hz` & `ack_hz`:** Tốc độ gửi và nhận phản hồi từ robot. Lý tưởng nhất là 48-50Hz.
+*   **`inter_ack_ms` (~20ms):** Độ trễ phản hồi. Nếu > 50ms, kết nối mạng LAN có vấn đề hoặc bị nhiễu.
+*   **`busy_hz` (Nên là 0):** Nếu > 0, robot đang bị "nghẽn" hàng đợi (Queue Full). Hệ thống sẽ tự động retry nhưng chuyển động có thể bị khựng.
+*   **`retry_count` / `reject_count`:** Số lần gửi lại hoặc số điểm bị từ chối do lỗi IK/Giới hạn an toàn. Nếu các số này tăng nhanh, cần kiểm tra lại vùng làm việc (Workspace) hoặc vật cản.
+*   **`max_joint_delta`:** Độ thay đổi khớp lớn nhất mỗi tick. Robot sẽ tự động CLAMP (kìm hãm) nếu giá trị này vượt ngưỡng cấu hình để tránh rung lắc mạnh.
+
+### Cách kiểm tra nhanh:
+Nếu robot di chuyển không mượt, hãy kiểm tra log:
+1. Nếu `ack_hz` thấp nhưng `tick_hz` cao -> Lỗi mạng hoặc controller quá tải.
+2. Nếu `reject_count` tăng -> Tọa độ mục tiêu nằm ngoài tầm với hoặc gây lật khớp (Singularity).
+3. Nếu `hold_count` tăng cao -> AI Predictor node đang bị chậm, không cung cấp kịp tọa độ.
+
+---
+*Developed & Optimized for Human-Robot Collaboration Research.*
