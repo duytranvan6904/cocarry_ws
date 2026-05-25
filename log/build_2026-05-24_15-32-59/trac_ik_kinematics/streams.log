@@ -1,0 +1,102 @@
+[0.015s] Invoking command in '/home/duy/cocarry_ws/build/trac_ik_kinematics': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/trac_ik_lib/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/trac_ik_kinematics
+[0.034s] -- Found moveit_common: 2.5.9 (/opt/ros/humble/share/moveit_common/cmake)
+[0.035s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.231s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.345s] trac_ik_kinematics: You did not request a specific build type: Choosing 'Release' for maximum performance
+[0.348s] -- Found tf2_kdl: 0.25.20 (/opt/ros/humble/share/tf2_kdl/cmake)
+[0.393s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.396s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.404s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.416s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.435s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.487s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.489s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.561s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.564s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.704s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.834s] -- Found kdl_parser: 2.6.4 (/opt/ros/humble/share/kdl_parser/cmake)
+[0.839s] -- Found random_numbers: 2.0.1 (/opt/ros/humble/share/random_numbers/cmake)
+[0.852s] -- Found pluginlib: 5.1.3 (/opt/ros/humble/share/pluginlib/cmake)
+[0.876s] -- Found moveit_core: 2.5.9 (/opt/ros/humble/share/moveit_core/cmake)
+[0.907s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[0.948s] -- Found parameter_traits: 0.7.1 (/opt/ros/humble/share/parameter_traits/cmake)
+[0.964s] -- Found rclcpp_lifecycle: 16.0.19 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[1.004s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[1.062s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[1.382s] -- Found moveit_ros_planning: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning/cmake)
+[1.391s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[1.422s] -- Found trac_ik_lib: 0.1.0 (/home/duy/cocarry_ws/install/trac_ik_lib/share/trac_ik_lib/cmake)
+[1.432s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: program_options system 
+[1.442s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.451s] -- Configuring done
+[1.494s] -- Generating done
+[1.503s] -- Build files have been written to: /home/duy/cocarry_ws/build/trac_ik_kinematics
+[1.517s] Invoked command in '/home/duy/cocarry_ws/build/trac_ik_kinematics' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/trac_ik_lib/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/trac_ik_kinematics
+[1.519s] Invoking command in '/home/duy/cocarry_ws/build/trac_ik_kinematics': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/trac_ik_lib/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/duy/cocarry_ws/build/trac_ik_kinematics -- -j16 -l16
+[1.593s] [35m[1mConsolidate compiler generated dependencies of target moveit_trac_ik_kinematics_plugin[0m
+[1.660s] [ 50%] [32mBuilding CXX object trac_ik_kinematics_plugin/CMakeFiles/moveit_trac_ik_kinematics_plugin.dir/src/trac_ik_kinematics_plugin.cpp.o[0m
+[7.137s] In file included from /opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24,
+[7.137s]                  from /opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40,
+[7.137s]                  from /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21,
+[7.138s]                  from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155,
+[7.138s]                  from /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics/trac_ik_kinematics_plugin/src/trac_ik_kinematics_plugin.cpp:32:
+[7.139s] /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics/trac_ik_kinematics_plugin/src/trac_ik_kinematics_plugin.cpp: In member function ‘bool trac_ik_kinematics_plugin::TRAC_IKKinematicsPlugin::searchPositionIK(const Pose&, const std::vector<double, std::allocator<double> >&, double, std::vector<double, std::allocator<double> >&, const IKCallbackFn&, moveit_msgs::msg::MoveItErrorCodes&, const std::vector<double, std::allocator<double> >&, const kinematics::KinematicsQueryOptions&) const’:
+[7.139s] /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics/trac_ik_kinematics_plugin/src/trac_ik_kinematics_plugin.cpp:397:32: warning: format ‘%i’ expects argument of type ‘int’, but argument 5 has type ‘moveit_msgs::msg::MoveItErrorCodes’ {aka ‘moveit_msgs::msg::MoveItErrorCodes_<std::allocator<void> >’} [-Wformat=]
+[7.139s]   397 |           RCLCPP_DEBUG(LOGGER, "Solution has error code %i", error_code);
+[7.139s]       |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~
+[7.139s]       |                                                              |
+[7.139s]       |                                                              moveit_msgs::msg::MoveItErrorCodes {aka moveit_msgs::msg::MoveItErrorCodes_<std::allocator<void> >}
+[7.139s] /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics/trac_ik_kinematics_plugin/src/trac_ik_kinematics_plugin.cpp:397:58: note: format string is defined here
+[7.139s]   397 |           RCLCPP_DEBUG(LOGGER, "Solution has error code %i", error_code);
+[7.140s]       |                                                         ~^
+[7.140s]       |                                                          |
+[7.140s]       |                                                          int
+[7.140s] /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics/trac_ik_kinematics_plugin/src/trac_ik_kinematics_plugin.cpp:320:77: warning: unused parameter ‘consistency_limits’ [-Wunused-parameter]
+[7.140s]   320 |                                  const std::vector<double> &consistency_limits,
+[7.140s]       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+[7.140s] 
+[7.140s] /home/duy/cocarry_ws/src/trac_ik/trac_ik_kinematics/trac_ik_kinematics_plugin/src/trac_ik_kinematics_plugin.cpp:321:92: warning: unused parameter ‘options’ [-Wunused-parameter]
+[7.141s]   321 |                   const kinematics::KinematicsQueryOptions &options) const
+[7.141s]       |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+[7.141s] 
+[10.731s] [100%] [32m[1mLinking CXX shared library libmoveit_trac_ik_kinematics_plugin.so[0m
+[11.111s] [100%] Built target moveit_trac_ik_kinematics_plugin
+[11.129s] Invoked command in '/home/duy/cocarry_ws/build/trac_ik_kinematics' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/trac_ik_lib/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/duy/cocarry_ws/build/trac_ik_kinematics -- -j16 -l16
+[11.131s] Invoking command in '/home/duy/cocarry_ws/build/trac_ik_kinematics': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/trac_ik_lib/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/duy/cocarry_ws/build/trac_ik_kinematics
+[11.144s] -- Install configuration: "Release"
+[11.144s] -- Execute custom install script
+[11.145s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics//trac_ik_kinematics_plugin_description.xml
+[11.146s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/include/trac_ik_kinematics_plugin/trac_ik_kinematics_plugin.h
+[11.146s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/environment/library_path.sh
+[11.147s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/environment/library_path.dsv
+[11.147s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/ament_index/resource_index/package_run_dependencies/trac_ik_kinematics
+[11.148s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/ament_index/resource_index/parent_prefix_path/trac_ik_kinematics
+[11.148s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/environment/ament_prefix_path.sh
+[11.149s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/environment/ament_prefix_path.dsv
+[11.149s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/environment/path.sh
+[11.150s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/environment/path.dsv
+[11.150s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/local_setup.bash
+[11.150s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/local_setup.sh
+[11.151s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/local_setup.zsh
+[11.151s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/local_setup.dsv
+[11.151s] -- Symlinking: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/package.dsv
+[11.160s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/ament_index/resource_index/packages/trac_ik_kinematics
+[11.161s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/ament_index/resource_index/moveit_core__pluginlib__plugin/trac_ik_kinematics
+[11.161s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/cmake/ConfigExtras.cmake
+[11.161s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/cmake/ament_cmake_export_targets-extras.cmake
+[11.161s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/cmake/ament_cmake_export_dependencies-extras.cmake
+[11.161s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/cmake/trac_ik_kinematicsConfig.cmake
+[11.161s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/cmake/trac_ik_kinematicsConfig-version.cmake
+[11.162s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/package.xml
+[11.162s] -- Installing: /home/duy/cocarry_ws/install/trac_ik_kinematics/lib/libmoveit_trac_ik_kinematics_plugin.so
+[11.163s] -- Set runtime path of "/home/duy/cocarry_ws/install/trac_ik_kinematics/lib/libmoveit_trac_ik_kinematics_plugin.so" to ""
+[11.163s] -- Up-to-date: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/cmake/export_trac_ik_kinematicsExport.cmake
+[11.163s] -- Up-to-date: /home/duy/cocarry_ws/install/trac_ik_kinematics/share/trac_ik_kinematics/cmake/export_trac_ik_kinematicsExport-release.cmake
+[11.167s] Invoked command in '/home/duy/cocarry_ws/build/trac_ik_kinematics' returned '0': AMENT_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/duy/cocarry_ws/install/trac_ik_lib:/opt/ros/humble LD_LIBRARY_PATH=/home/duy/cocarry_ws/install/trac_ik_lib/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/duy/cocarry_ws/build/trac_ik_kinematics

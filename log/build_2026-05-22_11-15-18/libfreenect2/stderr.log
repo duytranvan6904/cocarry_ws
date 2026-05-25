@@ -1,0 +1,35 @@
+/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp: In member function ‘virtual void libfreenect2::CpuDepthPacketProcessor::loadP0TablesFromCommandResponse(unsigned char*, size_t)’:
+/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:844:53: warning: taking address of packed member of ‘libfreenect2::protocol::P0TablesResponse’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  844 |     flipHorizontal(Mat<uint16_t>(424, 512, p0table->p0table0), impl_->p0_table0);
+      |                                            ~~~~~~~~~^~~~~~~~
+/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:845:53: warning: taking address of packed member of ‘libfreenect2::protocol::P0TablesResponse’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  845 |     flipHorizontal(Mat<uint16_t>(424, 512, p0table->p0table1), impl_->p0_table1);
+      |                                            ~~~~~~~~~^~~~~~~~
+/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:846:53: warning: taking address of packed member of ‘libfreenect2::protocol::P0TablesResponse’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  846 |     flipHorizontal(Mat<uint16_t>(424, 512, p0table->p0table2), impl_->p0_table2);
+      |                                            ~~~~~~~~~^~~~~~~~
+/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:850:42: warning: taking address of packed member of ‘libfreenect2::protocol::P0TablesResponse’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  850 |     Mat<uint16_t> p00(424, 512, p0table->p0table0);
+      |                                 ~~~~~~~~~^~~~~~~~
+/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:852:38: warning: taking address of packed member of ‘libfreenect2::protocol::P0TablesResponse’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  852 |     Mat<uint16_t>(424, 512, p0table->p0table1).copyTo(impl_->p0_table1);
+      |                             ~~~~~~~~~^~~~~~~~
+/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:853:38: warning: taking address of packed member of ‘libfreenect2::protocol::P0TablesResponse’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  853 |     Mat<uint16_t>(424, 512, p0table->p0table2).copyTo(impl_->p0_table2);
+      |                             ~~~~~~~~~^~~~~~~~
+/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp: In function ‘int main(int, char**)’:
+/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:157:7: warning: variable ‘deviceId’ set but not used [-Wunused-but-set-variable]
+  157 |   int deviceId = -1;
+      |       ^~~~~~~~
+In file included from /usr/include/string.h:535,
+                 from /usr/include/openni2/Linux-x86/OniPlatformLinux-x86.h:34,
+                 from /usr/include/openni2/OniPlatform.h:42,
+                 from /usr/include/openni2/Driver/OniDriverAPI.h:24,
+                 from /home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:35:
+In function ‘char* strncpy(char*, const char*, size_t)’,
+    inlined from ‘void Freenect2Driver::Driver::register_uri(std::string)’ at /home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:404:14:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:95:34: warning: ‘char* __builtin_strncpy(char*, const char*, long unsigned int)’ specified bound 256 equals destination size [-Wstringop-truncation]
+   95 |   return __builtin___strncpy_chk (__dest, __src, __len,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+   96 |                                   __glibc_objsize (__dest));
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -9,7 +9,7 @@ install(
 )
 
 install(
-  PROGRAMS scripts/cartesian_streamer_hc10dtp.py scripts/restamp_joint_states.py
+  PROGRAMS scripts/cartesian_streamer_hc10dtp.py scripts/restamp_joint_states.py scripts/go_home.py scripts/capture_home.py scripts/test_queue_diagnostic.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

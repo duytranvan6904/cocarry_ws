@@ -1,0 +1,29 @@
+[INFO] [1779612515.133303399] [coord_transform]: CoordTransformNode khởi động.
+  Object offset (cam frame): [0.05 0.   0.1 ]
+  Translation cam→base:      [0.5 0.  1.2]
+  EE orientation (xyzw):     [0.0, 1.0, 0.0, 0.0]
+  Prediction step:           5
+  Axis remap:                [0, 1, 2]
+  Axis sign:                 [-1.0, 1.0, 1.0]
+  Workspace X: (-1.0, 1.0), Y: (-0.5, 1.3), Z: (0.05, 1.5)
+  Filter outlier_threshold:  0.15m
+  Filter median_size_y:      3
+  Filter deadband_tol:       25.0mm
+  Filter stationary_thresh:  3 frames
+  Filter max_rate:           5.0cm/frame
+  Filter EMA moving(x,y,z):  (0.65,0.4,0.65)
+  Filter EMA hold  (x,y,z):  (0.08,0.02,0.05)
+[INFO] [1779612534.447509864] [coord_transform]: Captured Init Pose! P_init=(0.500, 0.000, 0.400), Cam_init=(-0.036, 0.427, 0.350), Noise_Tol=57.7mm
+Orientation=(0.000, 1.000, 0.000, 0.000)
+[INFO] [1779612534.474024337] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779612534.548336253] [coord_transform]: Re-sync camera init: [0.006 0.42  0.35 ]
+[INFO] [1779612534.548643740] [coord_transform]: Trạng thái tracking: RUNNING
+[INFO] [1779612534.575402536] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.008 0.42  0.35 ] → base[0.498 0.    0.4  ]
+[INFO] [1779612534.774343776] [coord_transform]: Deadband: HOLD at (0.006, 0.420, 0.350)
+[INFO] [1779612536.474488483] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779612536.576426748] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.026 0.427 0.35 ] → base[0.48  0.007 0.4  ]
+[INFO] [1779612536.825049074] [coord_transform]: Deadband: HOLD at (0.006, 0.420, 0.350)
+[INFO] [1779612538.668909484] [coord_transform]: Đã chuyển mode: ground_truth -> prediction
+[INFO] [1779612538.680089061] [coord_transform]: [PREDICTION] Transform: cam[-0.042  0.458  0.354] → base[0.548 0.038 0.404]
+[INFO] [1779612538.879841715] [coord_transform]: Deadband: HOLD at (0.006, 0.420, 0.350)
+[INFO] [1779612538.930105016] [coord_transform]: Deadband: RELEASE — motion detected

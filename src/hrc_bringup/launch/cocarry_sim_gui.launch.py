@@ -11,12 +11,12 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     model_dir_arg = DeclareLaunchArgument(
         'model_dir',
-        default_value=os.path.expanduser('~/Downloads/GRU-Model-main'),
+        default_value=os.path.expanduser('~/cocarry_ws/src/GRU-Model'),
         description='Path to directory containing .h5 models and .pkl scalers',
     )
     log_dir_arg = DeclareLaunchArgument(
         'log_dir',
-        default_value=os.path.expanduser('~/cocarry_logs'),
+        default_value=os.path.expanduser('~/cocarry_ws/cocarry_logs'),
         description='Directory for experiment CSV logs',
     )
 

@@ -1,0 +1,25 @@
+diff --git a/src/trajectory_predictor/trajectory_predictor/predictor_node.py b/src/trajectory_predictor/trajectory_predictor/predictor_node.py
+index fc920d5..ee98e8c 100644
+--- a/src/trajectory_predictor/trajectory_predictor/predictor_node.py
++++ b/src/trajectory_predictor/trajectory_predictor/predictor_node.py
+@@ -34,15 +34,15 @@ class PredictorNode(Node):
+         # ── Parameters ──────────────────────────────────────────────────────
+         self.declare_parameter('model_dir', '')
+         self.declare_parameter('default_model', 'gru')
+-        self.declare_parameter('scaler_x_file', 'scaler_x_Ts5.pkl')
+-        self.declare_parameter('scaler_y_file', 'scaler_y_Ts5.pkl')
++        self.declare_parameter('scaler_x_file', 'scaler_x_Ts3.pkl')
++        self.declare_parameter('scaler_y_file', 'scaler_y_Ts3.pkl')
+         self.declare_parameter('window_size', 20)
+         self.declare_parameter('num_features', 6)
+         self.declare_parameter('auto_start', False)
+         self.declare_parameter('clear_on_tracking_lost', 1.0)
+-        self.declare_parameter('model_files.rnn', 'rnn_model_Ts5.h5')
+-        self.declare_parameter('model_files.gru', 'gru_model_Ts5.h5')
+-        self.declare_parameter('model_files.lstm', 'lstm_model_Ts5.h5')
++        self.declare_parameter('model_files.rnn', 'rnn_model_Ts3.h5')
++        self.declare_parameter('model_files.gru', 'gru_model_Ts3.h5')
++        self.declare_parameter('model_files.lstm', 'lstm_model_Ts3.h5')
+         # Path tới Python venv (nếu có), nếu không dùng sys.executable
+         self.declare_parameter('venv_python', '')
+ 

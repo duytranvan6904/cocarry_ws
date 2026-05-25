@@ -25,6 +25,7 @@ from trajectory_msgs.msg import JointTrajectoryPoint
 from builtin_interfaces.msg import Duration
 
 from human_hand_msgs.msg import HandState, HandPrediction
+from geometry_msgs.msg import PointStamped
 
 try:
     import pyqtgraph as pg
@@ -50,13 +51,17 @@ class PredictorUiNode(Node):
         upd_hz = self.get_parameter('update_hz').value
 
         # ── Data buffers ────────────────────────────────────────────────────
-        self._meas = {'x': deque(maxlen=n_pts),
+        self._meas = {'x': deque(maxlen=n_pts),     # Filtered (chính)
                       'y': deque(maxlen=n_pts),
                       'z': deque(maxlen=n_pts)}
+        # self._raw  = {'x': deque(maxlen=n_pts),     # Raw (tham khảo mờ)
+        #               'y': deque(maxlen=n_pts),
+        #               'z': deque(maxlen=n_pts)}
         self._pred = {'x': deque(maxlen=n_pts),
                       'y': deque(maxlen=n_pts),
                       'z': deque(maxlen=n_pts)}
         self._t_meas: deque = deque(maxlen=n_pts)
+        # self._t_raw:  deque = deque(maxlen=n_pts)
         self._t_pred: deque = deque(maxlen=n_pts)
 
         # ── Stats display ────────────────────────────────────────────────────
@@ -76,10 +81,15 @@ class PredictorUiNode(Node):
         self._is_init_pose_captured = False
         self._backend_mode = 'UNKNOWN'
         self._trajectory_mode = 'ground_truth'  # 'ground_truth' or 'prediction'
+        self._is_running = False
         self._lock = threading.Lock()
 
         # ── Subscribers ──────────────────────────────────────────────────────
-        self.create_subscription(HandState, '/hand_position', self._cb_meas, 10)
+        # Raw: chỉ vẽ đường tham khảo mờ phía sau
+        # self.create_subscription(HandState, '/hand_position', self._cb_raw, 10)
+        # Filtered: đã qua toàn bộ bộ lọc của transform_node — đường chính trên UI
+        self.create_subscription(
+            PointStamped, '/coord_transform/filtered_hand_position', self._cb_meas, 10)
         self.create_subscription(
             HandPrediction, '/ml/predicted_position', self._cb_pred, 10)
 
@@ -123,15 +133,27 @@ class PredictorUiNode(Node):
 
     # ── ROS Callbacks ────────────────────────────────────────────────────────
 
-    def _cb_meas(self, msg: HandState):
-        if not msg.is_tracked or not self._is_drawing_ui:
+    # def _cb_raw(self, msg: HandState):
+    #     """Lưu tọa độ RAW để vẽ đườ tham khảo mờ."""
+    #     if not msg.is_tracked or not self._is_drawing_ui:
+    #         return
+    #     t = time.time()
+    #     with self._lock:
+    #         self._t_raw.append(t)
+    #         self._raw['x'].append(msg.x)
+    #         self._raw['y'].append(msg.y)
+    #         self._raw['z'].append(msg.z)
+
+    def _cb_meas(self, msg: PointStamped):
+        """Lưu tọa độ ĐÃ LỌC từ /coord_transform/filtered_hand_position."""
+        if not self._is_drawing_ui:
             return
         t = time.time()
         with self._lock:
             self._t_meas.append(t)
-            self._meas['x'].append(msg.x)
-            self._meas['y'].append(msg.y)
-            self._meas['z'].append(msg.z)
+            self._meas['x'].append(msg.point.x)
+            self._meas['y'].append(msg.point.y)
+            self._meas['z'].append(msg.point.z)
             self._fps_counter_m += 1
 
     def _cb_pred(self, msg: HandPrediction):
@@ -163,6 +185,7 @@ class PredictorUiNode(Node):
         with self._lock:
             return (
                 list(self._meas['x']), list(self._meas['y']), list(self._meas['z']),
+                # list(self._raw['x']),  list(self._raw['y']),  list(self._raw['z']),
                 list(self._pred['x']), list(self._pred['y']), list(self._pred['z']),
                 self._inf_ms, self._model_name, self._buf_size,
                 self._fps_meas, self._fps_pred,
@@ -197,6 +220,15 @@ class PredictorUiNode(Node):
         msg = String()
         msg.data = mode
         self._traj_mode_pub.publish(msg)
+        
+        # If currently running, we must enable/disable predictor accordingly
+        if self._is_running:
+            if mode == 'prediction':
+                self.call_predictor_toggle(True)
+            else:
+                self.call_predictor_toggle(False)
+                self._is_predicting = False
+                
         self.get_logger().info(f'[UI] Trajectory mode set to: {mode}')
 
     def send_model_cmd(self, model_name: str):
@@ -245,14 +277,24 @@ class PredictorUiNode(Node):
         return self._backend_mode
 
     def go_home(self):
+        import subprocess
+        # Dùng script trực tiếp cho real robot/hybrid để đảm bảo an toàn với MotoROS2
+        if self._backend_mode in ['REAL', 'HYBRID'] or not (self._go_home_real_action.wait_for_server(timeout_sec=0.1) or self._go_home_sim_action.wait_for_server(timeout_sec=0.1)):
+            self.get_logger().info('[UI] Using standalone go_home.py script for real robot')
+            import os
+            script_path = os.path.expanduser('~/cocarry_ws/src/hc10dtp_bringup/scripts/go_home.py')
+            try:
+                subprocess.Popen(['python3', script_path])
+                return True
+            except Exception as e:
+                self.get_logger().error(f'[UI] Failed to run go_home.py: {e}')
+                return False
+
         action_client = None
         if self._go_home_real_action.wait_for_server(timeout_sec=0.1):
             action_client = self._go_home_real_action
         elif self._go_home_sim_action.wait_for_server(timeout_sec=0.1):
             action_client = self._go_home_sim_action
-        else:
-            self.get_logger().warn('[UI] No follow_joint_trajectory action server available')
-            return False
 
         goal_msg = FollowJointTrajectory.Goal()
         goal_msg.trajectory.joint_names = [
@@ -270,8 +312,10 @@ class PredictorUiNode(Node):
         with self._lock:
             for k in ['x', 'y', 'z']:
                 self._meas[k].clear()
+                # self._raw[k].clear()
                 self._pred[k].clear()
             self._t_meas.clear()
+            # self._t_raw.clear()
             self._t_pred.clear()
 
 
@@ -319,8 +363,9 @@ class DashboardWindow:
                       ('Z axis (m)', 'meas_z', 'pred_z')]
 
         self.plots = {}
-        self.curves_m = {}
-        self.curves_p = {}
+        self.curves_m = {}   # Filtered (chính — xanh)
+        # self.curves_r = {}   # Raw (tham khảo mờ — xám)
+        self.curves_p = {}   # Predicted (cam)
 
         for i, (title, mk, pk) in enumerate(plots_data):
             p = self.gw.addPlot(row=0, col=i, title=title)
@@ -328,21 +373,24 @@ class DashboardWindow:
             p.setLabel('bottom', 'Frames')
             p.addLegend(offset=(5, 5))
             p.showGrid(x=True, y=True, alpha=0.3)
-            
+
             p.getAxis('left').enableAutoSIPrefix(False)
             p.getAxis('bottom').enableAutoSIPrefix(False)
-            
-            # Cố định scale theo yêu cầu
+
             p.setXRange(0, 300, padding=0)
             p.enableAutoRange(axis='y', enable=False)
-            
-            if i == 0:
-                p.setYRange(-1.0, 1.0, padding=0)  # X axis
-            elif i == 1:
-                p.setYRange(0.0, 2.0, padding=0)   # Y axis
-            elif i == 2:
-                p.setYRange(-0.1, 0.8, padding=0)   # Z axis
 
+            if i == 0:
+                p.setYRange(-1.0, 1.0, padding=0)   # X axis
+            elif i == 1:
+                p.setYRange(-0.1, 1.5, padding=0)   # Y axis (depth)
+            elif i == 2:
+                p.setYRange(-0.2, 0.8, padding=0)   # Z axis
+
+            # # Raw: vẽ trước nhưng mờ (z=0 = phía sau)
+            # self.curves_r[i] = p.plot(pen=pg.mkPen((120, 120, 120, 80), width=1),
+            #                           name='Raw (camera)')
+            # Filtered: đường chính
             self.curves_m[i] = p.plot(pen=pg.mkPen(self.COLOR_MEAS, width=2),
                                       name='Actual')
             self.curves_p[i] = p.plot(pen=pg.mkPen(self.COLOR_PRED, width=2),
@@ -512,6 +560,7 @@ class DashboardWindow:
             self.node.call_predictor_toggle(False)
         
         self.node.call_logger_toggle(checked)
+        self.node._is_running = checked
         self.btn_pred.setText('⏸ Stop Run' if checked else '▶ Start Run')
         
         # Notify transform_node whether we are running
@@ -519,8 +568,16 @@ class DashboardWindow:
         run_msg.data = checked
         self.node._run_status_pub.publish(run_msg)
         
+        # Khi Stop Run → disable robot luôn để đảm bảo an toàn
+        if not checked:
+            if self.node._streamer_enable_cli.service_is_ready():
+                req = SetBool.Request()
+                req.data = False
+                self.node._streamer_enable_cli.call_async(req)
+                self.get_logger().info('[UI] Auto-disabled robot on Stop Run')
+        
         mode_str = f'({self.node._trajectory_mode.replace("_", " ").upper()})'
-        self._set_status('State: RUN | Streaming enabled ' + mode_str if checked else 'State: PREPARE | Run stopped')
+        self._set_status('State: RUN | Streaming enabled ' + mode_str if checked else 'State: STOPPED | Robot disabled')
 
     def _do_calibrate(self):
         self.node.call_calibrate()
@@ -563,6 +620,7 @@ class DashboardWindow:
         run_msg = Bool()
         run_msg.data = False
         self.node._run_status_pub.publish(run_msg)
+        self.node._is_running = False
         # Tắt predictor + logger
         self.node.call_predictor_toggle(False)
         self.node.call_logger_toggle(False)
@@ -607,32 +665,38 @@ class DashboardWindow:
         self._lbl_status.setText(text)
 
     def _refresh(self):
-        (mx, my, mz, px, py, pz,
+        (mx, my, mz,
+         # rx, ry, rz,
+         px, py, pz,
          inf_ms, model, buf, fps_m, fps_p) = self.node.get_buffers()
 
         axes_m = [mx, my, mz]
+        # axes_r = [rx, ry, rz]
         axes_p = [px, py, pz]
 
         for i in range(3):
             ym = axes_m[i]
+            # yr = axes_r[i]
             yp = axes_p[i]
-            
+
             xm = list(range(len(ym)))
-            
+            # xr = list(range(len(yr)))
+
             offset = len(ym) - len(yp)
             if offset < 0:
                 offset = 0
             xp = [x + offset for x in range(len(yp))]
-            
-            self.curves_m[i].setData(xm, ym)
-            self.curves_p[i].setData(xp, yp)
+
+            # self.curves_r[i].setData(xr, yr)   # Raw (mờ)
+            self.curves_m[i].setData(xm, ym)   # Filtered (chính)
+            self.curves_p[i].setData(xp, yp)   # Predicted
 
         self._lbl_model.setText(f'Model: {model}')
         self._lbl_inf.setText(f'Inf: {inf_ms:.1f} ms')
-        self._lbl_fps.setText(f'Actual: {fps_m:.1f} Hz | Pred: {fps_p:.1f} Hz')
+        self._lbl_fps.setText(f'Actual: {fps_m:.1f} Hz | Predicted: {fps_p:.1f} Hz')
         self._lbl_buf.setText(f'Buf: {buf}')
-        mode = self.node.detect_backend_mode()
-        self._lbl_backend.setText(f'Backend: {mode}')
+        mode = self.node.detect_backend_mode()      
+        self._lbl_backend.setText(f'Mode: {mode}')
 
     def exec(self):
         return self.app.exec()

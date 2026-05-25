@@ -167,8 +167,8 @@ class MotoROS2MockNode(Node):
         traj_point.positions = list(point.positions)
         if point.velocities:
             traj_point.velocities = list(point.velocities)
-        # Thời gian thực thi: 0.067s (= QUEUE_DT mặc định của cartesian_streamer)
-        traj_point.time_from_start = Duration(sec=0, nanosec=67_000_000)
+        # Thời gian thực thi: 0.020s (= QUEUE_DT mới của cartesian_streamer 50Hz)
+        traj_point.time_from_start = Duration(sec=0, nanosec=20_000_000)
 
         traj_msg.joint_names = joint_names
         traj_msg.points = [traj_point]

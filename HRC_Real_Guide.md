@@ -1,80 +1,103 @@
-# Hướng Dẫn Thử Nghiệm Co-Carrying Trên Robot Thật (Yaskawa HC10DTP)
+# 📘 Hướng dẫn Vận hành & Kiểm thử Robot HC10DTP Thực Tế (HRC Co-carry)
 
-Tài liệu này hướng dẫn cách chạy hệ thống **Human-Robot Co-Carrying** trực tiếp với robot thật Yaskawa HC10DTP thông qua giao thức MotoROS2 và Micro-ROS. 
+Tài liệu này hướng dẫn chi tiết quy trình kiểm thử và vận hành hệ thống Human-Robot Co-carrying trên tay máy Yaskawa HC10DTP thực tế. Chúng ta sẽ đi qua 3 bài test từ cơ bản đến nâng cao để đảm bảo an toàn tuyệt đối.
 
-> [!WARNING]
-> **AN TOÀN LÀ TRÊN HẾT**: Khi chạy trên robot thật, luôn giữ tay ở gần nút E-Stop (Dừng khẩn cấp). Trong lần chạy đầu tiên, hãy giới hạn tốc độ (Speed override) trên Teach Pendant ở mức thấp (ví dụ: 10-20%) để đảm bảo an toàn.
-
----
-
-## 🌟 Tổng quan Kiến trúc
-
-1. **Micro-ROS Agent**: Cầu nối mạng UDP giữa tủ điện YRC1000 và máy tính ROS 2.
-2. **RealSense Node**: Lấy ảnh từ camera thực, chạy AI MediaPipe tìm tọa độ tay người.
-3. **Transform Node**: Đồng bộ tọa độ, bù trừ khoảng cách, tính toán tọa độ đích tương đối cho robot.
-4. **Cartesian Streamer**: Nhận tọa độ đích, tính IK và stream quỹ đạo liên tục xuống robot thật qua MotoROS2 Point Queue Mode (15Hz).
-5. **MotoROS2 (Robot)**: Chạy trực tiếp trên tủ điện, nhận lệnh và điều khiển các khớp.
+**⚠️ QUY TẮC AN TOÀN TỐI THƯỢNG:**
+- Luôn giữ tay ở nút E-Stop (Dừng khẩn cấp) trên Teach Pendant.
+- Tốc độ robot trên Teach Pendant không được vượt quá **10-15%** trong các bài test đầu tiên.
+- Đảm bảo khu vực xung quanh robot không có chướng ngại vật trước khi bắt đầu.
+- Tất cả terminal kết nối với robot phải được set `export ROS_DOMAIN_ID=10`.
+- **Mới:** Hệ thống đã tích hợp giới hạn tốc độ (0.15m/s) và gia tốc an toàn tự động.
 
 ---
 
-## 🚀 Các Bước Khởi Động
+## 🛠️ Chuẩn bị chung (Áp dụng cho mọi bài test)
 
-### Bước 1: Bật kết nối Micro-ROS Agent (Bắt buộc)
-Trước khi kết nối với robot, máy tính cần chạy Agent để nhận luồng dữ liệu UDP từ tủ điện.
-Mở một terminal và chạy lệnh Docker sau:
-```bash
-docker run -it --rm --net=host --user=$(id -u):$(id -g) microros/micro-ros-agent:humble udp4 --port 8888
-```
-*(Giữ terminal này chạy ngầm trong suốt quá trình thử nghiệm)*
-
-### Bước 2: Chuẩn bị Robot (Teach Pendant)
-1. Bật nguồn tủ điện YRC1000.
-2. Chuyển chìa khóa sang chế độ **REMOTE**.
-3. Khởi động ứng dụng/job **MotoROS2** trên Teach Pendant.
-4. *(Tùy chọn nhưng khuyến nghị)*: Hạ tốc độ Play Speed xuống mức thấp.
-
-### Bước 3: Khởi chạy toàn bộ Pipeline + GUI
-Mở terminal mới (đã source workspace) và chạy lệnh launch được thiết kế riêng cho robot thật:
+Chạy docker microros-agent trước khi mở các terminal khác bằng script tự động restart để tránh crash:
+Mở **Terminal 0**:
 ```bash
 cd ~/cocarry_ws
-source install/setup.bash
-ros2 launch hrc_bringup cocarry_real_gui.launch.py
+./start_microros.sh
 ```
-Lệnh này sẽ khởi động:
-- MoveIt & RViz (hiển thị trạng thái thực của robot)
-- Camera tracking + AI Predictor + Transform Node
-- Cartesian Streamer (kết nối trực tiếp `/yaskawa/queue_traj_point`)
-- GUI Dashboard điều khiển
-- Experiment Logger (ghi file CSV)
+
+Mở **Terminal 1** và khởi động MoveIt Stack cùng RViz để theo dõi trạng thái robot:
+```bash
+export ROS_DOMAIN_ID=10
+cd ~/cocarry_ws
+source install/setup.bash
+ros2 launch hc10dtp_moveit_config hc10dtp_start.launch.py
+```
+> **Output mong muốn:** Cửa sổ RViz mở ra, hiển thị mô hình tay máy HC10DTP, sa bàn (safety cage) và cái bàn làm việc. Vị trí khớp trên RViz phải giống hệt vị trí thực tế của robot.
 
 ---
 
-## 🛠 Cách Thao tác Trong Lúc Chạy (Trên GUI)
+## 🧪 Test 1: Kiểm tra tính năng "Go Home" (Trở về vị trí chuẩn bị)
 
-Quy trình thao tác hoàn toàn tương tự như khi mô phỏng, nhưng áp dụng thẳng lên robot vật lý:
+Tính năng này giúp robot tự động di chuyển mượt mà về vị trí Home (vị trí đã được hiệu chỉnh để vươn thẳng theo trục +Y ra giữa bàn làm việc).
 
-1. Đứng vào vị trí chuẩn bị trước Camera, giữ tay ở tư thế tự nhiên.
-2. Trên GUI, bấm **`⌖ Calibrate Camera`** (Thiết lập gốc tọa độ của người).
-3. Trên GUI, bấm **`📌 Capture Init Pose`** (Chốt vị trí End-Effector hiện tại của robot thật làm mốc tương đối).
-4. Chọn chế độ quỹ đạo: **`📍 Ground Truth`** hoặc **`🧠 Prediction`**.
-5. Bấm **`⚡ Enable Robot`**. 
-   - Hệ thống sẽ tự động gửi lệnh Reset Error → Servo ON → Start Point Queue Mode.
-   - Bạn sẽ nghe thấy tiếng "Tạch" (Servo bật) từ robot.
-   - Lúc này robot đang gửi Hold-Points để giữ nguyên vị trí hiện tại.
-6. Khi đã sẵn sàng, bấm **`▶ Start Run`**. 
-   - Dữ liệu tọa độ bắt đầu stream xuống robot. Robot sẽ bám theo chuyển động tay của bạn.
-   - Dữ liệu thử nghiệm (Time, Error, Jerk...) đang được ghi lại vào CSV.
-7. Khi cần dừng stream (hoặc có nguy hiểm): bấm **`⏸ Stop Run`**. Robot sẽ dừng lại tại chỗ (ngừng nhận tọa độ mới).
-8. Khi thử nghiệm xong: bấm **`⛔ Disable Robot`** để tắt Point Queue Mode an toàn.
+**Cách chạy:**
+Mở **Terminal 2**:
+```bash
+export ROS_DOMAIN_ID=10
+cd ~/cocarry_ws
+source install/setup.bash
+python3 src/hc10dtp_bringup/scripts/go_home.py
+```
+
+**Quy trình & Output mong muốn:**
+1. Terminal in ra: `✓ Kích hoạt StartPointQueueMode thành công. Servo ON!`
+2. Robot di chuyển chậm (2.5 giây) về vị trí Home.
+3. Khi đến nơi, terminal in ra: `✓ stop_traj_mode thành công. Tủ điện sạch sẽ.` và `✓ Đã về Home an toàn!`.
+4. **Lưu ý:** Robot tự động thoát Queue Mode, bạn có thể chạy lại lệnh ngay mà không cần restart tủ điện.
 
 ---
 
-## 🛑 Xử lý Sự cố & An toàn
+## 🧪 Test 2: Kiểm tra Cartesian Streamer với Demo Pattern
 
-- **E-Stop**: Bất cứ khi nào robot có dấu hiệu đi quá giới hạn hoặc quá nhanh, **NHẤN E-STOP NGAY LẬP TỨC**.
-- **Soft Stop**: Trên GUI có nút `🛑 Soft Stop` (gửi lệnh `/yaskawa/stop_traj_mode`). Dùng nút này để robot giảm tốc và dừng lại một cách mượt mà hơn E-Stop khi không quá khẩn cấp.
-- **Go Home**: 
-  - Nếu muốn đưa robot về lại tư thế chuẩn bị (Home), hãy đảm bảo không có vật cản xung quanh.
-  - Bấm nút **`🏠 Go Home`** trên GUI (chỉ thực hiện được khi đã Disable Robot).
-  - Hoặc chạy lệnh thủ công: `python3 src/hc10dtp_bringup/scripts/go_home.py`
-- **Mất kết nối Micro-ROS**: Nếu terminal chạy Docker báo lỗi hoặc dừng cập nhật, robot sẽ tự động ngắt kết nối an toàn. Khởi động lại Docker Agent và chạy lại Launch file.
+Bài test này đánh giá khả năng giải Inverse Kinematics (IK) liên tục và đẩy quỹ đạo xuống robot với các giới hạn an toàn mới.
+
+**Cách chạy:**
+Mở **Terminal 2**:
+```bash
+export ROS_DOMAIN_ID=10
+cd ~/cocarry_ws
+source install/setup.bash
+# Chạy mặc định (v=0.15m/s)
+python3 src/hc10dtp_bringup/scripts/cartesian_streamer_hc10dtp.py --demo line
+
+# HOẶC chạy cực chậm để kiểm tra an toàn (v=0.05m/s)
+python3 src/hc10dtp_bringup/scripts/cartesian_streamer_hc10dtp.py --demo line --max-vel 0.05 --smooth-alpha 0.1
+```
+
+**Quy trình & Output mong muốn:**
+1. Robot di chuyển tịnh tiến cực kỳ mượt mà nhờ bộ lọc gia tốc và vận tốc mới.
+2. Terminal liên tục in ra toạ độ và trạng thái stream.
+3. **Quan trọng:** Bấm `Ctrl+C` để dừng. Terminal sẽ báo: `✓ stop_traj_mode thành công. Controller sạch sẽ.`
+4. **Kết quả:** Tủ điện không bị báo lỗi (Alarm), bạn có thể chạy tiếp bài test khác ngay lập tức.
+
+---
+
+## 🧪 Test 3: Vận hành toàn bộ hệ thống HRC (AI + Camera + Robot)
+
+Tích hợp AI Predictor và Camera. Hệ thống sẽ bám theo tay người với tốc độ được kiểm soát an toàn.
+
+**Cách chạy:**
+Đảm bảo đã tắt hết các terminal cũ (chỉ giữ lại Terminal 1).
+Mở **Terminal 2**:
+```bash
+export ROS_DOMAIN_ID=10
+cd ~/cocarry_ws
+colcon build --symlink-install --packages-select predictor_ui
+source install/setup.bash
+ros2 launch hrc_bringup cocarry_full.launch.py
+```
+
+**Quy trình thao tác trên Dashboard UI:**
+1. **Calibrate & Capture:** Thực hiện như hướng dẫn cũ để đồng bộ tọa độ tay và robot.
+2. **Enable & Start Run:** Bấm **[Enable Robot]** rồi **[▶ Start Run]**.
+3. **Di chuyển:** Tay người di chuyển, robot sẽ bám theo. Nhờ giới hạn `max-vel` và `max-accel` mới, robot sẽ không còn bị giật cục kể cả khi tay người di chuyển nhanh hoặc đột ngột.
+4. **Dừng an toàn:** Bấm nút **[🏠 Go Home]** trên UI. Nút này đã được fix để gọi script an toàn, đảm bảo tủ điện không bị Alarm sau khi thoát.
+
+**Output mong muốn:**
+- Robot bám tay mượt mà, không giật, không gây nguy hiểm.
+- Khi dừng chương trình hoặc bấm Go Home, tủ điện YRC1000 trạng thái vẫn xanh (Normal), không cần khởi động lại.

@@ -45,7 +45,7 @@ from builtin_interfaces.msg import Duration
 
 from moveit_msgs.srv import GetPositionIK, GetPositionFK
 from moveit_msgs.msg import PositionIKRequest, RobotState
-from motoros2_interfaces.srv import StartPointQueueMode, QueueTrajPoint
+from motoros2_interfaces.srv import StartPointQueueMode, QueueTrajPoint, ResetError
 from std_srvs.srv import Trigger, SetBool
 
 # ── Hằng số ────────────────────────────────────────────────────────
@@ -59,34 +59,82 @@ BASE_FRAME   = 'base_link'
 
 # Workspace an toàn (mét) — HC10DTP có tầm với 1.2m, điều chỉnh theo môi trường
 WS_X = (-1.4,  1.4)
-WS_Y = (-1.4,  1.4)
+WS_Y = (-0.5,  1.3)
 WS_Z = ( 0.05, 1.5)
 
-# ── Tunable stream parameters ──────────────────────────────────────
-# Tần suất stream tick (Hz). 20Hz là giá trị ổn định cho MotoROS2
-# HC10DTP cobot: 15Hz cho margin an toàn với collaborative mode.
-DEFAULT_STREAM_HZ = 20
+# Tần suất stream tick (Hz). 15Hz đủ nhanh để bắt ACK ngay khi trả về.
+# An toàn đảm bảo bởi MAX_JOINT_DELTA và MAX_CARTESIAN_VELOCITY (không phải tick rate).
+DEFAULT_STREAM_HZ = 15
 
 # Queue point duration: khoảng cách thời gian giữa mỗi điểm.
-# Phải ≥ STREAM_PERIOD_SEC. 0.05s = 20Hz motion rate — cho phép
-# robot đủ thời gian xử lý trước khi điểm tiếp theo đến.
-QUEUE_DT_SEC = 0.05  # ~20Hz motion rate cho HC10DTP
-QUEUE_RETRY_BACKOFF_SEC = 0.02
+# Phải ≥ STREAM_PERIOD_SEC. 0.066s (15Hz) cân bằng giữa độ mượt và tải controller.
+QUEUE_DT_SEC = 0.066
+QUEUE_RETRY_BACKOFF_SEC = 0.066
 
 # IK timeout
 IK_TIMEOUT_SEC = 0.3
 
 # Smooth: tỉ lệ tiến về target mỗi tick (0.0–1.0)
-SMOOTH_ALPHA = 0.5       # Thấp hơn GP4 cho chuyển động mượt hơn (cobot)
+# 0.15 cho chuyển động rất mượt mà (cobot safety-first)
+SMOOTH_ALPHA = 0.5
 
-# An toàn: bước nhảy joint tối đa cho phép mỗi điểm (rad)
-MAX_JOINT_DELTA = 1.5    # Thấp hơn GP4 cho collaborative safety
+# An toàn: bước nhảy joint tối đa cho phép mỗi tick (rad) — PER JOINT
+# Tăng nhẹ so với trước để robot đuổi kịp tay người nhanh hơn
+# Tại 15Hz: 0.07×15 = 1.05 rad/s ~ 60°/s — an toàn cho co-carrying
+MAX_JOINT_DELTA_PER_AXIS = [
+    0.07,   # J1 (S) — base rotation
+    0.07,   # J2 (L) — lower arm
+    0.07,   # J3 (U) — upper arm
+    0.09,   # J4 (R) — wrist roll
+    0.09,   # J5 (B) — wrist pitch
+    0.09,   # J6 (T) — wrist twist
+]
+
+# ── Giới hạn tốc độ Cartesian (Safety) ──────────────────────────
+# Tốc độ tối đa End-Effector trong không gian Cartesian (m/s)
+# ISO 10218-2 / ISO/TS 15066: collaborative speed limit thường 0.25 m/s
+# Tăng 0.10→0.15 để giảm trễ bám theo, vẫn an toàn cộng tác
+MAX_CARTESIAN_VELOCITY = 0.15     # m/s — tăng từ 0.10 để giảm lag
+MAX_CARTESIAN_ACCELERATION = 0.50 # m/s² — tăng nhẹ cho khởng đi nhanh hơn
+MAX_CARTESIAN_JERK = 10.0          # m/s³ — tăng nhẹ cho response nhanh hơn
+
+# Tốc độ góc tối đa cho mỗi khớp (rad/s) — PER JOINT
+# Giảm từ 0.30/0.10 để conservative hơn, tránh PFL
+MAX_JOINT_VELOCITIES = [
+    0.20,   # J1 (S) — base rotation
+    0.20,   # J2 (L) — lower arm
+    0.20,   # J3 (U) — upper arm
+    0.08,   # J4 (R) — wrist roll:  RẤT CHẬM
+    0.08,   # J5 (B) — wrist pitch: RẤT CHẬM
+    0.08,   # J6 (T) — wrist twist: RẤT CHẬM
+]
+
+# ── Soft Joint Limits cho co-carrying ────────────────────────────
+# HOME_JOINTS = [1.5705, 0.0748, -1.0491, -0.0304, -0.5231, -0.0017]
+# Tư thế: J1 quay ~90°, khuỷu tay hướng xuống, cổ tay gần neutral
+# Giới hạn mỗi khớp quanh tư thế home, tránh cấu hình nguy hiểm (flip)
+SOFT_JOINT_LIMITS = [
+    (0.00,   3.14),    # J1 (S) — chỉ cho phép 0°~180° (hướng về phía người)
+    (-0.80,  1.20),    # J2 (L) — -45°~70° quanh home (0.07)
+    (-2.00,  1.05),    # J3 (U) — -115°~60° quanh home (-1.05), khuỷu xuống
+    (-1.05,  1.05),    # J4 (R) — ±60° quanh center (ngăn wrist roll flip)
+    (-2.09,  0.52),    # J5 (B) — -120°~30° quanh home (-0.52)
+    (-1.05,  1.05),    # J6 (T) — ±60° quanh center (ngăn wrist twist flip)
+]
 
 # Debug watchdog: nếu queue point được accept nhưng joint gần như đứng yên
 NO_MOTION_WARN_SEC = 5.0
 NO_MOTION_EPS_RAD = 1e-3
 NO_MOTION_MIN_ACCEPTED_POINTS = 10
 QUEUE_PREBUFFER_POINTS = 3
+
+# Joint-space deadband: nếu TẤT CẢ joint thay đổi < ngưỡng này → coi như đứng yên
+# 0.01 rad ≈ 0.57° — đủ nhỏ để robot trông đứng im hoàn toàn
+JOINT_DEADBAND_RAD = 0.01
+
+# IK cache: nếu target Cartesian thay đổi < ngưỡng này → dùng lại IK cũ
+# 0.01m = 1cm — dưới ngưỡng phân giải IK solver
+IK_CACHE_TOLERANCE_M = 0.01
 STREAM_STATE_IDLE = 'idle'
 STREAM_STATE_SEEDING = 'seeding'
 STREAM_STATE_PREBUFFERING = 'prebuffering'
@@ -101,10 +149,12 @@ class CartesianStreamer(Node):
         queue_dt_sec: float = QUEUE_DT_SEC,
         prebuffer_points: int = QUEUE_PREBUFFER_POINTS,
         retry_backoff_sec: float = QUEUE_RETRY_BACKOFF_SEC,
+        auto_enable: bool = False,
     ):
         super().__init__('cartesian_streamer')
         self._stream_hz = stream_hz
         self._stream_period_sec = 1.0 / stream_hz
+        self._auto_enable = auto_enable
 
         self._cb = ReentrantCallbackGroup()
 
@@ -134,7 +184,13 @@ class CartesianStreamer(Node):
         self._last_warn_time = self.get_clock().now()
         self._tick_count = 0
         self._queue_sent_count = 0
+        self._last_send_time_ns = 0
         self._rate_window_start = self.get_clock().now()
+        # Throttling: dùng 50% chu kỳ để tránh timer jitter loại bỏ tick,
+        # nhưng không quá cao để tick có thể gửi ngay sau khi ACK trả về.
+        # 15Hz → chu kỳ 66.7ms → throttle 33.3ms.
+        self._min_send_interval_ns = int((self._stream_period_sec * 0.5) * 1e9)
+        self._is_sending_active = False # Flag báo hiệu đang thực sự streaming (RUN mode)
         self._window_ack_count = 0
         self._window_busy_count = 0
         self._window_retry_count = 0
@@ -145,12 +201,24 @@ class CartesianStreamer(Node):
         self._window_ack_interval_count = 0
         # Số hold-points liên tiếp đã gửi (không tính vào cumulative time)
         self._hold_point_count = 0
+        self._auto_recovery_count = 0   # Đếm số lần auto-recovery queue mode
+        self._recovery_in_progress = False  # Đang trong quá trình recovery
 
         # Target Cartesian pose (được smooth từng bước)
         self._target_pose: Pose | None = None
         self._last_target_update_ns = 0
         # Pose đang thực sự gửi (smooth intermediate)
         self._current_ee_pose: Pose | None = None
+        
+        self._last_smooth_time_ns = self.get_clock().now().nanoseconds
+        self._prev_ee_velocity = [0.0, 0.0, 0.0]
+        self._prev_ee_acceleration = [0.0, 0.0, 0.0]  # Cho Jerk Limiter
+        self._latest_ik_solution: list[float] | None = None
+        self._ik_request_pending = False
+        
+        # IK cache: lưu lại target pose và kết quả IK tương ứng
+        self._cached_ik_target_xyz: list[float] | None = None
+        self._cached_ik_joints: list[float] | None = None
 
         # IK failure counter — để phát hiện stuck
         self._ik_fail_count = 0
@@ -159,7 +227,7 @@ class CartesianStreamer(Node):
 
         # ── Subscribers ──────────────────────────────────────────
         self._js_sub = self.create_subscription(
-            JointState, '/joint_states_restamped',
+            JointState, '/joint_states',
             self._on_joint_state, 10, callback_group=self._cb)
 
         self._pose_sub = self.create_subscription(
@@ -197,10 +265,7 @@ class CartesianStreamer(Node):
             GetPositionFK, '/compute_fk', callback_group=self._cb)
 
         self._reset_error_cli = self.create_client(
-            Trigger, '/reset_error', callback_group=self._cb)
-
-        self._servo_on_cli = self.create_client(
-            Trigger, '/servo_on', callback_group=self._cb)
+            ResetError, '/reset_error', callback_group=self._cb)
 
         # ── Services (enable / disable từ UI) ────────────────────
         self.create_service(
@@ -214,6 +279,10 @@ class CartesianStreamer(Node):
         # Chỉ chờ joint_states, KHÔNG tự động enable robot.
         self._startup_timer = self.create_timer(
             0.5, self._wait_for_joints, callback_group=self._cb)
+
+        # Timer để publish current_pose khi chưa enable (giúp transform_node lấy được mốc calibrate)
+        self._idle_pose_timer = self.create_timer(
+            0.5, self._publish_idle_pose, callback_group=self._cb)
 
         self.get_logger().info(
             'CartesianStreamer khởi động (chờ Enable Robot từ UI).\n'
@@ -321,15 +390,45 @@ class CartesianStreamer(Node):
             fb.header.stamp = self.get_clock().now().to_msg()
             fb.pose = initial_pose
             self._ee_pub.publish(fb)
-            self.get_logger().info(
-                f'Đã nhận joint_states. EE hiện tại: '
-                f'({initial_pose.position.x:.4f}, '
-                f'{initial_pose.position.y:.4f}, '
-                f'{initial_pose.position.z:.4f}). '
-                f'Chờ Enable Robot từ UI...'
-            )
+            if self._auto_enable:
+                self.get_logger().info(
+                    f'Đã nhận joint_states. EE hiện tại: '
+                    f'({initial_pose.position.x:.4f}, '
+                    f'{initial_pose.position.y:.4f}, '
+                    f'{initial_pose.position.z:.4f}). '
+                    f'Auto-enable is ON. Tự động bật robot sau 1s...'
+                )
+                import threading
+                threading.Timer(1.0, self._enable_step_1_reset_error).start()
+            else:
+                self.get_logger().info(
+                    f'Đã nhận joint_states. EE hiện tại: '
+                    f'({initial_pose.position.x:.4f}, '
+                    f'{initial_pose.position.y:.4f}, '
+                    f'{initial_pose.position.z:.4f}). '
+                    f'Chờ Enable Robot từ UI...'
+                )
         else:
-            self.get_logger().info('Đã nhận joint_states. Chờ Enable Robot từ UI...')
+            self.get_logger().info('Đã nhận joint_states nhưng giải FK thất bại.')
+
+    def _publish_idle_pose(self):
+        """Publish vị trí EE hiện tại liên tục khi robot đang idle (giúp các node khác lấy được gốc tọa độ)."""
+        if self._queue_mode_active:
+            # Nếu đang chạy queue thì _stream_tick đã lo việc publish
+            return
+            
+        if not self._got_joints:
+            return
+            
+        # Giải FK tĩnh để lấy vị trí
+        pose = self._solve_fk_sync(list(self._current_joints))
+        if pose:
+            self._current_ee_pose = pose
+            fb = PoseStamped()
+            fb.header.frame_id = BASE_FRAME
+            fb.header.stamp = self.get_clock().now().to_msg()
+            fb.pose = pose
+            self._ee_pub.publish(fb)
 
     # ── Enable / Disable services (gọi từ UI) ────────────────────
 
@@ -344,10 +443,9 @@ class CartesianStreamer(Node):
                 response.success = False
                 response.message = 'Chưa nhận được joint_states'
                 return response
-            # Bắt đầu chuỗi enable: reset_error → servo_on → stop_traj → start_queue
+            # Bắt đầu chuỗi enable: reset_error → stop_traj → start_queue (servo tự động bật theo MotoROS2)
             self.get_logger().info('Enable Robot: bắt đầu chuỗi khởi động...')
-            self._call_trigger_chained(
-                self._reset_error_cli, 'reset_error', self._enable_step_2_servo_on)
+            self._enable_step_1_reset_error()
             response.success = True
             response.message = 'Đang enable robot...'
         else:
@@ -357,15 +455,20 @@ class CartesianStreamer(Node):
             response.message = 'Robot disabled'
         return response
 
-    def _enable_step_2_servo_on(self):
-        self.get_logger().info('Enable: servo_on...')
+    def _enable_step_1_reset_error(self):
+        self.get_logger().info('Enable: reset_error...')
         self._call_trigger_chained(
-            self._servo_on_cli, 'servo_on', self._enable_step_3_stop_traj)
+            self._reset_error_cli, 'reset_error', self._enable_step_2_stop_traj)
 
-    def _enable_step_3_stop_traj(self):
+    def _enable_step_2_stop_traj(self):
         self.get_logger().info('Enable: stop_traj_mode (giải phóng mode cũ)...')
         self._call_trigger_chained(
-            self._stop_traj_cli, 'stop_traj_mode', self._enable_step_4_start_queue)
+            self._stop_traj_cli, 'stop_traj_mode', self._enable_step_3_delay_before_queue)
+
+    def _enable_step_3_delay_before_queue(self):
+        import threading
+        self.get_logger().info('Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...')
+        threading.Timer(1.5, self._enable_step_4_start_queue).start()
 
     def _enable_step_4_start_queue(self):
         self.get_logger().info('Enable: StartPointQueueMode...')
@@ -379,7 +482,8 @@ class CartesianStreamer(Node):
             self.get_logger().info(
                 f'StartPointQueueMode response: code={res.result_code.value}, msg="{res.message}"'
             )
-            if res.result_code.value == 1:
+            # Chấp nhận cả 0 và 1 vì firmware Yaskawa có thể trả về 0 = SUCCESS hoặc 1 = SUCCESS
+            if res.result_code.value in (0, 1):
                 self._queue_mode_active = True
                 self._stream_state = STREAM_STATE_SEEDING
                 self._accepted_since_seed = 0
@@ -388,7 +492,7 @@ class CartesianStreamer(Node):
                 self._cumulative_time_ns = 0
                 self._hold_point_count = 0
                 self._next_send_not_before_ns = self.get_clock().now().nanoseconds
-                self.get_logger().info('✓ Robot ENABLED — Point Queue Mode active.')
+                self.get_logger().info('✓ Robot ENABLED — Point Queue Mode active. Servo ON!')
             else:
                 self.get_logger().error(f'StartPointQueueMode FAILED: {res.message}')
         fut.add_done_callback(_done)
@@ -405,6 +509,25 @@ class CartesianStreamer(Node):
         if self._stop_traj_cli.wait_for_service(timeout_sec=1.0):
             self._stop_traj_cli.call_async(Trigger.Request())
         self.get_logger().info('✗ Robot DISABLED.')
+
+    def _auto_re_enable(self):
+        """Tự động re-enable queue mode sau khi bị drop (one-shot timer)."""
+        self.get_logger().info('Auto-recovery: bắt đầu re-enable queue mode...')
+        self._recovery_in_progress = False
+        # Reset state để enable lại
+        self._queue_call_inflight = False
+        self._pending_point_to_resend = None
+        self._seed_request_sent = False
+        # Cập nhật lại _last_queued_joints từ current_joints
+        # (vì robot đã dừng ở vị trí hiện tại)
+        if self._got_joints:
+            self._last_queued_joints = list(self._current_joints)
+        # Reset smooth state để tránh nhảy cóc khi re-enable
+        if self._current_ee_pose is not None:
+            self._target_pose = None
+            self._prev_ee_velocity = [0.0, 0.0, 0.0]
+        # Bắt đầu lại chuỗi enable (step 1 → 2 → 3 → 4)
+        self._enable_step_1_reset_error()
 
     def _call_trigger_chained(self, client, name, next_step_cb):
         """Helper để gọi service bất kỳ và chuyển sang bước tiếp theo."""
@@ -487,69 +610,92 @@ class CartesianStreamer(Node):
 
             # ── Bước 1: Smooth pose (interpolate về target) ──────────
             smoothed = self._smooth_pose(self._target_pose)
+            self._current_ee_pose = smoothed  # cập nhật EE pose ngay lập tức để tick sau dùng
+            
+            # ── Bước 2: Publish feedback EE pose ─────────────────────
+            fb = PoseStamped()
+            fb.header.frame_id = BASE_FRAME
+            fb.header.stamp = self.get_clock().now().to_msg()
+            fb.pose = smoothed
+            self._ee_pub.publish(fb)
 
-            # ── Bước 2: Giải IK ──────────────────────────────────────
-            joint_solution = self._solve_ik_sync(smoothed)
+            # ── Bước 3: Request IK nếu chưa có request pending ──────────────────────────────────
+            if not self._ik_request_pending:
+                self._request_ik_async(smoothed)
+
+            joint_solution = self._latest_ik_solution
 
             if joint_solution is None:
-                # IK thất bại → giữ vị trí cũ (hold-point)
-                self._ik_fail_count += 1
-                if self._ik_fail_count % 10 == 1:
-                    self.get_logger().warn(
-                        f'IK thất bại {self._ik_fail_count} lần liên tiếp. '
-                        'Robot giữ nguyên vị trí.')
+                # IK chưa có (hoặc delay) → giữ vị trí cũ (hold-point)
                 self._send_joint_point(list(self._last_queued_joints), is_hold=True)
                 return
 
-            # ── An toàn: kiểm tra bước nhảy joint ────────────────────
-            # So sánh với _last_queued_joints (không phải _current_joints).
+            # ── An toàn: kiểm tra soft joint limits ────────────────────
+            joint_solution_list = list(joint_solution)
+            was_limit_clamped = False
+            for i, (jval, (lo, hi)) in enumerate(zip(joint_solution_list, SOFT_JOINT_LIMITS)):
+                if jval < lo:
+                    joint_solution_list[i] = lo
+                    was_limit_clamped = True
+                elif jval > hi:
+                    joint_solution_list[i] = hi
+                    was_limit_clamped = True
+            
+            if was_limit_clamped:
+                self.get_logger().warn(
+                    f'IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.',
+                    throttle_duration_sec=1.0)
+            
+            joint_solution = tuple(joint_solution_list)
+
+            # ── An toàn: CLAMP bước nhảy joint PER-AXIS ────────────
+            was_clamped = False
+            clamped_joints = list(joint_solution)
+            for i in range(len(clamped_joints)):
+                delta = clamped_joints[i] - self._last_queued_joints[i]
+                limit = MAX_JOINT_DELTA_PER_AXIS[i]
+                if abs(delta) > limit:
+                    clamped_joints[i] = self._last_queued_joints[i] + limit * (1.0 if delta > 0 else -1.0)
+                    was_clamped = True
+
+            if was_clamped:
+                self.get_logger().info(
+                    f'IK delta clamped → joints: [{", ".join(f"{j:.3f}" for j in clamped_joints)}]',
+                    throttle_duration_sec=2.0)
+
+            joint_solution = clamped_joints
+            self._last_ok_joints = joint_solution
+
             max_delta = max(abs(j - c) for j, c in
                             zip(joint_solution, self._last_queued_joints))
-            if max_delta > MAX_JOINT_DELTA:
-                self.get_logger().warn(
-                    f'IK solution quá xa vị trí hiện tại '
-                    f'(max_delta={max_delta:.3f} rad > {MAX_JOINT_DELTA}). '
-                    f'Bỏ qua để bảo vệ robot.',
-                    throttle_duration_sec=1.0)
-                return
-
-            self._ik_fail_count = 0
-            self._last_ok_joints = joint_solution
-            self._current_ee_pose = smoothed  # cập nhật EE pose
 
             self.get_logger().info(
                 f'IK OK → Δmax={max_delta:.4f} rad, '
                 f'joints: [{", ".join(f"{j:.3f}" for j in joint_solution)}]',
                 throttle_duration_sec=2.0)
 
-            # ── Bước 3: Gửi xuống robot (motion point) ────────────────
+            # ── Bước 5: Gửi xuống robot (motion point) ────────────────
             self._window_max_joint_delta = max(self._window_max_joint_delta, max_delta)
             self._send_joint_point(joint_solution, is_hold=False)
-
-            # ── Bước 4: Publish feedback EE pose ─────────────────────
-            fb = PoseStamped()
-            fb.header.frame_id = BASE_FRAME
-            fb.header.stamp = self.get_clock().now().to_msg()
-            fb.pose = smoothed
-            self._ee_pub.publish(fb)
         except Exception as e:
             self.get_logger().error(f'_stream_tick exception: {e}')
 
     # ═══════════════════════════════════════════════════════════════
-    # IK SOLVER (thread-safe, không dùng spin_until_future_complete)
+    # IK SOLVER (Bất đồng bộ)
     # ═══════════════════════════════════════════════════════════════
 
-    def _solve_ik_sync(self, target_pose: Pose) -> list[float] | None:
+    def _request_ik_async(self, target_pose: Pose):
         """
-        Giải IK đồng bộ cho target_pose.
-        Dùng threading.Event để chờ kết quả — an toàn với MultiThreadedExecutor.
+        Giải IK bất đồng bộ cho target_pose.
         """
+        self._ik_request_pending = True
+        
         # Build request
         req = GetPositionIK.Request()
         req.ik_request = PositionIKRequest()
         req.ik_request.group_name         = GROUP_NAME
         req.ik_request.ik_link_name       = EE_LINK
-        req.ik_request.avoid_collisions   = False  # True sẽ chậm hơn
+        req.ik_request.avoid_collisions   = False
         req.ik_request.timeout.sec        = 0
         req.ik_request.timeout.nanosec    = int(IK_TIMEOUT_SEC * 1e9)
 
@@ -560,46 +706,39 @@ class CartesianStreamer(Node):
         ps.pose            = target_pose
         req.ik_request.pose_stamped = ps
 
-        # Dùng _last_queued_joints làm seed cho IK.
+        # Dùng nghiệm IK gần nhất làm seed (nếu có) để ép solver không nhảy nhánh (Branch Jumping).
+        # Nếu chưa có, dùng vị trí hiện tại _last_queued_joints
         seed = RobotState()
         seed.joint_state.name     = JOINT_NAMES
-        seed.joint_state.position = list(self._last_queued_joints)
+        if self._latest_ik_solution is not None:
+            seed.joint_state.position = list(self._latest_ik_solution)
+        else:
+            seed.joint_state.position = list(self._last_queued_joints)
         req.ik_request.robot_state = seed
-
-        # Dùng threading.Event để chờ (an toàn với MultiThreadedExecutor)
-        event = threading.Event()
-        result_holder: list = [None]
-
-        def _done_cb(future):
-            result_holder[0] = future
-            event.set()
 
         try:
             ros_future = self._ik_cli.call_async(req)
-            ros_future.add_done_callback(_done_cb)
-
-            got_result = event.wait(timeout=IK_TIMEOUT_SEC + 0.01)
-
-            if not got_result or result_holder[0] is None:
-                return None
-
-            result = result_holder[0].result()
-            # error_code: 1 = SUCCESS
-            if result.error_code.val != 1:
-                return None
-
-            # Lấy joint positions từ result
-            js = result.solution.joint_state
-            positions = [0.0] * 6
-            for i, name in enumerate(JOINT_NAMES):
-                if name in js.name:
-                    idx = list(js.name).index(name)
-                    positions[i] = js.position[idx]
-            return positions
-
+            ros_future.add_done_callback(self._on_ik_result)
         except Exception as e:
-            self.get_logger().error(f'IK exception: {e}', throttle_duration_sec=2.0)
-            return None
+            self._ik_request_pending = False
+            self.get_logger().error(f'IK async request exception: {e}')
+
+    def _on_ik_result(self, future):
+        """Callback khi nhận được kết quả IK."""
+        self._ik_request_pending = False
+        try:
+            result = future.result()
+            # error_code: 1 = SUCCESS
+            if result.error_code.val == 1:
+                js = result.solution.joint_state
+                positions = [0.0] * 6
+                for i, name in enumerate(JOINT_NAMES):
+                    if name in js.name:
+                        idx = list(js.name).index(name)
+                        positions[i] = js.position[idx]
+                self._latest_ik_solution = positions
+        except Exception as e:
+            self.get_logger().error(f'IK result exception: {e}', throttle_duration_sec=2.0)
 
     def _solve_fk_sync(self, joints: list[float]) -> Pose | None:
         """Giải FK đồng bộ cho list joints."""
@@ -643,8 +782,8 @@ class CartesianStreamer(Node):
 
     def _smooth_pose(self, target: Pose) -> Pose:
         """
-        Interpolate từ current_ee_pose về target với hệ số SMOOTH_ALPHA.
-        Lần đầu tiên: trả về target ngay lập tức.
+        Interpolate từ current_ee_pose về target bằng Trapezoidal Velocity Profile.
+        Không dùng exponential smoothing (alpha) để tránh xung đột với acceleration.
         """
         if self._current_ee_pose is None:
             self._current_ee_pose = Pose(
@@ -655,15 +794,114 @@ class CartesianStreamer(Node):
                 ),
                 orientation=target.orientation,
             )
+            self._prev_ee_velocity = [0.0, 0.0, 0.0]
+            self._last_smooth_time_ns = self.get_clock().now().nanoseconds
             return self._current_ee_pose
 
-        a = SMOOTH_ALPHA
+        # ===== Tính DT THỰC TẾ thay vì DT CỨNG =====
+        now_ns = self.get_clock().now().nanoseconds
+        if not hasattr(self, '_last_smooth_time_ns'):
+            self._last_smooth_time_ns = now_ns - int(self._stream_period_sec * 1e9)
+        dt = max((now_ns - self._last_smooth_time_ns) / 1e9, 1e-4)
+        dt = min(dt, 0.1)  # Clamp để tránh spike khi tick bị delay
+        self._last_smooth_time_ns = now_ns
+
+        # ===== Tính toán lỗi (Error) =====
+        error = [
+            target.position.x - self._current_ee_pose.position.x,
+            target.position.y - self._current_ee_pose.position.y,
+            target.position.z - self._current_ee_pose.position.z,
+        ]
+        dist = math.sqrt(sum(e*e for e in error))
+        
+        # ===== VELOCITY PROFILE: Trapezoidal =====
+        if dist < 1e-5:
+            desired_speed = 0.0
+        else:
+            # Vùng giảm tốc: khoảng cách cần thiết để dừng lại từ max_vel với max_accel
+            decel_dist = (MAX_CARTESIAN_VELOCITY ** 2) / (2.0 * MAX_CARTESIAN_ACCELERATION)
+            if dist < decel_dist:
+                # Nếu đang gần target → giảm tốc độ (S-curve tự nhiên)
+                desired_speed = math.sqrt(2.0 * MAX_CARTESIAN_ACCELERATION * dist)
+            else:
+                # Nếu xa target → chạy full speed
+                desired_speed = MAX_CARTESIAN_VELOCITY
+        
+        desired_speed = min(desired_speed, MAX_CARTESIAN_VELOCITY)
+        
+        if dist > 1e-5:
+            direction = [e / dist for e in error]
+        else:
+            direction = [0.0, 0.0, 0.0]
+        
+        desired_vel = [desired_speed * d for d in direction]
+        
+        # ===== JERK-LIMITED ACCELERATION CONTROL =====
+        # Bước 1: Tính gia tốc mục tiêu từ chênh lệch vận tốc
+        target_accel = [
+            (desired_vel[i] - self._prev_ee_velocity[i]) / dt
+            for i in range(3)
+        ]
+        
+        # Bước 2: Giới hạn jerk (tốc độ thay đổi gia tốc)
+        # Tắt giới hạn jerk khi ở rất gần đích (<20mm) để tránh bị trượt (overshoot)
+        # do hệ thống không kịp phanh lại (thuật toán S-curve yêu cầu khoảng cách phanh dài hơn).
+        if dist < 0.020:
+            max_da = float('inf')
+        else:
+            max_da = MAX_CARTESIAN_JERK * dt
+            
+        accel = list(target_accel)
+        for i in range(3):
+            da = accel[i] - self._prev_ee_acceleration[i]
+            if abs(da) > max_da:
+                accel[i] = self._prev_ee_acceleration[i] + max_da * (1.0 if da > 0 else -1.0)
+        
+        # Bước 3: Giới hạn gia tốc tổng hợp vào MAX_CARTESIAN_ACCELERATION
+        accel_mag = math.sqrt(sum(a*a for a in accel))
+        if accel_mag > MAX_CARTESIAN_ACCELERATION:
+            scale = MAX_CARTESIAN_ACCELERATION / accel_mag
+            accel = [a * scale for a in accel]
+        
+        self._prev_ee_acceleration = list(accel)
+        
+        # Bước 4: Tính vận tốc mới từ gia tốc đã giới hạn
+        vel = [
+            self._prev_ee_velocity[i] + accel[i] * dt
+            for i in range(3)
+        ]
+        
+        # Bước 5: Đảm bảo vận tốc tổng hợp không vượt quá MAX_CARTESIAN_VELOCITY
+        speed = math.sqrt(sum(v*v for v in vel))
+        if speed > MAX_CARTESIAN_VELOCITY:
+            scale = MAX_CARTESIAN_VELOCITY / speed
+            vel = [v * scale for v in vel]
+        
+        self._prev_ee_velocity = list(vel)
+        
+        # ===== ÁP DỤNG =====
         result = Pose()
-        result.position.x = self._lerp(self._current_ee_pose.position.x, target.position.x, a)
-        result.position.y = self._lerp(self._current_ee_pose.position.y, target.position.y, a)
-        result.position.z = self._lerp(self._current_ee_pose.position.z, target.position.z, a)
-        # SLERP orientation
-        result.orientation = self._slerp_quat(self._current_ee_pose.orientation, target.orientation, a)
+        
+        # Kiểm tra xem có đang bị trượt quá đích không (vận tốc ngược chiều với vector lỗi)
+        dot_product = sum(e * v for e, v in zip(error, vel))
+        is_overshoot = (dist < 0.020) and (dot_product < 0)
+        
+        # Chống dao động nhỏ (micro-oscillation) do hệ thống giới hạn jerk
+        if is_overshoot or (dist < 0.002 and speed < 0.010):
+            result.position.x = target.position.x
+            result.position.y = target.position.y
+            result.position.z = target.position.z
+            self._prev_ee_velocity = [0.0, 0.0, 0.0]
+            self._prev_ee_acceleration = [0.0, 0.0, 0.0]
+        else:
+            result.position.x = self._current_ee_pose.position.x + vel[0] * dt
+            result.position.y = self._current_ee_pose.position.y + vel[1] * dt
+            result.position.z = self._current_ee_pose.position.z + vel[2] * dt
+        
+        # SLERP orientation: track từ từ (sử dụng tốc độ quay dựa trên dt)
+        orientation_speed = 5.0 # rad/s tracking tốc độ hướng
+        blend_factor = min(1.0, orientation_speed * dt)
+        result.orientation = self._slerp_quat(self._current_ee_pose.orientation, target.orientation, blend_factor)
         return result
 
     @staticmethod
@@ -722,9 +960,17 @@ class CartesianStreamer(Node):
             )
             return False
         with self._send_lock:
+            now_ns = self.get_clock().now().nanoseconds
+            # Watchdog: Nếu call inflight quá 500ms mà không thấy về (mất packet UDP) -> Force reset
             if self._queue_call_inflight:
-                return False
+                if (now_ns - self._last_call_time_ns) > 500_000_000:
+                    self.get_logger().warn('Service call timeout (500ms). Resetting inflight flag.')
+                    self._queue_call_inflight = False
+                else:
+                    return False
+            
             self._queue_call_inflight = True
+            self._last_call_time_ns = now_ns
 
         queue_cli = self._select_queue_client()
         if queue_cli is None:
@@ -743,20 +989,28 @@ class CartesianStreamer(Node):
         request = QueueTrajPoint.Request()
         request.joint_names = JOINT_NAMES
 
+        now_ns = self.get_clock().now().nanoseconds
+        if not hasattr(self, '_last_send_time_ns'):
+            self._last_send_time_ns = now_ns - int(self._queue_dt_sec * 1e9)
+
         if force_seed:
             # Seed point: vị trí hiện tại, v=0, t=0. Reset bộ đếm tích lũy.
             point.positions = list(self._current_joints)
             point.velocities = [0.0] * len(JOINT_NAMES)
             point.time_from_start = Duration(sec=0, nanosec=0)
             self._cumulative_time_ns = 0
+            self._last_send_time_ns = now_ns
         elif self._pending_point_to_resend is not None:
             # Retry điểm bị BUSY: KHÔNG tăng cumulative (timestamp đã tính từ lần trước).
             point = self._pending_point_to_resend
+            self._last_send_time_ns = now_ns
         elif is_hold:
-            # Hold-point: gửi vị trí hiện tại nhưng với cumulative time
-            # chỉ tăng nhẹ (1ms) để MotoROS2 accept mà không gây drift.
-            hold_dt_ns = 1_000_000  # 1ms — minimal advance
-            self._cumulative_time_ns += hold_dt_ns
+            # Hold-point: giữ vị trí hiện tại với dt thực tế
+            actual_dt_ns = now_ns - self._last_send_time_ns
+            actual_dt_ns = max(int(1e6), min(actual_dt_ns, int(0.2 * 1e9)))
+            self._last_send_time_ns = now_ns
+            
+            self._cumulative_time_ns += actual_dt_ns
             total_sec  = self._cumulative_time_ns // 1_000_000_000
             total_nsec = self._cumulative_time_ns  % 1_000_000_000
             point.positions = [float(j) for j in joints]
@@ -764,29 +1018,42 @@ class CartesianStreamer(Node):
             point.time_from_start = Duration(sec=int(total_sec), nanosec=int(total_nsec))
             self._hold_point_count += 1
         else:
-            # MOTION point: time_from_start TĂNG LŨY TIẾN (cumulative).
-            dt_ns = int(self._queue_dt_sec * 1e9)
-            self._cumulative_time_ns += dt_ns
+            # MOTION point: time_from_start TĂNG LŨY TIẾN theo thời gian THỰC TẾ.
+            actual_dt_ns = now_ns - self._last_send_time_ns
+            actual_dt_ns = max(int(1e6), min(actual_dt_ns, int(0.2 * 1e9))) # clamp 1ms -> 200ms
+            self._last_send_time_ns = now_ns
+            
+            self._cumulative_time_ns += actual_dt_ns
             total_sec  = self._cumulative_time_ns // 1_000_000_000
             total_nsec = self._cumulative_time_ns  % 1_000_000_000
             point.positions = [float(j) for j in joints]
-            dt = max(self._queue_dt_sec, 1e-3)
-            point.velocities = [
+            
+            dt = actual_dt_ns / 1e9
+            raw_velocities = [
                 float((target - queued) / dt)
                 for target, queued in zip(joints, self._last_queued_joints)
             ]
+            # Clamp per-joint velocity for safety (khớp cổ tay chậm hơn)
+            clamped_velocities = [
+                max(-MAX_JOINT_VELOCITIES[i], min(MAX_JOINT_VELOCITIES[i], v))
+                for i, v in enumerate(raw_velocities)
+            ]
+            point.velocities = clamped_velocities
             point.time_from_start = Duration(sec=int(total_sec), nanosec=int(total_nsec))
             self._hold_point_count = 0  # reset hold counter
 
         request.point = point
 
         self._queue_sent_count += 1
-        self._next_send_not_before_ns = self.get_clock().now().nanoseconds
+        # Throttling: Chặn gửi tiếp trong 80% chu kỳ để tránh làm nghẽn controller
+        # mà không bị timer jitter loại bỏ tick tiếp theo.
+        self._next_send_not_before_ns = self.get_clock().now().nanoseconds + self._min_send_interval_ns
         fut = queue_cli.call_async(request)
         fut.add_done_callback(lambda f, p=point, h=is_hold: self._on_queue_result(f, p, h))
         return True
 
     def _on_queue_result(self, future, sent_point: JointTrajectoryPoint, was_hold: bool = False):
+        self._last_call_time_ns = 0
         with self._send_lock:
             self._queue_call_inflight = False
         try:
@@ -797,7 +1064,7 @@ class CartesianStreamer(Node):
                 # BUSY: giữ lại điểm để resend ở tick tiếp theo.
                 # Rollback cumulative timer.
                 if was_hold:
-                    rollback_ns = 1_000_000  # 1ms hold
+                    rollback_ns = int(self._queue_dt_sec * 1e9)  # hold dùng cùng dt
                 else:
                     rollback_ns = int(self._queue_dt_sec * 1e9)
                 self._cumulative_time_ns = max(0, self._cumulative_time_ns - rollback_ns)
@@ -811,6 +1078,27 @@ class CartesianStreamer(Node):
                     throttle_duration_sec=1.0
                 )
                 return
+            # ── Queue mode bị drop → auto-recovery ──────────────
+            if code == 2:  # "Must call start_point_queue_mode service"
+                self._pending_point_to_resend = None
+                self._window_reject_count += 1
+                if not self._recovery_in_progress:
+                    self._queue_mode_active = False
+                    self._stream_state = STREAM_STATE_IDLE
+                    self._auto_recovery_count += 1
+                    if self._auto_recovery_count <= 3:
+                        self._recovery_in_progress = True
+                        self.get_logger().warn(
+                            f'⚠ Queue mode bị drop! Auto-recovery lần '
+                            f'{self._auto_recovery_count}/3...')
+                        # Gọi lại enable sau 500ms (one-shot)
+                        import threading
+                        threading.Timer(0.5, self._auto_re_enable).start()
+                    else:
+                        self.get_logger().error(
+                            '✗ Đã thử recovery 3 lần thất bại. '
+                            'Dừng stream. Cần restart thủ công.')
+                return
             # Tương thích cả 2 biến thể firmware (SUCCESS=0 hoặc SUCCESS=1).
             if code not in (0, 1):
                 self.get_logger().error(
@@ -823,13 +1111,14 @@ class CartesianStreamer(Node):
             self._pending_point_to_resend = None
             self._last_queued_joints = list(sent_point.positions)
             self._accepted_points += 1
+            self._auto_recovery_count = 0  # Reset recovery counter khi thành công
             self._window_ack_count += 1
             now = self.get_clock().now()
             if self._last_ack_time is not None:
                 self._window_ack_interval_sum += (now - self._last_ack_time).nanoseconds / 1e9
                 self._window_ack_interval_count += 1
             self._last_ack_time = now
-            self._next_send_not_before_ns = now.nanoseconds
+            # self._next_send_not_before_ns = now.nanoseconds # Throttling được xử lý ở đầu hàm gửi
             if self._stream_state == STREAM_STATE_SEEDING:
                 self._stream_state = STREAM_STATE_PREBUFFERING
                 self._accepted_since_seed = 0
@@ -862,9 +1151,9 @@ class CartesianStreamer(Node):
             self.get_logger().error(f'Lỗi khi nhận phản hồi từ queue_traj_point: {e}')
 
     def _select_queue_client(self):
-        if self._queue_point_cli.wait_for_service(timeout_sec=0.01):
+        if self._queue_point_cli.service_is_ready():
             return self._queue_point_cli
-        if self._queue_point_cli_alt.wait_for_service(timeout_sec=0.01):
+        if self._queue_point_cli_alt.service_is_ready():
             return self._queue_point_cli_alt
         return None
 
@@ -997,9 +1286,9 @@ class CartesianDemoPublisher(Node):
         w = self._omega
 
         if self._mode == 'line':
-            # Tiến lùi trên trục X
-            x = self._base_x + amp * math.sin(w * self._t)
-            y = self._base_y
+            # Tiến lùi trên trục Y
+            x = self._base_x
+            y = self._base_y + amp * math.sin(w * self._t)
             z = self._base_z
 
         elif self._mode == 'circle':
@@ -1030,6 +1319,7 @@ class CartesianDemoPublisher(Node):
 # ═══════════════════════════════════════════════════════════════════
 
 def main():
+    global MAX_CARTESIAN_VELOCITY, MAX_CARTESIAN_ACCELERATION, MAX_CARTESIAN_JERK, MAX_JOINT_VELOCITIES, SMOOTH_ALPHA
     parser = argparse.ArgumentParser(
         description='Cartesian Streamer cho MotoROS2 Point Queue Mode',
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -1072,7 +1362,31 @@ Ví dụ:
     parser.add_argument(
         '--amplitude', type=float, default=0.05,
         help='Biên độ cho demo pattern (mét) [default: 0.05]')
+    parser.add_argument(
+        '--max-vel', type=float, default=MAX_CARTESIAN_VELOCITY,
+        help=f'Tốc độ Cartesian tối đa (m/s) [default: {MAX_CARTESIAN_VELOCITY}]')
+    parser.add_argument(
+        '--max-accel', type=float, default=MAX_CARTESIAN_ACCELERATION,
+        help=f'Gia tốc Cartesian tối đa (m/s²) [default: {MAX_CARTESIAN_ACCELERATION}]')
+    parser.add_argument(
+        '--max-joint-vel', type=float, default=None,
+        help='Scale tốc độ góc tối đa mỗi khớp (rad/s). Ghi đè đồng đều.')
+    parser.add_argument(
+        '--smooth-alpha', type=float, default=SMOOTH_ALPHA,
+        help=f'Hệ số smooth (0.0-1.0, thấp=mượt) [default: {SMOOTH_ALPHA}]')
+    parser.add_argument(
+        '--max-jerk', type=float, default=MAX_CARTESIAN_JERK,
+        help=f'Giới hạn jerk Cartesian (m/s³) [default: {MAX_CARTESIAN_JERK}]')
     args, ros_args = parser.parse_known_args()
+
+    # Áp dụng CLI overrides lên các hằng số an toàn
+    MAX_CARTESIAN_VELOCITY = max(args.max_vel, 0.01)
+    MAX_CARTESIAN_ACCELERATION = max(args.max_accel, 0.01)
+    if args.max_joint_vel is not None:
+        v = max(args.max_joint_vel, 0.01)
+        MAX_JOINT_VELOCITIES = [v] * len(JOINT_NAMES)
+    SMOOTH_ALPHA = max(0.01, min(1.0, args.smooth_alpha))
+    MAX_CARTESIAN_JERK = max(args.max_jerk, 0.1)
 
     rclpy.init(args=ros_args)
 
@@ -1088,6 +1402,7 @@ Ví dụ:
         queue_dt_sec=queue_dt,
         prebuffer_points=max(args.prebuffer, 1),
         retry_backoff_sec=max(args.retry_backoff_ms, 0.0) / 1000.0,
+        auto_enable=bool(args.demo),
     )
     executor.add_node(streamer)
 
@@ -1105,7 +1420,30 @@ Ví dụ:
     except KeyboardInterrupt:
         pass
     finally:
-        streamer.get_logger().info('Shutdown.')
+        streamer.get_logger().info('Graceful shutdown: tắt Point Queue Mode trước khi thoát...')
+        # Gọi stop_traj_mode đồng bộ để controller không bị alarm
+        try:
+            if streamer._queue_mode_active:
+                streamer._queue_mode_active = False
+                streamer._stream_state = STREAM_STATE_IDLE
+                if streamer._stop_traj_cli.wait_for_service(timeout_sec=2.0):
+                    stop_req = Trigger.Request()
+                    stop_fut = streamer._stop_traj_cli.call_async(stop_req)
+                    # Chờ tối đa 3 giây cho service trả lời
+                    end_time = _time.time() + 3.0
+                    while not stop_fut.done() and _time.time() < end_time:
+                        rclpy.spin_once(streamer, timeout_sec=0.1)
+                    if stop_fut.done():
+                        streamer.get_logger().info('✓ stop_traj_mode thành công. Controller sạch sẽ.')
+                    else:
+                        streamer.get_logger().warn('⚠ stop_traj_mode timeout, nhưng đã gửi yêu cầu.')
+                else:
+                    streamer.get_logger().warn('⚠ stop_traj_mode service không sẵn sàng.')
+            else:
+                streamer.get_logger().info('Robot chưa enable, không cần stop_traj_mode.')
+        except Exception as e:
+            streamer.get_logger().warn(f'Lỗi khi shutdown: {e}')
+        streamer.get_logger().info('Shutdown hoàn tất. Tủ điện sẽ KHÔNG bị alarm.')
         executor.shutdown()
         rclpy.shutdown()
 

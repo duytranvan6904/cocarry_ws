@@ -133,22 +133,49 @@ def main():
 
     def scale_input(input_batch):
         scaled = input_batch.copy().astype(np.float64)
-        for i, axis in enumerate(['x', 'y', 'z']):
-            if axis in scaler_x:
-                scaled[0, :, i] = scaler_x[axis].transform(
-                    input_batch[0, :, i].reshape(-1, 1)
-                ).flatten()
-        return scaled.astype(np.float32)
+        if isinstance(scaler_x, dict):
+            features = ['x', 'y', 'z']
+            if num_features == 6:
+                features = ['x', 'y', 'z', 'vx', 'vy', 'vz']
+                
+            for i, axis in enumerate(features):
+                if axis in scaler_x:
+                    scaled[0, :, i] = scaler_x[axis].transform(
+                        input_batch[0, :, i].reshape(-1, 1)
+                    ).flatten()
+            return scaled.astype(np.float32)
+        else:
+            # Assume it is a single scaler for all features
+            batch, seq, feats = input_batch.shape
+            flat = input_batch.reshape(-1, feats)
+            scaled_flat = scaler_x.transform(flat)
+            return scaled_flat.reshape(batch, seq, feats).astype(np.float32)
 
     def inverse_scale_output(pred_scaled):
         if isinstance(pred_scaled, list):
             pred_scaled = pred_scaled[0]
+            
         res = []
-        for i, axis in enumerate(['x', 'y', 'z']):
-            val = scaler_y[axis].inverse_transform(
-                pred_scaled[0, i].reshape(-1, 1)
-            )[0, 0]
-            res.append(float(val))
+        if isinstance(scaler_y, dict):
+            for i, axis in enumerate(['x', 'y', 'z']):
+                if pred_scaled.ndim == 3:
+                    val_to_scale = pred_scaled[0, -1, i]
+                else:
+                    val_to_scale = pred_scaled[0, i]
+                    
+                val = scaler_y[axis].inverse_transform(
+                    val_to_scale.reshape(-1, 1)
+                )[0, 0]
+                res.append(float(val))
+        else:
+            # Assume it is a single scaler for all output features (x, y, z)
+            if pred_scaled.ndim == 3:
+                val_to_scale = pred_scaled[0, -1, :] # shape (3,)
+            else:
+                val_to_scale = pred_scaled[0, :] # shape (3,)
+            val = scaler_y.inverse_transform(val_to_scale.reshape(1, -1))[0]
+            res = [float(x) for x in val]
+            
         return res
 
     # Load default model
@@ -185,13 +212,16 @@ def main():
             try:
                 input_seq = np.array(cmd["data"], dtype=np.float32)
 
-                # --- Apply Savitzky-Golay Filter ---
-                try:
-                    if _savgol_filter is not None and len(input_seq) >= 5:
-                        for i in range(num_features):
-                            input_seq[:, i] = _savgol_filter(input_seq[:, i], 5, 3)
-                except Exception:
-                    pass
+                # --- Bỏ Savitzky-Golay Filter ---
+                # Không áp dụng bộ lọc này vì lúc train offline model không hề dùng Savitzky-Golay.
+                # Lọc ở bước inference sẽ làm sai lệch phân phối (distribution) của chuỗi, 
+                # đặc biệt gây sai số lớn ở phần rìa (edge) của cửa sổ thời gian (bước quan trọng nhất).
+                # try:
+                #     if _savgol_filter is not None and len(input_seq) >= 5:
+                #         for i in range(num_features):
+                #             input_seq[:, i] = _savgol_filter(input_seq[:, i], 5, 3)
+                # except Exception:
+                #     pass
 
                 input_batch = input_seq.reshape(1, -1, num_features)
                 

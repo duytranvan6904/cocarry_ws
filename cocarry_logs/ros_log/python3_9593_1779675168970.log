@@ -1,0 +1,24 @@
+[INFO] [1779675169.086331057] [trajectory_predictor]: [Predictor] Worker launched (pid=9821)
+[INFO] [1779675169.088021013] [trajectory_predictor]: [Predictor] Started | model=gru | window=20 | auto_start=True
+[WARN] [1779675171.186118433] [trajectory_predictor]: [Worker STDERR] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[WARN] [1779675171.186864883] [trajectory_predictor]: [Worker STDERR] warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[WARN] [1779675172.669644335] [trajectory_predictor]: [Worker STDERR] /home/duy/.local/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+[INFO] [1779675172.670125854] [trajectory_predictor]: [Worker] TF 2.21.0 and sklearn loaded
+[WARN] [1779675172.671174775] [trajectory_predictor]: [Worker STDERR] https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+[WARN] [1779675172.672153789] [trajectory_predictor]: [Worker STDERR] warnings.warn(
+[INFO] [1779675173.649344507] [trajectory_predictor]: [Predictor] Worker READY | model=gru
+[INFO] [1779675210.073680841] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.5s)
+[INFO] [1779675233.074043180] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.9s)
+[INFO] [1779675253.772886569] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1779675263.629469873] [trajectory_predictor]: [Predictor] Auto-enabled prediction mode via /trajectory_mode
+[INFO] [1779675276.818569616] [trajectory_predictor]: [Predictor] Predicting STARTED
+[INFO] [1779675277.860849165] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1779675287.981556499] [trajectory_predictor]: [Predictor] Predicting STARTED
+[INFO] [1779675347.064634395] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1779675367.074413891] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.4s)
+[WARN] [1779675390.427564327] [trajectory_predictor]: [Worker STDERR] Traceback (most recent call last):
+[WARN] [1779675390.428991129] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/build/trajectory_predictor/trajectory_predictor/inference_worker.py", line 255, in <module>
+[WARN] [1779675390.429834564] [trajectory_predictor]: [Worker STDERR] main()
+[WARN] [1779675390.430482818] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/build/trajectory_predictor/trajectory_predictor/inference_worker.py", line 190, in main
+[WARN] [1779675390.431174759] [trajectory_predictor]: [Worker STDERR] for line in sys.stdin:
+[WARN] [1779675390.432367604] [trajectory_predictor]: [Worker STDERR] KeyboardInterrupt

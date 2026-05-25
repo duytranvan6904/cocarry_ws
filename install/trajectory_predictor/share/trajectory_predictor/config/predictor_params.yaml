@@ -8,17 +8,17 @@ trajectory_predictor:
     
     # Model file names (must match files in model_dir)
     model_files:
-      rnn: "rnn_velocity_3_layers.h5"
-      gru: "gru_velocity_3_layers.h5"
-      lstm: "lstm_velocity_3_layers.h5"
+      rnn: "rnn_model_Ts5.h5"
+      gru: "gru_model_Ts5.h5"
+      lstm: "lstm_model_Ts5.h5"
     
     # Scaler file names
-    scaler_x_file: "scaler_x.pkl"
-    scaler_y_file: "scaler_y.pkl"
+    scaler_x_file: "scaler_x_Ts5.pkl"
+    scaler_y_file: "scaler_y_Ts5.pkl"
     
     # Prediction parameters (must match training config)
     window_size: 20             # T = input sequence length
-    num_features: 3             # x, y, z
+    num_features: 6             # x, y, z, vx, vy, vz
     
     # Behavior
     auto_start: false           # Start predicting immediately on launch

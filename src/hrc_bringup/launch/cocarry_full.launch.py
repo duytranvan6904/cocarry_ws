@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env python3
 """
 cocarry_full.launch.py
@@ -33,15 +35,19 @@ def generate_launch_description():
     env_fix = SetEnvironmentVariable(
         'PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION', 'python')
 
+    ros_log_fix = SetEnvironmentVariable(
+        'ROS_LOG_DIR',
+        os.path.expanduser('~/cocarry_ws/cocarry_logs/ros_log'))
+
     # ── Launch arguments ──────────────────────────────────────────────────
     model_dir_arg = DeclareLaunchArgument(
         'model_dir',
-        default_value=os.path.expanduser('~/Downloads/GRU-Model-main'),
+        default_value=os.path.expanduser('~/cocarry_ws/src/GRU-Model'),
         description='Path to directory containing .h5 models and .pkl scalers')
 
     log_dir_arg = DeclareLaunchArgument(
         'log_dir',
-        default_value=os.path.expanduser('~/cocarry_logs'),
+        default_value=os.path.expanduser('~/cocarry_ws/cocarry_logs'),
         description='Directory for experiment CSV logs')
 
     # ── Config paths ──────────────────────────────────────────────────────
@@ -79,13 +85,13 @@ def generate_launch_description():
             'default_model': 'gru',
             'auto_start': True,
             'window_size': 20,
-            'num_features': 3,
-            'scaler_x_file': 'scaler_x.pkl',
-            'scaler_y_file': 'scaler_y.pkl',
+            'num_features': 6,
+            'scaler_x_file': 'scaler_x_Ts3.pkl',
+            'scaler_y_file': 'scaler_y_Ts3.pkl',
             'clear_on_tracking_lost': 1.0,
-            'model_files.gru': 'gru_velocity_3_layers.h5',
-            'model_files.lstm': 'lstm_velocity_3_layers.h5',
-            'model_files.rnn': 'rnn_velocity_3_layers.h5',
+            'model_files.gru': 'gru_model_Ts3.h5',
+            'model_files.lstm': 'lstm_model_Ts3.h5',
+            'model_files.rnn': 'rnn_model_Ts3.h5',
         }])
 
     # 3. Coordinate transform node (cầu nối giữa 2 repo)
@@ -111,7 +117,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'log_dir': LaunchConfiguration('log_dir'),
-            'auto_start': True,
+            'auto_start': False,
         }])
 
     # 6. UI dashboard
@@ -123,6 +129,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         env_fix,
+        ros_log_fix,
         model_dir_arg,
         log_dir_arg,
         realsense_node,

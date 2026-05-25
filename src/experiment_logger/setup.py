@@ -13,6 +13,7 @@ setup(
     entry_points={
         'console_scripts': [
             'logger_node = experiment_logger.logger_node:main',
+            'analyze_latency = experiment_logger.analyze_latency:main',
         ],
     },
 )
