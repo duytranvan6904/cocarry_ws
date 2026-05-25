@@ -1,0 +1,52 @@
+[0.000000] (-) TimerEvent: {}
+[0.000289] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000387] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000463] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000525] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000546] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000573] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000591] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000723] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.000742] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.000765] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.000868] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.000887] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.000911] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001036] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001062] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001109] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001128] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.001151] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001199] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001218] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001257] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001278] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.001319] (experiment_logger) JobQueued: {'identifier': 'experiment_logger', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001342] (experiment_logger) JobStarted: {'identifier': 'experiment_logger'}
+[0.099952] (-) TimerEvent: {}
+[0.200244] (-) TimerEvent: {}
+[0.300534] (-) TimerEvent: {}
+[0.346478] (experiment_logger) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/duy/cocarry_ws/build/experiment_logger/build', '--no-deps', 'symlink_data', '--force'], 'cwd': '/home/duy/cocarry_ws/build/experiment_logger', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', 'OLDPWD': '/home/duy/cocarry_ws', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/experiment_logger', 'PYTHONPATH': '/home/duy/cocarry_ws/build/experiment_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[0.400624] (-) TimerEvent: {}
+[0.487419] (experiment_logger) StdoutLine: {'line': b'running develop\n'}
+[0.500739] (-) TimerEvent: {}
+[0.544462] (experiment_logger) StdoutLine: {'line': b'running egg_info\n'}
+[0.544658] (experiment_logger) StdoutLine: {'line': b'writing experiment_logger.egg-info/PKG-INFO\n'}
+[0.544769] (experiment_logger) StdoutLine: {'line': b'writing dependency_links to experiment_logger.egg-info/dependency_links.txt\n'}
+[0.544833] (experiment_logger) StdoutLine: {'line': b'writing entry points to experiment_logger.egg-info/entry_points.txt\n'}
+[0.544895] (experiment_logger) StdoutLine: {'line': b'writing requirements to experiment_logger.egg-info/requires.txt\n'}
+[0.544965] (experiment_logger) StdoutLine: {'line': b'writing top-level names to experiment_logger.egg-info/top_level.txt\n'}
+[0.545717] (experiment_logger) StdoutLine: {'line': b"reading manifest file 'experiment_logger.egg-info/SOURCES.txt'\n"}
+[0.546088] (experiment_logger) StdoutLine: {'line': b"writing manifest file 'experiment_logger.egg-info/SOURCES.txt'\n"}
+[0.546874] (experiment_logger) StdoutLine: {'line': b'running build_ext\n'}
+[0.546974] (experiment_logger) StdoutLine: {'line': b'Creating /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment-logger.egg-link (link to .)\n'}
+[0.547353] (experiment_logger) StdoutLine: {'line': b'Installing analyze_latency script to /home/duy/cocarry_ws/install/experiment_logger/lib/experiment_logger\n'}
+[0.547458] (experiment_logger) StdoutLine: {'line': b'Installing logger_node script to /home/duy/cocarry_ws/install/experiment_logger/lib/experiment_logger\n'}
+[0.547556] (experiment_logger) StdoutLine: {'line': b'\n'}
+[0.547661] (experiment_logger) StdoutLine: {'line': b'Installed /home/duy/cocarry_ws/build/experiment_logger\n'}
+[0.547745] (experiment_logger) StdoutLine: {'line': b'running symlink_data\n'}
+[0.547804] (experiment_logger) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/experiment_logger/resource/experiment_logger -> /home/duy/cocarry_ws/install/experiment_logger/share/ament_index/resource_index/packages\n'}
+[0.547863] (experiment_logger) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/experiment_logger/package.xml -> /home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger\n'}
+[0.562982] (experiment_logger) CommandEnded: {'returncode': 0}
+[0.569211] (experiment_logger) JobEnded: {'identifier': 'experiment_logger', 'rc': 0}
+[0.569612] (-) EventReactorShutdown: {}

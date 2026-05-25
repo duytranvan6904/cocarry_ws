@@ -240,36 +240,43 @@ ros2 run experiment_logger analyze_latency --csv ~/hrc_logs/experiment_GRU_20260
 
 #### Kết quả phân tích (Ví dụ):
 ```text
-==================================================
-           LATENCY MEASUREMENT RESULTS
-==================================================
-Total rows analyzed: 580
-Sampling period (resampled): dt = 10 ms (100 Hz)
---------------------------------------------------
-1. Hand tracking to Robot physical movement (Total delay):
-   ► Delay: 90.0 ms
-   ► Correlation: 0.814
---------------------------------------------------
-2. Hand tracking to ML predictor output (Predictor phase shift):
-   ► Lead (Anticipation): 60.0 ms
---------------------------------------------------
-3. ML Predictor to Robot physical movement:
-   ► Delay: 150.0 ms
-   ► Correlation: 0.785
-==================================================
-```
-*(Nếu môi trường chạy hỗ trợ giao diện đồ họa, script sẽ hiển thị biểu đồ so sánh tốc độ chuyển động trực quan và đỉnh tương quan chéo).*
+============================================================
+     LATENCY MEASUREMENT — Onset Detection Method
+============================================================
+Total samples: 2168 | Duration: 21.7s | Rate: 100 Hz
+Movement bursts detected: 9
+Thresholds — Hand: 355.9 mm/s | Robot: 142.3 mm/s | Pred: 355.9 mm/s
+------------------------------------------------------------
+Burst | Hand onset | Robot onset | H→R Delay | H→P Delay | P→R Delay
+------------------------------------------------------------
+  #  1 |      0.48s |       2.45s |   1970 ms |   -410 ms |   2380 ms
+  #  2 |      1.53s |       2.45s |    920 ms |      0 ms |    920 ms
+  #  3 |      3.82s |       3.82s |      0 ms |   -390 ms |    390 ms
+...
+============================================================
 
-### 3. Giải thích ý nghĩa các thông số kết quả
-* **Total rows analyzed:** Tổng số hàng dữ liệu ghi nhận được từ cuộc thử nghiệm.
-* **Sampling period (dt):** Chu kỳ nội suy dữ liệu về lưới thời gian đều (mặc định $10\text{ ms} = 100\text{ Hz}$). Giúp độ phân giải của phép đo trễ đạt độ chính xác tới $10\text{ ms}$.
-* **1. Hand tracking to Robot physical movement (Total delay):**
-  * `Delay`: Tổng độ trễ thực tế từ lúc tay bạn chuyển động đến khi robot thực sự di chuyển theo (bao gồm trễ camera, trễ mạng, trễ giải IK và quán tính cơ khí robot).
-  * `Correlation`: Hệ số tương quan chuyển động ($0.0 \to 1.0$). Giá trị $> 0.6$ biểu thị sự đồng bộ tốt. Càng gần $1.0$ tức robot bám theo tay người càng mượt mà và chính xác.
-* **2. Hand tracking to ML predictor output (Predictor phase shift):**
-  * `Lead (Anticipation)` / `Lag (Delay)`: Khoảng thời gian mô hình AI đi trước (Lead) hoặc đi sau (Lag) chuyển động thực tế của người. Giá trị `Lead` thể hiện lượng thời gian mà bộ dự đoán GRU/LSTM đang bù trễ cho hệ thống.
-* **3. ML Predictor to Robot physical movement:**
-  * `Delay`: Khoảng thời gian trễ từ khi mô hình AI xuất ra vị trí dự đoán tương lai đến khi robot thực sự di chuyển tới đó (chủ yếu do giới hạn an toàn vật lý của robot và tốc độ hàng đợi Queue của controller Yaskawa).
+── SUMMARY STATISTICS ──
+
+  1. Hand → Robot (Total End-to-End Delay) (9 samples):
+    Mean:        467 ms
+    Median:       50 ms
+...
+```
+*(Nếu chạy có truyền tham số `--plot`, script sẽ tự động tạo biểu đồ phân tích phân rã các đợt chuyển động và lưu vào thư mục chứa log).*
+
+### 3. Giải thích ý nghĩa các thông số kết quả (Onset Detection)
+Thay vì sử dụng phương pháp tương quan chéo (Cross-Correlation) vốn dễ bị nhiễu bởi các khoảng thời gian đứng yên, công cụ đo lường đã nâng cấp sang phương pháp **Onset Detection** đáng tin cậy hơn. Thuật toán tự động cô lập các "đợt chuyển động" (Burst) rõ ràng của tay người, sau đó đo thời điểm bắt đầu chuyển động (Onset) của mô hình dự đoán và của cánh tay robot tương ứng trong từng đợt.
+
+* **Total samples / Duration:** Tổng số lượng điểm dữ liệu và thời lượng của toàn bộ file log (tính bằng giây).
+* **Movement bursts detected:** Số lần hệ thống phát hiện ra tay người bắt đầu di chuyển (tăng tốc đột ngột). Mỗi đợt này cung cấp 1 mẫu đo lường độ trễ độc lập.
+* **Thresholds:** Ngưỡng vận tốc (mm/s) để thuật toán xác định là "bắt đầu chuyển động". (Ngưỡng của robot thường thấp hơn do robot di chuyển mượt và chậm hơn tay người).
+* **Bảng chi tiết từng đợt (Per-burst):**
+  * `Hand onset` / `Robot onset`: Dấu mốc thời gian (s) khi tay/robot vượt ngưỡng vận tốc.
+  * `H→R`, `H→P`, `P→R Delay`: Các độ trễ tương ứng đo được trong đợt chuyển động đó.
+* **SUMMARY STATISTICS (Thống kê tổng hợp):** Cung cấp bức tranh toàn cảnh (Mean, Median, Std) từ tất cả các đợt chuyển động. *(Lưu ý: Mức trung vị **Median** thường là thước đo chính xác nhất về trải nghiệm thực tế do nó tự động loại bỏ các điểm nhiễu bất thường)*.
+  * **1. Hand → Robot (Total End-to-End Delay):** Độ trễ tổng hợp từ lúc tay bạn chuyển động đến khi cánh tay cơ khí thực sự nhúc nhích theo (bao gồm tất cả trễ camera, mạng, AI, và quán tính cơ khí).
+  * **2. Hand → Predictor (Model Phase Shift):** Khoảng thời gian mô hình AI đi trước (mang dấu âm, ví dụ `-400ms`) hoặc đi sau (dương) chuyển động của người. Giá trị âm càng sâu chứng tỏ AI đang làm rất tốt việc phóng pha bù trễ về tương lai.
+  * **3. Predictor → Robot (Tracking Delay):** Độ trễ cố hữu từ lúc Controller nhận tọa độ đích đến lúc robot vật lý lấy đà và bám theo (do giới hạn an toàn động cơ và hàm làm mượt). Mạng AI lý tưởng cần tạo ra pha âm ở bước 2 để triệt tiêu hoàn toàn độ trễ bước 3 này.
 
 ---
 

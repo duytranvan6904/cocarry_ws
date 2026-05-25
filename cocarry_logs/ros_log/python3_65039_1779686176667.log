@@ -1,0 +1,71 @@
+[INFO] [1779686176.794676778] [cartesian_streamer]: CartesianStreamer khởi động (chờ Enable Robot từ UI).
+  Stream rate:       15 Hz (period=66.7ms)
+  Queue dt:          0.067 s
+  Prebuffer points:  3
+  Retry backoff:     66.0 ms
+  Gửi PoseStamped lên: /cartesian_streamer/target_pose
+  Gửi XYZ lên:        /cartesian_streamer/target_xyz
+  Nhận EE pose tại:   /cartesian_streamer/current_pose
+[INFO] [1779686176.796944121] [cartesian_streamer]: Nhận joint_states: ['1.394', '-0.040', '-0.790', '-0.009', '-0.897', '0.160']
+[INFO] [1779686177.526551373] [cartesian_streamer]: Đã nhận joint_states. EE hiện tại: (-0.1026, 0.3522, 0.5051). Chờ Enable Robot từ UI...
+[INFO] [1779686214.722658413] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1779686214.723215960] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1779686214.844281939] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1779686214.844866015] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1779686214.990675089] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1779686214.991217791] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1779686216.492288197] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1779686217.107218118] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1779686217.107773799] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1779686217.173113094] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0
+[INFO] [1779686217.175650587] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1638, 0.2630, 0.3947)
+[INFO] [1779686217.175966191] [cartesian_streamer]: Đang stream qua service: /queue_traj_point
+[INFO] [1779686217.176394272] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1779686217.180302471] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1779686217.180941384] [cartesian_streamer]: Queue accepted sample#1: svc=/queue_traj_point, t_cumul=0.0000s, code=1, msg="", hold=False
+[INFO] [1779686217.254454146] [cartesian_streamer]: Queue accepted sample#2: svc=/queue_traj_point, t_cumul=0.0633s, code=1, msg="", hold=True
+[INFO] [1779686217.311136907] [cartesian_streamer]: Queue accepted sample#3: svc=/queue_traj_point, t_cumul=0.1299s, code=1, msg="", hold=True
+[INFO] [1779686217.395828540] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1779686217.396449737] [cartesian_streamer]: Queue accepted sample#4: svc=/queue_traj_point, t_cumul=0.1967s, code=1, msg="", hold=True
+[INFO] [1779686217.676021208] [cartesian_streamer]: Queue accepted sample#5: svc=/queue_traj_point, t_cumul=0.2634s, code=1, msg="", hold=True
+[WARN] [1779686217.858156566] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1779686219.116926323] [cartesian_streamer]: QueueTrajPoint accepted #20: t=1.663s, hold=True
+[INFO] [1779686220.983271133] [cartesian_streamer]: QueueTrajPoint accepted #40: t=3.463s, hold=True
+[INFO] [1779686222.173354824] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.6, ack_hz=10.4, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=96.9, max_joint_delta=0.000, cumul_time=4.60s, hold_count=51
+[INFO] [1779686222.827727835] [cartesian_streamer]: QueueTrajPoint accepted #60: t=5.196s, hold=True
+[INFO] [1779686224.841446697] [cartesian_streamer]: IK OK → Δmax=0.0145 rad, joints: [1.585, 0.075, -1.051, -0.033, -0.521, -0.014]
+[INFO] [1779686224.866949963] [cartesian_streamer]: QueueTrajPoint accepted #80: t=7.198s, hold=False
+[WARN] [1779686224.907795132] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1779686226.667420824] [cartesian_streamer]: QueueTrajPoint accepted #100: t=8.998s, hold=False
+[INFO] [1779686226.841782812] [cartesian_streamer]: IK OK → Δmax=0.0221 rad, joints: [1.522, 0.016, -0.892, -0.017, -0.740, 0.033]
+[INFO] [1779686227.240505770] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.9, ack_hz=10.9, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=92.0, max_joint_delta=0.045, cumul_time=9.53s, hold_count=0
+[INFO] [1779686228.132351380] [cartesian_streamer]: QueueTrajPoint accepted #120: t=10.465s, hold=False
+[INFO] [1779686228.907843530] [cartesian_streamer]: IK OK → Δmax=0.0189 rad, joints: [1.310, 0.049, -0.332, 0.005, -1.267, 0.230]
+[INFO] [1779686229.526390905] [cartesian_streamer]: QueueTrajPoint accepted #140: t=11.864s, hold=False
+[INFO] [1779686230.908556732] [cartesian_streamer]: IK OK → Δmax=0.0212 rad, joints: [1.306, 0.429, 0.281, 0.005, -1.500, 0.235]
+[INFO] [1779686230.921205429] [cartesian_streamer]: QueueTrajPoint accepted #160: t=13.265s, hold=False
+[INFO] [1779686232.307590412] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=14.0, ack_hz=13.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=71.6, max_joint_delta=0.041, cumul_time=14.60s, hold_count=0
+[INFO] [1779686232.458279618] [cartesian_streamer]: QueueTrajPoint accepted #180: t=14.797s, hold=False
+[INFO] [1779686232.975281679] [cartesian_streamer]: IK OK → Δmax=0.0169 rad, joints: [1.324, 0.826, 0.631, 0.004, -1.453, 0.218]
+[INFO] [1779686234.174294332] [cartesian_streamer]: IK delta clamped → joints: [1.363, 0.797, 0.252, 0.001, -1.104, 0.178]
+[INFO] [1779686234.176660420] [cartesian_streamer]: QueueTrajPoint accepted #200: t=16.399s, hold=False
+[INFO] [1779686235.041746756] [cartesian_streamer]: IK OK → Δmax=0.0639 rad, joints: [1.409, 0.677, -0.047, -0.003, -0.925, 0.135]
+[INFO] [1779686235.716590948] [cartesian_streamer]: QueueTrajPoint accepted #220: t=17.997s, hold=False
+[INFO] [1779686237.108417599] [cartesian_streamer]: IK OK → Δmax=0.0084 rad, joints: [1.451, 0.557, -0.350, -0.009, -0.740, 0.098]
+[INFO] [1779686237.252420282] [cartesian_streamer]: QueueTrajPoint accepted #240: t=19.465s, hold=False
+[INFO] [1779686237.373859902] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=12.4, ack_hz=12.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=80.0, max_joint_delta=0.070, cumul_time=19.53s, hold_count=0
+[INFO] [1779686238.549078630] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1779686238.550128043] [cartesian_streamer]: ✗ Robot DISABLED.
+[WARN] [1779686238.702064484] [cartesian_streamer]: ⚠ Queue mode bị drop! Auto-recovery lần 1/3...
+[INFO] [1779686239.203286592] [cartesian_streamer]: Auto-recovery: bắt đầu re-enable queue mode...
+[INFO] [1779686239.204085344] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1779686239.507907170] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1779686239.508523782] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1779686239.557129139] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1779686239.557747608] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1779686241.058636338] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1779686246.999974454] [cartesian_streamer]: StartPointQueueMode response: code=104, msg="The teach pendant must not be in TEACH mode"
+[ERROR] [1779686247.000252475] [cartesian_streamer]: StartPointQueueMode FAILED: The teach pendant must not be in TEACH mode
+[INFO] [1779686321.789583588] [cartesian_streamer]: Graceful shutdown: tắt Point Queue Mode trước khi thoát...
+[INFO] [1779686321.790352804] [cartesian_streamer]: Robot chưa enable, không cần stop_traj_mode.
+[INFO] [1779686321.790963037] [cartesian_streamer]: Shutdown hoàn tất. Tủ điện sẽ KHÔNG bị alarm.

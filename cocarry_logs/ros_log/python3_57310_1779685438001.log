@@ -1,0 +1,58 @@
+[INFO] [1779685438.209738288] [coord_transform]: CoordTransformNode khởi động.
+  Object offset (cam frame): [0.05 0.   0.1 ]
+  Translation cam→base:      [0.5 0.  1.2]
+  EE orientation (xyzw):     [0.0, 1.0, 0.0, 0.0]
+  Prediction step:           5
+  Axis remap:                [0, 1, 2]
+  Axis sign:                 [-1.0, 1.0, 1.0]
+  Workspace X: (-1.0, 1.0), Y: (-0.5, 1.3), Z: (0.05, 1.5)
+  Filter outlier_threshold:  0.15m
+  Filter median_size_y:      3
+  Filter deadband_tol:       25.0mm
+  Filter stationary_thresh:  3 frames
+  Filter max_rate:           5.0cm/frame
+  Filter EMA moving(x,y,z):  (0.75,0.5,0.75)
+  Filter EMA hold  (x,y,z):  (0.08,0.02,0.05)
+[WARN] [1779685459.271400533] [coord_transform]: Outlier rejected #1 (jumped 160.1mm). Ignoring.
+[WARN] [1779685460.672853648] [coord_transform]: Outlier rejected #1 (jumped 198.2mm). Ignoring.
+[WARN] [1779685460.707075863] [coord_transform]: Outlier rejected #2 (jumped 193.5mm). Ignoring.
+[WARN] [1779685460.739440190] [coord_transform]: Outlier rejected #3 (jumped 197.6mm). Ignoring.
+[WARN] [1779685460.776390182] [coord_transform]: Outlier rejected #4 (jumped 179.5mm). Ignoring.
+[INFO] [1779685460.809171403] [coord_transform]: Too many outliers (5). Resetting filter to new position.
+[WARN] [1779685465.318286650] [coord_transform]: Outlier rejected #1 (jumped 150.4mm). Ignoring.
+[WARN] [1779685465.351730729] [coord_transform]: Outlier rejected #2 (jumped 198.2mm). Ignoring.
+[WARN] [1779685467.689472868] [coord_transform]: Outlier rejected #1 (jumped 155.0mm). Ignoring.
+[WARN] [1779685467.942344296] [coord_transform]: Outlier rejected #1 (jumped 167.1mm). Ignoring.
+[WARN] [1779685467.980407868] [coord_transform]: Outlier rejected #2 (jumped 185.9mm). Ignoring.
+[WARN] [1779685468.016413787] [coord_transform]: Outlier rejected #3 (jumped 187.0mm). Ignoring.
+[WARN] [1779685468.842046668] [coord_transform]: Outlier rejected #1 (jumped 180.1mm). Ignoring.
+[WARN] [1779685469.129863377] [coord_transform]: Outlier rejected #1 (jumped 158.6mm). Ignoring.
+[WARN] [1779685469.161763762] [coord_transform]: Outlier rejected #2 (jumped 185.1mm). Ignoring.
+[WARN] [1779685469.198318697] [coord_transform]: Outlier rejected #3 (jumped 235.1mm). Ignoring.
+[WARN] [1779685469.263761997] [coord_transform]: Outlier rejected #4 (jumped 220.3mm). Ignoring.
+[INFO] [1779685469.311277729] [coord_transform]: Too many outliers (5). Resetting filter to new position.
+[WARN] [1779685480.392924228] [coord_transform]: Outlier rejected #1 (jumped 1615.1mm). Ignoring.
+[WARN] [1779685480.428993087] [coord_transform]: Outlier rejected #2 (jumped 1635.8mm). Ignoring.
+[WARN] [1779685480.473707950] [coord_transform]: Outlier rejected #3 (jumped 1635.8mm). Ignoring.
+[WARN] [1779685480.509375579] [coord_transform]: Outlier rejected #4 (jumped 1627.5mm). Ignoring.
+[INFO] [1779685480.544381312] [coord_transform]: Too many outliers (5). Resetting filter to new position.
+[INFO] [1779685484.988858444] [coord_transform]: Captured Init Pose! P_init=(-0.164, 0.263, 0.395), Cam_init=(-0.003, 0.003, 0.005), Noise_Tol=28.7mm
+Orientation=(0.717, 0.696, -0.032, 0.022)
+[INFO] [1779685485.007778850] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685485.152020311] [coord_transform]: Deadband: HOLD at (-0.003, 0.003, 0.005)
+[INFO] [1779685492.448342146] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685492.492241661] [coord_transform]: Deadband: HOLD at (-0.003, 0.003, 0.005)
+[INFO] [1779685497.275098094] [coord_transform]: Đã chuyển mode: ground_truth -> prediction
+[INFO] [1779685498.578117704] [coord_transform]: Re-sync camera init: [ 0.064 -0.024 -0.001]
+[INFO] [1779685498.578463869] [coord_transform]: Trạng thái tracking: RUNNING
+[INFO] [1779685498.601285331] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685498.610414082] [coord_transform]: [PREDICTION] Transform: cam[ 0.098 -0.013  0.006] → base[-0.198  0.274  0.402]
+[INFO] [1779685498.797872126] [coord_transform]: Deadband: HOLD at (0.064, -0.024, -0.001)
+[INFO] [1779685500.660178267] [coord_transform]: [PREDICTION] Transform: cam[0.085 0.056 0.053] → base[-0.185  0.343  0.449]
+[INFO] [1779685502.662142401] [coord_transform]: [PREDICTION] Transform: cam[0.1   0.14  0.123] → base[-0.2    0.427  0.519]
+[INFO] [1779685504.662584161] [coord_transform]: [PREDICTION] Transform: cam[0.116 0.284 0.206] → base[-0.216  0.571  0.602]
+[INFO] [1779685506.667636614] [coord_transform]: [PREDICTION] Transform: cam[0.141 0.499 0.103] → base[-0.241  0.786  0.499]
+[INFO] [1779685508.717509302] [coord_transform]: [PREDICTION] Transform: cam[-0.     0.208  0.214] → base[-0.1    0.495  0.61 ]
+[INFO] [1779685510.776489129] [coord_transform]: [PREDICTION] Transform: cam[0.057 0.097 0.072] → base[-0.157  0.384  0.468]
+[INFO] [1779685511.559770835] [coord_transform]: Trạng thái tracking: STOPPED
+[WARN] [1779685541.464764909] [coord_transform]: Outlier rejected #1 (jumped 177.0mm). Ignoring.

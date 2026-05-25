@@ -1,0 +1,52 @@
+[0.000000] (-) TimerEvent: {}
+[0.000479] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000524] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000553] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000577] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000756] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000782] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000812] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000938] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000965] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.000994] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001164] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001199] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001225] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001246] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001288] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001311] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001331] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001352] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001372] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001395] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001422] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001446] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.001470] (predictor_ui) JobQueued: {'identifier': 'predictor_ui', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001499] (predictor_ui) JobStarted: {'identifier': 'predictor_ui'}
+[0.099648] (-) TimerEvent: {}
+[0.200008] (-) TimerEvent: {}
+[0.300280] (-) TimerEvent: {}
+[0.390711] (predictor_ui) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/duy/cocarry_ws/build/predictor_ui/build', '--no-deps', 'symlink_data', '--force'], 'cwd': '/home/duy/cocarry_ws/build/predictor_ui', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/predictor_ui', 'PYTHONPATH': '/home/duy/cocarry_ws/build/predictor_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[0.400381] (-) TimerEvent: {}
+[0.500584] (-) TimerEvent: {}
+[0.543727] (predictor_ui) StdoutLine: {'line': b'running develop\n'}
+[0.600780] (-) TimerEvent: {}
+[0.607737] (predictor_ui) StdoutLine: {'line': b'running egg_info\n'}
+[0.607842] (predictor_ui) StdoutLine: {'line': b'writing predictor_ui.egg-info/PKG-INFO\n'}
+[0.607915] (predictor_ui) StdoutLine: {'line': b'writing dependency_links to predictor_ui.egg-info/dependency_links.txt\n'}
+[0.607982] (predictor_ui) StdoutLine: {'line': b'writing entry points to predictor_ui.egg-info/entry_points.txt\n'}
+[0.608040] (predictor_ui) StdoutLine: {'line': b'writing requirements to predictor_ui.egg-info/requires.txt\n'}
+[0.608075] (predictor_ui) StdoutLine: {'line': b'writing top-level names to predictor_ui.egg-info/top_level.txt\n'}
+[0.609447] (predictor_ui) StdoutLine: {'line': b"reading manifest file 'predictor_ui.egg-info/SOURCES.txt'\n"}
+[0.609991] (predictor_ui) StdoutLine: {'line': b"writing manifest file 'predictor_ui.egg-info/SOURCES.txt'\n"}
+[0.610978] (predictor_ui) StdoutLine: {'line': b'running build_ext\n'}
+[0.611083] (predictor_ui) StdoutLine: {'line': b'Creating /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor-ui.egg-link (link to .)\n'}
+[0.611710] (predictor_ui) StdoutLine: {'line': b'Installing ui_node script to /home/duy/cocarry_ws/install/predictor_ui/lib/predictor_ui\n'}
+[0.611813] (predictor_ui) StdoutLine: {'line': b'\n'}
+[0.611862] (predictor_ui) StdoutLine: {'line': b'Installed /home/duy/cocarry_ws/build/predictor_ui\n'}
+[0.611904] (predictor_ui) StdoutLine: {'line': b'running symlink_data\n'}
+[0.611962] (predictor_ui) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/predictor_ui/resource/predictor_ui -> /home/duy/cocarry_ws/install/predictor_ui/share/ament_index/resource_index/packages\n'}
+[0.612024] (predictor_ui) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/predictor_ui/package.xml -> /home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui\n'}
+[0.628974] (predictor_ui) CommandEnded: {'returncode': 0}
+[0.635430] (predictor_ui) JobEnded: {'identifier': 'predictor_ui', 'rc': 0}
+[0.636006] (-) EventReactorShutdown: {}

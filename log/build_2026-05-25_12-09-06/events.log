@@ -1,0 +1,120 @@
+[0.000000] (-) TimerEvent: {}
+[0.000912] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000984] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.001022] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.001053] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.001084] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.001112] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.001351] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.001381] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.001408] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001435] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001463] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001490] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001727] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001777] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001809] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001839] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001869] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001951] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001982] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.002011] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.002038] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.002069] (experiment_logger) JobQueued: {'identifier': 'experiment_logger', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.002107] (predictor_ui) JobQueued: {'identifier': 'predictor_ui', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.002139] (experiment_logger) JobStarted: {'identifier': 'experiment_logger'}
+[0.010947] (predictor_ui) JobStarted: {'identifier': 'predictor_ui'}
+[0.099660] (-) TimerEvent: {}
+[0.200028] (-) TimerEvent: {}
+[0.300407] (-) TimerEvent: {}
+[0.400898] (-) TimerEvent: {}
+[0.501262] (-) TimerEvent: {}
+[0.601657] (-) TimerEvent: {}
+[0.702001] (-) TimerEvent: {}
+[0.802376] (-) TimerEvent: {}
+[0.902793] (-) TimerEvent: {}
+[0.920900] (experiment_logger) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/experiment_logger', 'build', '--build-base', '/home/duy/cocarry_ws/build/experiment_logger/build', 'install', '--record', '/home/duy/cocarry_ws/build/experiment_logger/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/experiment_logger', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/experiment_logger', 'PYTHONPATH': '/home/duy/cocarry_ws/build/experiment_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[0.944227] (predictor_ui) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/predictor_ui', 'build', '--build-base', '/home/duy/cocarry_ws/build/predictor_ui/build', 'install', '--record', '/home/duy/cocarry_ws/build/predictor_ui/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/predictor_ui', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/predictor_ui', 'PYTHONPATH': '/home/duy/cocarry_ws/build/predictor_ui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[1.002940] (-) TimerEvent: {}
+[1.103381] (-) TimerEvent: {}
+[1.201257] (experiment_logger) StdoutLine: {'line': b'running egg_info\n'}
+[1.201855] (experiment_logger) StdoutLine: {'line': b'creating ../../build/experiment_logger/experiment_logger.egg-info\n'}
+[1.202137] (experiment_logger) StdoutLine: {'line': b'writing ../../build/experiment_logger/experiment_logger.egg-info/PKG-INFO\n'}
+[1.202402] (experiment_logger) StdoutLine: {'line': b'writing dependency_links to ../../build/experiment_logger/experiment_logger.egg-info/dependency_links.txt\n'}
+[1.202680] (experiment_logger) StdoutLine: {'line': b'writing entry points to ../../build/experiment_logger/experiment_logger.egg-info/entry_points.txt\n'}
+[1.202806] (experiment_logger) StdoutLine: {'line': b'writing requirements to ../../build/experiment_logger/experiment_logger.egg-info/requires.txt\n'}
+[1.202945] (experiment_logger) StdoutLine: {'line': b'writing top-level names to ../../build/experiment_logger/experiment_logger.egg-info/top_level.txt\n'}
+[1.203074] (experiment_logger) StdoutLine: {'line': b"writing manifest file '../../build/experiment_logger/experiment_logger.egg-info/SOURCES.txt'\n"}
+[1.203419] (-) TimerEvent: {}
+[1.204787] (experiment_logger) StdoutLine: {'line': b"reading manifest file '../../build/experiment_logger/experiment_logger.egg-info/SOURCES.txt'\n"}
+[1.205581] (experiment_logger) StdoutLine: {'line': b"writing manifest file '../../build/experiment_logger/experiment_logger.egg-info/SOURCES.txt'\n"}
+[1.205797] (experiment_logger) StdoutLine: {'line': b'running build\n'}
+[1.206031] (experiment_logger) StdoutLine: {'line': b'running build_py\n'}
+[1.206195] (experiment_logger) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/experiment_logger/build\n'}
+[1.206327] (experiment_logger) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/experiment_logger/build/lib\n'}
+[1.206452] (experiment_logger) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger\n'}
+[1.206578] (experiment_logger) StdoutLine: {'line': b'copying experiment_logger/analyze_latency.py -> /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger\n'}
+[1.206703] (experiment_logger) StdoutLine: {'line': b'copying experiment_logger/__init__.py -> /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger\n'}
+[1.206873] (experiment_logger) StdoutLine: {'line': b'copying experiment_logger/logger_node.py -> /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger\n'}
+[1.207044] (experiment_logger) StdoutLine: {'line': b'running install\n'}
+[1.207160] (experiment_logger) StdoutLine: {'line': b'running install_lib\n'}
+[1.207378] (experiment_logger) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger\n'}
+[1.207547] (experiment_logger) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger/analyze_latency.py -> /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger\n'}
+[1.207718] (experiment_logger) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger/__init__.py -> /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger\n'}
+[1.207873] (experiment_logger) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/experiment_logger/build/lib/experiment_logger/logger_node.py -> /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger\n'}
+[1.208367] (experiment_logger) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger/analyze_latency.py to analyze_latency.cpython-310.pyc\n'}
+[1.213585] (experiment_logger) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger/__init__.py to __init__.cpython-310.pyc\n'}
+[1.213861] (experiment_logger) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger/logger_node.py to logger_node.cpython-310.pyc\n'}
+[1.218382] (experiment_logger) StdoutLine: {'line': b'running install_data\n'}
+[1.218742] (experiment_logger) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/experiment_logger/share/ament_index\n'}
+[1.218867] (experiment_logger) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/experiment_logger/share/ament_index/resource_index\n'}
+[1.219019] (experiment_logger) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/experiment_logger/share/ament_index/resource_index/packages\n'}
+[1.219139] (experiment_logger) StdoutLine: {'line': b'copying resource/experiment_logger -> /home/duy/cocarry_ws/install/experiment_logger/share/ament_index/resource_index/packages\n'}
+[1.219255] (experiment_logger) StdoutLine: {'line': b'copying package.xml -> /home/duy/cocarry_ws/install/experiment_logger/share/experiment_logger\n'}
+[1.219369] (experiment_logger) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.221289] (experiment_logger) StdoutLine: {'line': b'Copying ../../build/experiment_logger/experiment_logger.egg-info to /home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages/experiment_logger-0.1.0-py3.10.egg-info\n'}
+[1.221981] (experiment_logger) StdoutLine: {'line': b'running install_scripts\n'}
+[1.248473] (experiment_logger) StdoutLine: {'line': b'Installing analyze_latency script to /home/duy/cocarry_ws/install/experiment_logger/lib/experiment_logger\n'}
+[1.248791] (experiment_logger) StdoutLine: {'line': b'Installing logger_node script to /home/duy/cocarry_ws/install/experiment_logger/lib/experiment_logger\n'}
+[1.249186] (experiment_logger) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/experiment_logger/install.log'\n"}
+[1.249479] (predictor_ui) StdoutLine: {'line': b'running egg_info\n'}
+[1.250004] (predictor_ui) StdoutLine: {'line': b'creating ../../build/predictor_ui/predictor_ui.egg-info\n'}
+[1.250211] (predictor_ui) StdoutLine: {'line': b'writing ../../build/predictor_ui/predictor_ui.egg-info/PKG-INFO\n'}
+[1.250415] (predictor_ui) StdoutLine: {'line': b'writing dependency_links to ../../build/predictor_ui/predictor_ui.egg-info/dependency_links.txt\n'}
+[1.250745] (predictor_ui) StdoutLine: {'line': b'writing entry points to ../../build/predictor_ui/predictor_ui.egg-info/entry_points.txt\n'}
+[1.251030] (predictor_ui) StdoutLine: {'line': b'writing requirements to ../../build/predictor_ui/predictor_ui.egg-info/requires.txt\n'}
+[1.251107] (predictor_ui) StdoutLine: {'line': b'writing top-level names to ../../build/predictor_ui/predictor_ui.egg-info/top_level.txt\n'}
+[1.251171] (predictor_ui) StdoutLine: {'line': b"writing manifest file '../../build/predictor_ui/predictor_ui.egg-info/SOURCES.txt'\n"}
+[1.252527] (predictor_ui) StdoutLine: {'line': b"reading manifest file '../../build/predictor_ui/predictor_ui.egg-info/SOURCES.txt'\n"}
+[1.253322] (predictor_ui) StdoutLine: {'line': b"writing manifest file '../../build/predictor_ui/predictor_ui.egg-info/SOURCES.txt'\n"}
+[1.253656] (predictor_ui) StdoutLine: {'line': b'running build\n'}
+[1.253873] (predictor_ui) StdoutLine: {'line': b'running build_py\n'}
+[1.254169] (predictor_ui) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/predictor_ui/build\n'}
+[1.254451] (predictor_ui) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/predictor_ui/build/lib\n'}
+[1.254589] (predictor_ui) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/predictor_ui/build/lib/predictor_ui\n'}
+[1.254718] (predictor_ui) StdoutLine: {'line': b'copying predictor_ui/ui_node.py -> /home/duy/cocarry_ws/build/predictor_ui/build/lib/predictor_ui\n'}
+[1.254874] (predictor_ui) StdoutLine: {'line': b'copying predictor_ui/__init__.py -> /home/duy/cocarry_ws/build/predictor_ui/build/lib/predictor_ui\n'}
+[1.255023] (predictor_ui) StdoutLine: {'line': b'running install\n'}
+[1.255146] (predictor_ui) StdoutLine: {'line': b'running install_lib\n'}
+[1.255519] (predictor_ui) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui\n'}
+[1.255773] (predictor_ui) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/predictor_ui/build/lib/predictor_ui/ui_node.py -> /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui\n'}
+[1.255941] (predictor_ui) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/predictor_ui/build/lib/predictor_ui/__init__.py -> /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui\n'}
+[1.256425] (predictor_ui) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui/ui_node.py to ui_node.cpython-310.pyc\n'}
+[1.262754] (predictor_ui) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui/__init__.py to __init__.cpython-310.pyc\n'}
+[1.263306] (predictor_ui) StdoutLine: {'line': b'running install_data\n'}
+[1.263635] (predictor_ui) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/predictor_ui/share/ament_index\n'}
+[1.263769] (predictor_ui) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/predictor_ui/share/ament_index/resource_index\n'}
+[1.263994] (predictor_ui) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/predictor_ui/share/ament_index/resource_index/packages\n'}
+[1.264127] (predictor_ui) StdoutLine: {'line': b'copying resource/predictor_ui -> /home/duy/cocarry_ws/install/predictor_ui/share/ament_index/resource_index/packages\n'}
+[1.264240] (predictor_ui) StdoutLine: {'line': b'copying package.xml -> /home/duy/cocarry_ws/install/predictor_ui/share/predictor_ui\n'}
+[1.264352] (predictor_ui) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.267034] (predictor_ui) StdoutLine: {'line': b'Copying ../../build/predictor_ui/predictor_ui.egg-info to /home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages/predictor_ui-0.1.0-py3.10.egg-info\n'}
+[1.267706] (predictor_ui) StdoutLine: {'line': b'running install_scripts\n'}
+[1.288319] (experiment_logger) CommandEnded: {'returncode': 0}
+[1.293033] (predictor_ui) StdoutLine: {'line': b'Installing ui_node script to /home/duy/cocarry_ws/install/predictor_ui/lib/predictor_ui\n'}
+[1.293300] (predictor_ui) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/predictor_ui/install.log'\n"}
+[1.304199] (-) TimerEvent: {}
+[1.309328] (experiment_logger) JobEnded: {'identifier': 'experiment_logger', 'rc': 0}
+[1.327084] (predictor_ui) CommandEnded: {'returncode': 0}
+[1.334057] (predictor_ui) JobEnded: {'identifier': 'predictor_ui', 'rc': 0}
+[1.334621] (-) EventReactorShutdown: {}

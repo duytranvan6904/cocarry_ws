@@ -1,0 +1,51 @@
+[INFO] [1779685172.226224471] [coord_transform]: CoordTransformNode khởi động.
+  Object offset (cam frame): [0.05 0.   0.1 ]
+  Translation cam→base:      [0.5 0.  1.2]
+  EE orientation (xyzw):     [0.0, 1.0, 0.0, 0.0]
+  Prediction step:           5
+  Axis remap:                [0, 1, 2]
+  Axis sign:                 [-1.0, 1.0, 1.0]
+  Workspace X: (-1.0, 1.0), Y: (-0.5, 1.3), Z: (0.05, 1.5)
+  Filter outlier_threshold:  0.15m
+  Filter median_size_y:      3
+  Filter deadband_tol:       25.0mm
+  Filter stationary_thresh:  3 frames
+  Filter max_rate:           5.0cm/frame
+  Filter EMA moving(x,y,z):  (0.75,0.5,0.75)
+  Filter EMA hold  (x,y,z):  (0.08,0.02,0.05)
+[WARN] [1779685227.965807566] [coord_transform]: Outlier rejected #1 (jumped 2311.0mm). Ignoring.
+[WARN] [1779685228.004380812] [coord_transform]: Outlier rejected #2 (jumped 2311.0mm). Ignoring.
+[WARN] [1779685228.041779910] [coord_transform]: Outlier rejected #3 (jumped 2285.3mm). Ignoring.
+[WARN] [1779685228.074975477] [coord_transform]: Outlier rejected #4 (jumped 2310.4mm). Ignoring.
+[INFO] [1779685228.114991746] [coord_transform]: Too many outliers (5). Resetting filter to new position.
+[INFO] [1779685239.525659270] [coord_transform]: Captured Init Pose! P_init=(-0.164, 0.263, 0.395), Cam_init=(0.087, 0.007, -0.008), Noise_Tol=44.5mm
+Orientation=(0.717, 0.696, -0.032, 0.022)
+[INFO] [1779685239.547021707] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685239.686971271] [coord_transform]: Deadband: HOLD at (0.087, 0.007, -0.008)
+[INFO] [1779685246.973756747] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685247.003362850] [coord_transform]: Deadband: HOLD at (0.087, 0.007, -0.008)
+[INFO] [1779685249.003820372] [coord_transform]: Deadband: HOLD at (0.087, 0.007, -0.008)
+[INFO] [1779685249.036718097] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685251.013028827] [coord_transform]: Deadband: HOLD at (0.087, 0.007, -0.008)
+[INFO] [1779685253.338705796] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685253.381210382] [coord_transform]: Deadband: HOLD at (0.087, 0.007, -0.008)
+[INFO] [1779685255.477268433] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685255.514209003] [coord_transform]: Deadband: HOLD at (0.087, 0.007, -0.008)
+[INFO] [1779685257.878487604] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685257.918675712] [coord_transform]: Deadband: HOLD at (0.087, 0.007, -0.008)
+[INFO] [1779685258.687907634] [coord_transform]: Re-sync camera init: [ 0.097 -0.009 -0.006]
+[INFO] [1779685258.688200499] [coord_transform]: Trạng thái tracking: RUNNING
+[INFO] [1779685258.719188671] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.099 -0.025 -0.011] → base[-0.166  0.247  0.389]
+[INFO] [1779685260.124385130] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1779685260.169369586] [coord_transform]: Deadband: HOLD at (0.097, -0.009, -0.006)
+[INFO] [1779685260.722073928] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.092 0.029 0.078] → base[-0.159  0.301  0.478]
+[INFO] [1779685262.757740782] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.087 0.183 0.24 ] → base[-0.155  0.455  0.64 ]
+[INFO] [1779685264.793228592] [coord_transform]: [GROUND_TRUTH] Transform: cam[-0.02   0.462  0.286] → base[-0.048  0.734  0.686]
+[INFO] [1779685266.825744724] [coord_transform]: [GROUND_TRUTH] Transform: cam[-0.013  0.627  0.135] → base[-0.054  0.899  0.536]
+[INFO] [1779685268.859865331] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.002  0.641 -0.055] → base[-0.069  0.913  0.345]
+[INFO] [1779685270.890527819] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.001  0.628 -0.058] → base[-0.068  0.9    0.342]
+[INFO] [1779685272.926582620] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.011 0.604 0.172] → base[-0.078  0.876  0.572]
+[INFO] [1779685274.963524322] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.018 0.418 0.285] → base[-0.085  0.69   0.685]
+[INFO] [1779685276.967252131] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.019 0.238 0.251] → base[-0.086  0.51   0.651]
+[INFO] [1779685279.256001657] [coord_transform]: [GROUND_TRUTH] Transform: cam[0.033 0.196 0.222] → base[-0.1    0.468  0.622]
+[INFO] [1779685279.972370660] [coord_transform]: Trạng thái tracking: STOPPED
