@@ -59,9 +59,9 @@ coord_transform:
     # EMA alpha khi ĐANG DI CHUYỂN (0 = không theo, 1 = raw)
     # Đã tăng mạnh alpha để robot phản hồi gần như tức thời (giảm trễ).
     # Vì đã có cơ chế HOLD cực chặt khi tay dừng, ta không cần lọc quá mạnh lúc di chuyển nữa.
-    filter.ema_x_moving: 0.65
-    filter.ema_y_moving: 0.40
-    filter.ema_z_moving: 0.65
+    filter.ema_x_moving: 0.75
+    filter.ema_y_moving: 0.50
+    filter.ema_z_moving: 0.75
 
     # EMA alpha khi ĐANG HOLD (lock vị trí)
     # Giữ càng thấp càng tốt để robot đứng yên hoàn toàn

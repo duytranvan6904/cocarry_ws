@@ -14,7 +14,7 @@ trajectory_predictor:
     clear_on_tracking_lost: 1.0
     default_model: gru
     filter:
-      ema_alpha: 0.6
+      ema_alpha: 0.8
       enabled: false
       max_deviation: 0.1
       max_rate: 0.06

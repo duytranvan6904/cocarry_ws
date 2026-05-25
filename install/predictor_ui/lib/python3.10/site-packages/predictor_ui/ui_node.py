@@ -196,6 +196,10 @@ class PredictorUiNode(Node):
     def call_logger_toggle(self, enable: bool):
         if not self._logger_cli.service_is_ready():
             self.get_logger().warn('[UI] /logger/toggle not ready')
+            try:
+                QtWidgets.QMessageBox.critical(None, "Service Error", "Logger service (/logger/toggle) is not ready. The logger node might have crashed or not started.")
+            except Exception:
+                pass
             return
         req = SetBool.Request()
         req.data = enable
@@ -541,10 +545,14 @@ class DashboardWindow:
         if checked:
             if not self.node._is_calibrated:
                 self._set_status('State: ALIGN | Calibrate camera first')
+                self.node.get_logger().warn('[UI] Cannot start: Calibrate camera first!')
+                QtWidgets.QMessageBox.warning(self.win, "Action Required", "Please click 'Calibrate Camera' before starting the run.")
                 self.btn_pred.setChecked(False)
                 return
             if not self.node._is_init_pose_captured:
                 self._set_status('State: ALIGN | Capture init pose first')
+                self.node.get_logger().warn('[UI] Cannot start: Capture init pose first!')
+                QtWidgets.QMessageBox.warning(self.win, "Action Required", "Please click 'Capture Init Pose' before starting the run.")
                 self.btn_pred.setChecked(False)
                 return
         
@@ -574,7 +582,7 @@ class DashboardWindow:
                 req = SetBool.Request()
                 req.data = False
                 self.node._streamer_enable_cli.call_async(req)
-                self.get_logger().info('[UI] Auto-disabled robot on Stop Run')
+                self.node.get_logger().info('[UI] Auto-disabled robot on Stop Run')
         
         mode_str = f'({self.node._trajectory_mode.replace("_", " ").upper()})'
         self._set_status('State: RUN | Streaming enabled ' + mode_str if checked else 'State: STOPPED | Robot disabled')
