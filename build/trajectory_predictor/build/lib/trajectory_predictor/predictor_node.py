@@ -34,21 +34,21 @@ class PredictorNode(Node):
         # ── Parameters ──────────────────────────────────────────────────────
         self.declare_parameter('model_dir', '')
         self.declare_parameter('default_model', 'gru')
-        self.declare_parameter('scaler_x_file', 'scaler_x_Ts5.pkl')
-        self.declare_parameter('scaler_y_file', 'scaler_y_Ts5.pkl')
+        self.declare_parameter('scaler_x_file', 'scaler_x_Ts3.pkl')
+        self.declare_parameter('scaler_y_file', 'scaler_y_Ts3.pkl')
         self.declare_parameter('window_size', 20)
         self.declare_parameter('num_features', 6)
         self.declare_parameter('auto_start', False)
         self.declare_parameter('clear_on_tracking_lost', 1.0)
-        self.declare_parameter('model_files.rnn', 'rnn_model_Ts5.h5')
-        self.declare_parameter('model_files.gru', 'gru_model_Ts5.h5')
-        self.declare_parameter('model_files.lstm', 'lstm_model_Ts5.h5')
+        self.declare_parameter('model_files.rnn', 'rnn_model_Ts3.h5')
+        self.declare_parameter('model_files.gru', 'gru_model_Ts3.h5')
+        self.declare_parameter('model_files.lstm', 'lstm_model_Ts3.h5')
         # Path tới Python venv (nếu có), nếu không dùng sys.executable
         self.declare_parameter('venv_python', '')
 
         # ── Output filter parameters ─────────────────────────────────────────
         # Proximity clamp: max deviation from last measured position (m)
-        self.declare_parameter('filter.max_deviation', 0.25)
+        self.declare_parameter('filter.max_deviation', 0.15)
         # Rate limiter: max change per frame (m). At 30Hz, 0.04m ≈ 1.2 m/s
         self.declare_parameter('filter.max_rate', 0.04)
         # EMA smoothing factor (0 = no smoothing, 1 = raw prediction)
@@ -112,6 +112,9 @@ class PredictorNode(Node):
 
         # Model switch command từ UI hay bridge
         self.create_subscription(String, '/predictor/model_cmd', self._on_model_cmd, 5)
+
+        # Trajectory mode to automatically sync predicting state
+        self.create_subscription(String, '/trajectory_mode', self._on_trajectory_mode, 10)
 
         # ── Services ─────────────────────────────────────────────────────────
         self.create_service(SetBool, '/predictor/toggle', self._srv_toggle)
@@ -279,6 +282,21 @@ class PredictorNode(Node):
         # (bridge gửi raw coords qua HandPrediction với model_name='raw')
         if msg.model_name == 'raw' or msg.model_name == '':
             self._ingest_point(msg.x, msg.y, msg.z)
+
+    def _on_trajectory_mode(self, msg: String):
+        """Tự động đồng bộ trạng thái predicting khi mode thay đổi."""
+        mode = msg.data
+        if mode == 'prediction':
+            if not self._predicting:
+                self._predicting = True
+                self.get_logger().info('[Predictor] Auto-enabled prediction mode via /trajectory_mode')
+        else:
+            if self._predicting:
+                self._predicting = False
+                self._buffer.clear()
+                self._last_filtered = None
+                self._filter_reject_count = 0
+                self.get_logger().info('[Predictor] Auto-disabled prediction mode via /trajectory_mode')
 
     def _ingest_point(self, x: float, y: float, z: float):
         now = time.time()

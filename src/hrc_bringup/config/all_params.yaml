@@ -1,7 +1,7 @@
 experiment_logger:
   ros__parameters:
     auto_start: true
-    log_dir: /home/duy/hrc_logs
+    log_dir: /home/duy/cocarry_ws/cocarry_logs
 realsense_tracker:
   ros__parameters:
     # model_path is passed dynamically from the launch file
@@ -15,15 +15,15 @@ trajectory_predictor:
     default_model: gru
     filter:
       ema_alpha: 0.6
-      enabled: true
+      enabled: false
       max_deviation: 0.1
       max_rate: 0.06
-    model_dir: /home/duy/Experiment/Trained model
+    model_dir: /home/duy/cocarry_ws/src/GRU-Model
     model_files:
-      gru: gru_velocity_3_layers.h5
-      lstm: lstm_velocity_3_layers.h5
-      rnn: rnn_velocity_3_layers.h5
-    num_features: 3
-    scaler_x_file: scaler_x.pkl
-    scaler_y_file: scaler_y.pkl
+      gru: gru_model_Ts5.h5
+      lstm: lstm_model_Ts5.h5
+      rnn: rnn_model_Ts5.h5
+    num_features: 6
+    scaler_x_file: scaler_x_Ts5.pkl
+    scaler_y_file: scaler_y_Ts5.pkl
     window_size: 20

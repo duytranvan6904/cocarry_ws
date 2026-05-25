@@ -94,9 +94,9 @@ MAX_JOINT_DELTA_PER_AXIS = [
 # Tốc độ tối đa End-Effector trong không gian Cartesian (m/s)
 # ISO 10218-2 / ISO/TS 15066: collaborative speed limit thường 0.25 m/s
 # Tăng 0.10→0.15 để giảm trễ bám theo, vẫn an toàn cộng tác
-MAX_CARTESIAN_VELOCITY = 0.12     # m/s — tăng từ 0.10 để giảm lag
-MAX_CARTESIAN_ACCELERATION = 0.40 # m/s² — tăng nhẹ cho khởng đi nhanh hơn
-MAX_CARTESIAN_JERK = 2.0          # m/s³ — tăng nhẹ cho response nhanh hơn
+MAX_CARTESIAN_VELOCITY = 0.15     # m/s — tăng từ 0.10 để giảm lag
+MAX_CARTESIAN_ACCELERATION = 0.50 # m/s² — tăng nhẹ cho khởng đi nhanh hơn
+MAX_CARTESIAN_JERK = 10.0          # m/s³ — tăng nhẹ cho response nhanh hơn
 
 # Tốc độ góc tối đa cho mỗi khớp (rad/s) — PER JOINT
 # Giảm từ 0.30/0.10 để conservative hơn, tránh PFL

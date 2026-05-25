@@ -23,8 +23,9 @@ AMENT_CMAKE_ENVIRONMENT_PACKAGE_GENERATION:BOOL=ON
 //Generate marker file containing the parent prefix path
 AMENT_CMAKE_ENVIRONMENT_PARENT_PREFIX_PATH_GENERATION:BOOL=ON
 
-//No help, variable specified on the command line.
-AMENT_CMAKE_SYMLINK_INSTALL:UNINITIALIZED=1
+//Replace the CMake install command with a custom implementation
+// using symlinks instead of copying resources
+AMENT_CMAKE_SYMLINK_INSTALL:BOOL=1
 
 //Generate an uninstall target to revert the effects of the install
 // step
@@ -599,7 +600,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

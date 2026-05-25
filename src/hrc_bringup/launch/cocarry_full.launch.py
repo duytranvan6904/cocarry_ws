@@ -35,6 +35,10 @@ def generate_launch_description():
     env_fix = SetEnvironmentVariable(
         'PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION', 'python')
 
+    ros_log_fix = SetEnvironmentVariable(
+        'ROS_LOG_DIR',
+        os.path.expanduser('~/cocarry_ws/cocarry_logs/ros_log'))
+
     # ── Launch arguments ──────────────────────────────────────────────────
     model_dir_arg = DeclareLaunchArgument(
         'model_dir',
@@ -43,7 +47,7 @@ def generate_launch_description():
 
     log_dir_arg = DeclareLaunchArgument(
         'log_dir',
-        default_value=os.path.expanduser('~/cocarry_logs'),
+        default_value=os.path.expanduser('~/cocarry_ws/cocarry_logs'),
         description='Directory for experiment CSV logs')
 
     # ── Config paths ──────────────────────────────────────────────────────
@@ -125,6 +129,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         env_fix,
+        ros_log_fix,
         model_dir_arg,
         log_dir_arg,
         realsense_node,

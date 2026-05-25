@@ -16,7 +16,7 @@ def generate_launch_description():
     )
     log_dir_arg = DeclareLaunchArgument(
         'log_dir',
-        default_value=os.path.expanduser('~/cocarry_logs'),
+        default_value=os.path.expanduser('~/cocarry_ws/cocarry_logs'),
         description='Directory for experiment CSV logs',
     )
 

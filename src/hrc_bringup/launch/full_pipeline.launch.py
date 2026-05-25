@@ -55,15 +55,15 @@ def generate_launch_description():
         parameters=[{
             'model_dir': LaunchConfiguration('model_dir'),
             'default_model': 'gru',
-            'scaler_x_file': 'scaler_x_Ts5.pkl',
-            'scaler_y_file': 'scaler_y_Ts5.pkl',
+            'scaler_x_file': 'scaler_x_Ts3.pkl',
+            'scaler_y_file': 'scaler_y_Ts3.pkl',
             'window_size': 20,
             'num_features': 6,
             'auto_start': False,
             'clear_on_tracking_lost': 1.0,
-            'model_files.rnn': 'rnn_model_Ts5.h5',
-            'model_files.gru': 'gru_model_Ts5.h5',
-            'model_files.lstm': 'lstm_model_Ts5.h5',
+            'model_files.rnn': 'rnn_model_Ts3.h5',
+            'model_files.gru': 'gru_model_Ts3.h5',
+            'model_files.lstm': 'lstm_model_Ts3.h5',
         }],
     )
 

@@ -133,6 +133,65 @@ ros2 launch hrc_bringup cocarry_full.launch.py
 
 ---
 
+### Tùy chọn C: Điều khiển qua CLI (Headless/No-GUI Mode)
+
+Nếu giao diện UI Dashboard gặp lỗi đồ họa (ví dụ: lỗi thư viện X11/XCB trong môi trường ảo hóa Docker/SSH), bạn hoàn toàn có thể điều khiển toàn bộ quy trình thực nghiệm (Calibrate, Capture Init Pose, Mode Switch, Enable, Run) trực tiếp bằng dòng lệnh ROS 2 CLI:
+
+1. **Khởi chạy Hệ thống Simulation (Không có UI):**
+```bash
+ros2 launch hrc_bringup cocarry_sim_gui.launch.py
+```
+*(Nếu UI bị crash, các node xử lý nền như predictor, transform, cartesian_streamer, và realsense_tracker vẫn tiếp tục hoạt động bình thường).*
+
+2. **Bước 1: Thiết lập gốc tọa độ người (Calibrate Camera):**
+```bash
+ros2 service call /coord_transform/calibrate std_srvs/srv/Trigger "{}"
+```
+
+3. **Bước 2: Chốt vị trí ban đầu của robot (Capture Init Pose):**
+```bash
+ros2 service call /coord_transform/capture_init_pose std_srvs/srv/Trigger "{}"
+```
+
+4. **Bước 3: Chọn chế độ quỹ đạo (Mode Switch):**
+- Chế độ dự đoán AI (Prediction Mode):
+  ```bash
+  ros2 topic pub /trajectory_mode std_msgs/msg/String "{data: 'prediction'}" --once
+  ```
+  *(Khi chuyển sang chế độ này, bộ dự đoán `trajectory_predictor` sẽ tự động kích hoạt model GRU và bắt đầu xuất kết quả dự đoán).*
+- Chế độ trực tiếp (Ground Truth Mode):
+  ```bash
+  ros2 topic pub /trajectory_mode std_msgs/msg/String "{data: 'ground_truth'}" --once
+  ```
+
+5. **Bước 4: Kích hoạt điều khiển robot (Enable Streamer):**
+```bash
+ros2 service call /cartesian_streamer/enable std_srvs/srv/SetBool "{data: true}"
+```
+
+6. **Bước 5: Bắt đầu truyền dữ liệu và ghi log (Start Run):**
+```bash
+ros2 topic pub /run_status std_msgs/msg/Bool "{data: true}" --once
+ros2 service call /logger/toggle std_srvs/srv/SetBool "{data: true}"
+```
+
+7. **Bước 6: Dừng chương trình an toàn (Stop Run & Disable):**
+- Dừng truyền dữ liệu và tắt logger:
+  ```bash
+  ros2 topic pub /run_status std_msgs/msg/Bool "{data: false}" --once
+  ros2 service call /logger/toggle std_srvs/srv/SetBool "{data: false}"
+  ```
+- Tắt điều khiển streamer:
+  ```bash
+  ros2 service call /cartesian_streamer/enable std_srvs/srv/SetBool "{data: false}"
+  ```
+- Đưa robot về vị trí Home:
+  ```bash
+  python3 src/hc10dtp_bringup/scripts/go_home.py
+  ```
+
+---
+
 ## Kiến trúc Luồng Dữ Liệu (Data Pipeline)
 
 Hệ thống được thiết kế để bù đắp các độ trễ từ Mạng nội bộ, Camera, và Quá trình giải IK, giúp robot bắt kịp với người ở thời gian thực `(Total system latency ≈ 165ms)`.
@@ -200,6 +259,17 @@ Sampling period (resampled): dt = 10 ms (100 Hz)
 ==================================================
 ```
 *(Nếu môi trường chạy hỗ trợ giao diện đồ họa, script sẽ hiển thị biểu đồ so sánh tốc độ chuyển động trực quan và đỉnh tương quan chéo).*
+
+### 3. Giải thích ý nghĩa các thông số kết quả
+* **Total rows analyzed:** Tổng số hàng dữ liệu ghi nhận được từ cuộc thử nghiệm.
+* **Sampling period (dt):** Chu kỳ nội suy dữ liệu về lưới thời gian đều (mặc định $10\text{ ms} = 100\text{ Hz}$). Giúp độ phân giải của phép đo trễ đạt độ chính xác tới $10\text{ ms}$.
+* **1. Hand tracking to Robot physical movement (Total delay):**
+  * `Delay`: Tổng độ trễ thực tế từ lúc tay bạn chuyển động đến khi robot thực sự di chuyển theo (bao gồm trễ camera, trễ mạng, trễ giải IK và quán tính cơ khí robot).
+  * `Correlation`: Hệ số tương quan chuyển động ($0.0 \to 1.0$). Giá trị $> 0.6$ biểu thị sự đồng bộ tốt. Càng gần $1.0$ tức robot bám theo tay người càng mượt mà và chính xác.
+* **2. Hand tracking to ML predictor output (Predictor phase shift):**
+  * `Lead (Anticipation)` / `Lag (Delay)`: Khoảng thời gian mô hình AI đi trước (Lead) hoặc đi sau (Lag) chuyển động thực tế của người. Giá trị `Lead` thể hiện lượng thời gian mà bộ dự đoán GRU/LSTM đang bù trễ cho hệ thống.
+* **3. ML Predictor to Robot physical movement:**
+  * `Delay`: Khoảng thời gian trễ từ khi mô hình AI xuất ra vị trí dự đoán tương lai đến khi robot thực sự di chuyển tới đó (chủ yếu do giới hạn an toàn vật lý của robot và tốc độ hàng đợi Queue của controller Yaskawa).
 
 ---
 
