@@ -235,7 +235,7 @@ Chạy công cụ phân tích tương quan chéo trên file log vừa tạo đ�
 ros2 run experiment_logger analyze_latency
 
 # Hoặc chỉ định chính xác file log cần phân tích
-ros2 run experiment_logger analyze_latency --csv ~/hrc_logs/experiment_GRU_20260524_120000.csv
+ros2 run experiment_logger analyze_latency --csv /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260525_121439.csv
 ```
 
 #### Kết quả phân tích (Ví dụ):
