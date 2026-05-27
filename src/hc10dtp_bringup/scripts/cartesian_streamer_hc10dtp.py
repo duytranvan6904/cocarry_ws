@@ -31,6 +31,12 @@ import math
 import threading
 import argparse
 import time as _time
+import os
+import sys
+
+# Import local IK solver (cùng thư mục)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from local_ik_solver import LocalIKSolver
 
 import rclpy
 from rclpy.node import Node
@@ -135,6 +141,9 @@ JOINT_DEADBAND_RAD = 0.01
 # IK cache: nếu target Cartesian thay đổi < ngưỡng này → dùng lại IK cũ
 # 0.01m = 1cm — dưới ngưỡng phân giải IK solver
 IK_CACHE_TOLERANCE_M = 0.01
+
+# Local IK: auto-fallback nếu fail liên tục
+LOCAL_IK_MAX_CONSECUTIVE_FAILS = 10
 STREAM_STATE_IDLE = 'idle'
 STREAM_STATE_SEEDING = 'seeding'
 STREAM_STATE_PREBUFFERING = 'prebuffering'
@@ -150,6 +159,7 @@ class CartesianStreamer(Node):
         prebuffer_points: int = QUEUE_PREBUFFER_POINTS,
         retry_backoff_sec: float = QUEUE_RETRY_BACKOFF_SEC,
         auto_enable: bool = False,
+        use_moveit_ik: bool = False,
     ):
         super().__init__('cartesian_streamer')
         self._stream_hz = stream_hz
@@ -223,6 +233,12 @@ class CartesianStreamer(Node):
         # IK failure counter — để phát hiện stuck
         self._ik_fail_count = 0
         self._last_ok_joints: list[float] = [0.0] * 6
+
+        # ── Local IK Solver ──────────────────────────────────────
+        self._use_moveit_ik = use_moveit_ik
+        self._local_ik = LocalIKSolver()
+        self._local_ik_consecutive_fails = 0
+        self._local_ik_validated = False  # FK cross-validated với MoveIt!
         self._prev_joint_snapshot: list[float] = [0.0] * 6
 
         # ── Subscribers ──────────────────────────────────────────
@@ -381,8 +397,14 @@ class CartesianStreamer(Node):
             return
         self._startup_timer.cancel()
 
+        # Cross-validate local FK với MoveIt! FK
+        self._validate_local_fk(list(self._current_joints))
+
         # Tính FK để biết EE hiện tại, publish /cartesian_streamer/current_pose
-        initial_pose = self._solve_fk_sync(list(self._current_joints))
+        initial_pose = self._solve_fk_local_as_pose(list(self._current_joints))
+        if initial_pose is None:
+            # Fallback to MoveIt! FK
+            initial_pose = self._solve_fk_sync(list(self._current_joints))
         if initial_pose:
             self._current_ee_pose = initial_pose
             fb = PoseStamped()
@@ -390,12 +412,14 @@ class CartesianStreamer(Node):
             fb.header.stamp = self.get_clock().now().to_msg()
             fb.pose = initial_pose
             self._ee_pub.publish(fb)
+            ik_mode = 'MoveIt! TRAC-IK' if self._use_moveit_ik else 'Local DLS'
             if self._auto_enable:
                 self.get_logger().info(
                     f'Đã nhận joint_states. EE hiện tại: '
                     f'({initial_pose.position.x:.4f}, '
                     f'{initial_pose.position.y:.4f}, '
                     f'{initial_pose.position.z:.4f}). '
+                    f'IK mode: {ik_mode}. '
                     f'Auto-enable is ON. Tự động bật robot sau 1s...'
                 )
                 import threading
@@ -406,6 +430,7 @@ class CartesianStreamer(Node):
                     f'({initial_pose.position.x:.4f}, '
                     f'{initial_pose.position.y:.4f}, '
                     f'{initial_pose.position.z:.4f}). '
+                    f'IK mode: {ik_mode}. '
                     f'Chờ Enable Robot từ UI...'
                 )
         else:
@@ -420,8 +445,10 @@ class CartesianStreamer(Node):
         if not self._got_joints:
             return
             
-        # Giải FK tĩnh để lấy vị trí
-        pose = self._solve_fk_sync(list(self._current_joints))
+        # Giải FK tĩnh để lấy vị trí — dùng local FK (nhanh, không RPC)
+        pose = self._solve_fk_local_as_pose(list(self._current_joints))
+        if pose is None:
+            pose = self._solve_fk_sync(list(self._current_joints))
         if pose:
             self._current_ee_pose = pose
             fb = PoseStamped()
@@ -573,8 +600,10 @@ class CartesianStreamer(Node):
 
             # ── Bước 0: Khởi tạo ─────────────────────────────────────
             if self._stream_state == STREAM_STATE_SEEDING:
-                # Bootstrap initial EE pose via FK
-                initial_pose = self._solve_fk_sync(list(self._current_joints))
+                # Bootstrap initial EE pose via local FK (fast, no RPC)
+                initial_pose = self._solve_fk_local_as_pose(list(self._current_joints))
+                if initial_pose is None:
+                    initial_pose = self._solve_fk_sync(list(self._current_joints))
                 if initial_pose:
                     self._current_ee_pose = initial_pose
                     fb = PoseStamped()
@@ -619,14 +648,18 @@ class CartesianStreamer(Node):
             fb.pose = smoothed
             self._ee_pub.publish(fb)
 
-            # ── Bước 3: Request IK nếu chưa có request pending ──────────────────────────────────
-            if not self._ik_request_pending:
-                self._request_ik_async(smoothed)
-
-            joint_solution = self._latest_ik_solution
+            # ── Bước 3: Giải IK ─────────────────────────────────────
+            if self._use_moveit_ik:
+                # MoveIt! mode (async, trễ 1 tick)
+                if not self._ik_request_pending:
+                    self._request_ik_async(smoothed)
+                joint_solution = self._latest_ik_solution
+            else:
+                # Local IK mode (sync, trong cùng tick — KHÔNG trễ)
+                joint_solution = self._solve_ik_local(smoothed)
 
             if joint_solution is None:
-                # IK chưa có (hoặc delay) → giữ vị trí cũ (hold-point)
+                # IK thất bại → giữ vị trí cũ (hold-point)
                 self._send_joint_point(list(self._last_queued_joints), is_hold=True)
                 return
 
@@ -681,7 +714,122 @@ class CartesianStreamer(Node):
             self.get_logger().error(f'_stream_tick exception: {e}')
 
     # ═══════════════════════════════════════════════════════════════
-    # IK SOLVER (Bất đồng bộ)
+    # LOCAL IK/FK (Đồng bộ, trong process — KHÔNG qua ROS service)
+    # ═══════════════════════════════════════════════════════════════
+
+    def _solve_ik_local(self, target_pose: Pose) -> list[float] | None:
+        """
+        Giải IK đồng bộ bằng LocalIKSolver (DLS Jacobian).
+        Nhanh hơn MoveIt! ~20-80x, chạy trong cùng tick.
+
+        Auto-fallback: nếu fail liên tục > LOCAL_IK_MAX_CONSECUTIVE_FAILS,
+        tự động gọi MoveIt! IK cho tick đó.
+        """
+        # Target position + quaternion
+        target_pos = [
+            target_pose.position.x,
+            target_pose.position.y,
+            target_pose.position.z,
+        ]
+        target_quat = [
+            target_pose.orientation.x,
+            target_pose.orientation.y,
+            target_pose.orientation.z,
+            target_pose.orientation.w,
+        ]
+
+        # Seed: dùng nghiệm IK trước đó nếu có, ngược lại dùng last_queued_joints
+        if self._latest_ik_solution is not None:
+            seed = list(self._latest_ik_solution)
+        else:
+            seed = list(self._last_queued_joints)
+
+        solution = self._local_ik.solve_ik(
+            target_position=target_pos,
+            target_quaternion=target_quat,
+            seed_joints=seed,
+            joint_limits=SOFT_JOINT_LIMITS,
+        )
+
+        if solution is not None:
+            self._local_ik_consecutive_fails = 0
+            self._latest_ik_solution = solution
+            self._ik_fail_count = 0
+            return solution
+
+        # Local IK failed
+        self._local_ik_consecutive_fails += 1
+        self._ik_fail_count += 1
+
+        if self._local_ik_consecutive_fails >= LOCAL_IK_MAX_CONSECUTIVE_FAILS:
+            # Auto-fallback: thử MoveIt! IK cho tick này
+            self.get_logger().warn(
+                f'Local IK failed {self._local_ik_consecutive_fails}x liên tiếp! '
+                f'Fallback sang MoveIt! IK...',
+                throttle_duration_sec=2.0)
+            if not self._ik_request_pending:
+                self._request_ik_async(target_pose)
+            return self._latest_ik_solution
+
+        self.get_logger().info(
+            f'Local IK không hội tụ (fail #{self._local_ik_consecutive_fails})',
+            throttle_duration_sec=1.0)
+        return None
+
+    def _solve_fk_local_as_pose(self, joints: list[float]) -> Pose | None:
+        """
+        Giải FK local → trả về Pose (ROS msg).
+        Nhanh hơn _solve_fk_sync() ~100x vì không qua ROS service.
+        """
+        try:
+            import numpy as np
+            pos, quat = self._local_ik.fk_pose(joints)
+            pose = Pose()
+            pose.position = Point(x=float(pos[0]), y=float(pos[1]), z=float(pos[2]))
+            pose.orientation = Quaternion(
+                x=float(quat[0]), y=float(quat[1]),
+                z=float(quat[2]), w=float(quat[3]))
+            return pose
+        except Exception as e:
+            self.get_logger().error(f'Local FK exception: {e}', throttle_duration_sec=2.0)
+            return None
+
+    def _validate_local_fk(self, joints: list[float]):
+        """
+        Cross-validate local FK với MoveIt! FK.
+        Gọi 1 lần khi khởi động. Nếu sai lệch > 1mm → disable local IK.
+        """
+        local_pose = self._solve_fk_local_as_pose(joints)
+        moveit_pose = self._solve_fk_sync(joints)
+
+        if local_pose is None or moveit_pose is None:
+            self.get_logger().warn(
+                'Không thể cross-validate FK (local hoặc MoveIt! FK thất bại). '
+                'Local IK vẫn hoạt động nhưng CHƯA ĐƯỢC VALIDATE.')
+            return
+
+        dx = local_pose.position.x - moveit_pose.position.x
+        dy = local_pose.position.y - moveit_pose.position.y
+        dz = local_pose.position.z - moveit_pose.position.z
+        import math
+        error_mm = math.sqrt(dx*dx + dy*dy + dz*dz) * 1000
+
+        if error_mm > 1.0:
+            self.get_logger().error(
+                f'⚠ FK CROSS-VALIDATION FAILED! Error = {error_mm:.2f}mm > 1mm!\n'
+                f'  Local FK:  ({local_pose.position.x:.5f}, {local_pose.position.y:.5f}, {local_pose.position.z:.5f})\n'
+                f'  MoveIt FK: ({moveit_pose.position.x:.5f}, {moveit_pose.position.y:.5f}, {moveit_pose.position.z:.5f})\n'
+                f'  → DISABLING local IK, fallback to MoveIt!')
+            self._use_moveit_ik = True
+        else:
+            self._local_ik_validated = True
+            self.get_logger().info(
+                f'✓ FK cross-validation PASSED. Error = {error_mm:.4f}mm\n'
+                f'  Local FK:  ({local_pose.position.x:.5f}, {local_pose.position.y:.5f}, {local_pose.position.z:.5f})\n'
+                f'  MoveIt FK: ({moveit_pose.position.x:.5f}, {moveit_pose.position.y:.5f}, {moveit_pose.position.z:.5f})')
+
+    # ═══════════════════════════════════════════════════════════════
+    # IK SOLVER — MoveIt! (Bất đồng bộ, fallback)
     # ═══════════════════════════════════════════════════════════════
 
     def _request_ik_async(self, target_pose: Pose):
@@ -1171,6 +1319,10 @@ class CartesianStreamer(Node):
             if self._window_ack_interval_count > 0 else 0.0
         )
         cumul_sec = self._cumulative_time_ns / 1e9
+        # IK stats
+        ik_stats = self._local_ik.get_stats()
+        ik_mode = 'MoveIt!' if self._use_moveit_ik else 'Local'
+        ik_avg_ms = ik_stats['ik_avg_us'] / 1000.0
         self.get_logger().info(
             'Runtime rate: '
             f'state={self._stream_state}, '
@@ -1181,7 +1333,9 @@ class CartesianStreamer(Node):
             f'inter_ack_ms={inter_ack_ms:.1f}, '
             f'max_joint_delta={self._window_max_joint_delta:.3f}, '
             f'cumul_time={cumul_sec:.2f}s, '
-            f'hold_count={self._hold_point_count}'
+            f'hold_count={self._hold_point_count}, '
+            f'ik_mode={ik_mode}, ik_avg_ms={ik_avg_ms:.2f}, '
+            f'ik_fails={ik_stats["ik_fails"]}'
         )
         if self._last_target_update_ns > 0:
             target_age_s = (now.nanoseconds - self._last_target_update_ns) / 1e9
@@ -1377,6 +1531,9 @@ Ví dụ:
     parser.add_argument(
         '--max-jerk', type=float, default=MAX_CARTESIAN_JERK,
         help=f'Giới hạn jerk Cartesian (m/s³) [default: {MAX_CARTESIAN_JERK}]')
+    parser.add_argument(
+        '--use-moveit-ik', action='store_true', default=False,
+        help='Sử dụng MoveIt! TRAC-IK thay vì Local IK solver (chậm hơn nhưng fallback an toàn)')
     args, ros_args = parser.parse_known_args()
 
     # Áp dụng CLI overrides lên các hằng số an toàn
@@ -1403,6 +1560,7 @@ Ví dụ:
         prebuffer_points=max(args.prebuffer, 1),
         retry_backoff_sec=max(args.retry_backoff_ms, 0.0) / 1000.0,
         auto_enable=bool(args.demo),
+        use_moveit_ik=args.use_moveit_ik,
     )
     executor.add_node(streamer)
 
