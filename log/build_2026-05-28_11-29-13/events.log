@@ -1,0 +1,62 @@
+[0.000000] (-) TimerEvent: {}
+[0.000768] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000933] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000997] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.001016] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.001031] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.001046] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.001060] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.001074] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.001087] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.001101] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001113] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001127] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001140] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001154] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001167] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001181] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001194] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001207] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.001220] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001233] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001247] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001260] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001277] (trajectory_predictor) JobQueued: {'identifier': 'trajectory_predictor', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001298] (trajectory_predictor) JobStarted: {'identifier': 'trajectory_predictor'}
+[0.099320] (-) TimerEvent: {}
+[0.199827] (-) TimerEvent: {}
+[0.300183] (-) TimerEvent: {}
+[0.400588] (-) TimerEvent: {}
+[0.501108] (-) TimerEvent: {}
+[0.601459] (-) TimerEvent: {}
+[0.701947] (-) TimerEvent: {}
+[0.758856] (trajectory_predictor) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/trajectory_predictor', 'build', '--build-base', '/home/duy/cocarry_ws/build/trajectory_predictor/build', 'install', '--record', '/home/duy/cocarry_ws/build/trajectory_predictor/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/trajectory_predictor', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', 'OLDPWD': '/home/duy/cocarry_ws', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/trajectory_predictor', 'PYTHONPATH': '/home/duy/cocarry_ws/build/trajectory_predictor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[0.802126] (-) TimerEvent: {}
+[0.902564] (-) TimerEvent: {}
+[1.002961] (-) TimerEvent: {}
+[1.036695] (trajectory_predictor) StdoutLine: {'line': b'running egg_info\n'}
+[1.037857] (trajectory_predictor) StdoutLine: {'line': b'writing ../../build/trajectory_predictor/trajectory_predictor.egg-info/PKG-INFO\n'}
+[1.038319] (trajectory_predictor) StdoutLine: {'line': b'writing dependency_links to ../../build/trajectory_predictor/trajectory_predictor.egg-info/dependency_links.txt\n'}
+[1.038641] (trajectory_predictor) StdoutLine: {'line': b'writing entry points to ../../build/trajectory_predictor/trajectory_predictor.egg-info/entry_points.txt\n'}
+[1.038835] (trajectory_predictor) StdoutLine: {'line': b'writing requirements to ../../build/trajectory_predictor/trajectory_predictor.egg-info/requires.txt\n'}
+[1.039001] (trajectory_predictor) StdoutLine: {'line': b'writing top-level names to ../../build/trajectory_predictor/trajectory_predictor.egg-info/top_level.txt\n'}
+[1.042304] (trajectory_predictor) StdoutLine: {'line': b"reading manifest file '../../build/trajectory_predictor/trajectory_predictor.egg-info/SOURCES.txt'\n"}
+[1.043726] (trajectory_predictor) StdoutLine: {'line': b"writing manifest file '../../build/trajectory_predictor/trajectory_predictor.egg-info/SOURCES.txt'\n"}
+[1.044380] (trajectory_predictor) StdoutLine: {'line': b'running build\n'}
+[1.044599] (trajectory_predictor) StdoutLine: {'line': b'running build_py\n'}
+[1.045064] (trajectory_predictor) StdoutLine: {'line': b'copying trajectory_predictor/predictor_node.py -> /home/duy/cocarry_ws/build/trajectory_predictor/build/lib/trajectory_predictor\n'}
+[1.048016] (trajectory_predictor) StdoutLine: {'line': b'running install\n'}
+[1.048505] (trajectory_predictor) StdoutLine: {'line': b'running install_lib\n'}
+[1.049071] (trajectory_predictor) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/trajectory_predictor/build/lib/trajectory_predictor/predictor_node.py -> /home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor\n'}
+[1.049992] (trajectory_predictor) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/predictor_node.py to predictor_node.cpython-310.pyc\n'}
+[1.054701] (trajectory_predictor) StdoutLine: {'line': b'running install_data\n'}
+[1.054959] (trajectory_predictor) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.057465] (trajectory_predictor) StdoutLine: {'line': b"removing '/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor-0.1.0-py3.10.egg-info' (and everything under it)\n"}
+[1.057690] (trajectory_predictor) StdoutLine: {'line': b'Copying ../../build/trajectory_predictor/trajectory_predictor.egg-info to /home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor-0.1.0-py3.10.egg-info\n'}
+[1.058419] (trajectory_predictor) StdoutLine: {'line': b'running install_scripts\n'}
+[1.082189] (trajectory_predictor) StdoutLine: {'line': b'Installing predictor_node script to /home/duy/cocarry_ws/install/trajectory_predictor/lib/trajectory_predictor\n'}
+[1.082615] (trajectory_predictor) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/trajectory_predictor/install.log'\n"}
+[1.103103] (-) TimerEvent: {}
+[1.115115] (trajectory_predictor) CommandEnded: {'returncode': 0}
+[1.127459] (trajectory_predictor) JobEnded: {'identifier': 'trajectory_predictor', 'rc': 0}
+[1.128326] (-) EventReactorShutdown: {}

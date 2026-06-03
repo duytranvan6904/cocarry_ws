@@ -1,0 +1,63 @@
+[0.000000] (-) TimerEvent: {}
+[0.000296] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000476] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000517] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000738] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000808] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000836] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000869] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000935] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.000959] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001004] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001061] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001093] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001160] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001184] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001209] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001230] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001295] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.001320] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001486] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001520] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001585] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001609] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.001641] (hc10dtp_moveit_config) JobQueued: {'identifier': 'hc10dtp_moveit_config', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support')])}
+[0.001681] (hc10dtp_moveit_config) JobStarted: {'identifier': 'hc10dtp_moveit_config'}
+[0.006874] (hc10dtp_moveit_config) JobProgress: {'identifier': 'hc10dtp_moveit_config', 'progress': 'cmake'}
+[0.007603] (hc10dtp_moveit_config) JobProgress: {'identifier': 'hc10dtp_moveit_config', 'progress': 'build'}
+[0.008354] (hc10dtp_moveit_config) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/hc10dtp_moveit_config', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/hc10dtp_moveit_config', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/hc10dtp_moveit_config'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources')]), 'shell': False}
+[0.043146] (hc10dtp_moveit_config) CommandEnded: {'returncode': 0}
+[0.044080] (hc10dtp_moveit_config) JobProgress: {'identifier': 'hc10dtp_moveit_config', 'progress': 'install'}
+[0.053586] (hc10dtp_moveit_config) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/duy/cocarry_ws/build/hc10dtp_moveit_config'], 'cwd': '/home/duy/cocarry_ws/build/hc10dtp_moveit_config', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/hc10dtp_moveit_config'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoman_resources')]), 'shell': False}
+[0.060996] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.061919] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.062187] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/ament_index/resource_index/package_run_dependencies/hc10dtp_moveit_config\n'}
+[0.062314] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/ament_index/resource_index/parent_prefix_path/hc10dtp_moveit_config\n'}
+[0.062469] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/environment/ament_prefix_path.sh\n'}
+[0.062623] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/environment/ament_prefix_path.dsv\n'}
+[0.062907] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/environment/path.sh\n'}
+[0.063051] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/environment/path.dsv\n'}
+[0.063222] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/local_setup.bash\n'}
+[0.063402] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/local_setup.sh\n'}
+[0.063617] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/local_setup.zsh\n'}
+[0.063769] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/local_setup.dsv\n'}
+[0.063882] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Symlinking: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/package.dsv\n'}
+[0.071302] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/ament_index/resource_index/packages/hc10dtp_moveit_config\n'}
+[0.071474] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/cmake/hc10dtp_moveit_configConfig.cmake\n'}
+[0.071602] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/cmake/hc10dtp_moveit_configConfig-version.cmake\n'}
+[0.071717] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/package.xml\n'}
+[0.072127] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/launch/hc10dtp_start.launch.py\n'}
+[0.072610] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/initial_positions.yaml\n'}
+[0.072837] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/joint_limits.yaml\n'}
+[0.073001] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/kinematics.yaml\n'}
+[0.073174] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/motoman_hc10dtp.ros2_control.xacro\n'}
+[0.073335] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/motoman_hc10dtp.srdf\n'}
+[0.073518] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/motoman_hc10dtp.urdf.xacro\n'}
+[0.073708] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/moveit.rviz\n'}
+[0.073898] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/moveit_controllers.yaml\n'}
+[0.074069] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/pilz_cartesian_limits.yaml\n'}
+[0.074222] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/config/ros2_controllers.yaml\n'}
+[0.074597] (hc10dtp_moveit_config) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hc10dtp_moveit_config/share/hc10dtp_moveit_config/.setup_assistant\n'}
+[0.077434] (hc10dtp_moveit_config) CommandEnded: {'returncode': 0}
+[0.096126] (hc10dtp_moveit_config) JobEnded: {'identifier': 'hc10dtp_moveit_config', 'rc': 0}
+[0.096668] (-) EventReactorShutdown: {}

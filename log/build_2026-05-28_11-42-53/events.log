@@ -1,0 +1,99 @@
+[0.000000] (-) TimerEvent: {}
+[0.000366] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000531] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000555] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000574] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000591] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000607] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000624] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000639] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.000655] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.000671] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.000687] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.000703] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.000719] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.000735] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.000752] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.000768] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.000784] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.000799] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.000815] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.000833] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.000850] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.000871] (trajectory_predictor) JobQueued: {'identifier': 'trajectory_predictor', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.000897] (hrc_bringup) JobQueued: {'identifier': 'hrc_bringup', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs'), ('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces'), ('coord_transform', '/home/duy/cocarry_ws/install/coord_transform'), ('experiment_logger', '/home/duy/cocarry_ws/install/experiment_logger'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('predictor_ui', '/home/duy/cocarry_ws/install/predictor_ui'), ('realsense_tracker', '/home/duy/cocarry_ws/install/realsense_tracker'), ('trajectory_predictor', '/home/duy/cocarry_ws/install/trajectory_predictor'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config'), ('hc10dtp_bringup', '/home/duy/cocarry_ws/install/hc10dtp_bringup'), ('hc10dtp_simulation', '/home/duy/cocarry_ws/install/hc10dtp_simulation')])}
+[0.001246] (trajectory_predictor) JobStarted: {'identifier': 'trajectory_predictor'}
+[0.099679] (-) TimerEvent: {}
+[0.200095] (-) TimerEvent: {}
+[0.300474] (-) TimerEvent: {}
+[0.400931] (-) TimerEvent: {}
+[0.501259] (-) TimerEvent: {}
+[0.601575] (-) TimerEvent: {}
+[0.701882] (-) TimerEvent: {}
+[0.802233] (-) TimerEvent: {}
+[0.899341] (trajectory_predictor) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/trajectory_predictor', 'build', '--build-base', '/home/duy/cocarry_ws/build/trajectory_predictor/build', 'install', '--record', '/home/duy/cocarry_ws/build/trajectory_predictor/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/trajectory_predictor', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', 'OLDPWD': '/home/duy/cocarry_ws', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/trajectory_predictor', 'PYTHONPATH': '/home/duy/cocarry_ws/build/trajectory_predictor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[0.902900] (-) TimerEvent: {}
+[1.003246] (-) TimerEvent: {}
+[1.103899] (-) TimerEvent: {}
+[1.204264] (-) TimerEvent: {}
+[1.263590] (trajectory_predictor) StdoutLine: {'line': b'running egg_info\n'}
+[1.264471] (trajectory_predictor) StdoutLine: {'line': b'writing ../../build/trajectory_predictor/trajectory_predictor.egg-info/PKG-INFO\n'}
+[1.264727] (trajectory_predictor) StdoutLine: {'line': b'writing dependency_links to ../../build/trajectory_predictor/trajectory_predictor.egg-info/dependency_links.txt\n'}
+[1.264936] (trajectory_predictor) StdoutLine: {'line': b'writing entry points to ../../build/trajectory_predictor/trajectory_predictor.egg-info/entry_points.txt\n'}
+[1.265119] (trajectory_predictor) StdoutLine: {'line': b'writing requirements to ../../build/trajectory_predictor/trajectory_predictor.egg-info/requires.txt\n'}
+[1.265310] (trajectory_predictor) StdoutLine: {'line': b'writing top-level names to ../../build/trajectory_predictor/trajectory_predictor.egg-info/top_level.txt\n'}
+[1.267470] (trajectory_predictor) StdoutLine: {'line': b"reading manifest file '../../build/trajectory_predictor/trajectory_predictor.egg-info/SOURCES.txt'\n"}
+[1.268573] (trajectory_predictor) StdoutLine: {'line': b"writing manifest file '../../build/trajectory_predictor/trajectory_predictor.egg-info/SOURCES.txt'\n"}
+[1.268831] (trajectory_predictor) StdoutLine: {'line': b'running build\n'}
+[1.269004] (trajectory_predictor) StdoutLine: {'line': b'running build_py\n'}
+[1.269221] (trajectory_predictor) StdoutLine: {'line': b'copying trajectory_predictor/predictor_node.py -> /home/duy/cocarry_ws/build/trajectory_predictor/build/lib/trajectory_predictor\n'}
+[1.269596] (trajectory_predictor) StdoutLine: {'line': b'running install\n'}
+[1.270081] (trajectory_predictor) StdoutLine: {'line': b'running install_lib\n'}
+[1.270947] (trajectory_predictor) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/trajectory_predictor/build/lib/trajectory_predictor/predictor_node.py -> /home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor\n'}
+[1.271931] (trajectory_predictor) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/predictor_node.py to predictor_node.cpython-310.pyc\n'}
+[1.278177] (trajectory_predictor) StdoutLine: {'line': b'running install_data\n'}
+[1.278839] (trajectory_predictor) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.282349] (trajectory_predictor) StdoutLine: {'line': b"removing '/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor-0.1.0-py3.10.egg-info' (and everything under it)\n"}
+[1.282836] (trajectory_predictor) StdoutLine: {'line': b'Copying ../../build/trajectory_predictor/trajectory_predictor.egg-info to /home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor-0.1.0-py3.10.egg-info\n'}
+[1.283692] (trajectory_predictor) StdoutLine: {'line': b'running install_scripts\n'}
+[1.304362] (-) TimerEvent: {}
+[1.310589] (trajectory_predictor) StdoutLine: {'line': b'Installing predictor_node script to /home/duy/cocarry_ws/install/trajectory_predictor/lib/trajectory_predictor\n'}
+[1.313578] (trajectory_predictor) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/trajectory_predictor/install.log'\n"}
+[1.354876] (trajectory_predictor) CommandEnded: {'returncode': 0}
+[1.373283] (trajectory_predictor) JobEnded: {'identifier': 'trajectory_predictor', 'rc': 0}
+[1.376717] (hrc_bringup) JobStarted: {'identifier': 'hrc_bringup'}
+[1.397191] (hrc_bringup) JobProgress: {'identifier': 'hrc_bringup', 'progress': 'cmake'}
+[1.398527] (hrc_bringup) JobProgress: {'identifier': 'hrc_bringup', 'progress': 'build'}
+[1.399296] (hrc_bringup) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/duy/cocarry_ws/build/hrc_bringup', '--', '-j16', '-l16'], 'cwd': '/home/duy/cocarry_ws/build/hrc_bringup', 'env': OrderedDict([('USER', 'duy'), ('ROS_PACKAGE_PATH', '/home/duy/cocarry_ws/install/human_hand_msgs/share'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/motoros2_interfaces/lib:/home/duy/cocarry_ws/install/human_hand_msgs/lib'), ('HOME', '/home/duy'), ('OLDPWD', '/home/duy/cocarry_ws'), ('_', '/usr/bin/colcon'), ('PKG_CONFIG_PATH', '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/trajectory_predictor:/home/duy/cocarry_ws/install/realsense_tracker:/home/duy/cocarry_ws/install/predictor_ui:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/experiment_logger:/home/duy/cocarry_ws/install/coord_transform:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/hrc_bringup'), ('PYTHONPATH', '/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/home/duy/cocarry_ws/install/human_hand_msgs')]), 'shell': False}
+[1.404458] (-) TimerEvent: {}
+[1.459172] (hrc_bringup) CommandEnded: {'returncode': 0}
+[1.460282] (hrc_bringup) JobProgress: {'identifier': 'hrc_bringup', 'progress': 'install'}
+[1.475526] (hrc_bringup) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/duy/cocarry_ws/build/hrc_bringup'], 'cwd': '/home/duy/cocarry_ws/build/hrc_bringup', 'env': OrderedDict([('USER', 'duy'), ('ROS_PACKAGE_PATH', '/home/duy/cocarry_ws/install/human_hand_msgs/share'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/duy/cocarry_ws/install/motoros2_interfaces/lib:/home/duy/cocarry_ws/install/human_hand_msgs/lib'), ('HOME', '/home/duy'), ('OLDPWD', '/home/duy/cocarry_ws'), ('_', '/usr/bin/colcon'), ('PKG_CONFIG_PATH', '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('AMENT_PREFIX_PATH', '/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/trajectory_predictor:/home/duy/cocarry_ws/install/realsense_tracker:/home/duy/cocarry_ws/install/predictor_ui:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/experiment_logger:/home/duy/cocarry_ws/install/coord_transform:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/hrc_bringup'), ('PYTHONPATH', '/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/realsense_tracker/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/predictor_ui/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/experiment_logger/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/motoros2_interfaces/local/lib/python3.10/dist-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/duy/cocarry_ws/install/hc10dtp_simulation:/home/duy/cocarry_ws/install/hc10dtp_bringup:/home/duy/cocarry_ws/install/hc10dtp_moveit_config:/home/duy/cocarry_ws/install/motoman_hc10dtp_support:/home/duy/cocarry_ws/install/motoros2_interfaces:/home/duy/cocarry_ws/install/motoman_resources:/home/duy/cocarry_ws/install/human_hand_msgs')]), 'shell': False}
+[1.488369] (hrc_bringup) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.488891] (hrc_bringup) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[1.489444] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/launch/__pycache__/cocarry_real_gui.launch.cpython-310.pyc\n'}
+[1.489708] (hrc_bringup) StdoutLine: {'line': b'-- Symlinking: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/launch/__pycache__/cocarry_sim_gui.launch.cpython-310.pyc\n'}
+[1.504577] (-) TimerEvent: {}
+[1.506214] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/launch/cocarry_full.launch.py\n'}
+[1.506687] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/launch/cocarry_real_gui.launch.py\n'}
+[1.506866] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/launch/cocarry_sim_gui.launch.py\n'}
+[1.507032] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/launch/full_pipeline.launch.py\n'}
+[1.507239] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/config/all_params.yaml\n'}
+[1.507495] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/ament_index/resource_index/package_run_dependencies/hrc_bringup\n'}
+[1.507643] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/ament_index/resource_index/parent_prefix_path/hrc_bringup\n'}
+[1.507818] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/environment/ament_prefix_path.sh\n'}
+[1.507973] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/environment/ament_prefix_path.dsv\n'}
+[1.508128] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/environment/path.sh\n'}
+[1.508313] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/environment/path.dsv\n'}
+[1.508492] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/local_setup.bash\n'}
+[1.508644] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/local_setup.sh\n'}
+[1.508786] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/local_setup.zsh\n'}
+[1.508909] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/local_setup.dsv\n'}
+[1.509031] (hrc_bringup) StdoutLine: {'line': b'-- Symlinking: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.dsv\n'}
+[1.521240] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/ament_index/resource_index/packages/hrc_bringup\n'}
+[1.521698] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/cmake/hrc_bringupConfig.cmake\n'}
+[1.521874] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/cmake/hrc_bringupConfig-version.cmake\n'}
+[1.522010] (hrc_bringup) StdoutLine: {'line': b'-- Up-to-date symlink: /home/duy/cocarry_ws/install/hrc_bringup/share/hrc_bringup/package.xml\n'}
+[1.524748] (hrc_bringup) CommandEnded: {'returncode': 0}
+[1.540344] (hrc_bringup) JobEnded: {'identifier': 'hrc_bringup', 'rc': 0}
+[1.542237] (-) EventReactorShutdown: {}

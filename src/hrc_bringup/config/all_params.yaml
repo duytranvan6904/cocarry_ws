@@ -14,10 +14,10 @@ trajectory_predictor:
     clear_on_tracking_lost: 1.0
     default_model: gru
     filter:
-      ema_alpha: 0.8
-      enabled: false
-      max_deviation: 0.1
-      max_rate: 0.06
+      ema_alpha: 0.2
+      enabled: true
+      max_deviation: 0.08
+      max_rate: 0.04
     model_dir: /home/duy/cocarry_ws/src/GRU-Model
     model_files:
       gru: gru_model_Ts5.h5

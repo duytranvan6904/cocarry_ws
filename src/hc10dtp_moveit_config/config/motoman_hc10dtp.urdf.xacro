@@ -28,22 +28,26 @@
     <!-- Z: -0.5 to 1.5 (Sàn ở Z=-0.5)              -->
     <!-- ========================================== -->
 
-    <material name="cage_color">
-        <color rgba="0.2 0.8 0.2 0.5"/>
-    </material>
+    <!-- ========================================== -->
+    <!-- MÔI TRƯỜNG LÀM VIỆC (WORKSPACE)            -->
+    <!-- ========================================== -->
+
     <material name="cabinet_color">
         <color rgba="0.4 0.2 0.1 0.8"/>
     </material>
-    <material name="table_color">
-        <color rgba="0.8 0.8 0.8 0.5"/>
+    <material name="start_color">
+        <color rgba="0.0 1.0 0.0 0.8"/> <!-- Xanh lá -->
+    </material>
+    <material name="target_color">
+        <color rgba="1.0 0.0 0.0 0.8"/> <!-- Đỏ -->
     </material>
 
-    <link name="safety_cage">
-        <!-- ================= TỦ ĐỠ ROBOT (CABINET) ================= -->
-        <!-- Đặt chính giữa gốc, cao 0.5m, dài 0.8m (X), rộng 0.6m (Y) -->
+    <link name="environment_objects">
+        <!-- ================= TỦ ĐỠ ROBOT ================= -->
+        <!-- Kích thước: 0.8m (X) x 0.6m (Y) x 0.5m (Z) -->
         <collision>
-            <origin xyz="0 0 -0.255" rpy="0 0 0" />
-            <geometry><box size="0.8 0.6 0.49" /></geometry>
+            <origin xyz="0 0 -0.25" rpy="0 0 0" />
+            <geometry><box size="0.8 0.6 0.5" /></geometry>
         </collision>
         <visual>
             <origin xyz="0 0 -0.25" rpy="0 0 0" />
@@ -51,96 +55,45 @@
             <material name="cabinet_color"/>
         </visual>
 
-        <!-- ================= BÀN LÀM VIỆC (WORK TABLE) ================= -->
-        <!-- Đặt CHÍNH DIỆN và QUAY DỌC (+X). Sâu 1.2m, rộng 0.6m, cao 0.7m -->
-        <!-- Bắt đầu từ mép tủ (X=0.4) kéo dài đến X=1.6. Tâm tại X=1.0 -->
-        <collision>
-            <origin xyz="1.0 0 -0.15" rpy="0 0 0" />
-            <geometry><box size="1.2 0.6 0.7" /></geometry>
-        </collision>
+        <!-- ================= VỊ TRÍ XUẤT PHÁT VÀ ĐÍCH ================= -->
+        <!-- ROS: +X là phía trước (ra xa), +Y là sang trái -->
+        <!-- Protocol: +Y là ra xa, +X là sang phải -->
+        <!-- Ánh xạ: ROS_X = Protocol_Y, ROS_Y = -Protocol_X -->
+        <!-- Mép bệ đỡ phía trước (trục X) là 0.4m (do bệ đỡ dài 0.8m). Offset X = +0.4m -->
+        
+        <!-- S1: Protocol(0.0, 0.4, 0.25) -> Thực tế ROS: X = 0.0 + 0.2 = 0.2, Y = -0.0, Z = 0.25 -->
         <visual>
-            <origin xyz="1.0 0 -0.15" rpy="0 0 0" />
-            <geometry><box size="1.2 0.6 0.7" /></geometry>
-            <material name="table_color"/>
+            <origin xyz="-0.2 0.25 0.3" rpy="0 0 0"/>
+            <geometry><sphere radius="0.03"/></geometry>
+            <material name="start_color"/>
         </visual>
 
+        <!-- T1: Protocol(0.3, 0.8, 0.3) -> Thực tế ROS: X = 0.8 + 0.4 = 1.2, Y = -0.3, Z = 0.3 -->
+        <visual>
+            <origin xyz="0.1 0.8 0.35" rpy="0 0 0"/>
+            <geometry><sphere radius="0.03"/></geometry>
+            <material name="target_color"/>
+        </visual>
 
-        <!-- ================= VERTICAL POSTS ================= -->
-        <!-- Post 1: Front-Left (X=2.0, Y=0.5) -->
-        <collision><origin xyz="2.0 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
-        <visual><origin xyz="2.0 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
+        <!-- T2: Protocol(-0.3, 0.8, 0.3) -> Thực tế ROS: X = 0.8 + 0.4 = 1.2, Y = -(-0.3) = 0.3, Z = 0.3 -->
+        <visual>
+            <origin xyz="-0.4 0.95 0.35" rpy="0 0 0"/>
+            <geometry><sphere radius="0.03"/></geometry>
+            <material name="target_color"/>
+        </visual>
 
-        <!-- Post 2: Front-Right (X=2.0, Y=-0.5) -->
-        <collision><origin xyz="2.0 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
-        <visual><origin xyz="2.0 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Post 3: Back-Left (X=-0.4, Y=0.5) -->
-        <collision><origin xyz="-0.4 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
-        <visual><origin xyz="-0.4 0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Post 4: Back-Right (X=-0.4, Y=-0.5) -->
-        <collision><origin xyz="-0.4 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry></collision>
-        <visual><origin xyz="-0.4 -0.5 0.5" rpy="0 0 0"/><geometry><box size="0.05 0.05 2.0"/></geometry><material name="cage_color"/></visual>
-
-
-        <!-- ================= HORIZONTAL BEAMS (TOP Z=1.5) ================= -->
-        <!-- Top Front (X=2.0) -->
-        <collision><origin xyz="2.0 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
-        <visual><origin xyz="2.0 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Top Back (X=-0.4) -->
-        <collision><origin xyz="-0.4 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
-        <visual><origin xyz="-0.4 0 1.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Top Left (Y=0.5) -->
-        <collision><origin xyz="0.8 0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
-        <visual><origin xyz="0.8 0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Top Right (Y=-0.5) -->
-        <collision><origin xyz="0.8 -0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
-        <visual><origin xyz="0.8 -0.5 1.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
-
-
-        <!-- ================= HORIZONTAL BEAMS (MIDDLE Z=0.8) ================= -->
-        <!-- Mid Front (X=2.0) -->
-        <collision><origin xyz="2.0 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
-        <visual><origin xyz="2.0 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Mid Back (X=-0.4) -->
-        <collision><origin xyz="-0.4 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
-        <visual><origin xyz="-0.4 0 0.8" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Mid Left (Y=0.5) -->
-        <collision><origin xyz="0.8 0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
-        <visual><origin xyz="0.8 0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Mid Right (Y=-0.5) -->
-        <collision><origin xyz="0.8 -0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
-        <visual><origin xyz="0.8 -0.5 0.8" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- ================= HORIZONTAL BEAMS (BOTTOM Z=-0.5) ================= -->
-        <!-- Bot Front (X=2.0) -->
-        <collision><origin xyz="2.0 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
-        <visual><origin xyz="2.0 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Bot Back (X=-0.4) -->
-        <collision><origin xyz="-0.4 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry></collision>
-        <visual><origin xyz="-0.4 0 -0.5" rpy="0 0 0"/><geometry><box size="0.05 1.0 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Bot Left (Y=0.5) -->
-        <collision><origin xyz="0.8 0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
-        <visual><origin xyz="0.8 0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
-
-        <!-- Bot Right (Y=-0.5) -->
-        <collision><origin xyz="0.8 -0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry></collision>
-        <visual><origin xyz="0.8 -0.5 -0.5" rpy="0 0 0"/><geometry><box size="2.4 0.05 0.05"/></geometry><material name="cage_color"/></visual>
-
+        <!-- T3: Protocol(0.0, 1.0, 0.45) -> Thực tế ROS: X = 1.0 + 0.4 = 1.4, Y = -0.0, Z = 0.45 -->
+        <visual>
+            <origin xyz="-0.1 0.95 0.45" rpy="0 0 0"/>
+            <geometry><sphere radius="0.03"/></geometry>
+            <material name="target_color"/>
+        </visual>
     </link>
 
-    <joint name="safety_cage_joint" type="fixed">
+    <joint name="environment_objects_joint" type="fixed">
         <parent link="base_link" />
-        <child link="safety_cage" />
-        <origin xyz="0 0 0" rpy="0 0 1.57079632679" />
+        <child link="environment_objects" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
     </joint>
 
 </robot>
