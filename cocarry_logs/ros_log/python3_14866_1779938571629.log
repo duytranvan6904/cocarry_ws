@@ -1,0 +1,19 @@
+[INFO] [1779938571.778597819] [trajectory_predictor]: [Predictor] Worker launched (pid=15109)
+[INFO] [1779938571.779374241] [trajectory_predictor]: [Predictor] Started | model=gru | window=20 | auto_start=True
+[WARN] [1779938573.298032392] [trajectory_predictor]: [Worker STDERR] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[WARN] [1779938573.298259642] [trajectory_predictor]: [Worker STDERR] warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[WARN] [1779938574.303052993] [trajectory_predictor]: [Worker STDERR] /home/duy/.local/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+[INFO] [1779938574.303536322] [trajectory_predictor]: [Worker] TF 2.21.0 and sklearn loaded
+[WARN] [1779938574.303704130] [trajectory_predictor]: [Worker STDERR] https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+[WARN] [1779938574.303914463] [trajectory_predictor]: [Worker STDERR] warnings.warn(
+[INFO] [1779938575.001196715] [trajectory_predictor]: [Predictor] Worker READY | model=gru
+[INFO] [1779938614.156478766] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1779938616.227774185] [trajectory_predictor]: [Predictor] Auto-enabled prediction mode via /trajectory_mode
+[INFO] [1779938630.372619275] [trajectory_predictor]: [Predictor] Predicting STARTED
+[INFO] [1779938757.524947857] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[WARN] [1779938766.694142858] [trajectory_predictor]: [Worker STDERR] Traceback (most recent call last):
+[WARN] [1779938766.694852185] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 255, in <module>
+[WARN] [1779938766.695508459] [trajectory_predictor]: [Worker STDERR] main()
+[WARN] [1779938766.698100680] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 190, in main
+[WARN] [1779938766.698815365] [trajectory_predictor]: [Worker STDERR] for line in sys.stdin:
+[WARN] [1779938766.701345540] [trajectory_predictor]: [Worker STDERR] KeyboardInterrupt

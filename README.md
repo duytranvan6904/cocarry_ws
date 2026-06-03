@@ -32,7 +32,7 @@ Dự án này là một hệ thống **Human-Robot Collaborative (HRC) Co-Carryi
 | `realsense_tracker` | Đọc dữ liệu từ Camera, sử dụng MediaPipe trích xuất tọa độ 3D của cổ tay người (Wrist Landmark) ở tần số 16Hz-30Hz. |
 | `trajectory_predictor` | Node AI chứa logic dự đoán và tải mô hình Machine Learning (`gru_model_Ts3.h5`). Lấy chuỗi lịch sử XYZ và vận tốc để suy luận (Inference) ra vị trí tay N bước trong tương lai theo thời gian thực. |
 | `coord_transform` | Chuyển đổi tọa độ không gian: Mapping từ hệ trục Camera (Camera Frame) sang hệ trục gốc của Robot (Base Link Frame) bao gồm lật trục tọa độ theo hướng người đứng. |
-| `hc10dtp_bringup` | Chứa script điều khiển trung tâm `cartesian_streamer_hc10dtp.py`. Nhận tọa độ Cartesian, liên tục giải Inverse Kinematics (IK), và stream Joint Angles xuống bộ điều khiển MotoROS2 (qua `QueueTrajPoint`) với tần số **25Hz**. |
+| `hc10dtp_bringup` | Chứa script điều khiển trung tâm `cartesian_streamer_hc10dtp.py`. Nhận tọa độ Cartesian, liên tục giải Inverse Kinematics (IK) **sử dụng nghiệm khớp trước đó (Previous Joint Seed) để chống lật khớp**, và stream Joint Angles xuống bộ điều khiển MotoROS2 (qua `QueueTrajPoint`) với tần số **25Hz**. |
 | `hc10dtp_moveit_config` | Cấu hình MoveIt 2 (SRDF, URDF, TRAC-IK) dùng cho giả lập, collision checking và giải động học nghịch. |
 | `hc10dtp_simulation` | Môi trường giả lập tích hợp Gazebo/ROS Control. Bao gồm script `motoros2_mock_node.py` để giả lập các tín hiệu Service của MotoROS2 driver cho phép code streamer chạy mô phỏng 100% y như robot thật. |
 | `experiment_logger` | Lưu tọa độ thực tế của người, tọa độ dự đoán của AI, và dữ liệu khớp robot ra file `.csv`. Cung cấp báo cáo phân tích độ chính xác (MAE, MSE), tính toán thời gian phản hồi và độ giật (Jerk) sau mỗi lần thử. |
@@ -198,10 +198,10 @@ Hệ thống được thiết kế để bù đắp các độ trễ từ Mạng
 
 1. Camera thu thập tọa độ thô `XYZ` của tay người `(~16Hz)`.
 2. Tọa độ `/hand_position` được đẩy vào buffer cửa sổ trượt của node `trajectory_predictor`.
-3. Node suy luận (TensorFlow Backend) sử dụng mô hình `gru_model_Ts3.h5` và bộ Scaler đã được train với Vector Vận Tốc, đưa ra dự đoán trước `Ts=3` frame (tương đương `+187.5ms` trong tương lai).
-4. Node `coord_transform` nội suy vị trí điểm bù trừ End-Effector, áp dụng bộ lọc Tín Hiệu (EMA) loại bỏ nhiễu rung (Jitter).
+3. Node suy luận (TensorFlow Backend) sử dụng mô hình dự đoán (ví dụ `gru_model_Ts5.h5`) và bộ Scaler, đưa ra dự đoán vị trí tay N bước trong tương lai. **Tại đây, cơ chế Prediction Hold sẽ liên tục đánh giá độ lệch chuẩn (Standard Deviation) của tay người; nếu tay đứng yên (ổn định dưới ngưỡng 1cm), hệ thống sẽ KHÓA dự đoán, loại bỏ 100% nhiễu do model GRU sinh ra.**
+4. Node `coord_transform` nhận dự đoán, chuyển đổi tọa độ và áp dụng thêm bộ lọc tín hiệu (EMA, Rate Limit) để nội suy vị trí bù trừ End-Effector mượt mà.
 5. Output được phát sóng lên `/cartesian_streamer/target_pose` tới script `cartesian_streamer_hc10dtp.py`.
-6. Streamer kích hoạt MoveIt giải ngược Inverse Kinematics liên tục, gài các bộ Constraint vận tốc/vị trí khớp để đảm bảo Safety ISO Limits.
+6. Streamer kích hoạt MoveIt giải ngược Inverse Kinematics (IK) liên tục. **Đặc biệt, IK Solver luôn sử dụng trạng thái khớp liền trước (Previous Valid Joint State) làm điểm Seed ban đầu (Seed State), giúp bộ giải hội tụ nhanh và loại bỏ hoàn toàn hiện tượng nhảy nhánh động học (Branch-jumping / Joint Flipping)**, đồng thời gài các bộ Constraint để đảm bảo Safety ISO Limits.
 7. Gửi danh sách góc khớp thành công dưới dạng `QueueTrajPoint` xuống bộ điều khiển Yaskawa với khoảng ngắt thời gian là `0.04s` (**Tần số 25Hz**) để làm mượt hoàn toàn các bước giật của chuyển động khung hình chuẩn.
 
 ---
@@ -235,7 +235,7 @@ Chạy công cụ phân tích tương quan chéo trên file log vừa tạo đ�
 ros2 run experiment_logger analyze_latency
 
 # Hoặc chỉ định chính xác file log cần phân tích
-ros2 run experiment_logger analyze_latency --csv ~/hrc_logs/experiment_GRU_20260524_120000.csv
+ros2 run experiment_logger analyze_latency --csv /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260525_121439.csv
 ```
 
 #### Kết quả phân tích (Ví dụ):
@@ -290,8 +290,12 @@ Khi thực nghiệm trong môi trường mới, nếu robot phản hồi quá ch
 * **Trong `hrc_bringup/config/transform_params.yaml`:**
   * `prediction_step`: Số frame ngoại suy thêm (fallback nếu ML model delay).
   * `workspace_limits`: Giới hạn lồng giam không gian 3D ngăn robot đập vào tường.
+* **Cơ chế Ổn định Prediction Hold (trong `predictor_node.py`):**
+  * `_HOLD_STD_THRESH = 0.01`: Ngưỡng độ lệch chuẩn (10mm) để coi là tay đang đứng yên.
+  * `_HOLD_ENTER_FRAMES = 5`: Số lượng frame liên tiếp thỏa mãn ngưỡng trên để bắt đầu KHÓA (Hold) quỹ đạo.
+  * `_HOLD_RELEASE_THRESH = 0.025`: Khoảng cách lệch (25mm) so với vị trí khóa để kích hoạt thả Hold, cho phép AI chạy lại bình thường khi tay di chuyển.
 * **Đổi Model AI Mới:** 
-  * Cập nhật lại các tham số Default Param trong `trajectory_predictor/predictor_node.py` để trỏ vào đúng bộ `weights (.h5)` và `scalers (.pkl)` mới của bạn trong file config tương ứng.
+  * Cập nhật lại cấu hình trong file `all_params.yaml` để trỏ vào đúng bộ `weights (.h5)` và `scalers (.pkl)` mới.
 
 ---
 

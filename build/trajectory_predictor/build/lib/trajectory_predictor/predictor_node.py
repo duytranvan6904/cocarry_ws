@@ -98,6 +98,17 @@ class PredictorNode(Node):
         self._smoothed_vel = [0.0, 0.0, 0.0]
         self._vel_ema_alpha = 0.3
 
+        # ── Prediction Hold state ─────────────────────────────────────────────
+        # Phát hiện khi tay đứng yên → khóa output prediction = vị trí tay
+        # thay vì chạy GRU (loại bỏ hoàn toàn nhiễu dự đoán khi tay dừng)
+        self._hold_recent = deque(maxlen=10)     # buffer vị trí gần nhất
+        self._hold_stationary_count = 0          # đếm frame liên tiếp tĩnh
+        self._hold_active = False                # đang khóa?
+        self._hold_position = None               # vị trí khóa
+        self._HOLD_STD_THRESH = 0.006            # ngưỡng std (6mm)
+        self._HOLD_ENTER_FRAMES = 5              # cần 5 frame tĩnh liên tiếp
+        self._HOLD_RELEASE_THRESH = 0.015        # tay rời > 15mm thì thả hold
+
         # ── Publishers ───────────────────────────────────────────────────────
         self.pred_pub = self.create_publisher(
             HandPrediction, '/ml/predicted_position', 10)
@@ -129,8 +140,13 @@ class PredictorNode(Node):
 
         self.get_logger().info(
             f'[Predictor] Started | model={self._current_model} | '
-            f'window={self.window_size} | auto_start={self.auto_start}'
+            f'window={self.window_size} | auto_start={self.auto_start}\n'
+            f'  Output Filter: enabled={self._filter_enabled}, '
+            f'ema_alpha={self._filter_ema_alpha}, '
+            f'max_dev={self._filter_max_dev}, '
+            f'max_rate={self._filter_max_rate}'
         )
+        self._filter_log_counter = 0
 
     # ── Worker lifecycle ─────────────────────────────────────────────────────
 
@@ -305,20 +321,15 @@ class PredictorNode(Node):
         if self._last_data_time > 0:
             dt = now - self._last_data_time
             if dt > 0.001:
-                # Làm mượt khoảng thời gian dt bằng EMA để CHỐNG NHIỄU (Jitter)
-                # MediaPipe/RealSense khi chạy thật thường đẩy frame không đều (có lúc 0.002s, có lúc 0.06s)
-                # Nếu chia cho dt tức thời quá nhỏ, vận tốc sẽ nổ tung!
                 if hasattr(self, '_smoothed_dt'):
                     self._smoothed_dt = 0.1 * dt + 0.9 * self._smoothed_dt
                 else:
                     self._smoothed_dt = dt
                     
-                # 1. Tính vận tốc vật lý thực tế bằng dt ĐÃ ĐƯỢC LÀM MƯỢT
                 true_vx = (x - self._last_meas[0]) / self._smoothed_dt
                 true_vy = (y - self._last_meas[1]) / self._smoothed_dt
                 true_vz = (z - self._last_meas[2]) / self._smoothed_dt
                 
-                # 2. Quy đổi về 'độ dời mỗi frame ở 16Hz' để phù hợp với môi trường lúc Train
                 raw_vx = true_vx / 16.0
                 raw_vy = true_vy / 16.0
                 raw_vz = true_vz / 16.0
@@ -341,18 +352,57 @@ class PredictorNode(Node):
         else:
             self._buffer.append([x, y, z])
 
+        # ── Prediction Hold: phát hiện tay đứng yên ──────────────────────
+        self._hold_recent.append([x, y, z])
+        if len(self._hold_recent) >= 5:
+            import numpy as _np
+            recent = _np.array(self._hold_recent)
+            max_std = float(_np.max(_np.std(recent, axis=0)))
+
+            if self._hold_active:
+                # Đang HOLD → kiểm tra xem tay đã bắt đầu di chuyển chưa
+                mean_pos = _np.mean(recent, axis=0)
+                dev = float(_np.linalg.norm(mean_pos - _np.array(self._hold_position)))
+                if dev > self._HOLD_RELEASE_THRESH:
+                    self._hold_active = False
+                    self._hold_stationary_count = 0
+                    self.get_logger().info(
+                        f'[Pred HOLD OFF] Tay di chuyển (dev={dev*1000:.1f}mm). Thả hold.')
+                else:
+                    # Vẫn HOLD → publish vị trí khóa, KHÔNG chạy GRU
+                    self._publish_prediction(list(self._hold_position), 0.0)
+                    return
+            else:
+                # Chưa HOLD → kiểm tra ổn định
+                if max_std < self._HOLD_STD_THRESH:
+                    self._hold_stationary_count += 1
+                else:
+                    self._hold_stationary_count = 0
+
+                if self._hold_stationary_count >= self._HOLD_ENTER_FRAMES:
+                    self._hold_active = True
+                    self._hold_position = list(_np.mean(recent, axis=0))
+                    self._last_filtered = list(self._hold_position)  # sync EMA state
+                    self.get_logger().info(
+                        f'[Pred HOLD ON] Tay đứng yên (std={max_std*1000:.1f}mm). '
+                        f'Khóa tại ({self._hold_position[0]:.4f}, '
+                        f'{self._hold_position[1]:.4f}, {self._hold_position[2]:.4f})')
+                    # Bắt đầu hold ngay
+                    self._publish_prediction(list(self._hold_position), 0.0)
+                    return
+
+        # ── Gửi dữ liệu cho GRU (chỉ khi KHÔNG hold) ────────────────────
         if not self._predicting or not self._worker_ready:
             return
 
         if 0 < len(self._buffer) < self.window_size:
-            # Pad với điểm đầu tiên thay vì zero-pad để tránh nhảy tọa độ (Robot vọt)
             first_point = list(self._buffer[0])
             pad_count = self.window_size - len(self._buffer)
             padded = [first_point] * pad_count + list(self._buffer)
         elif len(self._buffer) >= self.window_size:
             padded = list(self._buffer)
         else:
-            return # Chờ ít nhất 1 điểm
+            return
 
         self._send_to_worker({'cmd': 'predict', 'data': padded})
 
@@ -432,6 +482,18 @@ class PredictorNode(Node):
         # Apply output filter if enabled
         if self._filter_enabled:
             filtered = self._filter_prediction(pred)
+            # Periodic debug log (every 100 predictions)
+            self._filter_log_counter += 1
+            if self._filter_log_counter % 100 == 1:
+                dx = abs(pred[0] - filtered[0])
+                dy = abs(pred[1] - filtered[1])
+                dz = abs(pred[2] - filtered[2])
+                self.get_logger().info(
+                    f'[Filter] raw=({pred[0]:.4f},{pred[1]:.4f},{pred[2]:.4f}) '
+                    f'→ filt=({filtered[0]:.4f},{filtered[1]:.4f},{filtered[2]:.4f}) '
+                    f'Δ=({dx:.4f},{dy:.4f},{dz:.4f})',
+                    throttle_duration_sec=5.0
+                )
         else:
             filtered = pred
 

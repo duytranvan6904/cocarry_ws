@@ -46,12 +46,17 @@ coord_transform:
     filter.median_size_y: 3
 
     # Moving deadband: ngưỡng độ lệch chuẩn (Standard Deviation) lớn nhất trên 3 trục để kích hoạt hold (m)
-    # Tăng lên 0.025 vì kiểm tra 3 trục trong suốt 15 frames, nhiễu tổng hợp sẽ lớn hơn.
-    filter.deadband_depth_tol: 0.025
+    # RealSense trục X có nhiễu cao hơn Kinect → tăng lên 0.035 để vào HOLD ổn định hơn.
+    # Nếu đường Actual vẫn dày, thử tăng lên 0.04.
+    filter.deadband_depth_tol: 0.035
 
     # Số frame liên tiếp tĩnh để kích hoạt hold
     # Giảm xuống 3 để hold nhanh hơn
     filter.stationary_threshold: 3
+
+    # Target Snap: snap GRU prediction về actual hand khi tay đứng yên (m)
+    # 0.10 = 10cm — đủ bắt overshoot GRU thông thường
+    filter.pred_snap_radius: 0.10
 
     # Rate-limiter tọa độ đích cuối cùng (m) — bước nhảy tối đa mỗi frame
     filter.max_rate: 0.05

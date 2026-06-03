@@ -59,6 +59,11 @@ def generate_launch_description():
         get_package_share_directory('coord_transform'),
         'config', 'transform_params.yaml')
 
+    # Tập trung cấu hình predictor + logger vào 1 file YAML duy nhất
+    all_params = os.path.join(
+        get_package_share_directory('hrc_bringup'),
+        'config', 'all_params.yaml')
+
     # ── Nodes ─────────────────────────────────────────────────────────────
 
     # 1. Camera tracking node
@@ -75,24 +80,20 @@ def generate_launch_description():
         }])
 
     # 2. Trajectory prediction node
+    #    Cấu hình chính nằm trong all_params.yaml (filter, model files, scalers)
+    #    Launch-specific overrides: model_dir (từ CLI), auto_start
     predictor_node = Node(
         package='trajectory_predictor',
         executable='predictor_node',
         name='trajectory_predictor',
         output='screen',
-        parameters=[{
-            'model_dir': LaunchConfiguration('model_dir'),
-            'default_model': 'gru',
-            'auto_start': True,
-            'window_size': 20,
-            'num_features': 6,
-            'scaler_x_file': 'scaler_x_Ts3.pkl',
-            'scaler_y_file': 'scaler_y_Ts3.pkl',
-            'clear_on_tracking_lost': 1.0,
-            'model_files.gru': 'gru_model_Ts3.h5',
-            'model_files.lstm': 'lstm_model_Ts3.h5',
-            'model_files.rnn': 'rnn_model_Ts3.h5',
-        }])
+        parameters=[
+            all_params,
+            {
+                'model_dir': LaunchConfiguration('model_dir'),
+                'auto_start': True,
+            },
+        ])
 
     # 3. Coordinate transform node (cầu nối giữa 2 repo)
     transform_node = Node(
@@ -115,10 +116,12 @@ def generate_launch_description():
         executable='logger_node',
         name='experiment_logger',
         output='screen',
-        parameters=[{
-            'log_dir': LaunchConfiguration('log_dir'),
-            'auto_start': False,
-        }])
+        parameters=[
+            all_params,
+            {
+                'log_dir': LaunchConfiguration('log_dir'),
+            },
+        ])
 
     # 6. UI dashboard
     ui_node = Node(

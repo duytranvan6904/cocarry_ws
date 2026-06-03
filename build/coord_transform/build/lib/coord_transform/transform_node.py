@@ -79,6 +79,10 @@ class CoordTransformNode(Node):
         # Tạo 2 filter state riêng biệt cho ground_truth (UI vẽ) và prediction (robot chạy)
         self._actual_filter = CameraFilterState(self._filter_median_size_y)
         self._pred_filter = CameraFilterState(self._filter_median_size_y)
+        
+        # Target Snap state: theo dõi xem snap có đang được áp dụng không
+        self._pred_snap_active = False
+        
         self.get_logger().info(
             'CoordTransformNode khởi động.\n'
             f'  Object offset (cam frame): {self._obj_offset}\n'
@@ -150,6 +154,9 @@ class CoordTransformNode(Node):
         self.declare_parameter('filter.ema_x_hold',           0.08)
         self.declare_parameter('filter.ema_y_hold',           0.02)
         self.declare_parameter('filter.ema_z_hold',           0.05)
+        # Target Snap: khoảng cách tối đa (m) để snap prediction về actual hand khi tay đứng yên
+        # 0.10 = 10cm — đủ lớn để bắt overshoot GRU thông thường, đủ nhỏ để không trigger khi đang di chuyển
+        self.declare_parameter('filter.pred_snap_radius',     0.10)
 
     def _load_params(self):
         # Object offset
@@ -213,6 +220,7 @@ class CoordTransformNode(Node):
         self._filter_ema_x_hold           = self.get_parameter('filter.ema_x_hold').value
         self._filter_ema_y_hold           = self.get_parameter('filter.ema_y_hold').value
         self._filter_ema_z_hold           = self.get_parameter('filter.ema_z_hold').value
+        self._filter_pred_snap_radius     = self.get_parameter('filter.pred_snap_radius').value
 
     def _setup_pubsub(self):
         # Subscribe: tọa độ dự đoán từ trajectory_predictor
@@ -436,7 +444,42 @@ class CoordTransformNode(Node):
         p_cam_filtered = self._apply_filter(p_cam, self._pred_filter)
         if p_cam_filtered is None:
             return
-            
+
+        # ─── TARGET SNAP (Bắt dính mục tiêu) ─────────────────────────────────
+        # Khi tay người dùng đã được xác nhận đứng yên (actual_filter đang HOLD),
+        # kiểm tra xem điểm dự đoán GRU có đang bị lố (overshoot) hay không.
+        # Nếu khoảng cách dự đoán - tay_thực < snap_radius → ép về đúng vị trí tay.
+        # Điều này triệt tiêu hiện tượng robot rung rinh/giựt lùi ở pha dừng.
+        if (self._actual_filter.is_holding_position and
+                self._actual_filter.hold_p_cam is not None):
+            actual_hold = self._actual_filter.hold_p_cam
+            dist_pred_to_actual = np.linalg.norm(p_cam_filtered - actual_hold)
+            if dist_pred_to_actual < self._filter_pred_snap_radius:
+                if not self._pred_snap_active:
+                    self.get_logger().info(
+                        f'[SNAP ON] Tay đứng yên, GRU lệch {dist_pred_to_actual*100:.1f}cm '
+                        f'(< {self._filter_pred_snap_radius*100:.0f}cm). '
+                        f'Snap prediction về actual hand.',
+                        throttle_duration_sec=1.0
+                    )
+                    self._pred_snap_active = True
+                p_cam_filtered = actual_hold.copy()
+            else:
+                # Nếu GRU lệch quá xa (> snap_radius), không snap — để filter tự xử lý
+                if self._pred_snap_active:
+                    self.get_logger().info(
+                        f'[SNAP OFF] Khoảng cách GRU-actual = {dist_pred_to_actual*100:.1f}cm '
+                        f'> {self._filter_pred_snap_radius*100:.0f}cm. Thả snap.',
+                        throttle_duration_sec=1.0
+                    )
+                    self._pred_snap_active = False
+        else:
+            # Tay đang di chuyển → không snap
+            if self._pred_snap_active:
+                self.get_logger().info('[SNAP OFF] Tay di chuyển lại. Thả snap.')
+                self._pred_snap_active = False
+        # ─────────────────────────────────────────────────────────────────────
+
         self._transform_and_publish_target(p_cam_filtered)
 
     def _apply_filter(self, p_cam: np.ndarray, state: CameraFilterState):
