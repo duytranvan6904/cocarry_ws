@@ -1,0 +1,265 @@
+[INFO] [1780543073.955601407] [cartesian_streamer]: CartesianStreamer khởi động (chờ Enable Robot từ UI).
+  Stream rate:       15 Hz (period=66.7ms)
+  Queue dt:          0.067 s
+  Prebuffer points:  3
+  Retry backoff:     66.0 ms
+  Gửi PoseStamped lên: /cartesian_streamer/target_pose
+  Gửi XYZ lên:        /cartesian_streamer/target_xyz
+  Nhận EE pose tại:   /cartesian_streamer/current_pose
+[INFO] [1780543073.960781310] [cartesian_streamer]: Nhận joint_states: ['1.457', '0.616', '0.743', '0.000', '-1.894', '0.056']
+[WARN] [1780543075.431004364] [cartesian_streamer]: Không thể cross-validate FK (local hoặc MoveIt! FK thất bại). Local IK vẫn hoạt động nhưng CHƯA ĐƯỢC VALIDATE.
+[INFO] [1780543075.432027703] [cartesian_streamer]: Đã nhận joint_states. EE hiện tại: (-0.0614, 0.8876, 0.7824). IK mode: Local DLS. Chờ Enable Robot từ UI...
+[INFO] [1780543129.475636207] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1780543129.476515964] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1780543129.596582029] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1780543129.597166448] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1780543129.739174980] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1780543129.739675246] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1780543130.245852395] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1780543130.246510147] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1780543130.476837511] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1780543130.477367833] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1780543130.707237991] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1780543130.707513155] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1780543131.240766856] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1780543131.820253291] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1780543131.821165694] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1780543131.863207709] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1780543131.864810731] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1638, 0.2630, 0.3947)
+[INFO] [1780543131.865305809] [cartesian_streamer]: Đang stream qua service: /queue_traj_point
+[INFO] [1780543131.865917225] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1780543131.929311245] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1638, 0.2630, 0.3947)
+[INFO] [1780543131.989361528] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1780543131.989882974] [cartesian_streamer]: Queue accepted sample#1: svc=/queue_traj_point, t_cumul=0.0000s, code=1, msg="", hold=False
+[INFO] [1780543132.020973562] [cartesian_streamer]: Queue accepted sample#2: svc=/queue_traj_point, t_cumul=0.1292s, code=1, msg="", hold=True
+[INFO] [1780543132.185580047] [cartesian_streamer]: Queue accepted sample#3: svc=/queue_traj_point, t_cumul=0.1960s, code=1, msg="", hold=True
+[INFO] [1780543132.208512991] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1780543132.211837793] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1780543132.212468530] [cartesian_streamer]: Queue accepted sample#4: svc=/queue_traj_point, t_cumul=0.3293s, code=1, msg="", hold=True
+[INFO] [1780543132.584510345] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1780543132.585194354] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1780543132.596560931] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1638, 0.2630, 0.3947)
+[INFO] [1780543132.604883911] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1780543132.605173092] [cartesian_streamer]: Queue accepted sample#5: svc=/queue_traj_point, t_cumul=0.3962s, code=1, msg="", hold=True
+[INFO] [1780543133.004366501] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1780543134.643711841] [cartesian_streamer]: QueueTrajPoint accepted #20: t=1.933s, hold=True
+[INFO] [1780543136.929627833] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.3, ack_hz=7.3, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=135.9, max_joint_delta=0.000, cumul_time=3.87s, hold_count=32, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1780543137.144943640] [cartesian_streamer]: QueueTrajPoint accepted #40: t=4.266s, hold=True
+[INFO] [1780543138.936567112] [cartesian_streamer]: QueueTrajPoint accepted #60: t=6.066s, hold=True
+[INFO] [1780543139.002094650] [cartesian_streamer]: IK OK → Δmax=0.0077 rad, joints: [1.569, 0.080, -1.041, -0.030, -0.526, -0.000]
+[WARN] [1780543139.065519676] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1780543140.136595592] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1780543140.868167139] [cartesian_streamer]: QueueTrajPoint accepted #80: t=7.737s, hold=False
+[INFO] [1780543141.066617955] [cartesian_streamer]: IK OK → Δmax=0.0174 rad, joints: [1.559, 0.178, -0.871, -0.025, -0.598, 0.005]
+[INFO] [1780543141.995383150] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.5, ack_hz=10.3, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=98.3, max_joint_delta=0.056, cumul_time=8.67s, hold_count=0, ik_mode=Local, ik_avg_ms=1.60, ik_fails=0
+[INFO] [1780543142.954404244] [cartesian_streamer]: QueueTrajPoint accepted #100: t=9.735s, hold=False
+[INFO] [1780543143.129665342] [cartesian_streamer]: IK OK → Δmax=0.0415 rad, joints: [1.569, 0.311, -0.351, -0.018, -0.985, -0.017]
+[INFO] [1780543144.543632421] [cartesian_streamer]: QueueTrajPoint accepted #120: t=11.337s, hold=False
+[INFO] [1780543145.132642685] [cartesian_streamer]: IK OK → Δmax=0.0181 rad, joints: [1.571, 0.066, -0.155, -0.015, -1.426, -0.026]
+[INFO] [1780543146.082894511] [cartesian_streamer]: QueueTrajPoint accepted #140: t=12.867s, hold=False
+[INFO] [1780543146.996156428] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=12.2, ack_hz=12.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=82.0, max_joint_delta=0.061, cumul_time=13.67s, hold_count=0, ik_mode=Local, ik_avg_ms=1.69, ik_fails=0
+[INFO] [1780543147.134212678] [cartesian_streamer]: IK OK → Δmax=0.0062 rad, joints: [1.490, 0.101, -0.397, -0.010, -1.150, 0.056]
+[INFO] [1780543147.739002653] [cartesian_streamer]: QueueTrajPoint accepted #160: t=14.535s, hold=False
+[INFO] [1780543149.196935758] [cartesian_streamer]: IK OK → Δmax=0.0078 rad, joints: [1.462, 0.150, -0.333, -0.007, -1.165, 0.083]
+[INFO] [1780543149.672871912] [cartesian_streamer]: QueueTrajPoint accepted #180: t=16.467s, hold=False
+[INFO] [1780543151.198193367] [cartesian_streamer]: IK OK → Δmax=0.0046 rad, joints: [1.475, 0.139, -0.407, -0.009, -1.102, 0.071]
+[INFO] [1780543152.028816514] [cartesian_streamer]: QueueTrajPoint accepted #200: t=18.468s, hold=False
+[INFO] [1780543152.062463737] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.9, ack_hz=9.9, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=100.7, max_joint_delta=0.016, cumul_time=18.47s, hold_count=0, ik_mode=Local, ik_avg_ms=1.67, ik_fails=0
+[INFO] [1780543153.264163022] [cartesian_streamer]: IK OK → Δmax=0.0051 rad, joints: [1.476, 0.131, -0.458, -0.009, -1.059, 0.071]
+[INFO] [1780543153.917694894] [cartesian_streamer]: QueueTrajPoint accepted #220: t=20.334s, hold=False
+[INFO] [1780543155.264675882] [cartesian_streamer]: IK OK → Δmax=0.0010 rad, joints: [1.467, 0.159, -0.444, -0.008, -1.045, 0.079]
+[INFO] [1780543156.017327938] [cartesian_streamer]: QueueTrajPoint accepted #240: t=22.334s, hold=False
+[INFO] [1780543157.062346061] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.2, ack_hz=10.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=97.8, max_joint_delta=0.043, cumul_time=23.33s, hold_count=0, ik_mode=Local, ik_avg_ms=1.66, ik_fails=0
+[INFO] [1780543157.331015785] [cartesian_streamer]: IK OK → Δmax=0.0198 rad, joints: [1.481, 0.220, -0.113, -0.009, -1.315, 0.063]
+[INFO] [1780543157.617381617] [cartesian_streamer]: QueueTrajPoint accepted #260: t=23.934s, hold=False
+[INFO] [1780543159.214392691] [cartesian_streamer]: QueueTrajPoint accepted #280: t=25.534s, hold=False
+[INFO] [1780543159.398317470] [cartesian_streamer]: IK OK → Δmax=0.0118 rad, joints: [1.432, 0.022, -0.143, -0.005, -1.484, 0.110]
+[INFO] [1780543161.253385374] [cartesian_streamer]: QueueTrajPoint accepted #300: t=27.401s, hold=False
+[INFO] [1780543161.464500867] [cartesian_streamer]: IK OK → Δmax=0.0014 rad, joints: [1.370, -0.047, -0.308, 0.000, -1.387, 0.172]
+[INFO] [1780543162.062305227] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.6, ack_hz=11.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=86.4, max_joint_delta=0.046, cumul_time=28.27s, hold_count=0, ik_mode=Local, ik_avg_ms=1.67, ik_fails=0
+[INFO] [1780543162.878798969] [cartesian_streamer]: QueueTrajPoint accepted #320: t=29.137s, hold=False
+[INFO] [1780543163.466158911] [cartesian_streamer]: IK OK → Δmax=0.0059 rad, joints: [1.401, -0.044, -0.335, -0.002, -1.357, 0.141]
+[INFO] [1780543164.649730289] [cartesian_streamer]: QueueTrajPoint accepted #340: t=30.801s, hold=False
+[INFO] [1780543165.529723971] [cartesian_streamer]: IK OK → Δmax=0.0213 rad, joints: [1.426, -0.076, -0.416, -0.004, -1.308, 0.117]
+[INFO] [1780543166.716881021] [cartesian_streamer]: QueueTrajPoint accepted #360: t=32.869s, hold=False
+[INFO] [1780543167.128680533] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.1, ack_hz=11.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=90.2, max_joint_delta=0.039, cumul_time=33.34s, hold_count=0, ik_mode=Local, ik_avg_ms=1.67, ik_fails=0
+[INFO] [1780543167.532376973] [cartesian_streamer]: IK OK → Δmax=0.0215 rad, joints: [1.462, -0.042, -0.475, -0.007, -1.215, 0.083]
+[INFO] [1780543168.430417698] [cartesian_streamer]: QueueTrajPoint accepted #380: t=34.671s, hold=False
+[INFO] [1780543169.596901896] [cartesian_streamer]: IK OK → Δmax=0.0058 rad, joints: [1.452, -0.103, -0.253, -0.006, -1.498, 0.091]
+[INFO] [1780543170.143042508] [cartesian_streamer]: QueueTrajPoint accepted #400: t=36.401s, hold=False
+[INFO] [1780543171.597516625] [cartesian_streamer]: IK OK → Δmax=0.0096 rad, joints: [1.446, 0.133, -0.129, -0.006, -1.386, 0.097]
+[INFO] [1780543172.129424090] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.4, ack_hz=10.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=94.9, max_joint_delta=0.044, cumul_time=38.14s, hold_count=0, ik_mode=Local, ik_avg_ms=1.66, ik_fails=0
+[INFO] [1780543172.455141800] [cartesian_streamer]: QueueTrajPoint accepted #420: t=38.469s, hold=False
+[INFO] [1780543173.665158715] [cartesian_streamer]: IK OK → Δmax=0.0545 rad, joints: [1.449, 0.195, -0.229, -0.006, -1.224, 0.095]
+[INFO] [1780543174.417545903] [cartesian_streamer]: QueueTrajPoint accepted #440: t=40.469s, hold=False
+[INFO] [1780543175.667687729] [cartesian_streamer]: IK OK → Δmax=0.0087 rad, joints: [1.433, 0.167, -0.297, -0.005, -1.184, 0.111]
+[INFO] [1780543176.338864120] [cartesian_streamer]: QueueTrajPoint accepted #460: t=42.333s, hold=False
+[INFO] [1780543177.130503526] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.4, ack_hz=10.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=97.5, max_joint_delta=0.054, cumul_time=43.07s, hold_count=0, ik_mode=Local, ik_avg_ms=1.69, ik_fails=0
+[INFO] [1780543177.729549023] [cartesian_streamer]: IK OK → Δmax=0.0090 rad, joints: [1.322, -0.079, -0.546, 0.004, -1.181, 0.218]
+[INFO] [1780543177.939092731] [cartesian_streamer]: QueueTrajPoint accepted #480: t=43.930s, hold=False
+[INFO] [1780543179.611540620] [cartesian_streamer]: QueueTrajPoint accepted #500: t=45.597s, hold=False
+[INFO] [1780543179.730839369] [cartesian_streamer]: IK OK → Δmax=0.0334 rad, joints: [1.226, -0.197, -0.650, 0.012, -1.195, 0.311]
+[INFO] [1780543181.209114018] [cartesian_streamer]: QueueTrajPoint accepted #520: t=47.199s, hold=False
+[INFO] [1780543181.732508598] [cartesian_streamer]: IK OK → Δmax=0.0082 rad, joints: [1.337, -0.118, -0.301, 0.003, -1.465, 0.204]
+[INFO] [1780543182.195260066] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=12.2, ack_hz=12.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=81.8, max_joint_delta=0.039, cumul_time=48.13s, hold_count=0, ik_mode=Local, ik_avg_ms=1.70, ik_fails=0
+[INFO] [1780543183.068938787] [cartesian_streamer]: QueueTrajPoint accepted #540: t=48.997s, hold=False
+[INFO] [1780543183.796531981] [cartesian_streamer]: IK OK → Δmax=0.0001 rad, joints: [1.384, -0.122, -0.250, -0.001, -1.521, 0.158]
+[INFO] [1780543184.743832289] [cartesian_streamer]: QueueTrajPoint accepted #560: t=50.662s, hold=False
+[INFO] [1780543185.798642708] [cartesian_streamer]: IK OK → Δmax=0.0104 rad, joints: [1.443, 0.078, -0.104, -0.005, -1.466, 0.100]
+[INFO] [1780543186.556054772] [cartesian_streamer]: QueueTrajPoint accepted #580: t=52.396s, hold=False
+[INFO] [1780543187.262919216] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.4, ack_hz=11.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=88.0, max_joint_delta=0.031, cumul_time=53.00s, hold_count=0, ik_mode=Local, ik_avg_ms=1.72, ik_fails=0
+[INFO] [1780543187.798998665] [cartesian_streamer]: IK OK → Δmax=0.0053 rad, joints: [1.489, 0.227, -0.065, -0.009, -1.357, 0.055]
+[INFO] [1780543188.214941506] [cartesian_streamer]: QueueTrajPoint accepted #600: t=54.064s, hold=False
+[INFO] [1780543189.800656630] [cartesian_streamer]: IK OK → Δmax=0.0037 rad, joints: [1.493, 0.241, -0.210, -0.010, -1.197, 0.053]
+[INFO] [1780543189.977614376] [cartesian_streamer]: QueueTrajPoint accepted #620: t=55.728s, hold=False
+[INFO] [1780543191.865455171] [cartesian_streamer]: IK OK → Δmax=0.0054 rad, joints: [1.442, 0.126, -0.382, -0.006, -1.140, 0.102]
+[INFO] [1780543192.118406169] [cartesian_streamer]: QueueTrajPoint accepted #640: t=57.796s, hold=False
+[INFO] [1780543192.262697689] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.6, ack_hz=10.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=93.6, max_joint_delta=0.049, cumul_time=58.00s, hold_count=0, ik_mode=Local, ik_avg_ms=1.75, ik_fails=0
+[INFO] [1780543193.887777043] [cartesian_streamer]: QueueTrajPoint accepted #660: t=59.662s, hold=False
+[INFO] [1780543193.932883020] [cartesian_streamer]: IK OK → Δmax=0.0058 rad, joints: [1.364, -0.151, -0.670, 0.001, -1.129, 0.178]
+[INFO] [1780543195.407271661] [cartesian_streamer]: QueueTrajPoint accepted #680: t=61.196s, hold=False
+[INFO] [1780543196.000091088] [cartesian_streamer]: IK OK → Δmax=0.0111 rad, joints: [1.335, -0.137, -0.426, 0.003, -1.359, 0.206]
+[INFO] [1780543197.004859885] [cartesian_streamer]: QueueTrajPoint accepted #700: t=62.796s, hold=False
+[INFO] [1780543197.262355288] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=12.2, ack_hz=12.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=82.4, max_joint_delta=0.047, cumul_time=62.99s, hold_count=0, ik_mode=Local, ik_avg_ms=1.77, ik_fails=0
+[INFO] [1780543198.064228783] [cartesian_streamer]: IK OK → Δmax=0.0070 rad, joints: [1.201, -0.421, -0.552, 0.013, -1.516, 0.340]
+[INFO] [1780543199.007647282] [cartesian_streamer]: QueueTrajPoint accepted #720: t=64.663s, hold=False
+[INFO] [1780543200.064755724] [cartesian_streamer]: IK OK → Δmax=0.0167 rad, joints: [1.288, -0.186, -0.471, 0.007, -1.362, 0.252]
+[INFO] [1780543200.488089375] [cartesian_streamer]: QueueTrajPoint accepted #740: t=66.130s, hold=False
+[INFO] [1780543202.068340464] [cartesian_streamer]: QueueTrajPoint accepted #760: t=67.730s, hold=False
+[INFO] [1780543202.132348816] [cartesian_streamer]: IK OK → Δmax=0.0052 rad, joints: [1.324, -0.065, -0.298, 0.004, -1.416, 0.217]
+[INFO] [1780543202.328937955] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.8, ack_hz=11.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=84.1, max_joint_delta=0.062, cumul_time=67.93s, hold_count=0, ik_mode=Local, ik_avg_ms=1.79, ik_fails=0
+[INFO] [1780543203.817953401] [cartesian_streamer]: QueueTrajPoint accepted #780: t=69.463s, hold=False
+[INFO] [1780543204.198198922] [cartesian_streamer]: IK OK → Δmax=0.0065 rad, joints: [1.350, 0.030, -0.260, 0.002, -1.359, 0.191]
+[INFO] [1780543205.675458607] [cartesian_streamer]: QueueTrajPoint accepted #800: t=71.262s, hold=False
+[INFO] [1780543206.198943383] [cartesian_streamer]: IK OK → Δmax=0.0042 rad, joints: [1.371, 0.021, -0.415, 0.000, -1.213, 0.171]
+[INFO] [1780543207.395709570] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.9, ack_hz=11.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=92.2, max_joint_delta=0.049, cumul_time=72.93s, hold_count=0, ik_mode=Local, ik_avg_ms=1.80, ik_fails=0
+[INFO] [1780543207.487841853] [cartesian_streamer]: QueueTrajPoint accepted #820: t=73.062s, hold=False
+[INFO] [1780543208.198969786] [cartesian_streamer]: IK OK → Δmax=0.0044 rad, joints: [1.373, 0.012, -0.442, 0.000, -1.194, 0.169]
+[WARN] [1780543210.198876857] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1780543210.241917985] [cartesian_streamer]: QueueTrajPoint accepted #840: t=75.327s, hold=False
+[INFO] [1780543210.263311448] [cartesian_streamer]: IK OK → Δmax=0.0043 rad, joints: [1.333, -0.008, -0.469, 0.003, -1.187, 0.207]
+[INFO] [1780543212.153452525] [cartesian_streamer]: QueueTrajPoint accepted #860: t=77.191s, hold=False
+[INFO] [1780543212.264208434] [cartesian_streamer]: IK OK → Δmax=0.0053 rad, joints: [1.361, 0.057, -0.399, 0.001, -1.192, 0.180]
+[INFO] [1780543212.397089625] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.0, ack_hz=9.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=110.6, max_joint_delta=0.016, cumul_time=77.39s, hold_count=0, ik_mode=Local, ik_avg_ms=1.81, ik_fails=0
+[INFO] [1780543213.819637206] [cartesian_streamer]: QueueTrajPoint accepted #880: t=78.859s, hold=False
+[INFO] [1780543214.265319154] [cartesian_streamer]: IK OK → Δmax=0.0220 rad, joints: [1.372, 0.023, -0.383, 0.000, -1.242, 0.170]
+[INFO] [1780543215.760723710] [cartesian_streamer]: QueueTrajPoint accepted #900: t=80.791s, hold=False
+[INFO] [1780543216.266057910] [cartesian_streamer]: IK OK → Δmax=0.0115 rad, joints: [1.448, 0.103, -0.056, -0.006, -1.489, 0.095]
+[INFO] [1780543217.344357798] [cartesian_streamer]: QueueTrajPoint accepted #920: t=82.391s, hold=False
+[INFO] [1780543217.396639900] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.4, ack_hz=11.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=87.7, max_joint_delta=0.058, cumul_time=82.39s, hold_count=0, ik_mode=Local, ik_avg_ms=1.82, ik_fails=0
+[INFO] [1780543218.267241711] [cartesian_streamer]: IK OK → Δmax=0.0047 rad, joints: [1.702, 0.106, -0.138, -0.025, -1.401, -0.155]
+[INFO] [1780543218.948854952] [cartesian_streamer]: QueueTrajPoint accepted #940: t=83.992s, hold=False
+[INFO] [1780543220.330815484] [cartesian_streamer]: IK OK → Δmax=0.0175 rad, joints: [1.594, 0.230, -0.045, -0.017, -1.372, -0.048]
+[INFO] [1780543220.890280191] [cartesian_streamer]: QueueTrajPoint accepted #960: t=85.925s, hold=False
+[INFO] [1780543222.331876499] [cartesian_streamer]: IK OK → Δmax=0.0251 rad, joints: [1.504, 0.351, 0.149, -0.010, -1.446, 0.040]
+[INFO] [1780543222.462231836] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.4, ack_hz=11.3, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=88.5, max_joint_delta=0.059, cumul_time=87.46s, hold_count=0, ik_mode=Local, ik_avg_ms=1.82, ik_fails=0
+[INFO] [1780543222.607436021] [cartesian_streamer]: QueueTrajPoint accepted #980: t=87.656s, hold=False
+[INFO] [1780543224.396891584] [cartesian_streamer]: IK OK → Δmax=0.0153 rad, joints: [1.304, 0.091, -0.130, 0.005, -1.426, 0.237]
+[INFO] [1780543224.405543986] [cartesian_streamer]: QueueTrajPoint accepted #1000: t=89.457s, hold=False
+[INFO] [1780543226.378052427] [cartesian_streamer]: QueueTrajPoint accepted #1020: t=91.323s, hold=False
+[INFO] [1780543226.397708879] [cartesian_streamer]: IK OK → Δmax=0.0170 rad, joints: [1.133, -0.182, -0.422, 0.019, -1.405, 0.405]
+[INFO] [1780543227.528949505] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.9, ack_hz=11.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=91.5, max_joint_delta=0.058, cumul_time=92.46s, hold_count=0, ik_mode=Local, ik_avg_ms=1.81, ik_fails=0
+[INFO] [1780543228.013369693] [cartesian_streamer]: QueueTrajPoint accepted #1040: t=93.058s, hold=False
+[INFO] [1780543228.398161648] [cartesian_streamer]: IK OK → Δmax=0.0638 rad, joints: [1.150, -0.323, -0.723, 0.018, -1.246, 0.385]
+[INFO] [1780543228.466078327] [cartesian_streamer]: IK delta clamped → joints: [1.157, -0.303, -0.724, 0.016, -1.226, 0.358]
+[INFO] [1780543229.540681151] [cartesian_streamer]: QueueTrajPoint accepted #1060: t=94.593s, hold=False
+[INFO] [1780543230.398875751] [cartesian_streamer]: IK OK → Δmax=0.0053 rad, joints: [1.236, -0.257, -0.720, 0.011, -1.185, 0.301]
+[INFO] [1780543231.150246942] [cartesian_streamer]: QueueTrajPoint accepted #1080: t=96.193s, hold=False
+[INFO] [1780543232.464174950] [cartesian_streamer]: IK OK → Δmax=0.0318 rad, joints: [1.362, -0.227, -0.467, 0.001, -1.409, 0.180]
+[INFO] [1780543232.530849212] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=13.0, ack_hz=13.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=77.0, max_joint_delta=0.064, cumul_time=97.46s, hold_count=0, ik_mode=Local, ik_avg_ms=1.82, ik_fails=0
+[INFO] [1780543232.608703728] [cartesian_streamer]: QueueTrajPoint accepted #1100: t=97.657s, hold=False
+[INFO] [1780543234.384872382] [cartesian_streamer]: QueueTrajPoint accepted #1120: t=99.325s, hold=False
+[INFO] [1780543234.529627555] [cartesian_streamer]: IK OK → Δmax=0.0306 rad, joints: [1.478, 0.068, -0.225, -0.008, -1.355, 0.066]
+[INFO] [1780543235.930799386] [cartesian_streamer]: IK delta clamped → joints: [1.559, 0.369, 0.146, -0.014, -1.442, -0.015]
+[INFO] [1780543236.079721454] [cartesian_streamer]: QueueTrajPoint accepted #1140: t=101.122s, hold=False
+[INFO] [1780543236.532831913] [cartesian_streamer]: IK OK → Δmax=0.0023 rad, joints: [1.581, 0.385, 0.204, -0.016, -1.466, -0.037]
+[INFO] [1780543237.529650313] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.6, ack_hz=11.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=85.8, max_joint_delta=0.070, cumul_time=102.52s, hold_count=0, ik_mode=Local, ik_avg_ms=1.82, ik_fails=0
+[INFO] [1780543237.993204426] [cartesian_streamer]: QueueTrajPoint accepted #1160: t=102.927s, hold=False
+[INFO] [1780543238.600397070] [cartesian_streamer]: IK OK → Δmax=0.0285 rad, joints: [1.597, 0.590, 0.542, -0.017, -1.598, -0.055]
+[INFO] [1780543239.603909172] [cartesian_streamer]: QueueTrajPoint accepted #1180: t=104.658s, hold=False
+[INFO] [1780543240.665027801] [cartesian_streamer]: IK OK → Δmax=0.0124 rad, joints: [1.593, 0.767, 0.945, -0.017, -1.824, -0.055]
+[INFO] [1780543241.266740171] [cartesian_streamer]: QueueTrajPoint accepted #1200: t=106.188s, hold=False
+[INFO] [1780543242.595949560] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=12.2, ack_hz=12.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=81.4, max_joint_delta=0.064, cumul_time=107.59s, hold_count=0, ik_mode=Local, ik_avg_ms=1.83, ik_fails=0
+[INFO] [1780543242.668435876] [cartesian_streamer]: IK OK → Δmax=0.0082 rad, joints: [1.541, 0.323, 0.384, -0.013, -1.708, -0.000]
+[INFO] [1780543242.685254571] [cartesian_streamer]: QueueTrajPoint accepted #1220: t=107.726s, hold=False
+[INFO] [1780543244.730288187] [cartesian_streamer]: IK OK → Δmax=0.0124 rad, joints: [1.478, 0.267, 0.273, -0.008, -1.654, 0.064]
+[INFO] [1780543244.868503414] [cartesian_streamer]: QueueTrajPoint accepted #1240: t=109.654s, hold=False
+[INFO] [1780543246.682262920] [cartesian_streamer]: QueueTrajPoint accepted #1260: t=111.388s, hold=False
+[INFO] [1780543246.731745443] [cartesian_streamer]: IK OK → Δmax=0.0057 rad, joints: [1.500, 0.344, 0.341, -0.010, -1.645, 0.042]
+[INFO] [1780543247.331957638] [cartesian_streamer]: IK delta clamped → joints: [1.518, 0.438, 0.474, -0.011, -1.687, 0.023]
+[INFO] [1780543247.595778026] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.6, ack_hz=9.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=104.4, max_joint_delta=0.070, cumul_time=111.92s, hold_count=0, ik_mode=Local, ik_avg_ms=1.83, ik_fails=0
+[INFO] [1780543248.619291297] [cartesian_streamer]: QueueTrajPoint accepted #1280: t=113.119s, hold=False
+[INFO] [1780543248.796718005] [cartesian_streamer]: IK OK → Δmax=0.0030 rad, joints: [1.525, 0.491, 0.535, -0.012, -1.692, 0.016]
+[INFO] [1780543250.724809160] [cartesian_streamer]: QueueTrajPoint accepted #1300: t=114.986s, hold=False
+[INFO] [1780543250.797576050] [cartesian_streamer]: IK OK → Δmax=0.0252 rad, joints: [1.571, 0.642, 0.763, -0.016, -1.769, -0.032]
+[INFO] [1780543251.491991659] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1780543252.155889240] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1780543252.595607884] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.6, ack_hz=10.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=94.7, max_joint_delta=0.070, cumul_time=116.88s, hold_count=0, ik_mode=Local, ik_avg_ms=2.05, ik_fails=16
+[INFO] [1780543252.627724960] [cartesian_streamer]: QueueTrajPoint accepted #1320: t=116.950s, hold=False
+[INFO] [1780543252.822728259] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.592, 0.795, 1.041, -0.018, -1.892, -0.055]
+[WARN] [1780543254.236083163] [cartesian_streamer]: Local IK failed 38x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1780543254.826034275] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.592, 0.795, 1.041, -0.018, -1.892, -0.055]
+[INFO] [1780543255.131509255] [cartesian_streamer]: IK delta clamped → joints: [1.583, 0.711, 0.871, -0.017, -1.805, -0.045]
+[INFO] [1780543255.189523712] [cartesian_streamer]: QueueTrajPoint accepted #1340: t=119.265s, hold=False
+[INFO] [1780543256.863462591] [cartesian_streamer]: IK OK → Δmax=0.0291 rad, joints: [1.494, 0.412, 0.352, -0.009, -1.588, 0.048]
+[INFO] [1780543256.937760252] [cartesian_streamer]: QueueTrajPoint accepted #1360: t=121.069s, hold=False
+[INFO] [1780543257.662450281] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.5, ack_hz=9.5, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=104.9, max_joint_delta=0.070, cumul_time=121.73s, hold_count=0, ik_mode=Local, ik_avg_ms=2.45, ik_fails=46
+[INFO] [1780543258.867955650] [cartesian_streamer]: QueueTrajPoint accepted #1380: t=122.999s, hold=False
+[INFO] [1780543258.931765636] [cartesian_streamer]: IK OK → Δmax=0.0177 rad, joints: [1.432, 0.306, 0.031, -0.005, -1.372, 0.111]
+[INFO] [1780543260.693878422] [cartesian_streamer]: QueueTrajPoint accepted #1400: t=124.732s, hold=False
+[INFO] [1780543260.931882782] [cartesian_streamer]: IK OK → Δmax=0.0111 rad, joints: [1.501, 0.423, -0.129, -0.011, -1.096, 0.047]
+[INFO] [1780543262.208693784] [cartesian_streamer]: QueueTrajPoint accepted #1420: t=126.267s, hold=False
+[INFO] [1780543262.663033896] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=11.2, ack_hz=11.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=89.4, max_joint_delta=0.052, cumul_time=126.60s, hold_count=0, ik_mode=Local, ik_avg_ms=2.44, ik_fails=46
+[INFO] [1780543262.931942169] [cartesian_streamer]: IK OK → Δmax=0.0112 rad, joints: [1.498, 0.460, -0.205, -0.012, -0.982, 0.050]
+[WARN] [1780543264.788803346] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1780543264.932574038] [cartesian_streamer]: IK OK → Δmax=0.0097 rad, joints: [1.462, 0.468, -0.260, -0.009, -0.921, 0.085]
+[INFO] [1780543265.011897372] [cartesian_streamer]: QueueTrajPoint accepted #1440: t=128.600s, hold=False
+[INFO] [1780543266.999059696] [cartesian_streamer]: IK OK → Δmax=0.0377 rad, joints: [1.392, 0.289, -0.540, -0.002, -0.819, 0.151]
+[INFO] [1780543267.000246369] [cartesian_streamer]: QueueTrajPoint accepted #1460: t=130.400s, hold=False
+[INFO] [1780543267.728693557] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.3, ack_hz=9.3, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=110.8, max_joint_delta=0.038, cumul_time=131.14s, hold_count=0, ik_mode=Local, ik_avg_ms=2.42, ik_fails=46
+[INFO] [1780543269.063942883] [cartesian_streamer]: IK OK → Δmax=0.0024 rad, joints: [1.382, 0.187, -0.676, -0.001, -0.785, 0.161]
+[INFO] [1780543269.199379364] [cartesian_streamer]: QueueTrajPoint accepted #1480: t=132.337s, hold=False
+[INFO] [1780543271.129807874] [cartesian_streamer]: IK OK → Δmax=0.0193 rad, joints: [1.345, 0.145, -0.755, 0.003, -0.749, 0.194]
+[INFO] [1780543271.319495211] [cartesian_streamer]: QueueTrajPoint accepted #1500: t=134.402s, hold=False
+[INFO] [1780543272.264388971] [cartesian_streamer]: IK delta clamped → joints: [1.310, 0.040, -0.610, 0.006, -0.985, 0.228]
+[INFO] [1780543272.730408295] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=8.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=112.6, max_joint_delta=0.090, cumul_time=135.80s, hold_count=0, ik_mode=Local, ik_avg_ms=2.39, ik_fails=46
+[INFO] [1780543273.197483722] [cartesian_streamer]: IK OK → Δmax=0.0215 rad, joints: [1.288, -0.063, -0.496, 0.007, -1.215, 0.251]
+[INFO] [1780543273.387657008] [cartesian_streamer]: QueueTrajPoint accepted #1520: t=136.396s, hold=False
+[INFO] [1780543274.749048301] [cartesian_streamer]: QueueTrajPoint accepted #1540: t=137.862s, hold=False
+[INFO] [1780543275.198191227] [cartesian_streamer]: IK OK → Δmax=0.0058 rad, joints: [1.260, -0.110, -0.357, 0.009, -1.401, 0.280]
+[INFO] [1780543276.416924967] [cartesian_streamer]: QueueTrajPoint accepted #1560: t=139.529s, hold=False
+[INFO] [1780543277.264524884] [cartesian_streamer]: IK OK → Δmax=0.0071 rad, joints: [1.275, -0.097, -0.242, 0.008, -1.504, 0.266]
+[INFO] [1780543277.728750536] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=12.0, ack_hz=11.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=82.4, max_joint_delta=0.030, cumul_time=140.73s, hold_count=0, ik_mode=Local, ik_avg_ms=2.37, ik_fails=46
+[INFO] [1780543278.585206206] [cartesian_streamer]: QueueTrajPoint accepted #1580: t=141.462s, hold=False
+[INFO] [1780543279.265087843] [cartesian_streamer]: IK OK → Δmax=0.0095 rad, joints: [1.259, -0.208, -0.292, 0.009, -1.565, 0.282]
+[INFO] [1780543280.550192355] [cartesian_streamer]: QueueTrajPoint accepted #1600: t=143.466s, hold=False
+[INFO] [1780543281.330107612] [cartesian_streamer]: IK OK → Δmax=0.0169 rad, joints: [1.133, -0.363, -0.426, 0.018, -1.584, 0.409]
+[INFO] [1780543282.679494581] [cartesian_streamer]: QueueTrajPoint accepted #1620: t=145.467s, hold=False
+[INFO] [1780543282.795918851] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.5, ack_hz=9.7, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=106.1, max_joint_delta=0.047, cumul_time=145.53s, hold_count=0, ik_mode=Local, ik_avg_ms=2.34, ik_fails=46
+[INFO] [1780543283.331450265] [cartesian_streamer]: IK OK → Δmax=0.0022 rad, joints: [1.090, -0.388, -0.458, 0.022, -1.576, 0.451]
+[INFO] [1780543284.717491789] [cartesian_streamer]: QueueTrajPoint accepted #1640: t=147.398s, hold=False
+[INFO] [1780543285.397812210] [cartesian_streamer]: IK OK → Δmax=0.0468 rad, joints: [1.053, -0.429, -0.622, 0.025, -1.451, 0.485]
+[INFO] [1780543286.586375711] [cartesian_streamer]: QueueTrajPoint accepted #1660: t=149.200s, hold=False
+[INFO] [1780543286.600556445] [cartesian_streamer]: IK delta clamped → joints: [0.916, -0.641, -0.769, 0.036, -1.511, 0.641]
+[INFO] [1780543286.887497372] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[INFO] [1780543287.398902631] [cartesian_streamer]: IK OK → Δmax=0.0101 rad, joints: [0.897, -0.605, -0.748, 0.036, -1.497, 0.641]
+[INFO] [1780543287.862516244] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.5, ack_hz=10.5, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=95.7, max_joint_delta=0.090, cumul_time=150.47s, hold_count=0, ik_mode=Local, ik_avg_ms=2.36, ik_fails=49
+[INFO] [1780543288.381512022] [cartesian_streamer]: QueueTrajPoint accepted #1680: t=150.932s, hold=False
+[INFO] [1780543289.464835074] [cartesian_streamer]: IK OK → Δmax=0.0160 rad, joints: [1.341, -0.099, -0.853, 0.003, -0.895, 0.198]
+[INFO] [1780543289.745164911] [cartesian_streamer]: QueueTrajPoint accepted #1700: t=152.400s, hold=False
+[INFO] [1780543291.209553613] [cartesian_streamer]: QueueTrajPoint accepted #1720: t=153.866s, hold=False
+[INFO] [1780543291.531604183] [cartesian_streamer]: IK OK → Δmax=0.0177 rad, joints: [1.357, -0.165, -0.417, 0.001, -1.396, 0.185]
+[INFO] [1780543292.929169744] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=12.6, ack_hz=12.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=79.1, max_joint_delta=0.090, cumul_time=155.53s, hold_count=0, ik_mode=Local, ik_avg_ms=2.34, ik_fails=49
+[INFO] [1780543293.002252632] [cartesian_streamer]: QueueTrajPoint accepted #1740: t=155.668s, hold=False
+[INFO] [1780543293.596738634] [cartesian_streamer]: IK OK → Δmax=0.0053 rad, joints: [1.387, -0.132, -0.305, -0.001, -1.475, 0.155]
+[INFO] [1780543294.826021412] [cartesian_streamer]: QueueTrajPoint accepted #1760: t=157.467s, hold=False
+[INFO] [1780543295.597301920] [cartesian_streamer]: IK OK → Δmax=0.0057 rad, joints: [1.371, -0.102, -0.270, 0.000, -1.481, 0.171]
+[INFO] [1780543296.911580697] [cartesian_streamer]: QueueTrajPoint accepted #1780: t=159.334s, hold=False
+[INFO] [1780543297.664937198] [cartesian_streamer]: IK OK → Δmax=0.0148 rad, joints: [1.358, -0.106, -0.287, 0.001, -1.467, 0.184]
+[INFO] [1780543297.995752201] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.3, ack_hz=10.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=98.3, max_joint_delta=0.022, cumul_time=160.46s, hold_count=0, ik_mode=Local, ik_avg_ms=2.32, ik_fails=49
+[INFO] [1780543299.013782670] [cartesian_streamer]: QueueTrajPoint accepted #1800: t=161.463s, hold=False
+[INFO] [1780543299.524552641] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1780543299.525423052] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1780543717.128894677] [cartesian_streamer]: Graceful shutdown: tắt Point Queue Mode trước khi thoát...
+[INFO] [1780543717.129801439] [cartesian_streamer]: Robot chưa enable, không cần stop_traj_mode.
+[INFO] [1780543717.130515398] [cartesian_streamer]: Shutdown hoàn tất. Tủ điện sẽ KHÔNG bị alarm.

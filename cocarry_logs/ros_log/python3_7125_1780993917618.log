@@ -1,0 +1,22 @@
+[INFO] [1780993917.680763842] [trajectory_predictor]: [Predictor] Worker launched (pid=7220)
+[INFO] [1780993917.681273359] [trajectory_predictor]: [Predictor] Started | model=gru | window=20 | auto_start=True
+  Output Filter: enabled=True, ema_alpha=0.2, max_dev=0.08, max_rate=0.04
+[WARN] [1780993919.992370453] [trajectory_predictor]: [Worker STDERR] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[WARN] [1780993919.992595696] [trajectory_predictor]: [Worker STDERR] warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[WARN] [1780993921.266683146] [trajectory_predictor]: [Worker STDERR] /home/duy/.local/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+[INFO] [1780993921.267126929] [trajectory_predictor]: [Worker] TF 2.21.0 and sklearn loaded
+[WARN] [1780993921.267300052] [trajectory_predictor]: [Worker STDERR] https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+[WARN] [1780993921.267503150] [trajectory_predictor]: [Worker STDERR] warnings.warn(
+[INFO] [1780993922.018806808] [trajectory_predictor]: [Predictor] Worker READY | model=gru
+[INFO] [1780993932.215256963] [trajectory_predictor]: [Filter] raw=(0.6380,0.2874,-0.0232) → filt=(0.7934,-2.4200,-0.1184) Δ=(0.1554,2.7074,0.0952)
+[INFO] [1780993933.670440690] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.0s)
+[INFO] [1780993937.670616313] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.8s)
+[INFO] [1780993950.670785688] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.7s)
+[INFO] [1780993962.671049498] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.8s)
+[INFO] [1780993985.670892854] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.3s)
+[WARN] [1780993996.866507996] [trajectory_predictor]: [Worker STDERR] Traceback (most recent call last):
+[WARN] [1780993996.867965032] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 255, in <module>
+[WARN] [1780993996.869760240] [trajectory_predictor]: [Worker STDERR] main()
+[WARN] [1780993996.871458873] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 190, in main
+[WARN] [1780993996.872324221] [trajectory_predictor]: [Worker STDERR] for line in sys.stdin:
+[WARN] [1780993996.873054242] [trajectory_predictor]: [Worker STDERR] KeyboardInterrupt

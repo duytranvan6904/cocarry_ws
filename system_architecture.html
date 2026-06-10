@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Architecture — Deep-GRU + MPC Co-Carrying</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fff; display: flex; justify-content: center; padding: 20px; font-family: 'Times New Roman', serif; }
+  svg { max-width: 1000px; }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720">
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+    <marker id="ah-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="ah-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- ============== TOP ROW: Physical Layer ============== -->
+
+  <!-- Robot icon area -->
+  <rect x="20" y="18" width="145" height="90" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="92" y="42" text-anchor="middle" font-size="12" font-weight="bold" fill="#374151">Collaborative</text>
+  <text x="92" y="57" text-anchor="middle" font-size="12" font-weight="bold" fill="#374151">Robot</text>
+  <text x="92" y="75" text-anchor="middle" font-size="10" fill="#6b7280" font-style="italic">n-DOF Manipulator</text>
+  <text x="92" y="100" text-anchor="middle" font-size="9" fill="#6b7280">+ Gripper/Handle</text>
+
+  <!-- Feedback Controller -->
+  <rect x="195" y="18" width="140" height="90" rx="6" fill="#e5e7eb" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="265" y="42" text-anchor="middle" font-size="12" font-weight="bold" fill="#374151">Feedback</text>
+  <text x="265" y="57" text-anchor="middle" font-size="12" font-weight="bold" fill="#374151">Controller</text>
+  <text x="265" y="78" text-anchor="middle" font-size="9" fill="#6b7280">PID / Impedance</text>
+  <text x="265" y="91" text-anchor="middle" font-size="9" fill="#6b7280">Control</text>
+
+  <!-- Arrows: Controller ↔ Robot -->
+  <line x1="195" y1="48" x2="173" y2="48" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="184" y="42" text-anchor="middle" font-size="7.5" fill="#333">τ</text>
+
+  <path d="M165,80 L165,115 L335,115 L335,80" stroke="#dc2626" stroke-width="1.2" fill="none" marker-end="url(#ah-red)" stroke-dasharray="4,2"/>
+  <text x="250" y="126" text-anchor="middle" font-size="8" fill="#dc2626">Robot state (q, q̇, x_ee)</text>
+
+  <!-- Co-carrying object + Human -->
+  <rect x="380" y="22" width="80" height="32" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.2"/>
+  <text x="420" y="43" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">Object</text>
+
+  <!-- Human stick figure -->
+  <circle cx="520" cy="30" r="12" fill="none" stroke="#333" stroke-width="1.5"/>
+  <line x1="520" y1="42" x2="520" y2="75" stroke="#333" stroke-width="1.5"/>
+  <line x1="520" y1="50" x2="498" y2="40" stroke="#333" stroke-width="1.5"/>
+  <line x1="520" y1="50" x2="540" y2="62" stroke="#333" stroke-width="1.5"/>
+  <line x1="520" y1="75" x2="508" y2="95" stroke="#333" stroke-width="1.5"/>
+  <line x1="520" y1="75" x2="532" y2="95" stroke="#333" stroke-width="1.5"/>
+  <text x="520" y="108" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">Worker</text>
+
+  <!-- Object connection lines -->
+  <line x1="460" y1="38" x2="498" y2="38" stroke="#d97706" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <line x1="380" y1="38" x2="335" y2="63" stroke="#d97706" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <text x="355" y="42" text-anchor="middle" font-size="7" fill="#92400e">p_offset</text>
+
+  <!-- Sensing block -->
+  <rect x="610" y="18" width="130" height="90" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="675" y="38" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">Sensing</text>
+  <rect x="622" y="46" width="106" height="22" rx="3" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1"/>
+  <text x="675" y="61" text-anchor="middle" font-size="9" fill="#1e40af">RGB-D Camera</text>
+  <rect x="622" y="74" width="106" height="22" rx="3" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1"/>
+  <text x="675" y="89" text-anchor="middle" font-size="9" fill="#1e40af">Hand Tracking</text>
+
+  <!-- Arrow: Sensing ← Human -->
+  <line x1="610" y1="63" x2="548" y2="50" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#ah-blue)"/>
+
+  <!-- ============== LABEL: Following Control ============== -->
+  <text x="480" y="145" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">Following Control</text>
+  <line x1="20" y1="152" x2="940" y2="152" stroke="#d1d5db" stroke-width="0.8"/>
+
+  <!-- ============== BLOCK 1: Human Motion Predictor (GREEN) ============== -->
+  <rect x="600" y="168" width="340" height="230" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <text x="770" y="190" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">Human Motion Predictor</text>
+
+  <!-- Sub-blocks -->
+  <rect x="618" y="200" width="150" height="40" rx="4" fill="#a7f3d0" stroke="#34d399" stroke-width="1.2"/>
+  <text x="693" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">Preprocessing</text>
+  <text x="693" y="231" text-anchor="middle" font-size="8.5" fill="#065f46">Velocity calculation</text>
+
+  <rect x="785" y="200" width="140" height="40" rx="4" fill="#a7f3d0" stroke="#34d399" stroke-width="1.2"/>
+  <text x="855" y="216" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">Sliding Window</text>
+  <text x="855" y="231" text-anchor="middle" font-size="8.5" fill="#065f46">Buffer (W×6D)</text>
+
+  <rect x="618" y="252" width="307" height="55" rx="4" fill="#6ee7b7" stroke="#34d399" stroke-width="1.2"/>
+  <text x="771" y="272" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">Deep-GRU Network</text>
+  <text x="771" y="288" text-anchor="middle" font-size="9" fill="#065f46">3-Layer GRU | Input: W×6D → Output: T_s × 3D</text>
+  <text x="771" y="300" text-anchor="middle" font-size="8" fill="#065f46" font-style="italic">Multi-step predicted positions</text>
+
+  <!-- Data storage -->
+  <ellipse cx="770" cy="340" rx="65" ry="18" fill="#a7f3d0" stroke="#34d399" stroke-width="1"/>
+  <text x="770" y="344" text-anchor="middle" font-size="9" fill="#065f46">Training Data Storage</text>
+
+  <!-- Internal arrows -->
+  <line x1="768" y1="240" x2="768" y2="250" stroke="#059669" stroke-width="1.2" marker-end="url(#ah)"/>
+  <path d="M855,240 L855,247 L810,247" stroke="#059669" stroke-width="1" marker-end="url(#ah)"/>
+
+  <!-- Arrow: Update loop -->
+  <path d="M835,310 L880,310 L880,350 L838,350" stroke="#059669" stroke-width="1" marker-end="url(#ah)" stroke-dasharray="3,2"/>
+  <text x="895" y="332" text-anchor="middle" font-size="7.5" fill="#059669" transform="rotate(90,895,332)">Update</text>
+
+  <!-- Arrow: Sensing → Predictor -->
+  <line x1="675" y1="110" x2="675" y2="166" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="642" y="118" width="66" height="38" rx="3" fill="#fff" stroke="none"/>
+  <text x="675" y="131" text-anchor="middle" font-size="8" fill="#1e40af" font-weight="bold">Hand position</text>
+  <text x="675" y="142" text-anchor="middle" font-size="8" fill="#1e40af">(x, y, z)</text>
+  <text x="675" y="153" text-anchor="middle" font-size="7" fill="#6b7280">@ 16-30 Hz</text>
+
+  <!-- ============== BLOCK 2: Co-carrying Target Calculator (ORANGE) ============== -->
+  <rect x="310" y="168" width="270" height="230" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="445" y="190" text-anchor="middle" font-size="13" font-weight="bold" fill="#9a3412">Co-carrying Target Calculator</text>
+
+  <!-- Sub-blocks -->
+  <rect x="325" y="202" width="240" height="42" rx="4" fill="#fed7aa" stroke="#fb923c" stroke-width="1.2"/>
+  <text x="445" y="220" text-anchor="middle" font-size="10" font-weight="bold" fill="#9a3412">Object Geometry Offset</text>
+  <text x="445" y="234" text-anchor="middle" font-size="8.5" fill="#9a3412">x_target = x_hand_pred + p_offset</text>
+
+  <rect x="325" y="252" width="240" height="42" rx="4" fill="#fed7aa" stroke="#fb923c" stroke-width="1.2"/>
+  <text x="445" y="268" text-anchor="middle" font-size="10" font-weight="bold" fill="#9a3412">Workspace Safety Constraints</text>
+  <text x="445" y="282" text-anchor="middle" font-size="8.5" fill="#9a3412">Boundary clamp + Collision check</text>
+
+  <rect x="325" y="302" width="240" height="42" rx="4" fill="#fed7aa" stroke="#fb923c" stroke-width="1.2"/>
+  <text x="445" y="318" text-anchor="middle" font-size="10" font-weight="bold" fill="#9a3412">Coordinate Transform</text>
+  <text x="445" y="332" text-anchor="middle" font-size="8.5" fill="#9a3412">Camera frame → Robot base frame</text>
+
+  <!-- Output label -->
+  <rect x="340" y="355" width="210" height="30" rx="4" fill="#fff7ed" stroke="#ea580c" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="445" y="370" text-anchor="middle" font-size="9" fill="#9a3412" font-weight="bold">Output: Reference trajectory (T_s × 3D)</text>
+  <text x="445" y="381" text-anchor="middle" font-size="8" fill="#9a3412">in robot base frame</text>
+
+  <!-- Arrow: Predictor → Target Calculator -->
+  <line x1="600" y1="280" x2="572" y2="280" stroke="#333" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="586" y="272" text-anchor="middle" font-size="7.5" fill="#333" font-weight="bold">Predicted</text>
+  <text x="586" y="282" text-anchor="middle" font-size="7.5" fill="#333" font-weight="bold">trajectory</text>
+  <text x="586" y="292" text-anchor="middle" font-size="7" fill="#6b7280">(T_s × 3D)</text>
+
+  <!-- ============== BLOCK 3: MPC Trajectory Planner (BLUE) ============== -->
+  <rect x="20" y="168" width="272" height="350" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="156" y="192" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a8a">Trajectory Planner</text>
+
+  <!-- MPC concept label -->
+  <rect x="32" y="200" width="100" height="80" rx="5" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="82" y="218" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">Task-Space</text>
+  <text x="82" y="233" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">MPC-based</text>
+  <text x="82" y="248" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">Trajectory</text>
+  <text x="82" y="263" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">Planning</text>
+
+  <!-- Terminal Cost -->
+  <rect x="140" y="200" width="140" height="22" rx="3" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1"/>
+  <text x="146" y="215" font-size="9" fill="#1e3a8a" font-weight="bold">Terminal cost</text>
+
+  <!-- Goal State Cost -->
+  <rect x="140" y="228" width="140" height="22" rx="3" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1"/>
+  <text x="146" y="243" font-size="9" fill="#1e3a8a" font-weight="bold">Goal state cost</text>
+
+  <!-- Stage costs header -->
+  <rect x="32" y="290" width="100" height="55" rx="5" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="82" y="312" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">Stage</text>
+  <text x="82" y="330" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">costs</text>
+
+  <!-- Tracking cost -->
+  <rect x="140" y="258" width="140" height="26" rx="3" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1"/>
+  <text x="146" y="271" font-size="9" fill="#1e3a8a" font-weight="bold">Co-carrying</text>
+  <text x="146" y="281" font-size="9" fill="#1e3a8a" font-weight="bold">tracking cost</text>
+
+  <!-- Safety cost -->
+  <rect x="140" y="290" width="140" height="26" rx="3" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1"/>
+  <text x="146" y="303" font-size="9" fill="#1e3a8a" font-weight="bold">Euclidean-based</text>
+  <text x="146" y="313" font-size="9" fill="#1e3a8a" font-weight="bold">safety cost</text>
+
+  <!-- Vel/Acc constraints -->
+  <rect x="140" y="322" width="140" height="26" rx="3" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1"/>
+  <text x="146" y="335" font-size="9" fill="#1e3a8a" font-weight="bold">Velocity /</text>
+  <text x="146" y="345" font-size="9" fill="#1e3a8a" font-weight="bold">acceleration constraints</text>
+
+  <!-- Lines connecting stage costs to header -->
+  <line x1="132" y1="310" x2="140" y2="270" stroke="#3b82f6" stroke-width="0.8"/>
+  <line x1="132" y1="315" x2="140" y2="303" stroke="#3b82f6" stroke-width="0.8"/>
+  <line x1="132" y1="320" x2="140" y2="335" stroke="#3b82f6" stroke-width="0.8"/>
+
+  <!-- Lines connecting terminal costs -->
+  <line x1="132" y1="235" x2="140" y2="211" stroke="#3b82f6" stroke-width="0.8"/>
+  <line x1="132" y1="245" x2="140" y2="239" stroke="#3b82f6" stroke-width="0.8"/>
+
+  <!-- IK Solver sub-block -->
+  <rect x="32" y="360" width="248" height="48" rx="4" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="156" y="378" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e3a8a">Inverse Kinematics Solver</text>
+  <text x="156" y="393" text-anchor="middle" font-size="8.5" fill="#1e3a8a">Cartesian EE trajectory → Joint trajectory (q*)</text>
+  <text x="156" y="403" text-anchor="middle" font-size="7.5" fill="#1e3a8a" font-style="italic">Numerical IK with seed-based continuity</text>
+
+  <!-- Output label from MPC -->
+  <rect x="42" y="418" width="228" height="28" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="156" y="430" text-anchor="middle" font-size="9" fill="#1e3a8a" font-weight="bold">Output: Optimal joint trajectory (q*, q̇*)</text>
+  <text x="156" y="441" text-anchor="middle" font-size="7.5" fill="#1e3a8a">via Receding Horizon (apply only u₀)</text>
+
+  <!-- Arrow: Target Calculator → MPC (Reference trajectory) -->
+  <line x1="310" y1="370" x2="296" y2="370" stroke="#ea580c" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="303" y="364" text-anchor="middle" font-size="7.5" fill="#9a3412" font-weight="bold">Reference</text>
+  <text x="303" y="392" text-anchor="middle" font-size="7" fill="#6b7280">trajectory</text>
+
+  <!-- Arrow: MPC → Feedback Controller (Optimal trajectory) -->
+  <line x1="156" y1="168" x2="156" y2="115" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+  <path d="M156,115 L195,63" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+  <text x="140" y="148" text-anchor="start" font-size="8" fill="#1e3a8a" font-weight="bold">Optimal</text>
+  <text x="140" y="158" text-anchor="start" font-size="8" fill="#1e3a8a" font-weight="bold">trajectory</text>
+
+  <!-- Arrow: Predicted trajectory to MPC stage cost -->
+  <path d="M445,398 L445,468 L155,468 L155,450" stroke="#ea580c" stroke-width="1.2" marker-end="url(#ah)" stroke-dasharray="4,2"/>
+  <text x="300" y="480" text-anchor="middle" font-size="7.5" fill="#9a3412">Worker's predicted trajectory (for safety cost)</text>
+
+  <!-- ============== Human body info arrow to Orange block ============== -->
+  <path d="M830,398 L830,440 L520,440 L520,398" stroke="#059669" stroke-width="1.2" fill="none" stroke-dasharray="4,2"/>
+  <text x="675" y="455" text-anchor="middle" font-size="7.5" fill="#059669">Human hand position (for safety distance)</text>
+
+  <!-- ============== BOTTOM: Legend / IO Summary ============== -->
+  <rect x="20" y="500" width="920" height="210" rx="8" fill="#fafafa" stroke="#d1d5db" stroke-width="1"/>
+  <text x="480" y="522" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f2937">Input / Output Specification</text>
+
+  <!-- Column headers -->
+  <text x="40" y="542" font-size="10" font-weight="bold" fill="#374151">Block</text>
+  <text x="200" y="542" font-size="10" font-weight="bold" fill="#374151">Input</text>
+  <text x="560" y="542" font-size="10" font-weight="bold" fill="#374151">Output</text>
+  <text x="800" y="542" font-size="10" font-weight="bold" fill="#374151">Rate</text>
+  <line x1="30" y1="548" x2="930" y2="548" stroke="#d1d5db" stroke-width="0.8"/>
+
+  <!-- Row 1: Sensing -->
+  <rect x="30" y="553" width="10" height="10" rx="2" fill="#3b82f6"/>
+  <text x="45" y="563" font-size="9" fill="#1f2937" font-weight="bold">Sensing</text>
+  <text x="200" y="563" font-size="8.5" fill="#4b5563">RGB-D depth frames, IR images</text>
+  <text x="560" y="563" font-size="8.5" fill="#4b5563">Hand 3D position p_h = (x, y, z) [m]</text>
+  <text x="800" y="563" font-size="8.5" fill="#4b5563">16-30 Hz</text>
+  <line x1="30" y1="570" x2="930" y2="570" stroke="#f3f4f6" stroke-width="0.5"/>
+
+  <!-- Row 2: Predictor -->
+  <rect x="30" y="575" width="10" height="10" rx="2" fill="#059669"/>
+  <text x="45" y="585" font-size="9" fill="#1f2937" font-weight="bold">Motion Predictor</text>
+  <text x="200" y="585" font-size="8.5" fill="#4b5563">Sliding window W×6D: [x,y,z, vx,vy,vz]</text>
+  <text x="560" y="585" font-size="8.5" fill="#4b5563">Predicted trajectory μ̂(t+1:t+Ts) ∈ ℝ^(Ts×3)</text>
+  <text x="800" y="585" font-size="8.5" fill="#4b5563">16 Hz</text>
+  <line x1="30" y1="592" x2="930" y2="592" stroke="#f3f4f6" stroke-width="0.5"/>
+
+  <!-- Row 3: Target Calculator -->
+  <rect x="30" y="597" width="10" height="10" rx="2" fill="#ea580c"/>
+  <text x="45" y="607" font-size="9" fill="#1f2937" font-weight="bold">Target Calculator</text>
+  <text x="200" y="607" font-size="8.5" fill="#4b5563">μ̂(t+1:t+Ts), p_offset, T_cam→base</text>
+  <text x="560" y="607" font-size="8.5" fill="#4b5563">Reference EE trajectory r(t+1:t+Ts) in base frame</text>
+  <text x="800" y="607" font-size="8.5" fill="#4b5563">16 Hz</text>
+  <line x1="30" y1="614" x2="930" y2="614" stroke="#f3f4f6" stroke-width="0.5"/>
+
+  <!-- Row 4: MPC Planner -->
+  <rect x="30" y="619" width="10" height="10" rx="2" fill="#2563eb"/>
+  <text x="45" y="629" font-size="9" fill="#1f2937" font-weight="bold">MPC Planner</text>
+  <text x="200" y="629" font-size="8.5" fill="#4b5563">r(t+1:t+Ts), robot state (q, q̇, x_ee)</text>
+  <text x="560" y="629" font-size="8.5" fill="#4b5563">Optimal joint cmd u₀* = (q*, q̇*) — first step only</text>
+  <text x="800" y="629" font-size="8.5" fill="#4b5563">15-20 Hz</text>
+  <line x1="30" y1="636" x2="930" y2="636" stroke="#f3f4f6" stroke-width="0.5"/>
+
+  <!-- Row 5: Controller -->
+  <rect x="30" y="641" width="10" height="10" rx="2" fill="#6b7280"/>
+  <text x="45" y="651" font-size="9" fill="#1f2937" font-weight="bold">Feedback Controller</text>
+  <text x="200" y="651" font-size="8.5" fill="#4b5563">Optimal trajectory (q*, q̇*), actual (q, q̇)</text>
+  <text x="560" y="651" font-size="8.5" fill="#4b5563">Joint torques τ → Motor drivers</text>
+  <text x="800" y="651" font-size="8.5" fill="#4b5563">≥100 Hz</text>
+
+  <!-- Figure caption -->
+  <text x="480" y="695" text-anchor="middle" font-size="11" fill="#1f2937">
+    <tspan font-weight="bold">Figure 1.</tspan> System architecture of the proposed Deep-GRU + MPC co-carrying control scheme.
+  </text>
+</svg>
+</body>
+</html>

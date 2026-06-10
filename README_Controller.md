@@ -32,7 +32,7 @@ ros2 launch hc10dtp_moveit_config hc10dtp_start.launch.py
 Run the Python streaming controller for HC10DTP. You can test the integration by running it with built-in demo patterns:
 
 ```bash
-cd ~/gp4_ws/src/hc10dtp_bringup/scripts
+cd ~/cocarry_ws/src/hc10dtp_bringup/scripts
 python3 cartesian_streamer_hc10dtp.py --demo line
 ```
 

@@ -1,0 +1,20 @@
+[INFO] [1780547480.800021684] [coord_transform]: CoordTransformNode khởi động.
+  Object offset (cam frame): [0.05 0.   0.1 ]
+  Translation cam→base:      [0.5 0.  1.2]
+  EE orientation (xyzw):     [0.0, 1.0, 0.0, 0.0]
+  Prediction step:           5
+  Axis remap:                [0, 1, 2]
+  Axis sign:                 [-1.0, 1.0, 1.0]
+  Workspace X: (-1.0, 1.0), Y: (-0.5, 1.3), Z: (0.05, 1.5)
+  Filter outlier_threshold:  0.15m
+  Filter median_size_y:      5
+  Filter deadband_tol:       35.0mm
+  Filter stationary_thresh:  3 frames
+  Filter max_rate:           5.0cm/frame
+  Filter EMA moving(x,y,z):  (0.75,0.5,0.75)
+  Filter EMA hold  (x,y,z):  (0.08,0.02,0.05)
+[WARN] [1780547490.757667724] [coord_transform]: Outlier rejected #1 (jumped 185.3mm). Ignoring.
+[WARN] [1780547503.713296113] [coord_transform]: Outlier rejected #2 (jumped 2047.0mm). Ignoring.
+[WARN] [1780547503.758371470] [coord_transform]: Outlier rejected #3 (jumped 2049.9mm). Ignoring.
+[WARN] [1780547503.793651705] [coord_transform]: Outlier rejected #4 (jumped 2051.6mm). Ignoring.
+[INFO] [1780547503.840225896] [coord_transform]: Too many outliers (5). Resetting filter to new position.
