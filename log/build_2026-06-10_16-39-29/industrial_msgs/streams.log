@@ -1,0 +1,333 @@
+[0.020s] Invoking command in '/home/duy/cocarry_ws/build/industrial_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/industrial_msgs
+[0.033s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.219s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.275s] -- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.282s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.296s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.400s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.503s] -- Found std_msgs: 4.9.1 (/opt/ros/humble/share/std_msgs/cmake)
+[1.238s] -- Found ament_cmake_cppcheck: 0.12.15 (/opt/ros/humble/share/ament_cmake_cppcheck/cmake)
+[1.244s] -- Found ament_cmake_cpplint: 0.12.15 (/opt/ros/humble/share/ament_cmake_cpplint/cmake)
+[1.254s] -- Found ament_cmake_uncrustify: 0.12.15 (/opt/ros/humble/share/ament_cmake_uncrustify/cmake)
+[1.259s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.993s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.482s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.558s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[4.596s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[4.774s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[4.774s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.774s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[4.774s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[4.943s] -- Found PythonExtra: .so  
+[5.267s] -- Found ament_cmake_flake8: 0.12.15 (/opt/ros/humble/share/ament_cmake_flake8/cmake)
+[5.277s] -- Found ament_cmake_pep257: 0.12.15 (/opt/ros/humble/share/ament_cmake_pep257/cmake)
+[5.840s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.967s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.969s] -- Added test 'lint_cmake' to check CMake code style
+[5.973s] -- Added test 'xmllint' to check XML markup files
+[5.997s] -- Configuring done
+[6.147s] -- Generating done
+[6.192s] -- Build files have been written to: /home/duy/cocarry_ws/build/industrial_msgs
+[6.226s] Invoked command in '/home/duy/cocarry_ws/build/industrial_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/industrial_msgs
+[6.227s] Invoking command in '/home/duy/cocarry_ws/build/industrial_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/industrial_msgs -- -j16 -l16
+[6.438s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[6.507s] [  1%] Built target ament_cmake_python_symlink_industrial_msgs
+[6.539s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[6.555s] [  4%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[10.083s] [  4%] Built target industrial_msgs__rs
+[10.765s] [  4%] Built target industrial_msgs__cpp
+[10.859s] [  5%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[10.861s] [  6%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[11.009s] [  8%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[11.543s] running egg_info
+[11.547s] creating industrial_msgs.egg-info
+[11.550s] writing industrial_msgs.egg-info/PKG-INFO
+[11.556s] writing dependency_links to industrial_msgs.egg-info/dependency_links.txt
+[11.558s] writing top-level names to industrial_msgs.egg-info/top_level.txt
+[11.575s] writing manifest file 'industrial_msgs.egg-info/SOURCES.txt'
+[11.581s] reading manifest file 'industrial_msgs.egg-info/SOURCES.txt'
+[11.582s] writing manifest file 'industrial_msgs.egg-info/SOURCES.txt'
+[11.782s] [  8%] Built target ament_cmake_python_build_industrial_msgs_egg
+[12.022s] [  9%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_c.dir/rosidl_generator_c/industrial_msgs/msg/detail/device_info__functions.c.o[0m
+[12.057s] [ 11%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_c.dir/rosidl_generator_c/industrial_msgs/msg/detail/robot_mode__functions.c.o[0m
+[12.063s] [ 12%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_c.dir/rosidl_generator_c/industrial_msgs/msg/detail/debug_level__functions.c.o[0m
+[12.069s] [ 13%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_c.dir/rosidl_generator_c/industrial_msgs/msg/detail/service_return_code__functions.c.o[0m
+[12.127s] [ 15%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_c.dir/rosidl_generator_c/industrial_msgs/msg/detail/tri_state__functions.c.o[0m
+[12.149s] [ 16%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_c.dir/rosidl_generator_c/industrial_msgs/msg/detail/robot_status__functions.c.o[0m
+[99.737s] [ 18%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/industrial_msgs/msg/debug_level__type_support.cpp.o[0m
+[99.922s] [ 19%] [32m[1mLinking C shared library libindustrial_msgs__rosidl_generator_c.so[0m
+[100.597s] [ 20%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/industrial_msgs/msg/detail/dds_fastrtps/debug_level__type_support.cpp.o[0m
+[100.909s] [ 22%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/industrial_msgs/msg/detail/debug_level__type_support.cpp.o[0m
+[100.999s] [ 22%] Built target industrial_msgs__rosidl_generator_c
+[102.619s] [ 23%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/industrial_msgs/msg/tri_state__type_support.cpp.o[0m
+[103.099s] [ 25%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/industrial_msgs/msg/detail/robot_status__type_support.cpp.o[0m
+[103.352s] [ 26%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/industrial_msgs/msg/detail/dds_fastrtps/tri_state__type_support.cpp.o[0m
+[104.356s] [ 27%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/industrial_msgs/msg/service_return_code__type_support.cpp.o[0m
+[104.565s] [ 29%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/industrial_msgs/msg/detail/service_return_code__type_support.cpp.o[0m
+[104.677s] [ 30%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/industrial_msgs/msg/detail/dds_fastrtps/service_return_code__type_support.cpp.o[0m
+[105.453s] [ 31%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/industrial_msgs/msg/robot_status__type_support.cpp.o[0m
+[105.891s] [ 33%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/industrial_msgs/msg/detail/tri_state__type_support.cpp.o[0m
+[106.015s] [ 34%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/industrial_msgs/msg/detail/dds_fastrtps/robot_status__type_support.cpp.o[0m
+[106.579s] [ 36%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/industrial_msgs/msg/robot_mode__type_support.cpp.o[0m
+[107.147s] [ 37%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/industrial_msgs/msg/detail/robot_mode__type_support.cpp.o[0m
+[107.280s] [ 38%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/industrial_msgs/msg/detail/dds_fastrtps/robot_mode__type_support.cpp.o[0m
+[107.573s] [ 40%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/industrial_msgs/msg/device_info__type_support.cpp.o[0m
+[108.090s] [ 41%] [32m[1mLinking CXX shared library libindustrial_msgs__rosidl_typesupport_cpp.so[0m
+[108.153s] [ 43%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/industrial_msgs/msg/detail/dds_fastrtps/device_info__type_support.cpp.o[0m
+[108.190s] [ 43%] Built target industrial_msgs__rosidl_typesupport_cpp
+[108.477s] [ 44%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/industrial_msgs/msg/detail/device_info__type_support.cpp.o[0m
+[108.858s] [ 45%] [32m[1mLinking CXX shared library libindustrial_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[108.996s] [ 45%] Built target industrial_msgs__rosidl_typesupport_fastrtps_cpp
+[109.533s] [ 47%] [32m[1mLinking CXX shared library libindustrial_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[109.730s] [ 47%] Built target industrial_msgs__rosidl_typesupport_introspection_cpp
+[109.751s] [ 48%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[111.378s] [ 50%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/industrial_msgs/msg/debug_level__type_support.cpp.o[0m
+[111.428s] [ 51%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/industrial_msgs/msg/tri_state__type_support.cpp.o[0m
+[111.490s] [ 52%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/industrial_msgs/msg/service_return_code__type_support.cpp.o[0m
+[111.555s] [ 54%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/industrial_msgs/msg/robot_status__type_support.cpp.o[0m
+[111.614s] [ 55%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/industrial_msgs/msg/robot_mode__type_support.cpp.o[0m
+[111.665s] [ 56%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/industrial_msgs/msg/device_info__type_support.cpp.o[0m
+[111.732s] [ 58%] [32m[1mLinking CXX shared library libindustrial_msgs__rosidl_typesupport_c.so[0m
+[111.804s] [ 58%] Built target industrial_msgs__rosidl_typesupport_c
+[111.829s] [ 59%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[112.845s] [ 61%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/industrial_msgs/msg/detail/debug_level__type_support.c.o[0m
+[112.921s] [ 62%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/industrial_msgs/msg/detail/tri_state__type_support.c.o[0m
+[112.977s] [ 63%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/industrial_msgs/msg/detail/service_return_code__type_support.c.o[0m
+[113.038s] [ 65%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/industrial_msgs/msg/detail/robot_status__type_support.c.o[0m
+[113.122s] [ 66%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/industrial_msgs/msg/detail/robot_mode__type_support.c.o[0m
+[113.170s] [ 68%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/industrial_msgs/msg/detail/device_info__type_support.c.o[0m
+[113.229s] [ 69%] [32m[1mLinking C shared library libindustrial_msgs__rosidl_typesupport_introspection_c.so[0m
+[113.290s] [ 69%] Built target industrial_msgs__rosidl_typesupport_introspection_c
+[113.307s] [ 70%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[114.790s] [ 72%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/industrial_msgs/msg/detail/debug_level__type_support_c.cpp.o[0m
+[115.333s] [ 73%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/industrial_msgs/msg/detail/tri_state__type_support_c.cpp.o[0m
+[115.738s] [ 75%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/industrial_msgs/msg/detail/service_return_code__type_support_c.cpp.o[0m
+[116.217s] [ 76%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/industrial_msgs/msg/detail/robot_status__type_support_c.cpp.o[0m
+[116.818s] [ 77%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/industrial_msgs/msg/detail/robot_mode__type_support_c.cpp.o[0m
+[117.326s] [ 79%] [32mBuilding CXX object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/industrial_msgs/msg/detail/device_info__type_support_c.cpp.o[0m
+[117.824s] [ 80%] [32m[1mLinking CXX shared library libindustrial_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[117.985s] [ 80%] Built target industrial_msgs__rosidl_typesupport_fastrtps_c
+[118.027s] [ 80%] Built target industrial_msgs
+[118.076s] [ 81%] [34m[1mGenerating Python code for ROS interfaces[0m
+[119.986s] [ 81%] Built target industrial_msgs__py
+[120.024s] [ 83%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_py.dir/rosidl_generator_py/industrial_msgs/msg/_debug_level_s.c.o[0m
+[120.155s] [ 84%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_py.dir/rosidl_generator_py/industrial_msgs/msg/_tri_state_s.c.o[0m
+[120.362s] [ 86%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_py.dir/rosidl_generator_py/industrial_msgs/msg/_service_return_code_s.c.o[0m
+[120.490s] [ 87%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_py.dir/rosidl_generator_py/industrial_msgs/msg/_robot_status_s.c.o[0m
+[120.639s] [ 88%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_py.dir/rosidl_generator_py/industrial_msgs/msg/_robot_mode_s.c.o[0m
+[120.767s] [ 90%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_generator_py.dir/rosidl_generator_py/industrial_msgs/msg/_device_info_s.c.o[0m
+[120.905s] [ 91%] [32m[1mLinking C shared library rosidl_generator_py/industrial_msgs/libindustrial_msgs__rosidl_generator_py.so[0m
+[120.972s] [ 91%] Built target industrial_msgs__rosidl_generator_py
+[121.001s] [ 93%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/industrial_msgs/_industrial_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[121.198s] [ 94%] [32m[1mLinking C shared library rosidl_generator_py/industrial_msgs/industrial_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[121.256s] [ 94%] Built target industrial_msgs__rosidl_typesupport_fastrtps_c__pyext
+[121.296s] [ 95%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/industrial_msgs/_industrial_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[121.561s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/industrial_msgs/industrial_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[121.628s] [ 97%] Built target industrial_msgs__rosidl_typesupport_c__pyext
+[121.663s] [ 98%] [32mBuilding C object CMakeFiles/industrial_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/industrial_msgs/_industrial_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[121.833s] [100%] [32m[1mLinking C shared library rosidl_generator_py/industrial_msgs/industrial_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[121.897s] [100%] Built target industrial_msgs__rosidl_typesupport_introspection_c__pyext
+[121.923s] Invoked command in '/home/duy/cocarry_ws/build/industrial_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/industrial_msgs -- -j16 -l16
+[121.926s] Invoking command in '/home/duy/cocarry_ws/build/industrial_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/industrial_msgs
+[121.942s] -- Install configuration: ""
+[121.944s] -- Execute custom install script
+[121.945s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/ament_index/resource_index/rosidl_interfaces/industrial_msgs
+[121.962s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/debug_level.h
+[121.975s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__functions.h
+[121.989s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__struct.h
+[122.005s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__type_support.h
+[122.020s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__functions.h
+[122.039s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__struct.h
+[122.060s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__type_support.h
+[122.075s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__functions.h
+[122.094s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__struct.h
+[122.107s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__type_support.h
+[122.123s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__functions.h
+[122.143s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__struct.h
+[122.161s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__type_support.h
+[122.178s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__functions.h
+[122.196s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__struct.h
+[122.213s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__type_support.h
+[122.229s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__functions.h
+[122.241s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__struct.h
+[122.257s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__type_support.h
+[122.271s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/device_info.h
+[122.288s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/robot_mode.h
+[122.305s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/robot_status.h
+[122.321s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/rosidl_generator_c__visibility_control.h
+[122.338s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/service_return_code.h
+[122.350s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/tri_state.h
+[122.363s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/library_path.sh
+[122.380s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/library_path.dsv
+[122.399s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__rosidl_typesupport_fastrtps_c.h
+[122.417s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__rosidl_typesupport_fastrtps_c.h
+[122.435s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__rosidl_typesupport_fastrtps_c.h
+[122.452s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__rosidl_typesupport_fastrtps_c.h
+[122.465s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__rosidl_typesupport_fastrtps_c.h
+[122.479s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__rosidl_typesupport_fastrtps_c.h
+[122.495s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[122.507s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__rosidl_typesupport_introspection_c.h
+[122.523s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__rosidl_typesupport_introspection_c.h
+[122.541s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__rosidl_typesupport_introspection_c.h
+[122.556s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__rosidl_typesupport_introspection_c.h
+[122.572s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__rosidl_typesupport_introspection_c.h
+[122.584s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__rosidl_typesupport_introspection_c.h
+[122.601s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[122.613s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/debug_level.hpp
+[122.625s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__builder.hpp
+[122.643s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__struct.hpp
+[122.656s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__traits.hpp
+[122.667s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__type_support.hpp
+[122.679s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__builder.hpp
+[122.693s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__struct.hpp
+[122.706s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__traits.hpp
+[122.720s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__type_support.hpp
+[122.737s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__builder.hpp
+[122.754s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__struct.hpp
+[122.770s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__traits.hpp
+[122.784s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__type_support.hpp
+[122.799s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__builder.hpp
+[122.810s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__struct.hpp
+[122.820s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__traits.hpp
+[122.833s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__type_support.hpp
+[122.847s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__builder.hpp
+[122.862s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__struct.hpp
+[122.877s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__traits.hpp
+[122.888s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__type_support.hpp
+[122.900s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__builder.hpp
+[122.913s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__struct.hpp
+[122.929s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__traits.hpp
+[122.943s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__type_support.hpp
+[122.957s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/device_info.hpp
+[122.971s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/robot_mode.hpp
+[122.981s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/robot_status.hpp
+[122.991s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[123.002s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/service_return_code.hpp
+[123.013s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/tri_state.hpp
+[123.026s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__rosidl_typesupport_fastrtps_cpp.hpp
+[123.035s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__rosidl_typesupport_fastrtps_cpp.hpp
+[123.045s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__rosidl_typesupport_fastrtps_cpp.hpp
+[123.058s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__rosidl_typesupport_fastrtps_cpp.hpp
+[123.072s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__rosidl_typesupport_fastrtps_cpp.hpp
+[123.088s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__rosidl_typesupport_fastrtps_cpp.hpp
+[123.098s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[123.110s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/debug_level__rosidl_typesupport_introspection_cpp.hpp
+[123.122s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/device_info__rosidl_typesupport_introspection_cpp.hpp
+[123.136s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_mode__rosidl_typesupport_introspection_cpp.hpp
+[123.148s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/robot_status__rosidl_typesupport_introspection_cpp.hpp
+[123.159s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/service_return_code__rosidl_typesupport_introspection_cpp.hpp
+[123.172s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/include/industrial_msgs/industrial_msgs/msg/detail/tri_state__rosidl_typesupport_introspection_cpp.hpp
+[123.183s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/pythonpath.sh
+[123.197s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/pythonpath.dsv
+[123.214s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs-0.7.3-py3.10.egg-info/PKG-INFO
+[123.230s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs-0.7.3-py3.10.egg-info/SOURCES.txt
+[123.246s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs-0.7.3-py3.10.egg-info/dependency_links.txt
+[123.262s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs-0.7.3-py3.10.egg-info/top_level.txt
+[123.278s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/__init__.py
+[123.294s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/_industrial_msgs_s.ep.rosidl_typesupport_c.c
+[123.308s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/_industrial_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[123.321s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/_industrial_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[123.333s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/industrial_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[123.345s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/industrial_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[123.359s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/industrial_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[123.373s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/libindustrial_msgs__rosidl_generator_py.so
+[123.388s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/__init__.py
+[123.402s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_debug_level.py
+[123.417s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_debug_level_s.c
+[123.433s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_device_info.py
+[123.448s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_device_info_s.c
+[123.463s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_robot_mode.py
+[123.474s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_robot_mode_s.c
+[123.487s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_robot_status.py
+[123.501s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_robot_status_s.c
+[123.516s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_service_return_code.py
+[123.531s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_service_return_code_s.c
+[123.546s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_tri_state.py
+[123.560s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_tri_state_s.c
+[123.571s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/industrial_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[123.572s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/industrial_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[123.572s] -- Up-to-date symlink: /home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/industrial_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[123.573s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/ament_index/resource_index/rust_packages/industrial_msgs
+[123.590s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/rust/Cargo.toml
+[123.606s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/rust/build.rs
+[123.618s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/rust/src/lib.rs
+[123.631s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/rust/src/msg.rs
+[123.645s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/rust/src/msg/rmw.rs
+[123.658s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/DebugLevel.idl
+[123.672s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/DeviceInfo.idl
+[123.688s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/RobotMode.idl
+[123.700s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/RobotStatus.idl
+[123.714s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/ServiceReturnCode.idl
+[123.727s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/TriState.idl
+[123.737s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/DebugLevel.msg
+[123.749s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/DeviceInfo.msg
+[123.763s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/RobotMode.msg
+[123.777s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/RobotStatus.msg
+[123.788s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/ServiceReturnCode.msg
+[123.804s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/msg/TriState.msg
+[123.820s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/ament_index/resource_index/package_run_dependencies/industrial_msgs
+[123.836s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/ament_index/resource_index/parent_prefix_path/industrial_msgs
+[123.852s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/ament_prefix_path.sh
+[123.867s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/ament_prefix_path.dsv
+[123.883s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/path.sh
+[123.898s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/environment/path.dsv
+[123.914s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/local_setup.bash
+[123.929s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/local_setup.sh
+[123.944s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/local_setup.zsh
+[123.958s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/local_setup.dsv
+[123.972s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/package.dsv
+[123.987s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/ament_index/resource_index/packages/industrial_msgs
+[124.003s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/rosidl_cmake-extras.cmake
+[124.018s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[124.032s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[124.043s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[124.053s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[124.066s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[124.082s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[124.096s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgsConfig.cmake
+[124.110s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgsConfig-version.cmake
+[124.124s] -- Symlinking: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/package.xml
+[124.139s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_generator_c.so
+[124.139s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_generator_c.so" to ""
+[124.140s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_fastrtps_c.so
+[124.140s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[124.140s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_introspection_c.so
+[124.140s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_introspection_c.so" to ""
+[124.140s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_c.so
+[124.141s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_c.so" to ""
+[124.141s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_fastrtps_cpp.so
+[124.141s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[124.141s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_introspection_cpp.so
+[124.141s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[124.141s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_cpp.so
+[124.141s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_typesupport_cpp.so" to ""
+[124.191s] Listing '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs'...
+[124.191s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/__init__.py'...
+[124.192s] Listing '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg'...
+[124.192s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/__init__.py'...
+[124.192s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_debug_level.py'...
+[124.192s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_device_info.py'...
+[124.192s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_robot_mode.py'...
+[124.192s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_robot_status.py'...
+[124.192s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_service_return_code.py'...
+[124.192s] Compiling '/home/duy/cocarry_ws/install/industrial_msgs/local/lib/python3.10/dist-packages/industrial_msgs/msg/_tri_state.py'...
+[124.198s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_generator_py.so
+[124.198s] -- Set runtime path of "/home/duy/cocarry_ws/install/industrial_msgs/lib/libindustrial_msgs__rosidl_generator_py.so" to ""
+[124.199s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_generator_cExport.cmake
+[124.199s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_generator_cExport-noconfig.cmake
+[124.199s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[124.199s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[124.199s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_introspection_cExport.cmake
+[124.199s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[124.200s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_cExport.cmake
+[124.200s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[124.200s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_generator_cppExport.cmake
+[124.200s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[124.200s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[124.200s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[124.201s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[124.201s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_cppExport.cmake
+[124.201s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/industrial_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[124.201s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_generator_pyExport.cmake
+[124.201s] -- Installing: /home/duy/cocarry_ws/install/industrial_msgs/share/industrial_msgs/cmake/export_industrial_msgs__rosidl_generator_pyExport-noconfig.cmake
+[124.204s] Invoked command in '/home/duy/cocarry_ws/build/industrial_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/industrial_msgs

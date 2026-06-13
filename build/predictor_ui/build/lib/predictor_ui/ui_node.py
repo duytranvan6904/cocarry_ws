@@ -82,16 +82,17 @@ class PredictorUiNode(Node):
         self._backend_mode = 'UNKNOWN'
         self._trajectory_mode = 'ground_truth'  # 'ground_truth' or 'prediction'
         self._is_running = False
+        self._external_stop_requested = False
         self._lock = threading.Lock()
 
         # ── Subscribers ──────────────────────────────────────────────────────
-        # Raw: chỉ vẽ đường tham khảo mờ phía sau
-        # self.create_subscription(HandState, '/hand_position', self._cb_raw, 10)
         # Filtered: đã qua toàn bộ bộ lọc của transform_node — đường chính trên UI
         self.create_subscription(
             PointStamped, '/coord_transform/filtered_hand_position', self._cb_meas, 10)
         self.create_subscription(
             HandPrediction, '/ml/predicted_position', self._cb_pred, 10)
+        self.create_subscription(
+            Bool, '/run_status', self._cb_run_status, 10)
 
         # ── Publishers ───────────────────────────────────────────────────────
         self._model_pub = self.create_publisher(String, '/predictor/model_cmd', 5)
@@ -181,6 +182,12 @@ class PredictorUiNode(Node):
                 self._fps_counter_p = 0
         self._fps_t = now
 
+    def _cb_run_status(self, msg: Bool):
+        """Lắng nghe lệnh Stop Run từ các node khác (vd: Target Snap từ transform_node)."""
+        if not msg.data and self._is_running:
+            self.get_logger().info('[UI] Received external Stop Run command (e.g. Target Snap)')
+            self._external_stop_requested = True
+
     def get_buffers(self):
         with self._lock:
             return (
@@ -254,9 +261,26 @@ class PredictorUiNode(Node):
             self.get_logger().warn('[UI] /coord_transform/capture_init_pose not ready')
             return False
         req = Trigger.Request()
-        self._capture_init_cli.call_async(req)
-        self._is_init_pose_captured = True
+        future = self._capture_init_cli.call_async(req)
+        future.add_done_callback(self._on_capture_init_done)
+        # Chưa set _is_init_pose_captured — chờ callback xác nhận
         return True
+
+    def _on_capture_init_done(self, future):
+        """Callback khi capture_init_pose service trả về kết quả."""
+        try:
+            result = future.result()
+            if result.success:
+                self._is_init_pose_captured = True
+                self.get_logger().info(
+                    f'[UI] Capture Init Pose thành công: {result.message}')
+            else:
+                self._is_init_pose_captured = False
+                self.get_logger().error(
+                    f'[UI] Capture Init Pose THẤT BẠI: {result.message}')
+        except Exception as e:
+            self._is_init_pose_captured = False
+            self.get_logger().error(f'[UI] Capture Init Pose exception: {e}')
 
     def call_trigger_service(self, client, name: str):
         if not client.service_is_ready():
@@ -596,9 +620,9 @@ class DashboardWindow:
         self.node.call_predictor_toggle(False)
         ok = self.node.call_capture_init_pose()
         if ok:
-            self._set_status('State: ALIGN | Init pose captured (robot paused, safe)')
+            self._set_status('State: ALIGN | Capturing init pose... (chờ kết quả)')
         else:
-            self._set_status('State: ALIGN | Capture init pose failed')
+            self._set_status('State: ALIGN | Capture init pose failed — service not ready')
 
     def _enable_robot(self):
         # Guard: phải calibrate và capture init pose trước
@@ -673,6 +697,15 @@ class DashboardWindow:
         self._lbl_status.setText(text)
 
     def _refresh(self):
+        if getattr(self.node, '_external_stop_requested', False):
+            self.node._external_stop_requested = False
+            self.node.get_logger().info(
+                '[UI] Processing external stop request (Auto-Snap)')
+            if self.btn_pred.isChecked():
+                self.btn_pred.setChecked(False)
+                self._toggle_run(False)
+                self._set_status('State: STOPPED | Auto-Snap → Robot disabled')
+
         (mx, my, mz,
          # rx, ry, rz,
          px, py, pz,

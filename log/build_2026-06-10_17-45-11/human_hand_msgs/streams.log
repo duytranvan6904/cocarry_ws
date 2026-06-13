@@ -1,0 +1,318 @@
+[0.024s] Invoking command in '/home/duy/cocarry_ws/build/human_hand_msgs': /usr/bin/cmake /home/duy/cocarry_ws/src/human_hand_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/human_hand_msgs
+[0.037s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.196s] -- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.198s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.203s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.274s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.353s] -- Found std_msgs: 4.9.1 (/opt/ros/humble/share/std_msgs/cmake)
+[1.462s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[2.131s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.761s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.799s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.834s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.835s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.835s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[3.037s] -- Configuring done
+[3.108s] -- Generating done
+[3.132s] -- Build files have been written to: /home/duy/cocarry_ws/build/human_hand_msgs
+[3.143s] Invoked command in '/home/duy/cocarry_ws/build/human_hand_msgs' returned '0': /usr/bin/cmake /home/duy/cocarry_ws/src/human_hand_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/human_hand_msgs
+[3.146s] Invoking command in '/home/duy/cocarry_ws/build/human_hand_msgs': /usr/bin/cmake --build /home/duy/cocarry_ws/build/human_hand_msgs -- -j16 -l16
+[3.205s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_generator_c[0m
+[3.216s] [  1%] Built target human_hand_msgs__cpp
+[3.221s] [  3%] Built target human_hand_msgs__rs
+[3.223s] [  7%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_c.dir/rosidl_generator_c/human_hand_msgs/msg/detail/hand_state__functions.c.o[0m
+[3.224s] [ 10%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_c.dir/rosidl_generator_c/human_hand_msgs/srv/detail/select_model__functions.c.o[0m
+[3.224s] [  8%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_c.dir/rosidl_generator_c/human_hand_msgs/msg/detail/hand_prediction__functions.c.o[0m
+[3.226s] [  8%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_c.dir/rosidl_generator_c/human_hand_msgs/msg/detail/system_status__functions.c.o[0m
+[3.236s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_cpp[0m
+[3.240s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[3.242s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_introspection_cpp[0m
+[3.248s] [ 10%] Built target ament_cmake_python_copy_human_hand_msgs
+[3.268s] [ 12%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/human_hand_msgs/msg/detail/dds_fastrtps/hand_prediction__type_support.cpp.o[0m
+[3.268s] [ 14%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/human_hand_msgs/msg/detail/dds_fastrtps/hand_state__type_support.cpp.o[0m
+[3.269s] [ 17%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/human_hand_msgs/srv/detail/dds_fastrtps/select_model__type_support.cpp.o[0m
+[3.269s] [ 26%] Built target human_hand_msgs__rosidl_typesupport_introspection_cpp
+[3.275s] [ 37%] Built target human_hand_msgs__rosidl_typesupport_cpp
+[3.277s] [ 39%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/human_hand_msgs/msg/detail/dds_fastrtps/system_status__type_support.cpp.o[0m
+[3.423s] [ 41%] [32m[1mLinking C shared library libhuman_hand_msgs__rosidl_generator_c.so[0m
+[3.505s] [ 42%] Built target human_hand_msgs__rosidl_generator_c
+[3.527s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_c[0m
+[3.527s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_introspection_c[0m
+[3.531s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_fastrtps_c[0m
+[3.548s] [ 44%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/human_hand_msgs/msg/hand_prediction__type_support.cpp.o[0m
+[3.554s] [ 46%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/human_hand_msgs/msg/detail/hand_state__type_support.c.o[0m
+[3.558s] [ 48%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/human_hand_msgs/msg/hand_state__type_support.cpp.o[0m
+[3.562s] [ 50%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/human_hand_msgs/msg/system_status__type_support.cpp.o[0m
+[3.571s] [ 51%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/human_hand_msgs/srv/detail/select_model__type_support.c.o[0m
+[3.585s] [ 53%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/human_hand_msgs/srv/select_model__type_support.cpp.o[0m
+[3.585s] [ 55%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/human_hand_msgs/msg/detail/system_status__type_support.c.o[0m
+[3.586s] [ 57%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/human_hand_msgs/msg/detail/system_status__type_support_c.cpp.o[0m
+[3.593s] [ 58%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/human_hand_msgs/msg/detail/hand_prediction__type_support_c.cpp.o[0m
+[3.594s] [ 60%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/human_hand_msgs/msg/detail/hand_prediction__type_support.c.o[0m
+[3.606s] [ 62%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/human_hand_msgs/msg/detail/hand_state__type_support_c.cpp.o[0m
+[3.623s] [ 64%] [32mBuilding CXX object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/human_hand_msgs/srv/detail/select_model__type_support_c.cpp.o[0m
+[3.678s] [ 66%] [32m[1mLinking CXX shared library libhuman_hand_msgs__rosidl_typesupport_c.so[0m
+[3.778s] [ 67%] [32m[1mLinking C shared library libhuman_hand_msgs__rosidl_typesupport_introspection_c.so[0m
+[3.872s] [ 69%] Built target human_hand_msgs__rosidl_typesupport_c
+[3.896s] [ 71%] Built target human_hand_msgs__rosidl_typesupport_introspection_c
+[4.269s] running egg_info
+[4.279s] writing human_hand_msgs.egg-info/PKG-INFO
+[4.281s] writing dependency_links to human_hand_msgs.egg-info/dependency_links.txt
+[4.281s] writing top-level names to human_hand_msgs.egg-info/top_level.txt
+[4.339s] reading manifest file 'human_hand_msgs.egg-info/SOURCES.txt'
+[4.349s] writing manifest file 'human_hand_msgs.egg-info/SOURCES.txt'
+[4.831s] [ 71%] Built target ament_cmake_python_build_human_hand_msgs_egg
+[5.341s] [ 73%] [32m[1mLinking CXX shared library libhuman_hand_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[5.735s] [ 75%] [32m[1mLinking CXX shared library libhuman_hand_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[5.775s] [ 76%] Built target human_hand_msgs__rosidl_typesupport_fastrtps_c
+[6.285s] [ 78%] Built target human_hand_msgs__rosidl_typesupport_fastrtps_cpp
+[6.337s] [ 78%] Built target human_hand_msgs
+[6.424s] [ 80%] Built target human_hand_msgs__py
+[6.467s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_generator_py[0m
+[6.684s] [ 82%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_py.dir/rosidl_generator_py/human_hand_msgs/msg/_system_status_s.c.o[0m
+[6.687s] [ 83%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_py.dir/rosidl_generator_py/human_hand_msgs/msg/_hand_prediction_s.c.o[0m
+[6.698s] [ 87%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_py.dir/rosidl_generator_py/human_hand_msgs/srv/_select_model_s.c.o[0m
+[6.701s] [ 87%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_generator_py.dir/rosidl_generator_py/human_hand_msgs/msg/_hand_state_s.c.o[0m
+[7.975s] [ 89%] [32m[1mLinking C shared library rosidl_generator_py/human_hand_msgs/libhuman_hand_msgs__rosidl_generator_py.so[0m
+[8.305s] [ 89%] Built target human_hand_msgs__rosidl_generator_py
+[8.372s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[8.376s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[8.409s] [35m[1mConsolidate compiler generated dependencies of target human_hand_msgs__rosidl_typesupport_c__pyext[0m
+[8.456s] [ 91%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/human_hand_msgs/_human_hand_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[8.474s] [ 92%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/human_hand_msgs/_human_hand_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[8.504s] [ 94%] [32mBuilding C object CMakeFiles/human_hand_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/human_hand_msgs/_human_hand_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[9.217s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.218s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.220s] [100%] [32m[1mLinking C shared library rosidl_generator_py/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.395s] [100%] Built target human_hand_msgs__rosidl_typesupport_c__pyext
+[9.428s] [100%] Built target human_hand_msgs__rosidl_typesupport_fastrtps_c__pyext
+[9.522s] [100%] Built target human_hand_msgs__rosidl_typesupport_introspection_c__pyext
+[9.612s] Invoked command in '/home/duy/cocarry_ws/build/human_hand_msgs' returned '0': /usr/bin/cmake --build /home/duy/cocarry_ws/build/human_hand_msgs -- -j16 -l16
+[9.625s] Invoking command in '/home/duy/cocarry_ws/build/human_hand_msgs': /usr/bin/cmake --install /home/duy/cocarry_ws/build/human_hand_msgs
+[9.667s] -- Install configuration: ""
+[9.669s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/ament_index/resource_index/rosidl_interfaces/human_hand_msgs
+[9.670s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs
+[9.672s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv
+[9.672s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail
+[9.672s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__type_support.h
+[9.675s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__struct.h
+[9.676s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__functions.c
+[9.679s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__functions.h
+[9.681s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/select_model.h
+[9.681s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg
+[9.682s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/rosidl_generator_c__visibility_control.h
+[9.682s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/hand_prediction.h
+[9.683s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/hand_state.h
+[9.686s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail
+[9.687s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__type_support.h
+[9.688s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__functions.c
+[9.690s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__struct.h
+[9.690s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__struct.h
+[9.691s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__type_support.h
+[9.691s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__functions.h
+[9.691s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__functions.c
+[9.691s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__functions.c
+[9.694s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__functions.h
+[9.695s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__functions.h
+[9.695s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__type_support.h
+[9.696s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__struct.h
+[9.697s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/system_status.h
+[9.700s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/library_path.sh
+[9.700s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/library_path.dsv
+[9.701s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_generator_c.so
+[9.705s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_generator_c.so" to ""
+[9.705s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs
+[9.706s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv
+[9.706s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail
+[9.706s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__rosidl_typesupport_fastrtps_c.h
+[9.706s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg
+[9.707s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[9.707s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail
+[9.707s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__rosidl_typesupport_fastrtps_c.h
+[9.710s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__rosidl_typesupport_fastrtps_c.h
+[9.711s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__rosidl_typesupport_fastrtps_c.h
+[9.711s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_fastrtps_c.so
+[9.712s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[9.712s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs
+[9.712s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv
+[9.712s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail
+[9.713s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__type_support.c
+[9.713s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__rosidl_typesupport_introspection_c.h
+[9.713s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg
+[9.713s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail
+[9.713s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__type_support.c
+[9.717s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__type_support.c
+[9.718s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__rosidl_typesupport_introspection_c.h
+[9.718s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__type_support.c
+[9.718s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__rosidl_typesupport_introspection_c.h
+[9.718s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__rosidl_typesupport_introspection_c.h
+[9.721s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[9.721s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_introspection_c.so
+[9.723s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_introspection_c.so" to ""
+[9.724s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_c.so
+[9.726s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_c.so" to ""
+[9.726s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs
+[9.727s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv
+[9.727s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/select_model.hpp
+[9.732s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail
+[9.732s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__builder.hpp
+[9.732s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__traits.hpp
+[9.732s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__type_support.hpp
+[9.733s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__struct.hpp
+[9.733s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg
+[9.733s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[9.733s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/hand_prediction.hpp
+[9.737s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail
+[9.737s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__traits.hpp
+[9.737s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__builder.hpp
+[9.738s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__type_support.hpp
+[9.739s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__struct.hpp
+[9.739s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__struct.hpp
+[9.739s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__builder.hpp
+[9.744s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__traits.hpp
+[9.745s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__type_support.hpp
+[9.746s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__type_support.hpp
+[9.746s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__builder.hpp
+[9.747s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__struct.hpp
+[9.754s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__traits.hpp
+[9.754s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/system_status.hpp
+[9.756s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/hand_state.hpp
+[9.757s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs
+[9.758s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv
+[9.758s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail
+[9.760s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/dds_fastrtps
+[9.760s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__rosidl_typesupport_fastrtps_cpp.hpp
+[9.761s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg
+[9.774s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail
+[9.774s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__rosidl_typesupport_fastrtps_cpp.hpp
+[9.774s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/dds_fastrtps
+[9.775s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__rosidl_typesupport_fastrtps_cpp.hpp
+[9.775s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__rosidl_typesupport_fastrtps_cpp.hpp
+[9.775s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[9.776s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_fastrtps_cpp.so
+[9.781s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[9.781s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs
+[9.781s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv
+[9.781s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail
+[9.786s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__type_support.cpp
+[9.788s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/srv/detail/select_model__rosidl_typesupport_introspection_cpp.hpp
+[9.789s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg
+[9.790s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail
+[9.790s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__rosidl_typesupport_introspection_cpp.hpp
+[9.794s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/system_status__type_support.cpp
+[9.798s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__rosidl_typesupport_introspection_cpp.hpp
+[9.799s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_prediction__type_support.cpp
+[9.804s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__type_support.cpp
+[9.808s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/include/human_hand_msgs/human_hand_msgs/msg/detail/hand_state__rosidl_typesupport_introspection_cpp.hpp
+[9.809s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_introspection_cpp.so
+[9.815s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[9.816s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_cpp.so
+[9.817s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_typesupport_cpp.so" to ""
+[9.825s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/pythonpath.sh
+[9.825s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/pythonpath.dsv
+[9.825s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs-0.1.0-py3.10.egg-info
+[9.826s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs-0.1.0-py3.10.egg-info/top_level.txt
+[9.826s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs-0.1.0-py3.10.egg-info/PKG-INFO
+[9.826s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs-0.1.0-py3.10.egg-info/dependency_links.txt
+[9.826s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs-0.1.0-py3.10.egg-info/SOURCES.txt
+[9.827s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs
+[9.827s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.827s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/srv
+[9.828s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/srv/__init__.py
+[9.828s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/srv/_select_model.py
+[9.837s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/srv/_select_model_s.c
+[9.838s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/_human_hand_msgs_s.ep.rosidl_typesupport_c.c
+[9.838s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/_human_hand_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[9.838s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg
+[9.838s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_hand_state.py
+[9.839s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_hand_prediction_s.c
+[9.839s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/__init__.py
+[9.840s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_hand_state_s.c
+[9.841s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_hand_prediction.py
+[9.847s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_system_status_s.c
+[9.848s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_system_status.py
+[9.848s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/libhuman_hand_msgs__rosidl_generator_py.so
+[9.848s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/__init__.py
+[9.850s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.851s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.851s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/_human_hand_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[10.187s] Listing '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs'...
+[10.187s] Compiling '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/__init__.py'...
+[10.188s] Listing '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg'...
+[10.188s] Compiling '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/__init__.py'...
+[10.188s] Compiling '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_hand_prediction.py'...
+[10.188s] Compiling '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_hand_state.py'...
+[10.188s] Compiling '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/msg/_system_status.py'...
+[10.188s] Listing '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/srv'...
+[10.189s] Compiling '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/srv/__init__.py'...
+[10.189s] Compiling '/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/srv/_select_model.py'...
+[10.222s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[10.222s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[10.222s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[10.222s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[10.222s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[10.223s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages/human_hand_msgs/human_hand_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[10.223s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_generator_py.so
+[10.236s] -- Set runtime path of "/home/duy/cocarry_ws/install/human_hand_msgs/lib/libhuman_hand_msgs__rosidl_generator_py.so" to ""
+[10.236s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/ament_index/resource_index/rust_packages/human_hand_msgs
+[10.236s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust
+[10.236s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src
+[10.237s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src/msg.rs
+[10.237s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src/lib.rs
+[10.237s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src/srv
+[10.237s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src/srv/rmw.rs
+[10.237s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src/srv.rs
+[10.237s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src/msg
+[10.238s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/src/msg/rmw.rs
+[10.238s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/Cargo.toml
+[10.238s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/rust/build.rs
+[10.238s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/msg/HandState.idl
+[10.238s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/msg/HandPrediction.idl
+[10.238s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/msg/SystemStatus.idl
+[10.238s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/srv/SelectModel.idl
+[10.239s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/msg/HandState.msg
+[10.242s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/msg/HandPrediction.msg
+[10.242s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/msg/SystemStatus.msg
+[10.242s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/srv/SelectModel.srv
+[10.242s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/srv/SelectModel_Request.msg
+[10.242s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/srv/SelectModel_Response.msg
+[10.243s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/ament_index/resource_index/package_run_dependencies/human_hand_msgs
+[10.243s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/ament_index/resource_index/parent_prefix_path/human_hand_msgs
+[10.244s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/ament_prefix_path.sh
+[10.259s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/ament_prefix_path.dsv
+[10.259s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/path.sh
+[10.259s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/environment/path.dsv
+[10.259s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/local_setup.bash
+[10.260s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/local_setup.sh
+[10.260s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/local_setup.zsh
+[10.260s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/local_setup.dsv
+[10.260s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/package.dsv
+[10.260s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/ament_index/resource_index/packages/human_hand_msgs
+[10.260s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_generator_cExport.cmake
+[10.261s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_generator_cExport-noconfig.cmake
+[10.261s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[10.261s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[10.261s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_introspection_cExport.cmake
+[10.261s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[10.261s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_cExport.cmake
+[10.262s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[10.262s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_generator_cppExport.cmake
+[10.275s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[10.275s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[10.276s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[10.276s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[10.276s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_cppExport.cmake
+[10.276s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[10.276s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_generator_pyExport.cmake
+[10.276s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/export_human_hand_msgs__rosidl_generator_pyExport-noconfig.cmake
+[10.277s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/rosidl_cmake-extras.cmake
+[10.277s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[10.277s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[10.277s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[10.277s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[10.277s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[10.278s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[10.278s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgsConfig.cmake
+[10.278s] -- Up-to-date: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/cmake/human_hand_msgsConfig-version.cmake
+[10.280s] -- Installing: /home/duy/cocarry_ws/install/human_hand_msgs/share/human_hand_msgs/package.xml
+[10.292s] Invoked command in '/home/duy/cocarry_ws/build/human_hand_msgs' returned '0': /usr/bin/cmake --install /home/duy/cocarry_ws/build/human_hand_msgs

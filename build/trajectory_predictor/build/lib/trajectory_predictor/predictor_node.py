@@ -107,7 +107,7 @@ class PredictorNode(Node):
         self._hold_position = None               # vị trí khóa
         self._HOLD_STD_THRESH = 0.006            # ngưỡng std (6mm)
         self._HOLD_ENTER_FRAMES = 5              # cần 5 frame tĩnh liên tiếp
-        self._HOLD_RELEASE_THRESH = 0.015        # tay rời > 15mm thì thả hold
+        self._HOLD_RELEASE_THRESH = 0.030        # tay rời > 30mm thì thả hold (chống nhiễu)
 
         # ── Publishers ───────────────────────────────────────────────────────
         self.pred_pub = self.create_publisher(

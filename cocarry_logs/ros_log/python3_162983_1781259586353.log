@@ -1,0 +1,27 @@
+[INFO] [1781259586.449168300] [trajectory_predictor]: [Predictor] Worker launched (pid=163093)
+[INFO] [1781259586.449818851] [trajectory_predictor]: [Predictor] Started | model=gru | window=20 | auto_start=True
+  Output Filter: enabled=True, ema_alpha=0.2, max_dev=0.08, max_rate=0.04
+[WARN] [1781259587.850761275] [trajectory_predictor]: [Worker STDERR] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[WARN] [1781259587.851293700] [trajectory_predictor]: [Worker STDERR] warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[INFO] [1781259588.935228741] [trajectory_predictor]: [Worker] TF 2.21.0 and sklearn loaded
+[WARN] [1781259588.935334753] [trajectory_predictor]: [Worker STDERR] /home/duy/.local/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+[WARN] [1781259588.935845322] [trajectory_predictor]: [Worker STDERR] https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+[WARN] [1781259588.936320709] [trajectory_predictor]: [Worker STDERR] warnings.warn(
+[INFO] [1781259589.687847816] [trajectory_predictor]: [Predictor] Worker READY | model=gru
+[INFO] [1781259604.963826464] [trajectory_predictor]: [Filter] raw=(0.2444,0.1926,-0.1306) → filt=(0.0439,-0.8350,-0.1700) Δ=(0.2005,1.0276,0.0394)
+[INFO] [1781259606.429048227] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.8s)
+[INFO] [1781259612.042259600] [trajectory_predictor]: [Filter] raw=(-0.0543,0.2197,0.1497) → filt=(-0.1204,-0.7193,0.0225) Δ=(0.0660,0.9389,0.1272)
+[INFO] [1781259614.429149502] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 2.0s)
+[INFO] [1781259622.429257055] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.5s)
+[INFO] [1781259625.794996256] [trajectory_predictor]: [Filter] raw=(0.2942,0.0656,0.0199) → filt=(0.2832,-1.3913,0.0160) Δ=(0.0110,1.4569,0.0039)
+[INFO] [1781259632.620487665] [trajectory_predictor]: [Filter] raw=(0.1426,0.0527,0.0593) → filt=(0.1277,-2.1165,-0.0005) Δ=(0.0148,2.1691,0.0598)
+[INFO] [1781259636.477284390] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1781259650.677464675] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1781259658.359352871] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1781259716.429205470] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.2s)
+[WARN] [1781259736.046057877] [trajectory_predictor]: [Worker STDERR] Traceback (most recent call last):
+[WARN] [1781259736.046706909] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 255, in <module>
+[WARN] [1781259736.047163924] [trajectory_predictor]: [Worker STDERR] main()
+[WARN] [1781259736.047598359] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 190, in main
+[WARN] [1781259736.048028558] [trajectory_predictor]: [Worker STDERR] for line in sys.stdin:
+[WARN] [1781259736.048414484] [trajectory_predictor]: [Worker STDERR] KeyboardInterrupt

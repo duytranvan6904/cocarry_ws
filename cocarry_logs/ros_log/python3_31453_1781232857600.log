@@ -1,0 +1,32 @@
+[INFO] [1781232857.683285352] [trajectory_predictor]: [Predictor] Worker launched (pid=31563)
+[INFO] [1781232857.683938602] [trajectory_predictor]: [Predictor] Started | model=gru | window=20 | auto_start=True
+  Output Filter: enabled=True, ema_alpha=0.2, max_dev=0.08, max_rate=0.04
+[WARN] [1781232859.087277764] [trajectory_predictor]: [Worker STDERR] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[WARN] [1781232859.087535687] [trajectory_predictor]: [Worker STDERR] warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[WARN] [1781232860.102090874] [trajectory_predictor]: [Worker STDERR] /home/duy/.local/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+[WARN] [1781232860.102591501] [trajectory_predictor]: [Worker STDERR] https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+[INFO] [1781232860.102908260] [trajectory_predictor]: [Worker] TF 2.21.0 and sklearn loaded
+[WARN] [1781232860.103343428] [trajectory_predictor]: [Worker STDERR] warnings.warn(
+[INFO] [1781232860.795374229] [trajectory_predictor]: [Predictor] Worker READY | model=gru
+[INFO] [1781232867.267526351] [trajectory_predictor]: [Filter] raw=(0.3492,0.2221,0.1861) → filt=(0.4419,-2.0700,0.3075) Δ=(0.0926,2.2921,0.1214)
+[INFO] [1781232873.473640245] [trajectory_predictor]: [Filter] raw=(-0.0165,0.2307,-0.0111) → filt=(0.1644,-1.9953,0.0129) Δ=(0.1810,2.2260,0.0240)
+[INFO] [1781232880.151375420] [trajectory_predictor]: [Filter] raw=(0.1533,0.1312,0.0433) → filt=(0.1759,-0.3953,0.0476) Δ=(0.0226,0.5265,0.0044)
+[INFO] [1781232880.592786569] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1781232890.040802023] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1781232912.248539017] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.4mm). Khóa tại (-0.2623, 0.2646, 0.1130)
+[INFO] [1781232912.598614720] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=15.5mm). Thả hold.
+[INFO] [1781232915.828794514] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.9mm). Khóa tại (-0.3395, 0.2298, 0.0801)
+[INFO] [1781232917.332116586] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=15.4mm). Thả hold.
+[INFO] [1781232920.143761387] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1781232925.068561271] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.3mm). Khóa tại (-0.3452, 0.2108, 0.0729)
+[INFO] [1781232926.168018259] [trajectory_predictor]: [Filter] raw=(-0.3452,0.2108,0.0729) → filt=(-0.3452,0.2108,0.0729) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1781232932.172839013] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=15.0mm). Thả hold.
+[INFO] [1781232941.844157390] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.2mm). Khóa tại (0.1959, 0.2557, 0.1985)
+[INFO] [1781232942.246157325] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=15.3mm). Thả hold.
+[INFO] [1781232948.663096151] [trajectory_predictor]: [Predictor] Buffer cleared (no data for 1.7s)
+[WARN] [1781233300.543849525] [trajectory_predictor]: [Worker STDERR] Traceback (most recent call last):
+[WARN] [1781233300.544132538] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 255, in <module>
+[WARN] [1781233300.544449953] [trajectory_predictor]: [Worker STDERR] main()
+[WARN] [1781233300.545319265] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 190, in main
+[WARN] [1781233300.546499000] [trajectory_predictor]: [Worker STDERR] for line in sys.stdin:
+[WARN] [1781233300.547709539] [trajectory_predictor]: [Worker STDERR] KeyboardInterrupt

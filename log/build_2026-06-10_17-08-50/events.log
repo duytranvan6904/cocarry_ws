@@ -1,0 +1,55 @@
+[0.000000] (-) TimerEvent: {}
+[0.000446] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.000480] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000493] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000503] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000511] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000520] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000528] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000536] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000548] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.000556] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.000563] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.000571] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.000579] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.000588] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.000596] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.000604] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.000612] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.000620] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.000628] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.000642] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.000650] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.000658] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.000668] (trajectory_predictor) JobQueued: {'identifier': 'trajectory_predictor', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.000681] (trajectory_predictor) JobStarted: {'identifier': 'trajectory_predictor'}
+[0.099818] (-) TimerEvent: {}
+[0.200122] (-) TimerEvent: {}
+[0.300348] (-) TimerEvent: {}
+[0.400645] (-) TimerEvent: {}
+[0.500906] (-) TimerEvent: {}
+[0.564496] (trajectory_predictor) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/duy/cocarry_ws/build/trajectory_predictor/build', '--no-deps', 'symlink_data', '--force'], 'cwd': '/home/duy/cocarry_ws/build/trajectory_predictor', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/trajectory_predictor', 'PYTHONPATH': '/home/duy/cocarry_ws/build/trajectory_predictor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[0.601086] (-) TimerEvent: {}
+[0.701365] (-) TimerEvent: {}
+[0.760691] (trajectory_predictor) StdoutLine: {'line': b'running develop\n'}
+[0.801497] (-) TimerEvent: {}
+[0.834076] (trajectory_predictor) StdoutLine: {'line': b'running egg_info\n'}
+[0.834242] (trajectory_predictor) StdoutLine: {'line': b'writing trajectory_predictor.egg-info/PKG-INFO\n'}
+[0.834411] (trajectory_predictor) StdoutLine: {'line': b'writing dependency_links to trajectory_predictor.egg-info/dependency_links.txt\n'}
+[0.834512] (trajectory_predictor) StdoutLine: {'line': b'writing entry points to trajectory_predictor.egg-info/entry_points.txt\n'}
+[0.834595] (trajectory_predictor) StdoutLine: {'line': b'writing requirements to trajectory_predictor.egg-info/requires.txt\n'}
+[0.834663] (trajectory_predictor) StdoutLine: {'line': b'writing top-level names to trajectory_predictor.egg-info/top_level.txt\n'}
+[0.835358] (trajectory_predictor) StdoutLine: {'line': b"reading manifest file 'trajectory_predictor.egg-info/SOURCES.txt'\n"}
+[0.836079] (trajectory_predictor) StdoutLine: {'line': b"writing manifest file 'trajectory_predictor.egg-info/SOURCES.txt'\n"}
+[0.836860] (trajectory_predictor) StdoutLine: {'line': b'running build_ext\n'}
+[0.836998] (trajectory_predictor) StdoutLine: {'line': b'Creating /home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory-predictor.egg-link (link to .)\n'}
+[0.837379] (trajectory_predictor) StdoutLine: {'line': b'Installing predictor_node script to /home/duy/cocarry_ws/install/trajectory_predictor/lib/trajectory_predictor\n'}
+[0.837513] (trajectory_predictor) StdoutLine: {'line': b'\n'}
+[0.837554] (trajectory_predictor) StdoutLine: {'line': b'Installed /home/duy/cocarry_ws/build/trajectory_predictor\n'}
+[0.837610] (trajectory_predictor) StdoutLine: {'line': b'running symlink_data\n'}
+[0.837679] (trajectory_predictor) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/trajectory_predictor/resource/trajectory_predictor -> /home/duy/cocarry_ws/install/trajectory_predictor/share/ament_index/resource_index/packages\n'}
+[0.837740] (trajectory_predictor) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/trajectory_predictor/package.xml -> /home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor\n'}
+[0.837794] (trajectory_predictor) StdoutLine: {'line': b'symbolically linking /home/duy/cocarry_ws/build/trajectory_predictor/config/predictor_params.yaml -> /home/duy/cocarry_ws/install/trajectory_predictor/share/trajectory_predictor/config\n'}
+[0.858515] (trajectory_predictor) CommandEnded: {'returncode': 0}
+[0.869326] (trajectory_predictor) JobEnded: {'identifier': 'trajectory_predictor', 'rc': 0}
+[0.869880] (-) EventReactorShutdown: {}

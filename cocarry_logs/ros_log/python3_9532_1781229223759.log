@@ -1,0 +1,27 @@
+[INFO] [1781229223.875837127] [cartesian_streamer]: CartesianStreamer khởi động (chờ Enable Robot từ UI).
+  Stream rate:       15 Hz (period=66.7ms)
+  Queue dt:          0.067 s
+  Prebuffer points:  3
+  Retry backoff:     66.0 ms
+  Gửi PoseStamped lên: /cartesian_streamer/target_pose
+  Gửi XYZ lên:        /cartesian_streamer/target_xyz
+  Nhận EE pose tại:   /cartesian_streamer/current_pose
+[INFO] [1781229223.879438744] [cartesian_streamer]: Nhận joint_states: ['1.571', '0.124', '-1.022', '0.000', '-0.398', '0.000']
+[INFO] [1781229224.358338420] [cartesian_streamer]: ✓ FK cross-validation PASSED. Error = 0.0023mm
+  Local FK:  (-0.16200, 0.29593, 0.38395)
+  MoveIt FK: (-0.16200, 0.29593, 0.38395)
+[INFO] [1781229224.359888765] [cartesian_streamer]: Đã nhận joint_states. EE hiện tại: (-0.1620, 0.2959, 0.3840). IK mode: Local DLS. Chờ Enable Robot từ UI...
+[INFO] [1781229386.022443546] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1781229386.023068864] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1781229386.036733885] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1781229386.037355989] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1781229386.089072301] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1781229386.089673129] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1781229387.592350865] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1781229388.674269461] [cartesian_streamer]: StartPointQueueMode response: code=102, msg="The controller has an active Error: Can't start 'INIT_ROS' because: 'Robot is in operation' (0x2010)"
+[ERROR] [1781229388.674643457] [cartesian_streamer]: StartPointQueueMode FAILED: The controller has an active Error: Can't start 'INIT_ROS' because: 'Robot is in operation' (0x2010)
+[INFO] [1781229393.697495244] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1781229393.698537008] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1781229475.939807864] [cartesian_streamer]: Graceful shutdown: tắt Point Queue Mode trước khi thoát...
+[INFO] [1781229475.940089275] [cartesian_streamer]: Robot chưa enable, không cần stop_traj_mode.
+[INFO] [1781229475.940444114] [cartesian_streamer]: Shutdown hoàn tất. Tủ điện sẽ KHÔNG bị alarm.

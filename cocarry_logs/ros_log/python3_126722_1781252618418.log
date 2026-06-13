@@ -1,0 +1,103 @@
+[INFO] [1781252618.521738499] [cartesian_streamer]: CartesianStreamer khởi động (chờ Enable Robot từ UI).
+  Stream rate:       15 Hz (period=66.7ms)
+  Queue dt:          0.067 s
+  Prebuffer points:  3
+  Retry backoff:     66.0 ms
+  Gửi PoseStamped lên: /cartesian_streamer/target_pose
+  Gửi XYZ lên:        /cartesian_streamer/target_xyz
+  Nhận EE pose tại:   /cartesian_streamer/current_pose
+[INFO] [1781252619.005796937] [cartesian_streamer]: Chờ /joint_states...
+[INFO] [1781252620.120066642] [cartesian_streamer]: Nhận joint_states: ['1.571', '0.124', '-1.049', '0.000', '-0.398', '-1.444']
+[WARN] [1781252621.506048407] [cartesian_streamer]: Không thể cross-validate FK (local hoặc MoveIt! FK thất bại). Local IK vẫn hoạt động nhưng CHƯA ĐƯỢC VALIDATE.
+[INFO] [1781252621.506555161] [cartesian_streamer]: Đã nhận joint_states. EE hiện tại: (-0.1620, 0.2801, 0.3785). IK mode: Local DLS. Chờ Enable Robot từ UI...
+[INFO] [1781252653.198605879] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1781252653.199150320] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1781252653.210815736] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1781252653.211148981] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1781252653.258372504] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1781252653.258891008] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1781252654.759883177] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1781252656.408747328] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1781252656.409303217] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1781252656.438377764] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1781252656.439507438] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252656.440206327] [cartesian_streamer]: Đang stream qua service: /queue_traj_point
+[INFO] [1781252656.441177834] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1781252656.505804632] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252656.572258232] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252656.585102494] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1781252656.585636712] [cartesian_streamer]: Queue accepted sample#1: svc=/queue_traj_point, t_cumul=0.0000s, code=1, msg="", hold=False
+[INFO] [1781252656.757178389] [cartesian_streamer]: Queue accepted sample#2: svc=/queue_traj_point, t_cumul=0.1972s, code=1, msg="", hold=True
+[WARN] [1781252656.989807264] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1781252657.224288378] [cartesian_streamer]: Queue accepted sample#3: svc=/queue_traj_point, t_cumul=0.3305s, code=1, msg="", hold=True
+[INFO] [1781252657.462945121] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1781252657.463581087] [cartesian_streamer]: Queue accepted sample#4: svc=/queue_traj_point, t_cumul=0.3973s, code=1, msg="", hold=True
+[INFO] [1781252657.623166719] [cartesian_streamer]: Queue accepted sample#5: svc=/queue_traj_point, t_cumul=0.5973s, code=1, msg="", hold=True
+[INFO] [1781252659.629029526] [cartesian_streamer]: QueueTrajPoint accepted #20: t=2.198s, hold=True
+[INFO] [1781252659.639209195] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[WARN] [1781252659.705230987] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781252661.438461870] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.0, ack_hz=7.4, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=131.3, max_joint_delta=0.000, cumul_time=4.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.42, ik_fails=0
+[INFO] [1781252661.583070327] [cartesian_streamer]: QueueTrajPoint accepted #40: t=4.202s, hold=False
+[INFO] [1781252661.639232576] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[INFO] [1781252663.594200197] [cartesian_streamer]: QueueTrajPoint accepted #60: t=6.199s, hold=False
+[INFO] [1781252663.705883226] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[WARN] [1781252664.771715036] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781252665.772144897] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[INFO] [1781252666.456325055] [cartesian_streamer]: QueueTrajPoint accepted #80: t=8.533s, hold=False
+[INFO] [1781252666.505277610] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.3, ack_hz=8.5, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=119.6, max_joint_delta=0.000, cumul_time=8.53s, hold_count=0, ik_mode=Local, ik_avg_ms=0.37, ik_fails=0
+[WARN] [1781252666.505802667] [cartesian_streamer]: Target stream stale: không có target mới trong 6.9s
+[WARN] [1781252667.039039396] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252667.572357604] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781252667.772270197] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[WARN] [1781252668.105541468] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252668.639060560] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252669.172166458] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252669.706097676] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252669.838358274] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781252669.839522740] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[WARN] [1781252670.239617571] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252670.772921717] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252670.773272527] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252671.505047650] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.6, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.068, cumul_time=10.13s, hold_count=0, ik_mode=Local, ik_avg_ms=0.40, ik_fails=0
+[INFO] [1781252671.506352496] [cartesian_streamer]: IK delta clamped → joints: [1.586, 0.054, -1.024, -0.000, -0.488, -1.459]
+[WARN] [1781252671.773728779] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252671.839969917] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.591, 0.054, -0.996, -0.000, -0.488, -1.463]
+[WARN] [1781252672.774691977] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252673.507196449] [cartesian_streamer]: IK delta clamped → joints: [1.579, 0.054, -0.979, 0.000, -0.488, -1.451]
+[WARN] [1781252673.839767872] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252673.905880988] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.577, 0.054, -0.985, 0.000, -0.488, -1.449]
+[WARN] [1781252674.905014499] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1781252674.908123932] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252675.573613575] [cartesian_streamer]: IK delta clamped → joints: [1.547, 0.054, -0.979, 0.000, -0.488, -1.419]
+[INFO] [1781252675.972940380] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.541, 0.054, -0.979, 0.000, -0.488, -1.414]
+[WARN] [1781252675.973616329] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252676.571640096] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.090, cumul_time=10.13s, hold_count=0, ik_mode=Local, ik_avg_ms=0.55, ik_fails=0
+[INFO] [1781252677.973301275] [cartesian_streamer]: IK OK → Δmax=0.0390 rad, joints: [1.530, 0.144, -0.962, 0.000, -0.466, -1.402]
+[INFO] [1781252678.173344006] [cartesian_streamer]: IK delta clamped → joints: [1.511, 0.175, -0.958, 0.000, -0.432, -1.384]
+[WARN] [1781252678.373413239] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252678.905719286] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252679.442258203] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252679.905495945] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1781252679.973307972] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781252680.039460576] [cartesian_streamer]: IK OK → Δmax=0.0670 rad, joints: [1.545, 0.172, -0.956, 0.000, -0.444, -1.418]
+[WARN] [1781252680.507447031] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781252681.040106849] [cartesian_streamer]: IK delta clamped → joints: [1.566, 0.136, -1.022, 0.000, -0.402, -1.438]
+[WARN] [1781252681.511241992] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781252681.572581938] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.6, ack_hz=1.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=2070.8, max_joint_delta=0.090, cumul_time=12.46s, hold_count=0, ik_mode=Local, ik_avg_ms=0.69, ik_fails=0
+[INFO] [1781252682.039723468] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.536, 0.176, -1.022, 0.000, -0.373, -1.409]
+[WARN] [1781252682.040424951] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252682.574413804] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252683.106209449] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781252683.106546893] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252684.105532958] [cartesian_streamer]: IK OK → Δmax=0.0598 rad, joints: [1.535, 0.183, -1.012, 0.000, -0.376, -1.407]
+[WARN] [1781252684.172118651] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1781252684.971864407] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1781252685.172898162] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252686.172154520] [cartesian_streamer]: IK OK → Δmax=0.0323 rad, joints: [1.533, 0.206, -0.981, 0.000, -0.385, -1.405]
+[WARN] [1781252686.172904521] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252686.637925724] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=0.4, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.070, cumul_time=12.86s, hold_count=0, ik_mode=Local, ik_avg_ms=0.73, ik_fails=0
+[WARN] [1781252687.174310483] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781252687.506133412] [cartesian_streamer]: IK delta clamped → joints: [1.567, 0.145, -1.022, 0.000, -0.395, -1.440]
+[INFO] [1781252687.618744862] [cartesian_streamer]: Graceful shutdown: tắt Point Queue Mode trước khi thoát...
+[WARN] [1781252687.620031124] [cartesian_streamer]: Lỗi khi shutdown: failed to check service availability: rcl node's context is invalid, at ./src/rcl/node.c:428
+[INFO] [1781252687.621004126] [cartesian_streamer]: Shutdown hoàn tất. Tủ điện sẽ KHÔNG bị alarm.
