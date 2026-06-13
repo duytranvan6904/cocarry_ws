@@ -17,6 +17,7 @@ import rclpy
 from rclpy.node import Node as RosNode
 from rclpy.executors import MultiThreadedExecutor
 from geometry_msgs.msg import PointStamped, PoseStamped
+from human_hand_msgs.msg import HandState
 
 # ============================================================================
 # CONFIGURATION AND DATA STRUCTURES
@@ -45,6 +46,12 @@ class Scenario:
 # Workspace bounds (meters)
 WORKSPACE_WIDTH = 1.0  # X: -0.5 to 0.5
 WORKSPACE_HEIGHT = 1.2 # Y: 0 to 1.2
+
+# Visible display range (trimmed to frame content tightly)
+VIS_Y_MIN = 0.20   # padding left of START (Y=0.40)
+VIS_Y_MAX = 1.15   # padding right of T3 (Y=1.00)
+VIS_X_MIN = -0.45  # padding below T2 (X=-0.30)
+VIS_X_MAX = 0.45   # padding above T1 (X=0.30)
 
 # 3 New Targets Layout
 TARGET_POSITIONS = {
@@ -87,8 +94,8 @@ class HandPoseSubscriber(RosNode):
         self.trial_data = []
         
         self.sub_pose = self.create_subscription(
-            PoseStamped,
-            '/transformed_hand_pose',
+            HandState,
+            '/hand_position',
             self.pose_callback,
             10
         )
@@ -98,7 +105,8 @@ class HandPoseSubscriber(RosNode):
         self.start_time = 0.0
 
     def pose_callback(self, msg):
-        self.latest_pose = (msg.pose.position.x, msg.pose.position.y, msg.pose.position.z)
+        if msg.is_tracked:
+            self.latest_pose = (msg.x, msg.y, msg.z)
         
     def timer_callback(self):
         if not self.is_recording:
@@ -131,19 +139,19 @@ class ScenarioManager:
         self.participant_id = "p01"
         self.trial_duration = 8.0
         self.sample_rate = 16.0
-        self.y_threshold = 0.60
+        self.y_threshold = 0.50
         
         self.random_scenario_enabled = True
         
         self.state = ExperimentState.IDLE
         self.scenario_queue: List[Scenario] = []
-        self.current_scenario_idx = 0
+        self.current_index_in_round = 0
         self.current_scenario: Optional[Scenario] = None
         
         self.recording_start_time = 0.0
         self.change_triggered = False
-        self.repeats_per_scenario = 4
-        self.current_repeat = 1
+        self.total_rounds = 4          # Số lần lặp toàn bộ 9 scenarios
+        self.current_round = 1         # Round hiện tại (1-based)
         
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         self.initialize_scenarios()
@@ -156,25 +164,29 @@ class ScenarioManager:
             # When manual, we just queue the current scenario selected
             pass
             
-        self.current_scenario_idx = 0
+        self.current_index_in_round = 0
         if self.scenario_queue:
             self.current_scenario = self.scenario_queue[0]
-        self.current_repeat = 1
+        self.current_round = 1
         self.state = ExperimentState.READY
         self.change_triggered = False
 
     def next_scenario(self):
-        self.current_repeat += 1
-        if self.current_repeat > self.repeats_per_scenario:
-            self.current_repeat = 1
-            self.current_scenario_idx += 1
-            
-        if self.current_scenario_idx < len(self.scenario_queue):
-            self.current_scenario = self.scenario_queue[self.current_scenario_idx]
-            self.state = ExperimentState.READY
-        else:
-            self.state = ExperimentState.FINISHED
-            
+        self.current_index_in_round += 1
+        
+        # Hết 9 scenarios trong round này → sang round mới
+        if self.current_index_in_round >= len(self.scenario_queue):
+            self.current_round += 1
+            if self.current_round > self.total_rounds:
+                self.state = ExperimentState.FINISHED
+                self.change_triggered = False
+                return
+            # Xáo trộn lại cho round mới
+            random.shuffle(self.scenario_queue)
+            self.current_index_in_round = 0
+        
+        self.current_scenario = self.scenario_queue[self.current_index_in_round]
+        self.state = ExperimentState.READY
         self.change_triggered = False
 
     def reset(self):
@@ -185,7 +197,7 @@ class ScenarioManager:
             return None
             
         timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"{self.participant_id}_{self.current_scenario.scenario_id}_r{self.current_repeat:02d}_{timestamp_str}.csv"
+        filename = f"{self.participant_id}_{self.current_scenario.scenario_id}_r{self.current_round:02d}_{timestamp_str}.csv"
         
         participant_dir = os.path.join(OUTPUT_DIR, self.participant_id)
         os.makedirs(participant_dir, exist_ok=True)
@@ -214,15 +226,15 @@ class ScenarioManager:
 # ============================================================================
 
 class WorkspaceCanvas(tk.Canvas):
-    """2D top-down visualization of the experimental workspace"""
+    """2D landscape visualization: Y (depth) → horizontal, X (lateral) → vertical"""
     def __init__(self, parent, manager: ScenarioManager, **kwargs):
         super().__init__(parent, **kwargs)
         self.manager = manager
         
-        self.canvas_width = 1000 
-        self.canvas_height = 800
-        self.margin_x = 100
-        self.margin_y = 100
+        self.canvas_width = 1200 
+        self.canvas_height = 600
+        self.margin_x = 10
+        self.margin_y = 10
         
         self.config(bg="#1a1a1a")
         self.recalculate_scaling()
@@ -237,8 +249,9 @@ class WorkspaceCanvas(tk.Canvas):
         if self.draw_width <= 0: self.draw_width = 1
         if self.draw_height <= 0: self.draw_height = 1
 
-        self.scale_x = self.draw_width / WORKSPACE_WIDTH
-        self.scale_y = self.draw_height / WORKSPACE_HEIGHT
+        # Landscape: Y maps to horizontal, X maps to vertical (visible range only)
+        self.scale_horiz = self.draw_width / (VIS_Y_MAX - VIS_Y_MIN)
+        self.scale_vert = self.draw_height / (VIS_X_MAX - VIS_X_MIN)
 
     def on_resize(self, event):
         self.canvas_width = event.width
@@ -247,8 +260,9 @@ class WorkspaceCanvas(tk.Canvas):
         self.draw_workspace()
         
     def world_to_canvas(self, x: float, y: float) -> Tuple[int, int]:
-        canvas_x = self.canvas_width / 2 + x * self.scale_x
-        canvas_y = self.canvas_height - self.margin_y - y * self.scale_y
+        # Landscape: Y → horizontal, X → vertical (offset to visible range)
+        canvas_x = self.margin_x + (y - VIS_Y_MIN) * self.scale_horiz
+        canvas_y = self.margin_y + (VIS_X_MAX - x) * self.scale_vert
         return int(canvas_x), int(canvas_y)
     
     def draw_workspace(self):
@@ -256,15 +270,15 @@ class WorkspaceCanvas(tk.Canvas):
         
         self.create_rectangle(2, 2, self.canvas_width - 2, self.canvas_height - 2, outline="#444444", width=2)
         
-        center_x = self.canvas_width / 2
-        base_y = self.canvas_height - self.margin_y
-        self.create_line(center_x, base_y, center_x, self.margin_y, fill="#333333", dash=(2, 4))
+        # Horizontal center line (X=0 axis, now horizontal center of screen)
+        center_y = self.canvas_height / 2
+        self.create_line(self.margin_x, center_y, self.canvas_width - self.margin_x, center_y, fill="#333333", dash=(2, 4))
         
-        # Draw threshold line if change scenario
+        # Draw threshold line if change scenario (vertical line since Y is horizontal)
         if self.manager.current_scenario and self.manager.current_scenario.is_change_scenario():
-            _, thresh_y = self.world_to_canvas(0, self.manager.y_threshold)
-            self.create_line(self.margin_x, thresh_y, self.canvas_width - self.margin_x, thresh_y, fill="#555500", dash=(4, 4), width=2)
-            self.create_text(self.margin_x + 30, thresh_y - 10, text=f"Trigger Y = {self.manager.y_threshold}m", fill="#888800")
+            thresh_cx, _ = self.world_to_canvas(0, self.manager.y_threshold)
+            self.create_line(thresh_cx, self.margin_y, thresh_cx, self.canvas_height - self.margin_y, fill="#555500", dash=(4, 4), width=2)
+            self.create_text(thresh_cx, self.margin_y - 15, text=f"Trigger Y = {self.manager.y_threshold}m", fill="#888800")
             
         self.draw_start_zone()
         self.draw_targets()
@@ -272,7 +286,7 @@ class WorkspaceCanvas(tk.Canvas):
     
     def draw_start_zone(self):
         cx, cy = self.world_to_canvas(START_POSITION[0], START_POSITION[1])
-        size = 60
+        size = 100
         
         color = "#4CAF50" if self.manager.state == ExperimentState.RUNNING else "#FF69B4"
         glow = "#6BB6FF" if self.manager.state == ExperimentState.RUNNING else "#FFB6D9"
@@ -287,7 +301,7 @@ class WorkspaceCanvas(tk.Canvas):
             
     def draw_target(self, target_id: int, position: Tuple[float, float, float]):
         cx, cy = self.world_to_canvas(position[0], position[1])
-        size = 60
+        size = 100
         
         is_active = self.is_target_active(target_id)
         
@@ -393,12 +407,12 @@ class ControlPanel(ttk.Frame):
         self.scenario_label = ttk.Label(self, text="—", font=("Arial", 12, "bold"))
         self.scenario_label.grid(row=8, column=1, sticky="w", pady=5)
         
-        ttk.Label(self, text="Repeat:").grid(row=9, column=0, sticky="w", pady=5)
+        ttk.Label(self, text="Round:").grid(row=9, column=0, sticky="w", pady=5)
         self.repeat_label = ttk.Label(self, text="1 / 4")
         self.repeat_label.grid(row=9, column=1, sticky="w", pady=5)
         
-        ttk.Label(self, text="Progress:").grid(row=10, column=0, sticky="w", pady=5)
-        self.progress_label = ttk.Label(self, text="0 / 9")
+        ttk.Label(self, text="In Round:").grid(row=10, column=0, sticky="w", pady=5)
+        self.progress_label = ttk.Label(self, text="1 / 9")
         self.progress_label.grid(row=10, column=1, sticky="w", pady=5)
         
         # Buttons
@@ -439,9 +453,9 @@ class ControlPanel(ttk.Frame):
         if scenario_id:
             scenario = next(s for s in SCENARIOS if s.scenario_id == scenario_id)
             self.manager.scenario_queue = [scenario]
-            self.manager.current_scenario_idx = 0
+            self.manager.current_index_in_round = 0
             self.manager.current_scenario = scenario
-            self.manager.current_repeat = 1
+            self.manager.current_round = 1
             self.manager.state = ExperimentState.READY
             self.update_ui_state()
             self.canvas.update_display()
@@ -460,7 +474,7 @@ class ControlPanel(ttk.Frame):
         # Start ROS collector
         self.ros_node.start_recording()
         
-        self.log(f"Started {self.manager.current_scenario.scenario_id} rep {self.manager.current_repeat}")
+        self.log(f"Started {self.manager.current_scenario.scenario_id} R{self.manager.current_round} [{self.manager.current_index_in_round+1}/{len(self.manager.scenario_queue)}]")
         self.update_ui_state()
         self.canvas.update_display()
         
@@ -481,9 +495,9 @@ class ControlPanel(ttk.Frame):
         
         if scen:
             self.scenario_label.config(text=scen.scenario_id)
-            self.repeat_label.config(text=f"{self.manager.current_repeat} / {self.manager.repeats_per_scenario}")
+            self.repeat_label.config(text=f"{self.manager.current_round} / {self.manager.total_rounds}")
             if self.manager.random_scenario_enabled:
-                self.progress_label.config(text=f"{self.manager.current_scenario_idx + 1} / {len(self.manager.scenario_queue)}")
+                self.progress_label.config(text=f"{self.manager.current_index_in_round + 1} / {len(self.manager.scenario_queue)}")
             else:
                 self.progress_label.config(text="Manual Mode")
         else:
@@ -527,7 +541,7 @@ class App(tk.Tk):
         # Create separate Display Window
         self.display_window = tk.Toplevel(self)
         self.display_window.title("Participant Display")
-        self.display_window.geometry("1000x800")
+        self.display_window.geometry("1200x600")
         self.display_window.configure(bg="#000000")
         
         self.canvas = WorkspaceCanvas(self.display_window, self.manager)

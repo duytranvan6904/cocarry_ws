@@ -1,0 +1,327 @@
+[0.020s] Invoking command in '/home/duy/cocarry_ws/build/motoros2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/yaskawa-global/motoros2_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoros2_interfaces
+[0.040s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.229s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.271s] -- Found builtin_interfaces: 1.2.2 (/opt/ros/humble/share/builtin_interfaces/cmake)
+[0.338s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.350s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.373s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.412s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.442s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.483s] -- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.514s] -- Found trajectory_msgs: 4.9.1 (/opt/ros/humble/share/trajectory_msgs/cmake)
+[0.636s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.977s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[5.143s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.235s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.325s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[6.331s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[6.418s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[6.418s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.418s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[6.419s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[6.563s] -- Found PythonExtra: .so  
+[8.646s] -- Added test 'copyright' to check source files copyright and LICENSE
+[8.777s] -- Added test 'lint_cmake' to check CMake code style
+[8.819s] -- Added test 'xmllint' to check XML markup files
+[8.874s] -- Configuring done
+[9.591s] -- Generating done
+[9.788s] -- Build files have been written to: /home/duy/cocarry_ws/build/motoros2_interfaces
+[9.809s] Invoked command in '/home/duy/cocarry_ws/build/motoros2_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/duy/cocarry_ws/src/yaskawa-global/motoros2_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoros2_interfaces
+[9.813s] Invoking command in '/home/duy/cocarry_ws/build/motoros2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/motoros2_interfaces -- -j16 -l16
+[10.088s] [  0%] [34m[1mGenerating C code for ROS interfaces[0m
+[10.196s] [  0%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[10.273s] [  1%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[10.331s] [  1%] Built target ament_cmake_python_symlink_motoros2_interfaces
+[100.210s] [  1%] Built target motoros2_interfaces__rs
+[102.011s] running egg_info
+[102.012s] creating motoros2_interfaces.egg-info
+[102.013s] writing motoros2_interfaces.egg-info/PKG-INFO
+[102.013s] writing dependency_links to motoros2_interfaces.egg-info/dependency_links.txt
+[102.013s] writing top-level names to motoros2_interfaces.egg-info/top_level.txt
+[102.017s] writing manifest file 'motoros2_interfaces.egg-info/SOURCES.txt'
+[102.042s] reading manifest file 'motoros2_interfaces.egg-info/SOURCES.txt'
+[102.045s] writing manifest file 'motoros2_interfaces.egg-info/SOURCES.txt'
+[102.262s] [  1%] Built target ament_cmake_python_build_motoros2_interfaces_egg
+[104.044s] [  1%] Built target motoros2_interfaces__cpp
+[104.577s] [  2%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/alarm_info__functions.c.o[0m
+[104.764s] [  3%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/read_m_register__functions.c.o[0m
+[104.956s] [  3%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/read_single_io__functions.c.o[0m
+[105.350s] [  4%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/read_group_io__functions.c.o[0m
+[105.530s] [  4%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/reset_error__functions.c.o[0m
+[105.753s] [  5%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/select_motion_tool__functions.c.o[0m
+[105.950s] [  5%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/start_traj_mode__functions.c.o[0m
+[106.161s] [  6%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/start_point_queue_mode__functions.c.o[0m
+[106.357s] [  6%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/write_m_register__functions.c.o[0m
+[106.559s] [  7%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/write_single_io__functions.c.o[0m
+[106.745s] [  7%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/write_group_io__functions.c.o[0m
+[106.973s] [  7%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/queue_traj_point__functions.c.o[0m
+[107.192s] [  8%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/list_inform_jobs__functions.c.o[0m
+[107.379s] [  8%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/srv/detail/get_active_alarm_info__functions.c.o[0m
+[107.600s] [  9%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/selection_result_codes__functions.c.o[0m
+[107.773s] [  9%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/queue_result_enum__functions.c.o[0m
+[107.929s] [ 10%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/motion_ready_enum__functions.c.o[0m
+[108.079s] [ 10%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/io_result_codes__functions.c.o[0m
+[108.173s] [ 11%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/init_traj_enum__functions.c.o[0m
+[108.268s] [ 11%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/inform_job_crud_result_codes__functions.c.o[0m
+[108.365s] [ 12%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/error_info__functions.c.o[0m
+[108.458s] [ 12%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/motoros2_interfaces/msg/detail/alarm_cause_remedy__functions.c.o[0m
+[108.584s] [ 13%] [32m[1mLinking C shared library libmotoros2_interfaces__rosidl_generator_c.so[0m
+[108.655s] [ 13%] Built target motoros2_interfaces__rosidl_generator_c
+[108.675s] [ 14%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[113.842s] [ 14%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/alarm_info__type_support.cpp.o[0m
+[114.213s] [ 14%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/list_inform_jobs__type_support.cpp.o[0m
+[114.572s] [ 15%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/queue_traj_point__type_support.cpp.o[0m
+[114.934s] [ 15%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/read_m_register__type_support.cpp.o[0m
+[115.277s] [ 16%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/read_single_io__type_support.cpp.o[0m
+[115.605s] [ 16%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/read_group_io__type_support.cpp.o[0m
+[116.190s] [ 17%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/reset_error__type_support.cpp.o[0m
+[116.713s] [ 17%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/select_motion_tool__type_support.cpp.o[0m
+[117.355s] [ 18%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/start_traj_mode__type_support.cpp.o[0m
+[117.754s] [ 18%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/start_point_queue_mode__type_support.cpp.o[0m
+[118.160s] [ 19%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/write_m_register__type_support.cpp.o[0m
+[118.532s] [ 19%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/write_single_io__type_support.cpp.o[0m
+[118.870s] [ 20%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/write_group_io__type_support.cpp.o[0m
+[119.214s] [ 21%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/srv/get_active_alarm_info__type_support.cpp.o[0m
+[119.621s] [ 21%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/selection_result_codes__type_support.cpp.o[0m
+[119.952s] [ 22%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/queue_result_enum__type_support.cpp.o[0m
+[120.322s] [ 22%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/motion_ready_enum__type_support.cpp.o[0m
+[120.707s] [ 23%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/io_result_codes__type_support.cpp.o[0m
+[121.216s] [ 23%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/init_traj_enum__type_support.cpp.o[0m
+[121.626s] [ 24%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/inform_job_crud_result_codes__type_support.cpp.o[0m
+[122.094s] [ 24%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/error_info__type_support.cpp.o[0m
+[122.465s] [ 25%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/motoros2_interfaces/msg/alarm_cause_remedy__type_support.cpp.o[0m
+[123.041s] [ 25%] [32m[1mLinking CXX shared library libmotoros2_interfaces__rosidl_typesupport_cpp.so[0m
+[123.104s] [ 25%] Built target motoros2_interfaces__rosidl_typesupport_cpp
+[123.123s] [ 26%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[126.246s] [ 26%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/alarm_info__type_support.cpp.o[0m
+[126.287s] [ 27%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/queue_traj_point__type_support.cpp.o[0m
+[126.326s] [ 27%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/read_m_register__type_support.cpp.o[0m
+[126.368s] [ 28%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/read_single_io__type_support.cpp.o[0m
+[126.408s] [ 28%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/read_group_io__type_support.cpp.o[0m
+[126.449s] [ 29%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/reset_error__type_support.cpp.o[0m
+[126.489s] [ 29%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/select_motion_tool__type_support.cpp.o[0m
+[126.528s] [ 30%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/start_traj_mode__type_support.cpp.o[0m
+[126.566s] [ 30%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/start_point_queue_mode__type_support.cpp.o[0m
+[126.606s] [ 31%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/write_m_register__type_support.cpp.o[0m
+[126.647s] [ 31%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/write_single_io__type_support.cpp.o[0m
+[126.688s] [ 32%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/write_group_io__type_support.cpp.o[0m
+[126.731s] [ 32%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/list_inform_jobs__type_support.cpp.o[0m
+[126.770s] [ 33%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/srv/get_active_alarm_info__type_support.cpp.o[0m
+[126.814s] [ 33%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/selection_result_codes__type_support.cpp.o[0m
+[126.861s] [ 34%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/queue_result_enum__type_support.cpp.o[0m
+[126.904s] [ 34%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/motion_ready_enum__type_support.cpp.o[0m
+[126.940s] [ 35%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/io_result_codes__type_support.cpp.o[0m
+[126.975s] [ 35%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/init_traj_enum__type_support.cpp.o[0m
+[127.016s] [ 36%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/inform_job_crud_result_codes__type_support.cpp.o[0m
+[127.051s] [ 36%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/error_info__type_support.cpp.o[0m
+[127.096s] [ 37%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/motoros2_interfaces/msg/alarm_cause_remedy__type_support.cpp.o[0m
+[127.136s] [ 37%] [32m[1mLinking CXX shared library libmotoros2_interfaces__rosidl_typesupport_c.so[0m
+[127.198s] [ 37%] Built target motoros2_interfaces__rosidl_typesupport_c
+[127.215s] [ 38%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[130.935s] [ 38%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/alarm_info__type_support.c.o[0m
+[130.979s] [ 38%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/read_m_register__type_support.c.o[0m
+[131.026s] [ 39%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/read_single_io__type_support.c.o[0m
+[131.072s] [ 39%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/read_group_io__type_support.c.o[0m
+[131.123s] [ 40%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/reset_error__type_support.c.o[0m
+[131.179s] [ 40%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/select_motion_tool__type_support.c.o[0m
+[131.228s] [ 41%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/start_traj_mode__type_support.c.o[0m
+[131.279s] [ 41%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/start_point_queue_mode__type_support.c.o[0m
+[131.335s] [ 42%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/write_m_register__type_support.c.o[0m
+[131.378s] [ 42%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/write_single_io__type_support.c.o[0m
+[131.428s] [ 43%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/write_group_io__type_support.c.o[0m
+[131.477s] [ 44%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/queue_traj_point__type_support.c.o[0m
+[131.538s] [ 44%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/list_inform_jobs__type_support.c.o[0m
+[131.588s] [ 45%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/srv/detail/get_active_alarm_info__type_support.c.o[0m
+[131.654s] [ 45%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/selection_result_codes__type_support.c.o[0m
+[131.701s] [ 46%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/queue_result_enum__type_support.c.o[0m
+[131.747s] [ 46%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/motion_ready_enum__type_support.c.o[0m
+[131.794s] [ 47%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/io_result_codes__type_support.c.o[0m
+[131.840s] [ 47%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/init_traj_enum__type_support.c.o[0m
+[131.889s] [ 48%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/inform_job_crud_result_codes__type_support.c.o[0m
+[131.934s] [ 48%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/error_info__type_support.c.o[0m
+[131.978s] [ 49%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/motoros2_interfaces/msg/detail/alarm_cause_remedy__type_support.c.o[0m
+[132.025s] [ 49%] [32m[1mLinking C shared library libmotoros2_interfaces__rosidl_typesupport_introspection_c.so[0m
+[132.091s] [ 49%] Built target motoros2_interfaces__rosidl_typesupport_introspection_c
+[132.110s] [ 50%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[135.709s] [ 50%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/alarm_info__type_support_c.cpp.o[0m
+[136.019s] [ 51%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/read_single_io__type_support_c.cpp.o[0m
+[136.329s] [ 51%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/read_group_io__type_support_c.cpp.o[0m
+[136.678s] [ 52%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/reset_error__type_support_c.cpp.o[0m
+[137.004s] [ 52%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/select_motion_tool__type_support_c.cpp.o[0m
+[137.329s] [ 53%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/start_traj_mode__type_support_c.cpp.o[0m
+[137.648s] [ 53%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/start_point_queue_mode__type_support_c.cpp.o[0m
+[138.010s] [ 54%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/write_m_register__type_support_c.cpp.o[0m
+[138.385s] [ 54%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/write_single_io__type_support_c.cpp.o[0m
+[138.674s] [ 55%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/write_group_io__type_support_c.cpp.o[0m
+[138.940s] [ 55%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/read_m_register__type_support_c.cpp.o[0m
+[139.202s] [ 56%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/queue_traj_point__type_support_c.cpp.o[0m
+[139.466s] [ 56%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/list_inform_jobs__type_support_c.cpp.o[0m
+[139.720s] [ 57%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/srv/detail/get_active_alarm_info__type_support_c.cpp.o[0m
+[139.977s] [ 57%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/selection_result_codes__type_support_c.cpp.o[0m
+[140.210s] [ 58%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/queue_result_enum__type_support_c.cpp.o[0m
+[140.447s] [ 58%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/motion_ready_enum__type_support_c.cpp.o[0m
+[140.683s] [ 59%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/io_result_codes__type_support_c.cpp.o[0m
+[140.907s] [ 59%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/init_traj_enum__type_support_c.cpp.o[0m
+[141.138s] [ 60%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/inform_job_crud_result_codes__type_support_c.cpp.o[0m
+[141.370s] [ 60%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/error_info__type_support_c.cpp.o[0m
+[141.612s] [ 61%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/motoros2_interfaces/msg/detail/alarm_cause_remedy__type_support_c.cpp.o[0m
+[141.854s] [ 61%] [32m[1mLinking CXX shared library libmotoros2_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[141.932s] [ 61%] Built target motoros2_interfaces__rosidl_typesupport_fastrtps_c
+[141.944s] [ 62%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[144.320s] [ 62%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/alarm_info__type_support.cpp.o[0m
+[144.617s] [ 62%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/read_group_io__type_support.cpp.o[0m
+[144.882s] [ 63%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/reset_error__type_support.cpp.o[0m
+[145.144s] [ 63%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/select_motion_tool__type_support.cpp.o[0m
+[145.415s] [ 64%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/start_traj_mode__type_support.cpp.o[0m
+[145.684s] [ 64%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/start_point_queue_mode__type_support.cpp.o[0m
+[145.961s] [ 65%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/write_m_register__type_support.cpp.o[0m
+[146.225s] [ 65%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/write_single_io__type_support.cpp.o[0m
+[146.492s] [ 66%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/write_group_io__type_support.cpp.o[0m
+[146.761s] [ 67%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/read_single_io__type_support.cpp.o[0m
+[147.034s] [ 67%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/read_m_register__type_support.cpp.o[0m
+[147.311s] [ 68%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/queue_traj_point__type_support.cpp.o[0m
+[147.627s] [ 68%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/list_inform_jobs__type_support.cpp.o[0m
+[147.930s] [ 69%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/srv/detail/get_active_alarm_info__type_support.cpp.o[0m
+[148.325s] [ 69%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/selection_result_codes__type_support.cpp.o[0m
+[148.636s] [ 70%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/queue_result_enum__type_support.cpp.o[0m
+[148.914s] [ 70%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/motion_ready_enum__type_support.cpp.o[0m
+[149.189s] [ 71%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/io_result_codes__type_support.cpp.o[0m
+[149.455s] [ 71%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/init_traj_enum__type_support.cpp.o[0m
+[149.718s] [ 72%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/inform_job_crud_result_codes__type_support.cpp.o[0m
+[149.982s] [ 72%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/error_info__type_support.cpp.o[0m
+[150.247s] [ 73%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/motoros2_interfaces/msg/detail/alarm_cause_remedy__type_support.cpp.o[0m
+[150.510s] [ 73%] [32m[1mLinking CXX shared library libmotoros2_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[150.584s] [ 73%] Built target motoros2_interfaces__rosidl_typesupport_introspection_cpp
+[150.598s] [ 74%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[153.069s] [ 74%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/alarm_info__type_support.cpp.o[0m
+[153.386s] [ 75%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/reset_error__type_support.cpp.o[0m
+[153.675s] [ 75%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/select_motion_tool__type_support.cpp.o[0m
+[153.970s] [ 76%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/start_traj_mode__type_support.cpp.o[0m
+[154.251s] [ 76%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/start_point_queue_mode__type_support.cpp.o[0m
+[154.541s] [ 77%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/write_m_register__type_support.cpp.o[0m
+[154.846s] [ 77%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/write_single_io__type_support.cpp.o[0m
+[155.157s] [ 78%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/write_group_io__type_support.cpp.o[0m
+[155.464s] [ 78%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/read_group_io__type_support.cpp.o[0m
+[155.762s] [ 79%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/read_single_io__type_support.cpp.o[0m
+[156.051s] [ 79%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/read_m_register__type_support.cpp.o[0m
+[156.338s] [ 80%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/queue_traj_point__type_support.cpp.o[0m
+[156.671s] [ 80%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/list_inform_jobs__type_support.cpp.o[0m
+[157.013s] [ 81%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/srv/detail/dds_fastrtps/get_active_alarm_info__type_support.cpp.o[0m
+[157.406s] [ 81%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/selection_result_codes__type_support.cpp.o[0m
+[157.683s] [ 82%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/queue_result_enum__type_support.cpp.o[0m
+[158.002s] [ 82%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/motion_ready_enum__type_support.cpp.o[0m
+[158.296s] [ 83%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/io_result_codes__type_support.cpp.o[0m
+[158.573s] [ 83%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/init_traj_enum__type_support.cpp.o[0m
+[158.852s] [ 84%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/inform_job_crud_result_codes__type_support.cpp.o[0m
+[159.139s] [ 84%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/error_info__type_support.cpp.o[0m
+[159.422s] [ 85%] [32mBuilding CXX object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/motoros2_interfaces/msg/detail/dds_fastrtps/alarm_cause_remedy__type_support.cpp.o[0m
+[159.710s] [ 85%] [32m[1mLinking CXX shared library libmotoros2_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[159.788s] [ 85%] Built target motoros2_interfaces__rosidl_typesupport_fastrtps_cpp
+[159.810s] [ 85%] Built target motoros2_interfaces
+[159.830s] [ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[164.877s] [ 86%] Built target motoros2_interfaces__py
+[164.896s] [ 86%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_alarm_info_s.c.o[0m
+[164.986s] [ 87%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_reset_error_s.c.o[0m
+[165.070s] [ 87%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_select_motion_tool_s.c.o[0m
+[165.151s] [ 88%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_start_traj_mode_s.c.o[0m
+[165.241s] [ 88%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_start_point_queue_mode_s.c.o[0m
+[165.327s] [ 89%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_write_m_register_s.c.o[0m
+[165.410s] [ 89%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_write_single_io_s.c.o[0m
+[165.506s] [ 90%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_write_group_io_s.c.o[0m
+[165.589s] [ 90%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_read_group_io_s.c.o[0m
+[165.681s] [ 91%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_read_single_io_s.c.o[0m
+[165.765s] [ 91%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_read_m_register_s.c.o[0m
+[165.848s] [ 92%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_queue_traj_point_s.c.o[0m
+[165.955s] [ 92%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_list_inform_jobs_s.c.o[0m
+[166.058s] [ 93%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/srv/_get_active_alarm_info_s.c.o[0m
+[166.156s] [ 93%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_selection_result_codes_s.c.o[0m
+[166.260s] [ 94%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_queue_result_enum_s.c.o[0m
+[166.347s] [ 94%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_motion_ready_enum_s.c.o[0m
+[166.438s] [ 95%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_io_result_codes_s.c.o[0m
+[166.525s] [ 95%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_init_traj_enum_s.c.o[0m
+[166.624s] [ 96%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_inform_job_crud_result_codes_s.c.o[0m
+[166.718s] [ 96%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_error_info_s.c.o[0m
+[166.807s] [ 97%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/motoros2_interfaces/msg/_alarm_cause_remedy_s.c.o[0m
+[166.890s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/motoros2_interfaces/libmotoros2_interfaces__rosidl_generator_py.so[0m
+[166.945s] [ 97%] Built target motoros2_interfaces__rosidl_generator_py
+[166.970s] [ 98%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/motoros2_interfaces/_motoros2_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[167.139s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/motoros2_interfaces/motoros2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[167.179s] [ 98%] Built target motoros2_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[167.206s] [ 99%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/motoros2_interfaces/_motoros2_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[167.372s] [ 99%] [32m[1mLinking C shared library rosidl_generator_py/motoros2_interfaces/motoros2_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[167.415s] [ 99%] Built target motoros2_interfaces__rosidl_typesupport_c__pyext
+[167.439s] [100%] [32mBuilding C object CMakeFiles/motoros2_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/motoros2_interfaces/_motoros2_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[167.607s] [100%] [32m[1mLinking C shared library rosidl_generator_py/motoros2_interfaces/motoros2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[167.649s] [100%] Built target motoros2_interfaces__rosidl_typesupport_introspection_c__pyext
+[167.663s] Invoked command in '/home/duy/cocarry_ws/build/motoros2_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/duy/cocarry_ws/build/motoros2_interfaces -- -j16 -l16
+[167.665s] Invoking command in '/home/duy/cocarry_ws/build/motoros2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/duy/cocarry_ws/build/motoros2_interfaces
+[167.674s] -- Install configuration: ""
+[167.675s] -- Execute custom install script
+[167.675s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/share/ament_index/resource_index/rosidl_interfaces/motoros2_interfaces
+[167.688s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/alarm_cause_remedy.h
+[167.695s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/alarm_info.h
+[167.702s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/alarm_cause_remedy__functions.h
+[167.709s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/alarm_cause_remedy__struct.h
+[167.717s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/alarm_cause_remedy__type_support.h
+[167.723s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/alarm_info__functions.h
+[167.732s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/alarm_info__struct.h
+[167.738s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/alarm_info__type_support.h
+[167.747s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/error_info__functions.h
+[167.755s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/error_info__struct.h
+[167.761s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/error_info__type_support.h
+[167.767s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/inform_job_crud_result_codes__functions.h
+[167.773s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/inform_job_crud_result_codes__struct.h
+[167.781s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/inform_job_crud_result_codes__type_support.h
+[167.790s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/init_traj_enum__functions.h
+[167.797s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/init_traj_enum__struct.h
+[167.806s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/init_traj_enum__type_support.h
+[167.813s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/io_result_codes__functions.h
+[167.820s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/io_result_codes__struct.h
+[167.828s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/io_result_codes__type_support.h
+[167.836s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/motion_ready_enum__functions.h
+[167.842s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/motion_ready_enum__struct.h
+[167.849s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/motion_ready_enum__type_support.h
+[167.855s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/queue_result_enum__functions.h
+[167.863s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/queue_result_enum__struct.h
+[167.870s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/queue_result_enum__type_support.h
+[167.876s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/selection_result_codes__functions.h
+[167.882s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/selection_result_codes__struct.h
+[167.889s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/detail/selection_result_codes__type_support.h
+[167.896s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/error_info.h
+[167.903s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/inform_job_crud_result_codes.h
+[167.913s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/init_traj_enum.h
+[167.921s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/io_result_codes.h
+[167.934s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/motion_ready_enum.h
+[167.952s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/queue_result_enum.h
+[167.961s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/rosidl_generator_c__visibility_control.h
+[167.969s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/msg/selection_result_codes.h
+[167.977s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/get_active_alarm_info__functions.h
+[167.985s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/get_active_alarm_info__struct.h
+[167.994s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/get_active_alarm_info__type_support.h
+[168.001s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/list_inform_jobs__functions.h
+[168.007s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/list_inform_jobs__struct.h
+[168.016s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/list_inform_jobs__type_support.h
+[168.022s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/queue_traj_point__functions.h
+[168.028s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/queue_traj_point__struct.h
+[168.037s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/queue_traj_point__type_support.h
+[168.046s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_group_io__functions.h
+[168.054s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_group_io__struct.h
+[168.060s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_group_io__type_support.h
+[168.068s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_m_register__functions.h
+[168.075s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_m_register__struct.h
+[168.085s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_m_register__type_support.h
+[168.094s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_single_io__functions.h
+[168.100s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_single_io__struct.h
+[168.107s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/read_single_io__type_support.h
+[168.113s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/reset_error__functions.h
+[168.122s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/reset_error__struct.h
+[168.130s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/reset_error__type_support.h
+[168.138s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/select_motion_tool__functions.h
+[168.144s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/select_motion_tool__struct.h
+[168.153s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/select_motion_tool__type_support.h
+[168.158s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/start_point_queue_mode__functions.h
+[168.167s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/start_point_queue_mode__struct.h
+[168.173s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/start_point_queue_mode__type_support.h
+[168.180s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/start_traj_mode__functions.h
+[168.191s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/start_traj_mode__struct.h
+[168.201s] -- Symlinking: /home/duy/cocarry_ws/install/motoros2_interfaces/include/motoros2_interfaces/motoros2_interfaces/srv/detail/start_traj_mode__type_support.h

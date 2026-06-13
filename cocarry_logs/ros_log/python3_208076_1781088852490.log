@@ -1,0 +1,24 @@
+[INFO] [1781088852.694011588] [trajectory_predictor]: [Predictor] Worker launched (pid=208321)
+[INFO] [1781088852.694672653] [trajectory_predictor]: [Predictor] Started | model=gru | window=20 | auto_start=True
+  Output Filter: enabled=True, ema_alpha=0.2, max_dev=0.08, max_rate=0.04
+[WARN] [1781088854.975804785] [trajectory_predictor]: [Worker STDERR] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[WARN] [1781088854.976270903] [trajectory_predictor]: [Worker STDERR] warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[WARN] [1781088857.327272447] [trajectory_predictor]: [Worker STDERR] /home/duy/.local/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+[WARN] [1781088857.328534471] [trajectory_predictor]: [Worker STDERR] https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+[WARN] [1781088857.329574974] [trajectory_predictor]: [Worker STDERR] warnings.warn(
+[INFO] [1781088857.329725502] [trajectory_predictor]: [Worker] TF 2.21.0 and sklearn loaded
+[INFO] [1781088858.849860559] [trajectory_predictor]: [Predictor] Worker READY | model=gru
+[INFO] [1781088865.981626117] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.9mm). Khóa tại (0.0528, -0.2504, -0.0916)
+[INFO] [1781088865.982436926] [trajectory_predictor]: [Filter] raw=(0.0528,-0.2504,-0.0916) → filt=(0.0528,-0.2504,-0.0916) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1781088867.135243036] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=15.7mm). Thả hold.
+[INFO] [1781088867.416699326] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.2mm). Khóa tại (0.0722, -0.2538, -0.0883)
+[INFO] [1781088871.489081673] [trajectory_predictor]: [Filter] raw=(0.0722,-0.2538,-0.0883) → filt=(0.0722,-0.2538,-0.0883) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1781088873.442505062] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=15.1mm). Thả hold.
+[INFO] [1781088873.697234656] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.4mm). Khóa tại (0.0567, -0.2499, -0.0890)
+[INFO] [1781088875.101427495] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=15.2mm). Thả hold.
+[WARN] [1781088875.201558143] [trajectory_predictor]: [Worker STDERR] Traceback (most recent call last):
+[WARN] [1781088875.202185556] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/build/trajectory_predictor/trajectory_predictor/inference_worker.py", line 255, in <module>
+[WARN] [1781088875.202912537] [trajectory_predictor]: [Worker STDERR] main()
+[WARN] [1781088875.203557369] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/build/trajectory_predictor/trajectory_predictor/inference_worker.py", line 190, in main
+[WARN] [1781088875.204260089] [trajectory_predictor]: [Worker STDERR] for line in sys.stdin:
+[WARN] [1781088875.205313109] [trajectory_predictor]: [Worker STDERR] KeyboardInterrupt

@@ -75,6 +75,10 @@ class CoordTransformNode(Node):
         self._is_holding_position = False
         self._moving_deadzone_tol = self._filter_deadband_depth_tol
         self._stationary_threshold = self._filter_stationary_threshold
+        # Ngưỡng Y (camera frame sau median) để kích hoạt deadband B tại vùng đích
+        self._deadband_y_threshold = self._filter_deadband_y_threshold
+        # Ngưỡng std tối đa khi tay đứng yên tại đích (lớn hơn để dừng chắc)
+        self._moving_deadzone_tol_near_target = self._filter_deadband_near_target_tol
         
         # Tạo 2 filter state riêng biệt cho ground_truth (UI vẽ) và prediction (robot chạy)
         self._actual_filter = CameraFilterState(self._filter_median_size_y)
@@ -82,6 +86,12 @@ class CoordTransformNode(Node):
         
         # Target Snap state: theo dõi xem snap có đang được áp dụng không
         self._pred_snap_active = False
+
+        # Target Zone Auto-Snap state
+        self._tz_counters      = [0, 0, 0]   # frame counter cho mỗi target zone
+        self._tz_snapping      = False        # đang trong phase snap (override target)
+        self._tz_snap_idx      = -1           # index của zone đang snap
+        self._tz_snap_start_ns = 0            # thời điểm bắt đầu snap
         
         self.get_logger().info(
             'CoordTransformNode khởi động.\n'
@@ -158,6 +168,27 @@ class CoordTransformNode(Node):
         # 0.10 = 10cm — đủ lớn để bắt overshoot GRU thông thường, đủ nhỏ để không trigger khi đang di chuyển
         self.declare_parameter('filter.pred_snap_radius',     0.10)
 
+        # Ngưỡng Y (camera frame, đã qua median filter) để kích hoạt deadband dừng (meters)
+        # Khi tay chưa vượt ngưỡng này → không áp dụng deadband B (robot xuất phát ngay)
+        # Khi tay đã vượt ngưỡng → áp dụng deadband với tol cao hơn để dừng chắc tại đích
+        self.declare_parameter('filter.deadband_y_threshold',      0.30)
+        self.declare_parameter('filter.deadband_near_target_tol',  0.025)
+
+        # ── Target Zone Auto-Snap ──────────────────────────────────────────
+        self.declare_parameter('target_zones.enabled',            True)
+        self.declare_parameter('target_zones.snap_radius',        0.08)
+        self.declare_parameter('target_zones.snap_frames',        20)
+        self.declare_parameter('target_zones.snap_duration_sec',  1.5)
+        self.declare_parameter('target_zones.t1_x', 0.0)
+        self.declare_parameter('target_zones.t1_y', 0.8)
+        self.declare_parameter('target_zones.t1_z', 0.5)
+        self.declare_parameter('target_zones.t2_x', 0.2)
+        self.declare_parameter('target_zones.t2_y', 0.8)
+        self.declare_parameter('target_zones.t2_z', 0.5)
+        self.declare_parameter('target_zones.t3_x', -0.2)
+        self.declare_parameter('target_zones.t3_y', 0.8)
+        self.declare_parameter('target_zones.t3_z', 0.5)
+
     def _load_params(self):
         # Object offset
         self._obj_offset = np.array([
@@ -221,6 +252,31 @@ class CoordTransformNode(Node):
         self._filter_ema_y_hold           = self.get_parameter('filter.ema_y_hold').value
         self._filter_ema_z_hold           = self.get_parameter('filter.ema_z_hold').value
         self._filter_pred_snap_radius     = self.get_parameter('filter.pred_snap_radius').value
+        self._filter_deadband_y_threshold     = self.get_parameter('filter.deadband_y_threshold').value
+        self._filter_deadband_near_target_tol = self.get_parameter('filter.deadband_near_target_tol').value
+
+        # Target Zone params
+        self._tz_enabled     = self.get_parameter('target_zones.enabled').value
+        self._tz_snap_radius = self.get_parameter('target_zones.snap_radius').value
+        self._tz_snap_frames = int(self.get_parameter('target_zones.snap_frames').value)
+        self._tz_snap_dur    = self.get_parameter('target_zones.snap_duration_sec').value
+        self._target_zones = [
+            np.array([
+                self.get_parameter('target_zones.t1_x').value,
+                self.get_parameter('target_zones.t1_y').value,
+                self.get_parameter('target_zones.t1_z').value,
+            ]),
+            np.array([
+                self.get_parameter('target_zones.t2_x').value,
+                self.get_parameter('target_zones.t2_y').value,
+                self.get_parameter('target_zones.t2_z').value,
+            ]),
+            np.array([
+                self.get_parameter('target_zones.t3_x').value,
+                self.get_parameter('target_zones.t3_y').value,
+                self.get_parameter('target_zones.t3_z').value,
+            ]),
+        ]
 
     def _setup_pubsub(self):
         # Subscribe: tọa độ dự đoán từ trajectory_predictor
@@ -283,6 +339,9 @@ class CoordTransformNode(Node):
             '/coord_transform/status',
             10,
         )
+
+        # Publish: run_status để auto-stop UI khi target zone snap hoàn tất
+        self._run_status_pub = self.create_publisher(Bool, '/run_status', 5)
 
         # Subscribe: vị trí hiện tại của robot (từ cartesian_streamer)
         self._current_pose_sub = self.create_subscription(
@@ -447,36 +506,24 @@ class CoordTransformNode(Node):
 
         # ─── TARGET SNAP (Bắt dính mục tiêu) ─────────────────────────────────
         # Khi tay người dùng đã được xác nhận đứng yên (actual_filter đang HOLD),
-        # kiểm tra xem điểm dự đoán GRU có đang bị lố (overshoot) hay không.
-        # Nếu khoảng cách dự đoán - tay_thực < snap_radius → ép về đúng vị trí tay.
-        # Điều này triệt tiêu hiện tượng robot rung rinh/giựt lùi ở pha dừng.
+        # lập tức ép điểm dự đoán về đúng vị trí tay thực tế để dừng robot ngay lập tức.
+        # Bỏ qua khoảng cách lệch của GRU vì tốc độ hội tụ GRU khá chậm.
         if (self._actual_filter.is_holding_position and
                 self._actual_filter.hold_p_cam is not None):
             actual_hold = self._actual_filter.hold_p_cam
             dist_pred_to_actual = np.linalg.norm(p_cam_filtered - actual_hold)
-            if dist_pred_to_actual < self._filter_pred_snap_radius:
-                if not self._pred_snap_active:
-                    self.get_logger().info(
-                        f'[SNAP ON] Tay đứng yên, GRU lệch {dist_pred_to_actual*100:.1f}cm '
-                        f'(< {self._filter_pred_snap_radius*100:.0f}cm). '
-                        f'Snap prediction về actual hand.',
-                        throttle_duration_sec=1.0
-                    )
-                    self._pred_snap_active = True
-                p_cam_filtered = actual_hold.copy()
-            else:
-                # Nếu GRU lệch quá xa (> snap_radius), không snap — để filter tự xử lý
-                if self._pred_snap_active:
-                    self.get_logger().info(
-                        f'[SNAP OFF] Khoảng cách GRU-actual = {dist_pred_to_actual*100:.1f}cm '
-                        f'> {self._filter_pred_snap_radius*100:.0f}cm. Thả snap.',
-                        throttle_duration_sec=1.0
-                    )
-                    self._pred_snap_active = False
+            
+            if not self._pred_snap_active:
+                self.get_logger().info(
+                    f'[SNAP ON] Tay thực tế đứng yên. Ép dừng robot (GRU đang lệch {dist_pred_to_actual*100:.1f}cm).',
+                    throttle_duration_sec=1.0
+                )
+                self._pred_snap_active = True
+            p_cam_filtered = actual_hold.copy()
         else:
-            # Tay đang di chuyển → không snap
+            # Tay đang di chuyển → không snap, chạy theo GRU prediction
             if self._pred_snap_active:
-                self.get_logger().info('[SNAP OFF] Tay di chuyển lại. Thả snap.')
+                self.get_logger().info('[SNAP OFF] Tay di chuyển lại. Trả quyền cho GRU.')
                 self._pred_snap_active = False
         # ─────────────────────────────────────────────────────────────────────
 
@@ -517,29 +564,35 @@ class CoordTransformNode(Node):
         # ─── Dynamic Deadband Logic ─────────────────────────
         state.recent_buffer.append(p_cam)
         
-        should_hold = False
-        hold_position = None
+        should_hold = state.is_holding_position
+        hold_position = state.hold_p_cam.copy() if state.hold_p_cam is not None else None
 
         if len(state.recent_buffer) >= 5:
             recent_data = np.array(state.recent_buffer)
             mean_pos = np.mean(recent_data, axis=0)
 
-            # (A) Initial deadband: tay ở gần vị trí calibrate
-            if self._p_cam_init is not None:
+            # Y sau khi lọc median (index 1 của p_cam trong camera frame = depth)
+            # Theo axis_remap [0,1,2] và axis_sign [−1,1,1], Y robot ≈ Y camera.
+            # Chỉ áp dụng deadband khi tay đã vượt ngưỡng Y đặt trước.
+            y_current = float(mean_pos[1])
+            deadband_active = (y_current >= self._deadband_y_threshold)
+
+            # (A) Initial deadband: tay ở gần vị trí calibrate — luôn áp dụng bất kể Y
+            if self._p_cam_init is not None and not should_hold:
                 deviation_from_init = np.linalg.norm(mean_pos - self._p_cam_init)
                 if deviation_from_init < self._noise_tolerance:
                     should_hold = True
                     hold_position = self._p_cam_init.copy()
             
-            if not should_hold:
-                # (B) Moving deadband: tay đã di chuyển nhưng đang đứng yên
-                # Fix #2: Dùng Standard Deviation (độ lệch chuẩn) trên cả 3 trục thay vì Range (max-min).
-                # Range rất dễ bị phá vỡ bởi 1 frame nhiễu duy nhất trong 15 frames. Std ổn định hơn nhiều.
+            if not should_hold and deadband_active:
+                # (B) Moving deadband: chỉ kích hoạt khi tay đã vào vùng đích (Y >= threshold)
+                # Dùng ngưỡng std cao hơn (2.5cm) để dừng chắc chắn tại đích.
                 recent_std = np.std(recent_data, axis=0)
                 max_std = float(np.max(recent_std))
-                
-                # _moving_deadzone_tol (0.025) giờ đóng vai trò là ngưỡng std tối đa
-                if max_std < self._moving_deadzone_tol:
+
+                # Dùng _moving_deadzone_tol_near_target (0.025) khi đã đến vùng đích
+                tol = self._moving_deadzone_tol_near_target
+                if max_std < tol:
                     state.stationary_counter += 1
                 else:
                     state.stationary_counter = 0
@@ -548,13 +601,15 @@ class CoordTransformNode(Node):
                 if state.stationary_counter >= self._filter_stationary_threshold:
                     should_hold = True
                     hold_position = mean_pos.copy()
+            elif not deadband_active and not should_hold:
+                # Chưa đến vùng đích → không giữ, reset counter để robot xuất phát sớm
+                state.stationary_counter = 0
 
         # Force release if hand deviates too far from locked position
         if state.is_holding_position and state.hold_p_cam is not None:
-            # Dùng mean_pos thay vì p_cam để tránh bị release sai do nhiễu gai (spikes)
             check_pos = mean_pos if 'mean_pos' in locals() else p_cam
             dev_from_locked = np.linalg.norm(check_pos - state.hold_p_cam)
-            if dev_from_locked > 0.025:  # 2.5 cm release threshold
+            if dev_from_locked > 0.050:  # 5.0cm release threshold (chống nhiễu, rung tay khi mang tải)
                 should_hold = False
 
         if should_hold:
@@ -602,14 +657,6 @@ class CoordTransformNode(Node):
                 throttle_duration_sec=2.0)
             return
 
-        # Fix #3: Cartesian deadband — nếu p_cam thay đổi < 1mm so với lần gửi trước,
-        # KHÔNG publish target mới → robot giữ nguyên vị trí, triệt tiêu micro-jitter.
-        if hasattr(self, '_last_sent_p_cam') and self._last_sent_p_cam is not None:
-            cam_delta = np.linalg.norm(p_cam_to_use - self._last_sent_p_cam)
-            if cam_delta < 0.001:  # 1mm deadband
-                return
-        self._last_sent_p_cam = p_cam_to_use.copy()
-
         # Bước 2: Lấy độ dời tương đối từ camera, cộng thêm object offset
         p_cam_delta = p_cam_to_use - self._p_cam_init + self._obj_offset
 
@@ -634,7 +681,14 @@ class CoordTransformNode(Node):
                 throttle_duration_sec=1.0,
             )
 
-        # Bước 4.5: Rate-limiting — giới hạn bước nhảy tọa độ mỗi frame
+        # Bước 4.5: Target Zone Auto-Snap — override nếu robot vào gần đích
+        # CHỈ KÍCH HOẠT nếu tay đã hoàn toàn đứng yên theo logic deadband
+        state = self._actual_filter if self._mode == 'ground_truth' else self._pred_filter
+        snap_pos = self._check_target_zone_snap(p_clamped, state.is_holding_position)
+        if snap_pos is not None:
+            p_clamped = snap_pos
+
+        # Bước 4.6: Rate-limiting — giới hạn bước nhảy tọa độ mỗi frame
         if self._last_p_base is not None:
             for i in range(3):
                 delta = p_clamped[i] - self._last_p_base[i]
@@ -661,6 +715,76 @@ class CoordTransformNode(Node):
             f'[{self._mode.upper()}] Transform: cam{p_cam_to_use.round(3)} → base{p_clamped.round(3)}',
             throttle_duration_sec=2.0,
         )
+    # ─── Target Zone Auto-Snap ────────────────────────────────────────────
+
+    def _check_target_zone_snap(self, p_base: np.ndarray, is_holding: bool):
+        """
+        Kiểm tra EE robot có vào gần target zone không.
+        Chỉ đếm frame nếu tay đã dừng hoàn toàn (is_holding = True).
+        Trả về: pose override nếu đang snap, None nếu bình thường.
+        """
+        if not self._tz_enabled or not self._running:
+            return None
+
+        # Phase snap đang diễn ra — giữ pose cố định cho đến hết duration
+        if self._tz_snapping:
+            elapsed = (self.get_clock().now().nanoseconds - self._tz_snap_start_ns) / 1e9
+            if elapsed < self._tz_snap_dur:
+                return self._target_zones[self._tz_snap_idx].copy()
+            else:
+                # Snap hoàn tất → publish Stop Run
+                self._tz_snapping = False
+                stop_msg = Bool()
+                stop_msg.data = False
+                self._run_status_pub.publish(stop_msg)
+                self.get_logger().info(
+                    f'[TARGET ZONE] ✓ Đã đến T{self._tz_snap_idx + 1}. '
+                    f'Auto Stop Run sau {self._tz_snap_dur:.1f}s hold.'
+                )
+                # Trả về pose cuối cùng (frame này robot vẫn ở đích)
+                return self._target_zones[self._tz_snap_idx].copy()
+
+        # NẾU TAY CHƯA ĐỨNG YÊN (CHƯA VÀO DEADBAND) -> Không làm gì cả
+        if not is_holding:
+            self._tz_counters = [0, 0, 0]
+            return None
+
+        # Kiểm tra khoảng cách EE đến từng zone
+        for i, tz_pos in enumerate(self._target_zones):
+            dist = np.linalg.norm(p_base - tz_pos)
+            
+            # Log hỗ trợ debug khi người dùng vào gần đích (trong vòng 30cm)
+            if dist <= 0.30:
+                if dist <= self._tz_snap_radius:
+                    self._tz_counters[i] += 1
+                    self.get_logger().info(
+                        f'[TARGET ZONE] T{i + 1}: {dist * 100:.1f}cm '
+                        f'(NẰM TRONG VÙNG! {self._tz_counters[i]}/{self._tz_snap_frames} frames)',
+                        throttle_duration_sec=0.5
+                    )
+                    if self._tz_counters[i] >= self._tz_snap_frames:
+                        # Kích hoạt snap!
+                        self._tz_snapping = True
+                        self._tz_snap_idx = i
+                        self._tz_snap_start_ns = self.get_clock().now().nanoseconds
+                        self._tz_counters = [0, 0, 0]  # reset tất cả
+                        self.get_logger().info(
+                            f'[TARGET ZONE] ★ SNAP vào T{i + 1}! '
+                            f'Giữ pose {self._tz_snap_dur:.1f}s rồi auto-stop.'
+                        )
+                        return tz_pos.copy()
+                else:
+                    # Ngoài vùng snap (nhưng < 30cm) → decay counter, log báo hiệu
+                    self._tz_counters[i] = max(0, self._tz_counters[i] - 1)
+                    self.get_logger().info(
+                        f'[TARGET ZONE] T{i + 1} ở gần: {dist * 100:.1f}cm '
+                        f'(Cần đẩy thêm vào < {self._tz_snap_radius * 100:.1f}cm để snap)',
+                        throttle_duration_sec=1.0
+                    )
+            else:
+                self._tz_counters[i] = max(0, self._tz_counters[i] - 1)
+
+        return None
 
     def _clamp_to_workspace(self, p: np.ndarray):
         """Clamp điểm vào workspace an toàn. Trả về (p_clamped, was_clamped)."""

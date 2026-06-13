@@ -1,0 +1,33 @@
+[0.023s] Invoking command in '/home/duy/cocarry_ws/build/industrial_msgs': /usr/bin/cmake /home/duy/cocarry_ws/src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/industrial_msgs
+[0.182s] -- The C compiler identification is GNU 11.4.0
+[0.380s] -- The CXX compiler identification is GNU 11.4.0
+[0.394s] -- Detecting C compiler ABI info
+[0.540s] -- Detecting C compiler ABI info - done
+[0.562s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.564s] -- Detecting C compile features
+[0.566s] -- Detecting C compile features - done
+[0.578s] -- Detecting CXX compiler ABI info
+[0.779s] -- Detecting CXX compiler ABI info - done
+[0.801s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.803s] -- Detecting CXX compile features
+[0.804s] -- Detecting CXX compile features - done
+[0.813s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.204s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.433s] Traceback (most recent call last):
+[1.434s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>
+[1.434s]     from ament_package.templates import get_environment_hook_template_path
+[1.434s] ModuleNotFoundError: No module named 'ament_package'
+[1.473s] CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):
+[1.474s]   execute_process(/usr/bin/python3
+[1.474s]   /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py
+[1.474s]   /home/duy/cocarry_ws/build/industrial_msgs/ament_cmake_package_templates/templates.cmake)
+[1.474s]   returned error code 1
+[1.474s] Call Stack (most recent call first):
+[1.474s]   /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[1.474s]   /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[1.474s]   /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[1.475s]   CMakeLists.txt:16 (find_package)
+[1.475s] 
+[1.475s] 
+[1.475s] -- Configuring incomplete, errors occurred!
+[1.475s] See also "/home/duy/cocarry_ws/build/industrial_msgs/CMakeFiles/CMakeOutput.log".

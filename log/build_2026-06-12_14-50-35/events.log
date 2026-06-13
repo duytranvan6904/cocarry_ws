@@ -1,0 +1,56 @@
+[0.000000] (-) TimerEvent: {}
+[0.000413] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.000499] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.000527] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.000555] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.000577] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.000741] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.000765] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.000792] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.000912] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.000942] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001112] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001168] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001190] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001217] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001274] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001295] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001317] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.001343] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001372] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001398] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001443] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001471] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.001513] (coord_transform) JobQueued: {'identifier': 'coord_transform', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001548] (coord_transform) JobStarted: {'identifier': 'coord_transform'}
+[0.099708] (-) TimerEvent: {}
+[0.200073] (-) TimerEvent: {}
+[0.300490] (-) TimerEvent: {}
+[0.393699] (coord_transform) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/coord_transform', 'build', '--build-base', '/home/duy/cocarry_ws/build/coord_transform/build', 'install', '--record', '/home/duy/cocarry_ws/build/coord_transform/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/coord_transform', 'env': {'USER': 'duy', 'ROS_PACKAGE_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib', 'HOME': '/home/duy', '_': '/usr/bin/colcon', 'PKG_CONFIG_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs/lib/x86_64-linux-gnu/pkgconfig:/home/duy/cocarry_ws/install/human_hand_msgs/lib/pkgconfig', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/coord_transform', 'PYTHONPATH': '/home/duy/cocarry_ws/build/coord_transform/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages:/home/duy/cocarry_ws/install/human_hand_msgs/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/duy/cocarry_ws/install/human_hand_msgs'}, 'shell': False}
+[0.400561] (-) TimerEvent: {}
+[0.500765] (-) TimerEvent: {}
+[0.536288] (coord_transform) StdoutLine: {'line': b'running egg_info\n'}
+[0.536602] (coord_transform) StdoutLine: {'line': b'writing ../../build/coord_transform/coord_transform.egg-info/PKG-INFO\n'}
+[0.536878] (coord_transform) StdoutLine: {'line': b'writing dependency_links to ../../build/coord_transform/coord_transform.egg-info/dependency_links.txt\n'}
+[0.536991] (coord_transform) StdoutLine: {'line': b'writing entry points to ../../build/coord_transform/coord_transform.egg-info/entry_points.txt\n'}
+[0.537076] (coord_transform) StdoutLine: {'line': b'writing requirements to ../../build/coord_transform/coord_transform.egg-info/requires.txt\n'}
+[0.537165] (coord_transform) StdoutLine: {'line': b'writing top-level names to ../../build/coord_transform/coord_transform.egg-info/top_level.txt\n'}
+[0.538147] (coord_transform) StdoutLine: {'line': b"reading manifest file '../../build/coord_transform/coord_transform.egg-info/SOURCES.txt'\n"}
+[0.538630] (coord_transform) StdoutLine: {'line': b"writing manifest file '../../build/coord_transform/coord_transform.egg-info/SOURCES.txt'\n"}
+[0.538746] (coord_transform) StdoutLine: {'line': b'running build\n'}
+[0.538830] (coord_transform) StdoutLine: {'line': b'running build_py\n'}
+[0.538990] (coord_transform) StdoutLine: {'line': b'copying coord_transform/transform_node.py -> /home/duy/cocarry_ws/build/coord_transform/build/lib/coord_transform\n'}
+[0.539102] (coord_transform) StdoutLine: {'line': b'running install\n'}
+[0.539270] (coord_transform) StdoutLine: {'line': b'running install_lib\n'}
+[0.539569] (coord_transform) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/coord_transform/build/lib/coord_transform/transform_node.py -> /home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages/coord_transform\n'}
+[0.540316] (coord_transform) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages/coord_transform/transform_node.py to transform_node.cpython-310.pyc\n'}
+[0.543709] (coord_transform) StdoutLine: {'line': b'running install_data\n'}
+[0.543941] (coord_transform) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.545263] (coord_transform) StdoutLine: {'line': b"removing '/home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages/coord_transform-0.1.0-py3.10.egg-info' (and everything under it)\n"}
+[0.545487] (coord_transform) StdoutLine: {'line': b'Copying ../../build/coord_transform/coord_transform.egg-info to /home/duy/cocarry_ws/install/coord_transform/lib/python3.10/site-packages/coord_transform-0.1.0-py3.10.egg-info\n'}
+[0.545677] (coord_transform) StdoutLine: {'line': b'running install_scripts\n'}
+[0.558757] (coord_transform) StdoutLine: {'line': b'Installing transform_node script to /home/duy/cocarry_ws/install/coord_transform/lib/coord_transform\n'}
+[0.558995] (coord_transform) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/coord_transform/install.log'\n"}
+[0.576131] (coord_transform) CommandEnded: {'returncode': 0}
+[0.583593] (coord_transform) JobEnded: {'identifier': 'coord_transform', 'rc': 0}
+[0.584163] (-) EventReactorShutdown: {}

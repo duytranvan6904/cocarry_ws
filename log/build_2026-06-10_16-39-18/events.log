@@ -1,0 +1,369 @@
+[0.000000] (-) TimerEvent: {}
+[0.000786] (human_hand_msgs) JobQueued: {'identifier': 'human_hand_msgs', 'dependencies': OrderedDict()}
+[0.000904] (industrial_msgs) JobQueued: {'identifier': 'industrial_msgs', 'dependencies': OrderedDict()}
+[0.000941] (kinect2_registration) JobQueued: {'identifier': 'kinect2_registration', 'dependencies': OrderedDict()}
+[0.000974] (libfreenect2) JobQueued: {'identifier': 'libfreenect2', 'dependencies': OrderedDict()}
+[0.001022] (motoman_resources) JobQueued: {'identifier': 'motoman_resources', 'dependencies': OrderedDict()}
+[0.001051] (motoros2_interfaces) JobQueued: {'identifier': 'motoros2_interfaces', 'dependencies': OrderedDict()}
+[0.001077] (trac_ik_lib) JobQueued: {'identifier': 'trac_ik_lib', 'dependencies': OrderedDict()}
+[0.001102] (coord_transform) JobQueued: {'identifier': 'coord_transform', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001134] (experiment_logger) JobQueued: {'identifier': 'experiment_logger', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001162] (kinect2_bridge) JobQueued: {'identifier': 'kinect2_bridge', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration')])}
+[0.001190] (motoman_gp4_support) JobQueued: {'identifier': 'motoman_gp4_support', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources')])}
+[0.001216] (motoman_hc10dtp_support) JobQueued: {'identifier': 'motoman_hc10dtp_support', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources')])}
+[0.001243] (motoros2_client_interface_dependencies) JobQueued: {'identifier': 'motoros2_client_interface_dependencies', 'dependencies': OrderedDict([('industrial_msgs', '/home/duy/cocarry_ws/install/industrial_msgs'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces')])}
+[0.001281] (predictor_ui) JobQueued: {'identifier': 'predictor_ui', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001313] (realsense_tracker) JobQueued: {'identifier': 'realsense_tracker', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001527] (trac_ik_kinematics) JobQueued: {'identifier': 'trac_ik_kinematics', 'dependencies': OrderedDict([('trac_ik_lib', '/home/duy/cocarry_ws/install/trac_ik_lib')])}
+[0.001616] (trajectory_predictor) JobQueued: {'identifier': 'trajectory_predictor', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs')])}
+[0.001650] (hc10dtp_moveit_config) JobQueued: {'identifier': 'hc10dtp_moveit_config', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support')])}
+[0.001691] (kinect2_calibration) JobQueued: {'identifier': 'kinect2_calibration', 'dependencies': OrderedDict([('kinect2_registration', '/home/duy/cocarry_ws/install/kinect2_registration'), ('kinect2_bridge', '/home/duy/cocarry_ws/install/kinect2_bridge')])}
+[0.001727] (trac_ik) JobQueued: {'identifier': 'trac_ik', 'dependencies': OrderedDict([('trac_ik_lib', '/home/duy/cocarry_ws/install/trac_ik_lib'), ('trac_ik_kinematics', '/home/duy/cocarry_ws/install/trac_ik_kinematics')])}
+[0.001757] (hc10dtp_bringup) JobQueued: {'identifier': 'hc10dtp_bringup', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config')])}
+[0.001790] (hc10dtp_simulation) JobQueued: {'identifier': 'hc10dtp_simulation', 'dependencies': OrderedDict([('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config'), ('hc10dtp_bringup', '/home/duy/cocarry_ws/install/hc10dtp_bringup')])}
+[0.001937] (hrc_bringup) JobQueued: {'identifier': 'hrc_bringup', 'dependencies': OrderedDict([('human_hand_msgs', '/home/duy/cocarry_ws/install/human_hand_msgs'), ('motoman_resources', '/home/duy/cocarry_ws/install/motoman_resources'), ('motoros2_interfaces', '/home/duy/cocarry_ws/install/motoros2_interfaces'), ('coord_transform', '/home/duy/cocarry_ws/install/coord_transform'), ('experiment_logger', '/home/duy/cocarry_ws/install/experiment_logger'), ('motoman_hc10dtp_support', '/home/duy/cocarry_ws/install/motoman_hc10dtp_support'), ('predictor_ui', '/home/duy/cocarry_ws/install/predictor_ui'), ('realsense_tracker', '/home/duy/cocarry_ws/install/realsense_tracker'), ('trajectory_predictor', '/home/duy/cocarry_ws/install/trajectory_predictor'), ('hc10dtp_moveit_config', '/home/duy/cocarry_ws/install/hc10dtp_moveit_config'), ('hc10dtp_bringup', '/home/duy/cocarry_ws/install/hc10dtp_bringup'), ('hc10dtp_simulation', '/home/duy/cocarry_ws/install/hc10dtp_simulation')])}
+[0.002040] (human_hand_msgs) JobStarted: {'identifier': 'human_hand_msgs'}
+[0.008444] (motoman_resources) JobStarted: {'identifier': 'motoman_resources'}
+[0.011867] (motoros2_interfaces) JobStarted: {'identifier': 'motoros2_interfaces'}
+[0.013431] (kinect2_registration) JobStarted: {'identifier': 'kinect2_registration'}
+[0.014863] (trac_ik_lib) JobStarted: {'identifier': 'trac_ik_lib'}
+[0.016126] (industrial_msgs) JobStarted: {'identifier': 'industrial_msgs'}
+[0.017426] (libfreenect2) JobStarted: {'identifier': 'libfreenect2'}
+[0.022549] (human_hand_msgs) JobProgress: {'identifier': 'human_hand_msgs', 'progress': 'cmake'}
+[0.023349] (human_hand_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/human_hand_msgs', '-DCATKIN_INSTALL_INTO_PREFIX_ROOT=0', '-DCATKIN_SYMLINK_INSTALL=ON', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/human_hand_msgs'], 'cwd': '/home/duy/cocarry_ws/build/human_hand_msgs', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/human_hand_msgs'), ('COLCON', '1')]), 'shell': False}
+[0.027299] (motoman_resources) JobProgress: {'identifier': 'motoman_resources', 'progress': 'cmake'}
+[0.028100] (motoman_resources) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/motoman_ros2_support_packages/motoman_resources', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoman_resources'], 'cwd': '/home/duy/cocarry_ws/build/motoman_resources', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/motoman_resources'), ('COLCON', '1')]), 'shell': False}
+[0.029921] (motoros2_interfaces) JobProgress: {'identifier': 'motoros2_interfaces', 'progress': 'cmake'}
+[0.030086] (motoros2_interfaces) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/yaskawa-global/motoros2_interfaces', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/motoros2_interfaces'], 'cwd': '/home/duy/cocarry_ws/build/motoros2_interfaces', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/motoros2_interfaces'), ('COLCON', '1')]), 'shell': False}
+[0.031960] (kinect2_registration) JobProgress: {'identifier': 'kinect2_registration', 'progress': 'cmake'}
+[0.032290] (kinect2_registration) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/kinect2_ros2/kinect2_registration', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/kinect2_registration'], 'cwd': '/home/duy/cocarry_ws/build/kinect2_registration', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/kinect2_registration'), ('COLCON', '1')]), 'shell': False}
+[0.034043] (trac_ik_lib) JobProgress: {'identifier': 'trac_ik_lib', 'progress': 'cmake'}
+[0.034252] (trac_ik_lib) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/trac_ik/trac_ik_lib', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/trac_ik_lib'], 'cwd': '/home/duy/cocarry_ws/build/trac_ik_lib', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/trac_ik_lib'), ('COLCON', '1')]), 'shell': False}
+[0.036225] (industrial_msgs) JobProgress: {'identifier': 'industrial_msgs', 'progress': 'cmake'}
+[0.036856] (industrial_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/src/ros-industrial/industrial_core_ros2_msgs_only/industrial_msgs', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/industrial_msgs'], 'cwd': '/home/duy/cocarry_ws/build/industrial_msgs', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/industrial_msgs'), ('COLCON', '1')]), 'shell': False}
+[0.039190] (libfreenect2) JobProgress: {'identifier': 'libfreenect2', 'progress': 'cmake'}
+[0.039716] (libfreenect2) Command: {'cmd': ['/usr/bin/cmake', '/home/duy/cocarry_ws/libfreenect2', '-DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/libfreenect2'], 'cwd': '/home/duy/cocarry_ws/build/libfreenect2', 'env': OrderedDict([('USER', 'duy'), ('SHLVL', '0'), ('HOME', '/home/duy'), ('_', '/usr/bin/colcon'), ('TERM', 'dumb'), ('PATH', '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin'), ('LANG', 'en_US.UTF-8'), ('TMP', '/tmp'), ('SHELL', '/bin/bash'), ('PWD', '/home/duy/cocarry_ws/build/libfreenect2'), ('COLCON', '1')]), 'shell': False}
+[0.089315] (motoman_resources) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099480] (-) TimerEvent: {}
+[0.197353] (industrial_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.199611] (-) TimerEvent: {}
+[0.203971] (libfreenect2) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.205081] (trac_ik_lib) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.205761] (human_hand_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.206007] (kinect2_registration) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.206176] (motoros2_interfaces) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.299706] (-) TimerEvent: {}
+[0.387767] (human_hand_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.388189] (trac_ik_lib) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.396137] (industrial_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.399895] (-) TimerEvent: {}
+[0.406078] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.410123] (libfreenect2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.410482] (industrial_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.412151] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.412682] (motoros2_interfaces) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.415547] (kinect2_registration) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.431499] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.432558] (libfreenect2) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.435074] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.465357] (motoman_resources) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.500057] (-) TimerEvent: {}
+[0.556043] (industrial_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.575094] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.575427] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.576137] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.577844] (industrial_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.579817] (industrial_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.581793] (industrial_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.591812] (trac_ik_lib) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.592167] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.592647] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.593751] (industrial_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.594217] (motoros2_interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.594586] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.595575] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.597852] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.600189] (-) TimerEvent: {}
+[0.601047] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.602152] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.604475] (human_hand_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.604960] (libfreenect2) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.605325] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.606537] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.616587] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.621013] (kinect2_registration) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.621841] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.623124] (kinect2_registration) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.624636] (libfreenect2) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.625295] (libfreenect2) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.626253] (libfreenect2) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.632864] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.633428] (libfreenect2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.700309] (-) TimerEvent: {}
+[0.739911] (motoman_resources) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[0.740440] (motoman_resources) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[0.742853] (motoman_resources) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[0.743208] (motoman_resources) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[0.768967] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.779213] (motoman_resources) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[0.780087] (motoman_resources) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[0.780351] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[0.780570] (motoman_resources) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/motoman_resources/ament_cmake_package_templates/templates.cmake)\n'}
+[0.780815] (motoman_resources) StderrLine: {'line': b'  returned error code 1\n'}
+[0.781028] (motoman_resources) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.781260] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.781612] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.781869] (motoman_resources) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.782066] (motoman_resources) StderrLine: {'line': b'  CMakeLists.txt:5 (find_package)\n'}
+[0.782256] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.782444] (motoman_resources) StderrLine: {'line': b'\n'}
+[0.782723] (motoman_resources) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.782970] (motoman_resources) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/motoman_resources/CMakeFiles/CMakeOutput.log".\n'}
+[0.783234] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.785072] (motoman_resources) CommandEnded: {'returncode': 1}
+[0.786911] (trac_ik_lib) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.787556] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.789432] (trac_ik_lib) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.795309] (industrial_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.799846] (trac_ik_lib) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.800395] (-) TimerEvent: {}
+[0.805368] (motoros2_interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.806904] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.815647] (libfreenect2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.816411] (motoros2_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.816660] (motoros2_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.817438] (industrial_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.818204] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.818684] (industrial_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.819631] (industrial_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.827780] (industrial_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.835091] (libfreenect2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.835380] (libfreenect2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.838051] (libfreenect2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.842637] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.844203] (libfreenect2) StdoutLine: {'line': b'-- using tinythread as threading library\n'}
+[0.851458] (human_hand_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.851934] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.852113] (libfreenect2) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") \n'}
+[0.852538] (human_hand_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.853509] (libfreenect2) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0>=1.0.20'\n"}
+[0.856956] (motoman_resources) JobEnded: {'identifier': 'motoman_resources', 'rc': 1}
+[0.862348] (human_hand_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.866034] (kinect2_registration) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.869885] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.870413] (kinect2_registration) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.874918] (kinect2_registration) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.900620] (-) TimerEvent: {}
+[0.901305] (libfreenect2) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[1.000686] (-) TimerEvent: {}
+[1.002460] (libfreenect2) StdoutLine: {'line': b"-- Checking for modules 'libva;libva-drm'\n"}
+[1.037801] (libfreenect2) StdoutLine: {'line': b'--   Found libva, version 1.14.0\n'}
+[1.057894] (libfreenect2) StdoutLine: {'line': b'--   Found libva-drm, version 1.14.0\n'}
+[1.100806] (-) TimerEvent: {}
+[1.201331] (-) TimerEvent: {}
+[1.212132] (trac_ik_lib) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.219474] (industrial_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.268150] (motoros2_interfaces) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.268616] (kinect2_registration) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.295636] (libfreenect2) StdoutLine: {'line': b'-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") \n'}
+[1.300737] (libfreenect2) StdoutLine: {'line': b'-- Could NOT find TegraJPEG (missing: TegraJPEG_LIBRARIES TegraJPEG_INCLUDE_DIRS TegraJPEG_WORKS) \n'}
+[1.301423] (-) TimerEvent: {}
+[1.308895] (libfreenect2) StdoutLine: {'line': b'-- Performing Test TURBOJPEG_WORKS\n'}
+[1.361985] (human_hand_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.401557] (-) TimerEvent: {}
+[1.449245] (industrial_msgs) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[1.449687] (industrial_msgs) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[1.449815] (industrial_msgs) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[1.449914] (industrial_msgs) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[1.454815] (libfreenect2) StdoutLine: {'line': b'-- Performing Test TURBOJPEG_WORKS - Success\n'}
+[1.458638] (libfreenect2) StdoutLine: {'line': b'-- Found TurboJPEG: /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0  \n'}
+[1.460727] (libfreenect2) StdoutLine: {'line': b"-- Checking for module 'glfw3'\n"}
+[1.477678] (trac_ik_lib) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[1.478030] (trac_ik_lib) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[1.478136] (trac_ik_lib) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[1.479130] (trac_ik_lib) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[1.489148] (industrial_msgs) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[1.489529] (industrial_msgs) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[1.489709] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[1.489859] (industrial_msgs) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/industrial_msgs/ament_cmake_package_templates/templates.cmake)\n'}
+[1.490001] (industrial_msgs) StderrLine: {'line': b'  returned error code 1\n'}
+[1.490137] (industrial_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.490277] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[1.490410] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[1.490525] (industrial_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[1.490658] (industrial_msgs) StderrLine: {'line': b'  CMakeLists.txt:16 (find_package)\n'}
+[1.490894] (industrial_msgs) StderrLine: {'line': b'\n'}
+[1.491012] (industrial_msgs) StderrLine: {'line': b'\n'}
+[1.491121] (industrial_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.491219] (industrial_msgs) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/industrial_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[1.491304] (libfreenect2) StdoutLine: {'line': b'--   Found glfw3, version 3.3.6\n'}
+[1.500752] (industrial_msgs) JobEnded: {'identifier': 'industrial_msgs', 'rc': 'SIGINT'}
+[1.502209] (-) TimerEvent: {}
+[1.514123] (trac_ik_lib) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[1.514454] (trac_ik_lib) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[1.514643] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[1.514805] (trac_ik_lib) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/trac_ik_lib/ament_cmake_package_templates/templates.cmake)\n'}
+[1.514952] (trac_ik_lib) StderrLine: {'line': b'  returned error code 1\n'}
+[1.515094] (trac_ik_lib) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.515237] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[1.515486] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[1.515631] (trac_ik_lib) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[1.515774] (trac_ik_lib) StderrLine: {'line': b'  CMakeLists.txt:18 (find_package)\n'}
+[1.515905] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[1.516043] (trac_ik_lib) StderrLine: {'line': b'\n'}
+[1.516175] (trac_ik_lib) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.516329] (trac_ik_lib) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/trac_ik_lib/CMakeFiles/CMakeOutput.log".\n'}
+[1.524716] (trac_ik_lib) JobEnded: {'identifier': 'trac_ik_lib', 'rc': 'SIGINT'}
+[1.528681] (motoros2_interfaces) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[1.529017] (motoros2_interfaces) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[1.529127] (motoros2_interfaces) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[1.529212] (motoros2_interfaces) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[1.535561] (kinect2_registration) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[1.535866] (kinect2_registration) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[1.536058] (kinect2_registration) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[1.536143] (kinect2_registration) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[1.555155] (motoros2_interfaces) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[1.555459] (motoros2_interfaces) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[1.555610] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[1.555729] (motoros2_interfaces) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/motoros2_interfaces/ament_cmake_package_templates/templates.cmake)\n'}
+[1.555849] (motoros2_interfaces) StderrLine: {'line': b'  returned error code 1\n'}
+[1.555965] (motoros2_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.556085] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[1.556170] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[1.556246] (motoros2_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[1.556315] (motoros2_interfaces) StderrLine: {'line': b'  CMakeLists.txt:9 (find_package)\n'}
+[1.556395] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[1.556468] (motoros2_interfaces) StderrLine: {'line': b'\n'}
+[1.557377] (motoros2_interfaces) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.557618] (motoros2_interfaces) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/motoros2_interfaces/CMakeFiles/CMakeOutput.log".\n'}
+[1.566254] (motoros2_interfaces) JobEnded: {'identifier': 'motoros2_interfaces', 'rc': 'SIGINT'}
+[1.568627] (kinect2_registration) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[1.569079] (kinect2_registration) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[1.569190] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[1.569290] (kinect2_registration) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/kinect2_registration/ament_cmake_package_templates/templates.cmake)\n'}
+[1.569400] (kinect2_registration) StderrLine: {'line': b'  returned error code 1\n'}
+[1.569495] (kinect2_registration) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.569737] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[1.569842] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[1.569936] (kinect2_registration) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[1.570027] (kinect2_registration) StderrLine: {'line': b'  CMakeLists.txt:9 (find_package)\n'}
+[1.570124] (kinect2_registration) StderrLine: {'line': b'\n'}
+[1.570224] (kinect2_registration) StderrLine: {'line': b'\n'}
+[1.570333] (kinect2_registration) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.570485] (kinect2_registration) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/kinect2_registration/CMakeFiles/CMakeOutput.log".\n'}
+[1.575652] (libfreenect2) StderrLine: {'line': b'CMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindOpenGL.cmake:315 (message):\n'}
+[1.575987] (libfreenect2) StderrLine: {'line': b'  Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when\n'}
+[1.576121] (libfreenect2) StderrLine: {'line': b'  available.  Run "cmake --help-policy CMP0072" for policy details.  Use the\n'}
+[1.576240] (libfreenect2) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[1.576354] (libfreenect2) StderrLine: {'line': b'\n'}
+[1.576459] (libfreenect2) StderrLine: {'line': b'  FindOpenGL found both a legacy GL library:\n'}
+[1.576533] (libfreenect2) StderrLine: {'line': b'\n'}
+[1.576613] (libfreenect2) StderrLine: {'line': b'    OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so\n'}
+[1.576717] (libfreenect2) StderrLine: {'line': b'\n'}
+[1.576790] (libfreenect2) StderrLine: {'line': b'  and GLVND libraries for OpenGL and GLX:\n'}
+[1.576856] (libfreenect2) StderrLine: {'line': b'\n'}
+[1.576919] (libfreenect2) StderrLine: {'line': b'    OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so\n'}
+[1.576986] (libfreenect2) StderrLine: {'line': b'    OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so\n'}
+[1.577053] (libfreenect2) StderrLine: {'line': b'\n'}
+[1.577117] (libfreenect2) StderrLine: {'line': b'  OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for\n'}
+[1.577185] (libfreenect2) StderrLine: {'line': b'  compatibility with CMake 3.10 and below the legacy GL library will be used.\n'}
+[1.577255] (libfreenect2) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.577344] (libfreenect2) StderrLine: {'line': b'  CMakeLists.txt:269 (FIND_PACKAGE)\n'}
+[1.577430] (libfreenect2) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[1.577499] (libfreenect2) StderrLine: {'line': b'\n'}
+[1.578829] (libfreenect2) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   \n'}
+[1.581542] (kinect2_registration) JobEnded: {'identifier': 'kinect2_registration', 'rc': 'SIGINT'}
+[1.584052] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_2_0\n'}
+[1.602352] (-) TimerEvent: {}
+[1.604849] (human_hand_msgs) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[1.605169] (human_hand_msgs) StderrLine: {'line': b'  File "/opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>\n'}
+[1.605315] (human_hand_msgs) StderrLine: {'line': b'    from ament_package.templates import get_environment_hook_template_path\n'}
+[1.605436] (human_hand_msgs) StderrLine: {'line': b"ModuleNotFoundError: No module named 'ament_package'\n"}
+[1.636858] (human_hand_msgs) StderrLine: {'line': b'CMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):\n'}
+[1.637353] (human_hand_msgs) StderrLine: {'line': b'  execute_process(/usr/bin/python3\n'}
+[1.637445] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py\n'}
+[1.637519] (human_hand_msgs) StderrLine: {'line': b'  /home/duy/cocarry_ws/build/human_hand_msgs/ament_cmake_package_templates/templates.cmake)\n'}
+[1.637587] (human_hand_msgs) StderrLine: {'line': b'  returned error code 1\n'}
+[1.637691] (human_hand_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.638006] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[1.638263] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[1.638580] (human_hand_msgs) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[1.638875] (human_hand_msgs) StderrLine: {'line': b'  CMakeLists.txt:8 (find_package)\n'}
+[1.639048] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[1.639214] (human_hand_msgs) StderrLine: {'line': b'\n'}
+[1.639377] (human_hand_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.639559] (human_hand_msgs) StdoutLine: {'line': b'See also "/home/duy/cocarry_ws/build/human_hand_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[1.639757] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_2_0 - not found\n'}
+[1.640216] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_1_2\n'}
+[1.646676] (human_hand_msgs) JobEnded: {'identifier': 'human_hand_msgs', 'rc': 'SIGINT'}
+[1.691214] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_1_2 - not found\n'}
+[1.692019] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_1_1\n'}
+[1.702521] (-) TimerEvent: {}
+[1.740431] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_1_1 - not found\n'}
+[1.741835] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_1_0\n'}
+[1.799998] (libfreenect2) StdoutLine: {'line': b'-- Looking for CL_VERSION_1_0 - not found\n'}
+[1.802717] (-) TimerEvent: {}
+[1.805292] (libfreenect2) StdoutLine: {'line': b'-- Could NOT find OpenCL (missing: OpenCL_LIBRARY OpenCL_INCLUDE_DIR) \n'}
+[1.813440] (libfreenect2) StderrLine: {'line': b'CUDA_TOOLKIT_ROOT_DIR not found or specified\n'}
+[1.833757] (libfreenect2) StdoutLine: {'line': b'-- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) \n'}
+[1.844253] (libfreenect2) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY\n'}
+[1.902873] (-) TimerEvent: {}
+[2.003559] (-) TimerEvent: {}
+[2.005378] (libfreenect2) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success\n'}
+[2.009073] (libfreenect2) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY\n'}
+[2.103635] (-) TimerEvent: {}
+[2.168896] (libfreenect2) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success\n'}
+[2.169877] (libfreenect2) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_DEPRECATED_ATTR\n'}
+[2.203757] (-) TimerEvent: {}
+[2.304185] (-) TimerEvent: {}
+[2.313190] (libfreenect2) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success\n'}
+[2.314720] (libfreenect2) StdoutLine: {'line': b'-- Linking with these libraries: \n'}
+[2.314958] (libfreenect2) StdoutLine: {'line': b' /usr/lib/x86_64-linux-gnu/libusb-1.0.so\n'}
+[2.315097] (libfreenect2) StdoutLine: {'line': b' pthread\n'}
+[2.315219] (libfreenect2) StdoutLine: {'line': b' va-drm\n'}
+[2.315336] (libfreenect2) StdoutLine: {'line': b' va\n'}
+[2.315452] (libfreenect2) StdoutLine: {'line': b' /usr/lib/x86_64-linux-gnu/libjpeg.so\n'}
+[2.315568] (libfreenect2) StdoutLine: {'line': b' /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0\n'}
+[2.315705] (libfreenect2) StdoutLine: {'line': b' /usr/lib/x86_64-linux-gnu/libglfw.so\n'}
+[2.315839] (libfreenect2) StdoutLine: {'line': b' /usr/lib/x86_64-linux-gnu/libGL.so\n'}
+[2.322210] (libfreenect2) StdoutLine: {'line': b'-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) \n'}
+[2.322472] (libfreenect2) StdoutLine: {'line': b'-- Configurating examples\n'}
+[2.331108] (libfreenect2) StdoutLine: {'line': b'-- Using in-tree freenect2 target\n'}
+[2.335159] (libfreenect2) StdoutLine: {'line': b"-- Checking for module 'libopenni2'\n"}
+[2.355685] (libfreenect2) StdoutLine: {'line': b'--   Found libopenni2, version 2.2.0.3\n'}
+[2.404313] (-) TimerEvent: {}
+[2.407949] (libfreenect2) StdoutLine: {'line': b'-- Found OpenNI2: /usr/lib/x86_64-linux-gnu  \n'}
+[2.409252] (libfreenect2) StdoutLine: {'line': b'-- Feature list:\n'}
+[2.411127] (libfreenect2) StdoutLine: {'line': b'--   CUDA    no\n'}
+[2.411355] (libfreenect2) StdoutLine: {'line': b'--   CXX11    disabled\n'}
+[2.411473] (libfreenect2) StdoutLine: {'line': b'--   Examples    yes\n'}
+[2.411691] (libfreenect2) StdoutLine: {'line': b'--   OpenCL    no\n'}
+[2.411814] (libfreenect2) StdoutLine: {'line': b'--   OpenGL    yes\n'}
+[2.411916] (libfreenect2) StdoutLine: {'line': b'--   OpenNI2    yes\n'}
+[2.412012] (libfreenect2) StdoutLine: {'line': b'--   TegraJPEG    no\n'}
+[2.412106] (libfreenect2) StdoutLine: {'line': b'--   Threading    tinythread\n'}
+[2.412275] (libfreenect2) StdoutLine: {'line': b'--   TurboJPEG    yes\n'}
+[2.412413] (libfreenect2) StdoutLine: {'line': b'--   VAAPI    yes\n'}
+[2.412510] (libfreenect2) StdoutLine: {'line': b'--   VideoToolbox    no (Apple only)\n'}
+[2.412606] (libfreenect2) StdoutLine: {'line': b'--   streamer_recorder    disabled\n'}
+[2.412709] (libfreenect2) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.432406] (libfreenect2) StdoutLine: {'line': b'-- Generating done\n'}
+[2.437044] (libfreenect2) StdoutLine: {'line': b'-- Build files have been written to: /home/duy/cocarry_ws/build/libfreenect2\n'}
+[2.447049] (libfreenect2) JobEnded: {'identifier': 'libfreenect2', 'rc': 'SIGINT'}
+[2.458284] (coord_transform) JobSkipped: {'identifier': 'coord_transform'}
+[2.458488] (experiment_logger) JobSkipped: {'identifier': 'experiment_logger'}
+[2.458518] (kinect2_bridge) JobSkipped: {'identifier': 'kinect2_bridge'}
+[2.458536] (motoman_gp4_support) JobSkipped: {'identifier': 'motoman_gp4_support'}
+[2.458609] (motoman_hc10dtp_support) JobSkipped: {'identifier': 'motoman_hc10dtp_support'}
+[2.458630] (motoros2_client_interface_dependencies) JobSkipped: {'identifier': 'motoros2_client_interface_dependencies'}
+[2.458649] (predictor_ui) JobSkipped: {'identifier': 'predictor_ui'}
+[2.458664] (realsense_tracker) JobSkipped: {'identifier': 'realsense_tracker'}
+[2.458679] (trac_ik_kinematics) JobSkipped: {'identifier': 'trac_ik_kinematics'}
+[2.458734] (trajectory_predictor) JobSkipped: {'identifier': 'trajectory_predictor'}
+[2.458752] (hc10dtp_moveit_config) JobSkipped: {'identifier': 'hc10dtp_moveit_config'}
+[2.458768] (kinect2_calibration) JobSkipped: {'identifier': 'kinect2_calibration'}
+[2.458784] (trac_ik) JobSkipped: {'identifier': 'trac_ik'}
+[2.458800] (hc10dtp_bringup) JobSkipped: {'identifier': 'hc10dtp_bringup'}
+[2.458816] (hc10dtp_simulation) JobSkipped: {'identifier': 'hc10dtp_simulation'}
+[2.458832] (hrc_bringup) JobSkipped: {'identifier': 'hrc_bringup'}
+[2.458850] (-) EventReactorShutdown: {}

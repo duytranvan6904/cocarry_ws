@@ -1,0 +1,96 @@
+[0.026s] Invoking command in '/home/duy/cocarry_ws/build/libfreenect2': /usr/bin/cmake /home/duy/cocarry_ws/libfreenect2 -DCMAKE_INSTALL_PREFIX=/home/duy/cocarry_ws/install/libfreenect2
+[0.187s] -- The C compiler identification is GNU 11.4.0
+[0.393s] -- The CXX compiler identification is GNU 11.4.0
+[0.415s] -- Detecting C compiler ABI info
+[0.588s] -- Detecting C compiler ABI info - done
+[0.607s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.608s] -- Detecting C compile features
+[0.609s] -- Detecting C compile features - done
+[0.616s] -- Detecting CXX compiler ABI info
+[0.799s] -- Detecting CXX compiler ABI info - done
+[0.818s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.818s] -- Detecting CXX compile features
+[0.821s] -- Detecting CXX compile features - done
+[0.828s] -- using tinythread as threading library
+[0.835s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[0.836s] -- Checking for module 'libusb-1.0>=1.0.20'
+[0.884s] --   Found libusb-1.0, version 1.0.25
+[0.985s] -- Checking for modules 'libva;libva-drm'
+[1.021s] --   Found libva, version 1.14.0
+[1.041s] --   Found libva-drm, version 1.14.0
+[1.279s] -- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") 
+[1.284s] -- Could NOT find TegraJPEG (missing: TegraJPEG_LIBRARIES TegraJPEG_INCLUDE_DIRS TegraJPEG_WORKS) 
+[1.292s] -- Performing Test TURBOJPEG_WORKS
+[1.438s] -- Performing Test TURBOJPEG_WORKS - Success
+[1.441s] -- Found TurboJPEG: /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0  
+[1.443s] -- Checking for module 'glfw3'
+[1.474s] --   Found glfw3, version 3.3.6
+[1.558s] CMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindOpenGL.cmake:315 (message):
+[1.559s]   Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
+[1.559s]   available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
+[1.559s]   cmake_policy command to set the policy and suppress this warning.
+[1.559s] 
+[1.559s]   FindOpenGL found both a legacy GL library:
+[1.559s] 
+[1.559s]     OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
+[1.559s] 
+[1.559s]   and GLVND libraries for OpenGL and GLX:
+[1.559s] 
+[1.560s]     OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+[1.560s]     OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
+[1.560s] 
+[1.560s]   OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
+[1.560s]   compatibility with CMake 3.10 and below the legacy GL library will be used.
+[1.560s] Call Stack (most recent call first):
+[1.560s]   CMakeLists.txt:269 (FIND_PACKAGE)
+[1.560s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.560s] 
+[1.562s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[1.567s] -- Looking for CL_VERSION_2_0
+[1.622s] -- Looking for CL_VERSION_2_0 - not found
+[1.623s] -- Looking for CL_VERSION_1_2
+[1.674s] -- Looking for CL_VERSION_1_2 - not found
+[1.675s] -- Looking for CL_VERSION_1_1
+[1.723s] -- Looking for CL_VERSION_1_1 - not found
+[1.725s] -- Looking for CL_VERSION_1_0
+[1.783s] -- Looking for CL_VERSION_1_0 - not found
+[1.788s] -- Could NOT find OpenCL (missing: OpenCL_LIBRARY OpenCL_INCLUDE_DIR) 
+[1.796s] CUDA_TOOLKIT_ROOT_DIR not found or specified
+[1.817s] -- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) 
+[1.827s] -- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+[1.988s] -- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+[1.992s] -- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+[2.152s] -- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+[2.153s] -- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+[2.296s] -- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+[2.297s] -- Linking with these libraries: 
+[2.298s]  /usr/lib/x86_64-linux-gnu/libusb-1.0.so
+[2.298s]  pthread
+[2.298s]  va-drm
+[2.298s]  va
+[2.298s]  /usr/lib/x86_64-linux-gnu/libjpeg.so
+[2.298s]  /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0
+[2.298s]  /usr/lib/x86_64-linux-gnu/libglfw.so
+[2.298s]  /usr/lib/x86_64-linux-gnu/libGL.so
+[2.305s] -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+[2.305s] -- Configurating examples
+[2.314s] -- Using in-tree freenect2 target
+[2.318s] -- Checking for module 'libopenni2'
+[2.338s] --   Found libopenni2, version 2.2.0.3
+[2.391s] -- Found OpenNI2: /usr/lib/x86_64-linux-gnu  
+[2.392s] -- Feature list:
+[2.394s] --   CUDA    no
+[2.394s] --   CXX11    disabled
+[2.394s] --   Examples    yes
+[2.394s] --   OpenCL    no
+[2.394s] --   OpenGL    yes
+[2.395s] --   OpenNI2    yes
+[2.395s] --   TegraJPEG    no
+[2.395s] --   Threading    tinythread
+[2.395s] --   TurboJPEG    yes
+[2.395s] --   VAAPI    yes
+[2.395s] --   VideoToolbox    no (Apple only)
+[2.395s] --   streamer_recorder    disabled
+[2.395s] -- Configuring done
+[2.415s] -- Generating done
+[2.420s] -- Build files have been written to: /home/duy/cocarry_ws/build/libfreenect2

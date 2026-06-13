@@ -43,12 +43,12 @@ coord_transform:
 
     # Median filter size cho trục Y (Depth) — giá trị lẻ: 3, 5, 7
     # ↓ 3 thay vì 7: giảm trễ nhóm từ ~100ms xuống ~33ms, vẫn đủ khử gai
-    filter.median_size_y: 5
+    filter.median_size_y: 3
 
     # Moving deadband: ngưỡng độ lệch chuẩn (Standard Deviation) lớn nhất trên 3 trục để kích hoạt hold (m)
     # RealSense trục X có nhiễu cao hơn Kinect → tăng lên 0.035 để vào HOLD ổn định hơn.
     # Nếu đường Actual vẫn dày, thử tăng lên 0.04.
-    filter.deadband_depth_tol: 0.035
+    filter.deadband_depth_tol: 0.015
 
     # Số frame liên tiếp tĩnh để kích hoạt hold
     # Giảm xuống 3 để hold nhanh hơn
@@ -58,18 +58,50 @@ coord_transform:
     # 0.10 = 10cm — đủ bắt overshoot GRU thông thường
     filter.pred_snap_radius: 0.10
 
+    # Ngưỡng Y (camera frame, sau median filter, đơn vị mét) để kích hoạt deadband dừng.
+    # Khi Y < ngưỡng: robot KHÔNG áp dụng deadband di chuyển → xuất phát sớm ngay khi tay nhúc nhích.
+    # Khi Y >= ngưỡng: robot áp dụng deadband với tol cao (near_target_tol) để dừng chắc tại đích.
+    # Điều chỉnh 0.30 theo khoảng cách thực tế từ camera đến điểm bắt đầu hành trình.
+    filter.deadband_y_threshold: 0.30
+
+    # Ngưỡng std tối đa (m) để xác nhận tay đã đứng yên tại vùng đích (Y >= threshold).
+    # 0.025 = 2.5cm — rộng hơn để dừng chắc dù tay còn rung nhẹ khi mang tải.
+    filter.deadband_near_target_tol: 0.025
+
     # Rate-limiter tọa độ đích cuối cùng (m) — bước nhảy tối đa mỗi frame
     filter.max_rate: 0.05
 
     # EMA alpha khi ĐANG DI CHUYỂN (0 = không theo, 1 = raw)
-    # Đã tăng mạnh alpha để robot phản hồi gần như tức thời (giảm trễ).
-    # Vì đã có cơ chế HOLD cực chặt khi tay dừng, ta không cần lọc quá mạnh lúc di chuyển nữa.
-    filter.ema_x_moving: 0.75
-    filter.ema_y_moving: 0.50
-    filter.ema_z_moving: 0.75
+    # Tăng lên 1.0 (raw) để bỏ hoàn toàn độ trễ, giúp robot nhạy nhất khi bị gắn cứng.
+    filter.ema_x_moving: 1.0
+    filter.ema_y_moving: 0.8
+    filter.ema_z_moving: 1.0
 
     # EMA alpha khi ĐANG HOLD (lock vị trí)
     # Giữ càng thấp càng tốt để robot đứng yên hoàn toàn
     filter.ema_x_hold: 0.08
     filter.ema_y_hold: 0.02
     filter.ema_z_hold: 0.05
+
+    # ── Target Zone Auto-Snap ─────────────────────────────────────────────
+    # Khi EE robot vào trong snap_radius của một target zone
+    # trong snap_frames frame liên tiếp → snap chính xác vào pose đó,
+    # giữ snap_duration_sec giây, rồi tự động Stop Run.
+    # Dùng capture_targets.py để capture tọa độ T1/T2/T3 từ robot thật.
+    target_zones.enabled: true
+    target_zones.snap_radius: 0.08        # 8cm — bán kính vùng nhận diện
+    target_zones.snap_frames: 8          # 10 frame liên tiếp phải ở trong vùng
+    target_zones.snap_duration_sec: 0.3   # thời gian giữ pose trước khi stop
+
+    # Tọa độ EE trong base_link (sẽ được cập nhật bởi capture_targets.py)
+    target_zones.t1_x: -0.287823
+    target_zones.t1_y: 0.976377
+    target_zones.t1_z: 0.361530
+
+    target_zones.t2_x: 0.047798
+    target_zones.t2_y: 1.120817
+    target_zones.t2_z: 0.477037
+
+    target_zones.t3_x: 0.302819
+    target_zones.t3_y: 1.032950
+    target_zones.t3_z: 0.339642

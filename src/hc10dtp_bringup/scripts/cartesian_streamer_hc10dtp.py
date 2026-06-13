@@ -123,9 +123,9 @@ SOFT_JOINT_LIMITS = [
     (0.00,   3.14),    # J1 (S) — chỉ cho phép 0°~180° (hướng về phía người)
     (-0.80,  1.20),    # J2 (L) — -45°~70° quanh home (0.07)
     (-2.00,  1.05),    # J3 (U) — -115°~60° quanh home (-1.05), khuỷu xuống
-    (-1.05,  1.05),    # J4 (R) — ±60° quanh center (ngăn wrist roll flip)
+    (-2.50,  2.50),    # J4 (R) — ±143° (đã mở rộng để cho phép xoay hướng xuống)
     (-2.09,  0.52),    # J5 (B) — -120°~30° quanh home (-0.52)
-    (-1.05,  1.05),    # J6 (T) — ±60° quanh center (ngăn wrist twist flip)
+    (-2.50,  2.50),    # J6 (T) — ±143° (đã mở rộng để cho phép xoay hướng xuống)
 ]
 
 # Debug watchdog: nếu queue point được accept nhưng joint gần như đứng yên

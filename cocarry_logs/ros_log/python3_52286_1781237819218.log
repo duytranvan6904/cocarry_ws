@@ -1,0 +1,116 @@
+[INFO] [1781237819.314681765] [experiment_logger]: ✓ STARTED in-memory logging. Target file: /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_111659.csv
+[INFO] [1781237819.325276989] [experiment_logger]: Logger ready.
+[INFO] [1781237872.055999289] [experiment_logger]: Service called: /logger/toggle with data=True
+[INFO] [1781237890.796022537] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1781237890.796538685] [experiment_logger]: Writing 1695 rows from memory to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_111659.csv...
+[INFO] [1781237890.805733593] [experiment_logger]: ✓ Successfully wrote logs to disk.
+[INFO] [1781237890.806466788] [experiment_logger]: Stopped logging. Saved 1695 rows to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_111659.csv
+[INFO] [1781237890.820301592] [experiment_logger]: 
+============================================================
+EXPERIMENT METRICS
+  File: experiment_GROUND_TRUTH_20260612_111659.csv
+  Total samples: 1695
+  Task completion time: 71.52 s
+  Mode: GROUND TRUTH (no prediction metrics)
+  --- Trajectory Smoothness (Robot EE) ---
+  Mean Jerk (3D): 11.2876 m/s³
+      Jerk X: 4.9486 m/s³
+      Jerk Y: 7.8428 m/s³
+      Jerk Z: 2.8883 m/s³
+  Max Jerk (3D): 81.4686 m/s³
+  RMS Jerk (3D): 17.2979 m/s³
+============================================================
+[INFO] [1781237961.690204647] [experiment_logger]: Service called: /logger/toggle with data=True
+[INFO] [1781237961.690762393] [experiment_logger]: ✓ STARTED in-memory logging. Target file: /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_111921.csv
+[INFO] [1781237993.202890103] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1781237993.203546130] [experiment_logger]: Writing 926 rows from memory to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_111921.csv...
+[INFO] [1781237993.210729963] [experiment_logger]: ✓ Successfully wrote logs to disk.
+[INFO] [1781237993.211835522] [experiment_logger]: Stopped logging. Saved 926 rows to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_111921.csv
+[INFO] [1781237993.221257310] [experiment_logger]: 
+============================================================
+EXPERIMENT METRICS
+  File: experiment_GROUND_TRUTH_20260612_111921.csv
+  Total samples: 926
+  Task completion time: 31.51 s
+  Mode: GROUND TRUTH (no prediction metrics)
+  --- Trajectory Smoothness (Robot EE) ---
+  Mean Jerk (3D): 12.1450 m/s³
+      Jerk X: 5.9821 m/s³
+      Jerk Y: 8.2292 m/s³
+      Jerk Z: 3.6151 m/s³
+  Max Jerk (3D): 107.4428 m/s³
+  RMS Jerk (3D): 19.2122 m/s³
+============================================================
+[INFO] [1781238019.018000134] [experiment_logger]: Trajectory mode: prediction
+[INFO] [1781238030.258739335] [experiment_logger]: Service called: /logger/toggle with data=True
+[INFO] [1781238030.259373334] [experiment_logger]: ✓ STARTED in-memory logging. Target file: /home/duy/cocarry_ws/cocarry_logs/experiment_GRU_20260612_112030.csv
+[INFO] [1781238099.927586353] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1781238099.928116808] [experiment_logger]: Writing 2075 rows from memory to /home/duy/cocarry_ws/cocarry_logs/experiment_GRU_20260612_112030.csv...
+[INFO] [1781238099.939696244] [experiment_logger]: ✓ Successfully wrote logs to disk.
+[INFO] [1781238099.941041427] [experiment_logger]: Stopped logging. Saved 2075 rows to /home/duy/cocarry_ws/cocarry_logs/experiment_GRU_20260612_112030.csv
+[INFO] [1781238099.956959929] [experiment_logger]: 
+============================================================
+EXPERIMENT METRICS
+  File: experiment_GRU_20260612_112030.csv
+  Total samples: 2075
+  Task completion time: 69.67 s
+  --- Prediction Accuracy (over 2075 samples) ---
+  Avg Inference Time: 2.94 ms
+  Mean Squared Error (MSE): 0.001637 m²
+  Mean Absolute Error (MAE - 3D): 0.0309 m
+      MAE X: 0.0146 m
+      MAE Y: 0.0222 m
+      MAE Z: 0.0084 m
+  --- Trajectory Smoothness (Robot EE) ---
+  Mean Jerk (3D): 12.4702 m/s³
+      Jerk X: 5.1798 m/s³
+      Jerk Y: 9.3414 m/s³
+      Jerk Z: 3.3767 m/s³
+  Max Jerk (3D): 249.5722 m/s³
+  RMS Jerk (3D): 23.4675 m/s³
+============================================================
+[INFO] [1781238115.843908012] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1781238128.192370924] [experiment_logger]: Trajectory mode: ground_truth
+[INFO] [1781238137.478597489] [experiment_logger]: Service called: /logger/toggle with data=True
+[INFO] [1781238137.479133138] [experiment_logger]: ✓ STARTED in-memory logging. Target file: /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_112217.csv
+[INFO] [1781238163.996127554] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1781238163.996701122] [experiment_logger]: Writing 794 rows from memory to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_112217.csv...
+[INFO] [1781238164.000781615] [experiment_logger]: ✓ Successfully wrote logs to disk.
+[INFO] [1781238164.001291479] [experiment_logger]: Stopped logging. Saved 794 rows to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_112217.csv
+[INFO] [1781238164.007156754] [experiment_logger]: 
+============================================================
+EXPERIMENT METRICS
+  File: experiment_GROUND_TRUTH_20260612_112217.csv
+  Total samples: 794
+  Task completion time: 26.52 s
+  Mode: GROUND TRUTH (no prediction metrics)
+  --- Trajectory Smoothness (Robot EE) ---
+  Mean Jerk (3D): 8.8330 m/s³
+      Jerk X: 3.0051 m/s³
+      Jerk Y: 6.3809 m/s³
+      Jerk Z: 3.4008 m/s³
+  Max Jerk (3D): 96.9307 m/s³
+  RMS Jerk (3D): 13.6568 m/s³
+============================================================
+[INFO] [1781238217.078304697] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1781238264.999949297] [experiment_logger]: Service called: /logger/toggle with data=True
+[INFO] [1781238265.000291718] [experiment_logger]: ✓ STARTED in-memory logging. Target file: /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_112424.csv
+[INFO] [1781238299.377711040] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1781238299.378773959] [experiment_logger]: Writing 981 rows from memory to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_112424.csv...
+[INFO] [1781238299.382896876] [experiment_logger]: ✓ Successfully wrote logs to disk.
+[INFO] [1781238299.383443401] [experiment_logger]: Stopped logging. Saved 981 rows to /home/duy/cocarry_ws/cocarry_logs/experiment_GROUND_TRUTH_20260612_112424.csv
+[INFO] [1781238299.389432381] [experiment_logger]: 
+============================================================
+EXPERIMENT METRICS
+  File: experiment_GROUND_TRUTH_20260612_112424.csv
+  Total samples: 981
+  Task completion time: 34.38 s
+  Mode: GROUND TRUTH (no prediction metrics)
+  --- Trajectory Smoothness (Robot EE) ---
+  Mean Jerk (3D): 18.0578 m/s³
+      Jerk X: 5.0577 m/s³
+      Jerk Y: 14.8845 m/s³
+      Jerk Z: 4.7235 m/s³
+  Max Jerk (3D): 154.4330 m/s³
+  RMS Jerk (3D): 29.7686 m/s³
+============================================================

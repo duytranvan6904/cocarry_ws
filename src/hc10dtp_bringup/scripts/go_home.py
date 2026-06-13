@@ -32,7 +32,7 @@ JOINT_NAMES = [
 ]
 
 # Vị trí Home đã capture từ robot thật
-HOME_JOINTS = [1.570532, 0.074803, -1.049094, -0.030408, -0.523142, -0.001725]
+HOME_JOINTS = [1.570774, 0.124230, -1.049406, 0.000000, -0.397843, -1.443567]
 
 # Thời gian di chuyển về Home (giây)
 MOVE_DURATION_SEC = 2.5
@@ -145,8 +145,14 @@ class GoHomeNode(Node):
 
         accepted = 0
         for i in range(num_points):
-            # Nội suy tuyến tính từ vị trí hiện tại → Home
-            alpha = (i + 1) / num_points
+            t = (i + 1) * dt
+            # Nội suy Cosine (Ease-in / Ease-out) để tránh giật trục khi có tải (payload)
+            # alpha(t) = 0.5 * (1 - cos(pi * t / T))
+            alpha = 0.5 * (1.0 - math.cos(math.pi * t / MOVE_DURATION_SEC))
+            
+            # Đạo hàm của alpha(t) theo t: d_alpha(t) = (0.5 * pi / T) * sin(pi * t / T)
+            d_alpha = (0.5 * math.pi / MOVE_DURATION_SEC) * math.sin(math.pi * t / MOVE_DURATION_SEC)
+
             joints = [
                 s + alpha * (h - s)
                 for s, h in zip(start_joints, HOME_JOINTS)
@@ -161,8 +167,8 @@ class GoHomeNode(Node):
             point = JointTrajectoryPoint()
             point.positions = [float(j) for j in joints]
 
-            # Tính velocity
-            vel = [(h - s) / MOVE_DURATION_SEC for s, h in zip(start_joints, HOME_JOINTS)]
+            # Tính velocity thực tế theo profile Cosine
+            vel = [d_alpha * (h - s) for s, h in zip(start_joints, HOME_JOINTS)]
             point.velocities = vel
             point.time_from_start = Duration(
                 sec=int(total_sec), nanosec=int(total_nsec))

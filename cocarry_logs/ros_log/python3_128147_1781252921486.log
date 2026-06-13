@@ -1,0 +1,461 @@
+[INFO] [1781252921.589448753] [cartesian_streamer]: CartesianStreamer khởi động (chờ Enable Robot từ UI).
+  Stream rate:       15 Hz (period=66.7ms)
+  Queue dt:          0.067 s
+  Prebuffer points:  3
+  Retry backoff:     66.0 ms
+  Gửi PoseStamped lên: /cartesian_streamer/target_pose
+  Gửi XYZ lên:        /cartesian_streamer/target_xyz
+  Nhận EE pose tại:   /cartesian_streamer/current_pose
+[INFO] [1781252921.738690711] [cartesian_streamer]: Nhận joint_states: ['1.571', '0.124', '-1.049', '0.000', '-0.398', '-1.444']
+[WARN] [1781252923.074522656] [cartesian_streamer]: Không thể cross-validate FK (local hoặc MoveIt! FK thất bại). Local IK vẫn hoạt động nhưng CHƯA ĐƯỢC VALIDATE.
+[INFO] [1781252923.075691701] [cartesian_streamer]: Đã nhận joint_states. EE hiện tại: (-0.1620, 0.2801, 0.3785). IK mode: Local DLS. Chờ Enable Robot từ UI...
+[INFO] [1781252975.652126561] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1781252975.652672395] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1781252975.676622551] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1781252975.676904018] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1781252975.727366867] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1781252975.727640315] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1781252977.228606451] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1781252981.685969331] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1781252981.686528234] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1781252981.705694177] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1781252981.706715374] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252981.707281300] [cartesian_streamer]: Đang stream qua service: /queue_traj_point
+[INFO] [1781252981.708164337] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1781252981.773249085] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252981.839557529] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252981.905810445] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252981.972485720] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.039468995] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.106042701] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.173116646] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.239725840] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.306522042] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.373145024] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.439972565] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.506508929] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.574424937] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.639557154] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.706318649] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.772929775] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.839504261] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.905898172] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252982.972913175] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.039269393] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.106304874] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.173112761] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.239370603] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.306039772] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.373089076] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.439126209] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.505825198] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.572793717] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.639418289] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.705857383] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.772881431] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.839965875] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.906420505] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252983.972681952] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.039875696] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.107292771] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.172411363] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.240111434] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.305767529] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.372659490] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.439608446] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.505905763] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.573050904] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.638875927] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.705967120] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.772251422] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.839240410] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.905784366] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252984.972501311] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.039321387] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.106264237] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.172207830] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.239113771] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.305578942] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.372223960] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.438922436] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.505865519] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.572786011] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.639321755] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.705765004] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.772405353] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.838977660] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.906074209] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252985.972320563] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.039126457] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.105806287] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.172757806] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.239277852] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.306292441] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.372871829] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.439724525] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.505924537] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.572711402] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.638960609] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.706207732] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.771757130] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=15.0, queue_send_hz=0.2, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1781252986.772541135] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.839503553] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.905734133] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252986.972654949] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.039268214] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.105915737] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.172440529] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.239340221] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.305503623] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.373054819] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.438960418] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.506089914] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.572795124] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.639506686] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.705996465] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.772741357] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.839226657] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.906268001] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252987.972674029] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.039297218] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.105935644] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.172646796] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.239581301] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.305816758] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.372529604] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.439357956] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.505949353] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.572991470] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.639347249] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.705858417] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.773534245] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.839487171] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.906204462] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252988.973086275] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.041461052] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.106966143] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.173498343] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.240336174] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.306586114] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.373244462] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.439264244] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.505662346] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.573421310] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.638813547] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.705454486] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.772262321] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.838705033] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.905515292] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252989.972137283] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.038658813] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.105343328] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.172840921] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.239309720] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.306557621] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.372638331] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.438627661] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.505646648] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.572223919] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.639380945] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.705393538] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.772721407] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.839054117] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.906754812] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252990.973180777] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.042844137] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.105503357] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.172513107] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.238922599] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.305948254] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.372328729] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.440014354] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.505876468] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.573095598] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.638877038] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.706278829] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.771925392] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.838902220] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=15.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1781252991.839901585] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.905629425] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252991.972396630] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.038849258] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.105716566] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.172438915] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.239180816] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.305887786] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.372154765] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.439180961] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.506053159] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.574000602] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.639467278] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.706001984] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.772846212] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.839345471] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.906310039] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252992.972330628] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.039290591] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.105861286] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.172550380] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.239203627] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.305557226] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.372485600] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.439099839] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.506303761] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.572574301] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.639142813] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.705869074] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.772536213] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.839192036] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.905911870] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252993.972801004] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.039469524] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.106014316] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.172589242] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.238887360] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.306175204] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.372691343] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.439512818] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.506025593] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.572844323] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.639637308] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.705892281] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.772566826] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.839435630] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.907144702] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252994.972723261] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.039291239] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.105863044] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.172448619] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.240392837] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.305548761] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.372409610] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.439291777] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.505934044] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.573071318] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.639202776] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.708544757] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.772899805] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.839352536] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.905806553] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252995.972407730] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.040846941] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.106222993] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.172399243] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.238969656] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.305600847] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.372040195] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.438910325] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.505928189] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.573170408] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.639260827] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781252996.679855426] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1781252996.680925170] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1781253003.296005138] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1781253003.296475972] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1781253003.417133171] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1781253003.417617426] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1781253004.487914652] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1781253004.488453987] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1781253005.989313953] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1781253007.541785375] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1781253007.542323015] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1781253007.572544503] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=4.6, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1781253007.573461337] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[WARN] [1781253007.573724708] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781253007.574160667] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1781253007.639063950] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781253007.705816405] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781253007.773080171] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781253007.838771096] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781253007.906498616] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781253007.915760409] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1781253007.916325410] [cartesian_streamer]: Queue accepted sample#1: svc=/queue_traj_point, t_cumul=0.0000s, code=1, msg="", hold=False
+[INFO] [1781253008.097240772] [cartesian_streamer]: Queue accepted sample#2: svc=/queue_traj_point, t_cumul=0.2000s, code=1, msg="", hold=True
+[INFO] [1781253008.229023703] [cartesian_streamer]: Queue accepted sample#3: svc=/queue_traj_point, t_cumul=0.3332s, code=1, msg="", hold=True
+[INFO] [1781253008.251411036] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1781253008.251946111] [cartesian_streamer]: Queue accepted sample#4: svc=/queue_traj_point, t_cumul=0.4667s, code=1, msg="", hold=True
+[INFO] [1781253008.431407548] [cartesian_streamer]: Queue accepted sample#5: svc=/queue_traj_point, t_cumul=0.5338s, code=1, msg="", hold=True
+[WARN] [1781253009.446564254] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1781253010.451144182] [cartesian_streamer]: QueueTrajPoint accepted #20: t=2.267s, hold=True
+[INFO] [1781253012.638880790] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=6.9, ack_hz=6.5, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=139.9, max_joint_delta=0.000, cumul_time=3.87s, hold_count=33, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1781253013.380239985] [cartesian_streamer]: QueueTrajPoint accepted #40: t=4.601s, hold=True
+[INFO] [1781253016.169531611] [cartesian_streamer]: QueueTrajPoint accepted #60: t=6.935s, hold=True
+[INFO] [1781253017.638878141] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.2, ack_hz=7.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=143.6, max_joint_delta=0.000, cumul_time=8.40s, hold_count=69, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1781253018.708462332] [cartesian_streamer]: IK OK → Δmax=0.0075 rad, joints: [1.568, 0.129, -1.042, 0.000, -0.401, -1.441]
+[WARN] [1781253018.772254826] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253019.270364030] [cartesian_streamer]: QueueTrajPoint accepted #80: t=9.798s, hold=False
+[INFO] [1781253020.640158813] [cartesian_streamer]: IK delta clamped → joints: [1.516, 0.096, -0.970, 0.000, -0.506, -1.389]
+[INFO] [1781253020.709821826] [cartesian_streamer]: IK OK → Δmax=0.0742 rad, joints: [1.507, 0.096, -0.947, 0.000, -0.529, -1.380]
+[INFO] [1781253021.532106310] [cartesian_streamer]: QueueTrajPoint accepted #100: t=11.926s, hold=False
+[INFO] [1781253022.706681266] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.3, ack_hz=8.3, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=119.7, max_joint_delta=0.090, cumul_time=13.06s, hold_count=0, ik_mode=Local, ik_avg_ms=0.99, ik_fails=0
+[INFO] [1781253022.776425364] [cartesian_streamer]: IK OK → Δmax=0.0581 rad, joints: [1.373, 0.232, -0.409, 0.000, -0.930, -1.246]
+[INFO] [1781253023.368595976] [cartesian_streamer]: QueueTrajPoint accepted #120: t=13.659s, hold=False
+[INFO] [1781253024.374516003] [cartesian_streamer]: IK delta clamped → joints: [1.363, 0.501, 0.060, 0.000, -1.153, -1.236]
+[INFO] [1781253024.841406058] [cartesian_streamer]: IK OK → Δmax=0.0151 rad, joints: [1.361, 0.570, 0.224, 0.000, -1.226, -1.234]
+[INFO] [1781253025.250658721] [cartesian_streamer]: QueueTrajPoint accepted #140: t=15.592s, hold=False
+[WARN] [1781253026.596428340] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1781253026.707856987] [cartesian_streamer]: IK delta clamped → joints: [1.376, 0.695, 0.357, 0.000, -1.246, -1.248]
+[INFO] [1781253026.908002207] [cartesian_streamer]: IK OK → Δmax=0.0432 rad, joints: [1.382, 0.718, 0.416, 0.000, -1.269, -1.255]
+[INFO] [1781253027.396152552] [cartesian_streamer]: QueueTrajPoint accepted #160: t=17.256s, hold=False
+[INFO] [1781253027.706062626] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.6, ack_hz=10.6, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=95.4, max_joint_delta=0.070, cumul_time=17.52s, hold_count=0, ik_mode=Local, ik_avg_ms=1.29, ik_fails=0
+[INFO] [1781253028.973269352] [cartesian_streamer]: IK OK → Δmax=0.0462 rad, joints: [1.415, 0.866, 0.713, 0.000, -1.418, -1.288]
+[INFO] [1781253029.120381303] [cartesian_streamer]: QueueTrajPoint accepted #180: t=18.923s, hold=False
+[WARN] [1781253029.849889340] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1781253030.974141157] [cartesian_streamer]: IK OK → Δmax=0.0046 rad, joints: [1.377, 0.903, 0.740, 0.000, -1.409, -1.250]
+[INFO] [1781253031.392321157] [cartesian_streamer]: QueueTrajPoint accepted #200: t=20.922s, hold=False
+[WARN] [1781253032.446930730] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1781253032.771992734] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.7, ack_hz=9.3, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=108.0, max_joint_delta=0.046, cumul_time=21.99s, hold_count=0, ik_mode=Local, ik_avg_ms=1.43, ik_fails=0
+[INFO] [1781253033.040528171] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.354, 0.890, 0.711, 0.000, -1.392, -1.227]
+[INFO] [1781253033.446606934] [cartesian_streamer]: QueueTrajPoint accepted #220: t=22.726s, hold=False
+[INFO] [1781253035.041089965] [cartesian_streamer]: IK OK → Δmax=0.0030 rad, joints: [1.354, 0.890, 0.713, 0.000, -1.394, -1.227]
+[INFO] [1781253035.858216892] [cartesian_streamer]: QueueTrajPoint accepted #240: t=24.927s, hold=False
+[INFO] [1781253037.041219888] [cartesian_streamer]: IK OK → Δmax=0.0019 rad, joints: [1.357, 0.901, 0.731, 0.000, -1.401, -1.230]
+[INFO] [1781253037.772982208] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.6, ack_hz=9.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=103.7, max_joint_delta=0.016, cumul_time=26.66s, hold_count=0, ik_mode=Local, ik_avg_ms=1.50, ik_fails=0
+[INFO] [1781253038.001224065] [cartesian_streamer]: QueueTrajPoint accepted #260: t=26.793s, hold=False
+[INFO] [1781253039.105830974] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.358, 0.902, 0.733, 0.000, -1.402, -1.230]
+[INFO] [1781253039.725876101] [cartesian_streamer]: QueueTrajPoint accepted #280: t=28.659s, hold=False
+[WARN] [1781253040.788933152] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1781253041.106725067] [cartesian_streamer]: IK OK → Δmax=0.0076 rad, joints: [1.358, 0.910, 0.749, 0.000, -1.411, -1.231]
+[INFO] [1781253042.233840372] [cartesian_streamer]: QueueTrajPoint accepted #300: t=30.724s, hold=False
+[INFO] [1781253042.838358274] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.5, ack_hz=9.3, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=106.9, max_joint_delta=0.024, cumul_time=31.19s, hold_count=0, ik_mode=Local, ik_avg_ms=1.49, ik_fails=0
+[INFO] [1781253043.108729645] [cartesian_streamer]: IK OK → Δmax=0.0027 rad, joints: [1.358, 0.917, 0.761, 0.000, -1.416, -1.231]
+[INFO] [1781253044.320550696] [cartesian_streamer]: QueueTrajPoint accepted #320: t=32.791s, hold=False
+[INFO] [1781253045.174330710] [cartesian_streamer]: IK OK → Δmax=0.0026 rad, joints: [1.357, 0.915, 0.759, 0.000, -1.416, -1.229]
+[INFO] [1781253046.965964508] [cartesian_streamer]: QueueTrajPoint accepted #340: t=34.993s, hold=False
+[INFO] [1781253047.240556289] [cartesian_streamer]: IK OK → Δmax=0.0008 rad, joints: [1.356, 0.916, 0.762, 0.000, -1.417, -1.229]
+[INFO] [1781253047.838845647] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=8.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=113.3, max_joint_delta=0.016, cumul_time=35.93s, hold_count=0, ik_mode=Local, ik_avg_ms=1.46, ik_fails=0
+[INFO] [1781253049.037587734] [cartesian_streamer]: QueueTrajPoint accepted #360: t=36.993s, hold=False
+[INFO] [1781253049.240998624] [cartesian_streamer]: IK OK → Δmax=0.0009 rad, joints: [1.357, 0.915, 0.760, 0.000, -1.417, -1.229]
+[INFO] [1781253051.307311270] [cartesian_streamer]: IK OK → Δmax=0.0002 rad, joints: [1.357, 0.922, 0.774, 0.000, -1.424, -1.230]
+[INFO] [1781253051.456042584] [cartesian_streamer]: QueueTrajPoint accepted #380: t=39.261s, hold=False
+[WARN] [1781253052.182340685] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1781253052.905005955] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.1, ack_hz=7.9, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=127.8, max_joint_delta=0.024, cumul_time=40.32s, hold_count=0, ik_mode=Local, ik_avg_ms=1.45, ik_fails=0
+[INFO] [1781253053.372810346] [cartesian_streamer]: IK OK → Δmax=0.0076 rad, joints: [1.355, 0.918, 0.762, 0.000, -1.415, -1.228]
+[INFO] [1781253053.790203678] [cartesian_streamer]: QueueTrajPoint accepted #400: t=41.325s, hold=False
+[INFO] [1781253055.373700047] [cartesian_streamer]: IK OK → Δmax=0.0087 rad, joints: [1.354, 0.916, 0.758, 0.000, -1.414, -1.227]
+[INFO] [1781253056.072229855] [cartesian_streamer]: QueueTrajPoint accepted #420: t=43.255s, hold=False
+[WARN] [1781253056.642708203] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781253057.174580556] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781253057.373835438] [cartesian_streamer]: IK OK → Δmax=0.0214 rad, joints: [1.357, 0.900, 0.724, 0.000, -1.396, -1.229]
+[WARN] [1781253057.706721892] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781253057.905485233] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=6.8, ack_hz=6.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=105.8, max_joint_delta=0.023, cumul_time=44.05s, hold_count=0, ik_mode=Local, ik_avg_ms=1.46, ik_fails=0
+[WARN] [1781253058.240160031] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781253058.773604250] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781253059.306457498] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781253059.439491668] [cartesian_streamer]: IK OK → Δmax=0.0034 rad, joints: [1.357, 0.910, 0.744, 0.000, -1.406, -1.230]
+[WARN] [1781253059.839321003] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781253060.372978646] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781253060.772405357] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1781253060.909181701] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781253061.440331745] [cartesian_streamer]: IK OK → Δmax=0.0346 rad, joints: [1.353, 0.922, 0.780, 0.000, -1.429, -1.225]
+[WARN] [1781253061.440657602] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1781253061.440951435] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781253061.639930150] [cartesian_streamer]: IK delta clamped → joints: [1.351, 0.937, 0.816, 0.000, -1.463, -1.224]
+[WARN] [1781253062.441478737] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781253062.971738774] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.2, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.090, cumul_time=45.25s, hold_count=0, ik_mode=Local, ik_avg_ms=1.44, ik_fails=0
+[INFO] [1781253063.442364737] [cartesian_streamer]: IK OK → Δmax=0.0849 rad, joints: [1.321, 0.896, 0.816, 0.000, -1.492, -1.194]
+[WARN] [1781253063.443053366] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781253063.908714124] [cartesian_streamer]: IK delta clamped → joints: [1.320, 0.896, 0.816, 0.000, -1.497, -1.192]
+[WARN] [1781253064.507411038] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1781253065.507278708] [cartesian_streamer]: IK OK → Δmax=0.0460 rad, joints: [1.320, 0.864, 0.726, 0.000, -1.433, -1.193]
+[WARN] [1781253065.507994597] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1781253065.775086441] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1781253066.574036417] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1781253067.240215957] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781253067.576640959] [cartesian_streamer]: IK OK → Δmax=0.0025 rad, joints: [1.327, 0.871, 0.724, 0.000, -1.424, -1.200]
+[INFO] [1781253067.974070976] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.8, ack_hz=1.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=1478.3, max_joint_delta=0.090, cumul_time=46.32s, hold_count=0, ik_mode=Local, ik_avg_ms=1.44, ik_fails=0
+[INFO] [1781253069.560017759] [cartesian_streamer]: QueueTrajPoint accepted #440: t=47.652s, hold=False
+[INFO] [1781253069.642159552] [cartesian_streamer]: IK OK → Δmax=0.0059 rad, joints: [1.324, 0.885, 0.688, 0.000, -1.375, -1.197]
+[INFO] [1781253071.380626501] [cartesian_streamer]: IK delta clamped → joints: [1.311, 0.893, 0.817, 0.000, -1.496, -1.184]
+[INFO] [1781253071.711173099] [cartesian_streamer]: IK OK → Δmax=0.0400 rad, joints: [1.297, 0.939, 0.992, 0.000, -1.624, -1.169]
+[INFO] [1781253071.866321433] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[INFO] [1781253072.020874053] [cartesian_streamer]: QueueTrajPoint accepted #460: t=49.883s, hold=True
+[WARN] [1781253072.372232970] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1781253072.841997633] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1781253073.041516257] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.3, ack_hz=7.3, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=137.7, max_joint_delta=0.090, cumul_time=50.66s, hold_count=0, ik_mode=Local, ik_avg_ms=1.57, ik_fails=3
+[INFO] [1781253073.211944665] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[INFO] [1781253073.774258434] [cartesian_streamer]: IK OK → Δmax=0.0537 rad, joints: [1.300, 0.901, 0.907, 0.000, -1.578, -1.173]
+[INFO] [1781253074.626874492] [cartesian_streamer]: QueueTrajPoint accepted #480: t=52.141s, hold=False
+[INFO] [1781253075.840021791] [cartesian_streamer]: IK OK → Δmax=0.0021 rad, joints: [1.337, 0.861, 0.690, 0.000, -1.400, -1.210]
+[INFO] [1781253077.064977688] [cartesian_streamer]: QueueTrajPoint accepted #500: t=54.406s, hold=False
+[WARN] [1781253077.438809551] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253077.840599944] [cartesian_streamer]: IK OK → Δmax=0.0002 rad, joints: [1.336, 0.870, 0.712, 0.000, -1.413, -1.209]
+[INFO] [1781253078.104932509] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.3, ack_hz=8.3, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=120.6, max_joint_delta=0.066, cumul_time=55.34s, hold_count=0, ik_mode=Local, ik_avg_ms=1.69, ik_fails=6
+[INFO] [1781253079.623373209] [cartesian_streamer]: QueueTrajPoint accepted #520: t=56.603s, hold=False
+[INFO] [1781253079.840960792] [cartesian_streamer]: IK OK → Δmax=0.0078 rad, joints: [1.335, 0.865, 0.699, 0.000, -1.405, -1.208]
+[INFO] [1781253080.888660999] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1781253080.889082329] [cartesian_streamer]: ✗ Robot DISABLED.
+[WARN] [1781253083.532792435] [cartesian_streamer]: ⚠ Queue mode bị drop! Auto-recovery lần 1/3...
+[INFO] [1781253084.034288693] [cartesian_streamer]: Auto-recovery: bắt đầu re-enable queue mode...
+[INFO] [1781253084.035060136] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1781253084.044877332] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1781253084.045348387] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1781253084.085198903] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1781253084.085483424] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1781253085.586484406] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1781253085.593087897] [cartesian_streamer]: StartPointQueueMode response: code=104, msg="The teach pendant must not be in TEACH mode"
+[ERROR] [1781253085.593493902] [cartesian_streamer]: StartPointQueueMode FAILED: The teach pendant must not be in TEACH mode
+[INFO] [1781253231.575611710] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1781253231.576023762] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1781253231.579998529] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1781253231.580503773] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1781253231.622616860] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1781253231.623099323] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1781253233.124010120] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1781253233.522777846] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1781253233.523033896] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1781253233.572342189] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.3, queue_send_hz=0.1, ack_hz=0.1, busy_hz=0.0, retry_count=0, reject_count=1, inter_ack_ms=137.2, max_joint_delta=0.018, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=1.68, ik_fails=6
+[WARN] [1781253233.572638079] [cartesian_streamer]: Target stream stale: không có target mới trong 152.7s
+[WARN] [1781253233.572922613] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253233.573440246] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1781253233.573879072] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1781253233.582534137] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1781253233.785295934] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1781253234.652066137] [cartesian_streamer]: QueueTrajPoint accepted #540: t=1.065s, hold=True
+[INFO] [1781253235.984812447] [cartesian_streamer]: QueueTrajPoint accepted #560: t=2.398s, hold=True
+[INFO] [1781253237.308392641] [cartesian_streamer]: QueueTrajPoint accepted #580: t=3.731s, hold=True
+[INFO] [1781253238.572942158] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=14.8, ack_hz=14.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=2136.7, max_joint_delta=0.000, cumul_time=4.93s, hold_count=73, ik_mode=Local, ik_avg_ms=1.68, ik_fails=6
+[WARN] [1781253238.573538945] [cartesian_streamer]: Target stream stale: không có target mới trong 157.7s
+[INFO] [1781253238.643629124] [cartesian_streamer]: QueueTrajPoint accepted #600: t=5.065s, hold=True
+[INFO] [1781253238.775757556] [cartesian_streamer]: IK OK → Δmax=0.0131 rad, joints: [1.575, 0.119, -1.055, 0.010, -0.392, -1.457]
+[WARN] [1781253238.839316374] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253240.045042052] [cartesian_streamer]: QueueTrajPoint accepted #620: t=6.466s, hold=False
+[INFO] [1781253240.839449287] [cartesian_streamer]: IK OK → Δmax=0.0143 rad, joints: [1.573, 0.035, -0.939, 0.000, -0.598, -1.446]
+[INFO] [1781253241.386488483] [cartesian_streamer]: QueueTrajPoint accepted #640: t=7.800s, hold=False
+[INFO] [1781253242.711798636] [cartesian_streamer]: QueueTrajPoint accepted #660: t=9.134s, hold=False
+[INFO] [1781253242.840890286] [cartesian_streamer]: IK OK → Δmax=0.0178 rad, joints: [1.560, 0.289, -0.490, 0.000, -0.793, -1.433]
+[INFO] [1781253243.572227769] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=14.8, ack_hz=14.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=67.6, max_joint_delta=0.024, cumul_time=9.93s, hold_count=0, ik_mode=Local, ik_avg_ms=1.66, ik_fails=6
+[WARN] [1781253243.904953225] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253244.049560877] [cartesian_streamer]: QueueTrajPoint accepted #680: t=10.467s, hold=False
+[INFO] [1781253244.908834771] [cartesian_streamer]: IK OK → Δmax=0.0197 rad, joints: [1.546, 0.573, 0.186, 0.000, -1.185, -1.419]
+[INFO] [1781253245.382934858] [cartesian_streamer]: QueueTrajPoint accepted #700: t=11.800s, hold=False
+[INFO] [1781253246.718960872] [cartesian_streamer]: QueueTrajPoint accepted #720: t=13.132s, hold=False
+[INFO] [1781253246.973962354] [cartesian_streamer]: IK OK → Δmax=0.0044 rad, joints: [1.486, 0.735, 0.459, 0.000, -1.296, -1.359]
+[INFO] [1781253248.048171552] [cartesian_streamer]: QueueTrajPoint accepted #740: t=14.467s, hold=False
+[INFO] [1781253248.638810567] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=15.0, ack_hz=15.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=66.7, max_joint_delta=0.024, cumul_time=15.00s, hold_count=0, ik_mode=Local, ik_avg_ms=1.64, ik_fails=6
+[WARN] [1781253248.972205738] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253248.974182395] [cartesian_streamer]: IK OK → Δmax=0.0039 rad, joints: [1.375, 0.793, 0.535, 0.000, -1.313, -1.248]
+[INFO] [1781253249.387083219] [cartesian_streamer]: QueueTrajPoint accepted #760: t=15.800s, hold=False
+[INFO] [1781253250.714435378] [cartesian_streamer]: QueueTrajPoint accepted #780: t=17.133s, hold=False
+[INFO] [1781253251.039018798] [cartesian_streamer]: IK OK → Δmax=0.0039 rad, joints: [1.316, 0.825, 0.602, 0.000, -1.348, -1.189]
+[INFO] [1781253252.243338038] [cartesian_streamer]: QueueTrajPoint accepted #800: t=18.667s, hold=False
+[INFO] [1781253253.040712097] [cartesian_streamer]: IK OK → Δmax=0.0032 rad, joints: [1.269, 0.844, 0.620, 0.000, -1.347, -1.141]
+[INFO] [1781253253.584362117] [cartesian_streamer]: QueueTrajPoint accepted #820: t=20.000s, hold=False
+[INFO] [1781253253.639676453] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=14.4, ack_hz=14.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=69.5, max_joint_delta=0.016, cumul_time=20.00s, hold_count=0, ik_mode=Local, ik_avg_ms=1.62, ik_fails=6
+[WARN] [1781253253.973080959] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253254.978601518] [cartesian_streamer]: QueueTrajPoint accepted #840: t=21.401s, hold=False
+[INFO] [1781253255.107776629] [cartesian_streamer]: IK OK → Δmax=0.0102 rad, joints: [1.233, 0.797, 0.601, 0.000, -1.376, -1.106]
+[INFO] [1781253256.314174449] [cartesian_streamer]: QueueTrajPoint accepted #860: t=22.734s, hold=False
+[INFO] [1781253257.175357346] [cartesian_streamer]: IK OK → Δmax=0.0010 rad, joints: [1.228, 0.756, 0.537, 0.000, -1.352, -1.101]
+[INFO] [1781253257.651798746] [cartesian_streamer]: QueueTrajPoint accepted #880: t=24.067s, hold=False
+[INFO] [1781253258.705571610] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=14.8, ack_hz=14.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=67.5, max_joint_delta=0.019, cumul_time=25.07s, hold_count=0, ik_mode=Local, ik_avg_ms=1.60, ik_fails=6
+[INFO] [1781253258.984136567] [cartesian_streamer]: QueueTrajPoint accepted #900: t=25.400s, hold=False
+[WARN] [1781253259.040365112] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1781253259.239402676] [cartesian_streamer]: IK OK → Δmax=0.0325 rad, joints: [1.247, 0.827, 0.625, 0.000, -1.369, -1.120]
+[INFO] [1781253260.319940362] [cartesian_streamer]: QueueTrajPoint accepted #920: t=26.732s, hold=False
+[INFO] [1781253261.239949427] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.263, 0.971, 0.905, 0.000, -1.505, -1.136]
+[INFO] [1781253261.475902566] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1781253261.477012264] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1781253715.428067123] [cartesian_streamer]: Graceful shutdown: tắt Point Queue Mode trước khi thoát...
+[INFO] [1781253715.429057914] [cartesian_streamer]: Robot chưa enable, không cần stop_traj_mode.
+[INFO] [1781253715.429945034] [cartesian_streamer]: Shutdown hoàn tất. Tủ điện sẽ KHÔNG bị alarm.

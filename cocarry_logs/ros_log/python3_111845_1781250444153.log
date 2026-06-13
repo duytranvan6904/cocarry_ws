@@ -1,0 +1,29 @@
+[INFO] [1781250444.248776448] [coord_transform]: CoordTransformNode khởi động.
+  Object offset (cam frame): [0.05 0.   0.1 ]
+  Translation cam→base:      [0.5 0.  1.2]
+  EE orientation (xyzw):     [0.0, 1.0, 0.0, 0.0]
+  Prediction step:           5
+  Axis remap:                [0, 1, 2]
+  Axis sign:                 [-1.0, 1.0, 1.0]
+  Workspace X: (-1.0, 1.0), Y: (-0.5, 1.3), Z: (0.05, 1.5)
+  Filter outlier_threshold:  0.15m
+  Filter median_size_y:      3
+  Filter deadband_tol:       15.0mm
+  Filter stationary_thresh:  3 frames
+  Filter max_rate:           5.0cm/frame
+  Filter EMA moving(x,y,z):  (1.0,1.0,1.0)
+  Filter EMA hold  (x,y,z):  (0.08,0.02,0.05)
+[WARN] [1781250460.161997428] [coord_transform]: Outlier rejected #1 (jumped 2182.3mm). Ignoring.
+[WARN] [1781250460.191585230] [coord_transform]: Outlier rejected #2 (jumped 2190.3mm). Ignoring.
+[WARN] [1781250460.227172011] [coord_transform]: Outlier rejected #3 (jumped 2153.3mm). Ignoring.
+[WARN] [1781250460.256051243] [coord_transform]: Outlier rejected #4 (jumped 2160.2mm). Ignoring.
+[INFO] [1781250460.293906772] [coord_transform]: Too many outliers (5). Resetting filter to new position.
+[INFO] [1781250464.730278847] [coord_transform]: Captured Init Pose! P_init=(-0.162, 0.280, 0.379), Cam_init=(0.025, 0.028, 0.004), Noise_Tol=27.1mm
+Orientation=(0.998, 0.064, -0.000, 0.000)
+[INFO] [1781250464.732807862] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781250464.858311640] [coord_transform]: Deadband: HOLD at (0.025, 0.028, 0.004)
+[INFO] [1781250466.762470598] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781250466.870584465] [coord_transform]: Deadband: HOLD at (0.025, 0.028, 0.004)
+[INFO] [1781250493.052435336] [coord_transform]: Re-sync camera init: [ 0.176 -0.136  0.027]
+[INFO] [1781250493.052979969] [coord_transform]: Trạng thái tracking: RUNNING
+[INFO] [1781250493.057445741] [coord_transform]: Deadband: RELEASE — motion detected

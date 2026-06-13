@@ -1,0 +1,82 @@
+-- using tinythread as threading library
+-- Could NOT find TegraJPEG (missing: TegraJPEG_LIBRARIES TegraJPEG_INCLUDE_DIRS TegraJPEG_WORKS) 
+[33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindOpenGL.cmake:315 (message):
+  Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
+  available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  FindOpenGL found both a legacy GL library:
+
+    OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
+
+  and GLVND libraries for OpenGL and GLX:
+
+    OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+    OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
+
+  OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
+  compatibility with CMake 3.10 and below the legacy GL library will be used.
+Call Stack (most recent call first):
+  CMakeLists.txt:269 (FIND_PACKAGE)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Could NOT find OpenCL (missing: OpenCL_LIBRARY OpenCL_INCLUDE_DIR) 
+[0mCUDA_TOOLKIT_ROOT_DIR not found or specified[0m
+-- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) 
+-- Linking with these libraries: 
+ /usr/lib/x86_64-linux-gnu/libusb-1.0.so
+ pthread
+ va-drm
+ va
+ /usr/lib/x86_64-linux-gnu/libjpeg.so
+ /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0
+ /usr/lib/x86_64-linux-gnu/libglfw.so
+ /usr/lib/x86_64-linux-gnu/libGL.so
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- Configurating examples
+-- Using in-tree freenect2 target
+-- Feature list:
+--   CUDA    no
+--   CXX11    disabled
+--   Examples    yes
+--   OpenCL    no
+--   OpenGL    yes
+--   OpenNI2    yes
+--   TegraJPEG    no
+--   Threading    tinythread
+--   TurboJPEG    yes
+--   VAAPI    yes
+--   VideoToolbox    no (Apple only)
+--   streamer_recorder    disabled
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/duy/cocarry_ws/build/libfreenect2
+[35m[1mConsolidate compiler generated dependencies of target generate_resources_tool[0m
+[  5%] Built target generate_resources_tool
+[35m[1mConsolidate compiler generated dependencies of target freenect2[0m
+[ 65%] Built target freenect2
+[35m[1mConsolidate compiler generated dependencies of target freenect2-openni2[0m
+[35m[1mConsolidate compiler generated dependencies of target Protonect[0m
+[ 89%] Built target freenect2-openni2
+[100%] Built target Protonect
+-- Install configuration: "RelWithDebInfo"
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2.0
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/registration.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/packet_pipeline.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/libfreenect2.hpp
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener_impl.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/led_settings.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener.hpp
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/logger.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/color_settings.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/config.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/export.h
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2Config.cmake
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2ConfigVersion.cmake
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/pkgconfig/freenect2.pc
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so.0
+-- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so

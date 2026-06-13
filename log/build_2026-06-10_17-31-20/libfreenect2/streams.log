@@ -1,0 +1,86 @@
+[0.093s] Invoking command in '/home/duy/cocarry_ws/build/libfreenect2': /usr/bin/cmake --build /home/duy/cocarry_ws/build/libfreenect2 -- -j16 -l16
+[0.177s] -- using tinythread as threading library
+[0.662s] -- Could NOT find TegraJPEG (missing: TegraJPEG_LIBRARIES TegraJPEG_INCLUDE_DIRS TegraJPEG_WORKS) 
+[0.672s] [33mCMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindOpenGL.cmake:315 (message):
+[0.672s]   Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
+[0.673s]   available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
+[0.673s]   cmake_policy command to set the policy and suppress this warning.
+[0.673s] 
+[0.673s]   FindOpenGL found both a legacy GL library:
+[0.673s] 
+[0.673s]     OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
+[0.674s] 
+[0.674s]   and GLVND libraries for OpenGL and GLX:
+[0.674s] 
+[0.674s]     OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+[0.674s]     OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
+[0.675s] 
+[0.675s]   OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
+[0.675s]   compatibility with CMake 3.10 and below the legacy GL library will be used.
+[0.675s] Call Stack (most recent call first):
+[0.675s]   CMakeLists.txt:269 (FIND_PACKAGE)
+[0.675s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.675s] [0m
+[0.689s] -- Could NOT find OpenCL (missing: OpenCL_LIBRARY OpenCL_INCLUDE_DIR) 
+[0.697s] [0mCUDA_TOOLKIT_ROOT_DIR not found or specified[0m
+[0.729s] -- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) 
+[0.758s] -- Linking with these libraries: 
+[0.758s]  /usr/lib/x86_64-linux-gnu/libusb-1.0.so
+[0.758s]  pthread
+[0.759s]  va-drm
+[0.759s]  va
+[0.759s]  /usr/lib/x86_64-linux-gnu/libjpeg.so
+[0.759s]  /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0
+[0.759s]  /usr/lib/x86_64-linux-gnu/libglfw.so
+[0.759s]  /usr/lib/x86_64-linux-gnu/libGL.so
+[0.770s] -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+[0.770s] -- Configurating examples
+[0.790s] -- Using in-tree freenect2 target
+[0.813s] -- Feature list:
+[0.823s] --   CUDA    no
+[0.823s] --   CXX11    disabled
+[0.824s] --   Examples    yes
+[0.824s] --   OpenCL    no
+[0.824s] --   OpenGL    yes
+[0.825s] --   OpenNI2    yes
+[0.825s] --   TegraJPEG    no
+[0.830s] --   Threading    tinythread
+[0.833s] --   TurboJPEG    yes
+[0.833s] --   VAAPI    yes
+[0.834s] --   VideoToolbox    no (Apple only)
+[0.834s] --   streamer_recorder    disabled
+[0.834s] -- Configuring done
+[1.039s] -- Generating done
+[1.053s] -- Build files have been written to: /home/duy/cocarry_ws/build/libfreenect2
+[1.130s] [35m[1mConsolidate compiler generated dependencies of target generate_resources_tool[0m
+[1.212s] [  5%] Built target generate_resources_tool
+[1.317s] [35m[1mConsolidate compiler generated dependencies of target freenect2[0m
+[1.436s] [ 65%] Built target freenect2
+[1.485s] [35m[1mConsolidate compiler generated dependencies of target freenect2-openni2[0m
+[1.486s] [35m[1mConsolidate compiler generated dependencies of target Protonect[0m
+[1.571s] [ 89%] Built target freenect2-openni2
+[1.576s] [100%] Built target Protonect
+[1.635s] Invoked command in '/home/duy/cocarry_ws/build/libfreenect2' returned '0': /usr/bin/cmake --build /home/duy/cocarry_ws/build/libfreenect2 -- -j16 -l16
+[1.647s] Invoking command in '/home/duy/cocarry_ws/build/libfreenect2': /usr/bin/cmake --install /home/duy/cocarry_ws/build/libfreenect2
+[1.671s] -- Install configuration: "RelWithDebInfo"
+[1.672s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2.0
+[1.674s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2
+[1.674s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so
+[1.674s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+[1.690s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/registration.h
+[1.690s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/packet_pipeline.h
+[1.690s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/libfreenect2.hpp
+[1.691s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener_impl.h
+[1.691s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/led_settings.h
+[1.691s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener.hpp
+[1.691s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/logger.h
+[1.691s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/color_settings.h
+[1.692s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+[1.692s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/config.h
+[1.692s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/export.h
+[1.693s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2Config.cmake
+[1.693s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2ConfigVersion.cmake
+[1.693s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/pkgconfig/freenect2.pc
+[1.693s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so.0
+[1.693s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so
+[1.694s] Invoked command in '/home/duy/cocarry_ws/build/libfreenect2' returned '0': /usr/bin/cmake --install /home/duy/cocarry_ws/build/libfreenect2

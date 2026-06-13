@@ -35,13 +35,6 @@
     <material name="cabinet_color">
         <color rgba="0.4 0.2 0.1 0.8"/>
     </material>
-    <material name="start_color">
-        <color rgba="0.0 1.0 0.0 0.8"/> <!-- Xanh lá -->
-    </material>
-    <material name="target_color">
-        <color rgba="1.0 0.0 0.0 0.8"/> <!-- Đỏ -->
-    </material>
-
     <link name="environment_objects">
         <!-- ================= TỦ ĐỠ ROBOT ================= -->
         <!-- Kích thước: 0.8m (X) x 0.6m (Y) x 0.5m (Z) -->
@@ -55,39 +48,7 @@
             <material name="cabinet_color"/>
         </visual>
 
-        <!-- ================= VỊ TRÍ XUẤT PHÁT VÀ ĐÍCH ================= -->
-        <!-- ROS: +X là phía trước (ra xa), +Y là sang trái -->
-        <!-- Protocol: +Y là ra xa, +X là sang phải -->
-        <!-- Ánh xạ: ROS_X = Protocol_Y, ROS_Y = -Protocol_X -->
-        <!-- Mép bệ đỡ phía trước (trục X) là 0.4m (do bệ đỡ dài 0.8m). Offset X = +0.4m -->
-        
-        <!-- S1: Protocol(0.0, 0.4, 0.25) -> Thực tế ROS: X = 0.0 + 0.2 = 0.2, Y = -0.0, Z = 0.25 -->
-        <visual>
-            <origin xyz="-0.2 0.25 0.3" rpy="0 0 0"/>
-            <geometry><sphere radius="0.03"/></geometry>
-            <material name="start_color"/>
-        </visual>
 
-        <!-- T1: Protocol(0.3, 0.8, 0.3) -> Thực tế ROS: X = 0.8 + 0.4 = 1.2, Y = -0.3, Z = 0.3 -->
-        <visual>
-            <origin xyz="0.1 0.8 0.35" rpy="0 0 0"/>
-            <geometry><sphere radius="0.03"/></geometry>
-            <material name="target_color"/>
-        </visual>
-
-        <!-- T2: Protocol(-0.3, 0.8, 0.3) -> Thực tế ROS: X = 0.8 + 0.4 = 1.2, Y = -(-0.3) = 0.3, Z = 0.3 -->
-        <visual>
-            <origin xyz="-0.4 0.95 0.35" rpy="0 0 0"/>
-            <geometry><sphere radius="0.03"/></geometry>
-            <material name="target_color"/>
-        </visual>
-
-        <!-- T3: Protocol(0.0, 1.0, 0.45) -> Thực tế ROS: X = 1.0 + 0.4 = 1.4, Y = -0.0, Z = 0.45 -->
-        <visual>
-            <origin xyz="-0.1 0.95 0.45" rpy="0 0 0"/>
-            <geometry><sphere radius="0.03"/></geometry>
-            <material name="target_color"/>
-        </visual>
     </link>
 
     <joint name="environment_objects_joint" type="fixed">

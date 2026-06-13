@@ -1,0 +1,51 @@
+[INFO] [1781246359.736915728] [coord_transform]: CoordTransformNode khởi động.
+  Object offset (cam frame): [0.05 0.   0.1 ]
+  Translation cam→base:      [0.5 0.  1.2]
+  EE orientation (xyzw):     [0.0, 1.0, 0.0, 0.0]
+  Prediction step:           5
+  Axis remap:                [0, 1, 2]
+  Axis sign:                 [-1.0, 1.0, 1.0]
+  Workspace X: (-1.0, 1.0), Y: (-0.5, 1.3), Z: (0.05, 1.5)
+  Filter outlier_threshold:  0.15m
+  Filter median_size_y:      3
+  Filter deadband_tol:       15.0mm
+  Filter stationary_thresh:  3 frames
+  Filter max_rate:           5.0cm/frame
+  Filter EMA moving(x,y,z):  (1.0,1.0,1.0)
+  Filter EMA hold  (x,y,z):  (0.08,0.02,0.05)
+[WARN] [1781246379.967280151] [coord_transform]: Outlier rejected #1 (jumped 2114.7mm). Ignoring.
+[WARN] [1781246379.998557469] [coord_transform]: Outlier rejected #2 (jumped 2151.7mm). Ignoring.
+[WARN] [1781246380.037358500] [coord_transform]: Outlier rejected #3 (jumped 2151.8mm). Ignoring.
+[WARN] [1781246380.069140784] [coord_transform]: Outlier rejected #4 (jumped 2129.7mm). Ignoring.
+[INFO] [1781246380.108812224] [coord_transform]: Too many outliers (5). Resetting filter to new position.
+[INFO] [1781246391.943271390] [coord_transform]: Captured Init Pose! P_init=(-0.162, 0.280, 0.379), Cam_init=(0.199, -0.168, 0.029), Noise_Tol=49.1mm
+Orientation=(0.998, 0.064, -0.000, 0.000)
+[INFO] [1781246391.960590100] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246392.085871593] [coord_transform]: Deadband: HOLD at (0.199, -0.168, 0.029)
+[INFO] [1781246393.989269061] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246394.094356513] [coord_transform]: Deadband: HOLD at (0.199, -0.168, 0.029)
+[INFO] [1781246397.367249499] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246397.404998313] [coord_transform]: Deadband: HOLD at (0.199, -0.168, 0.029)
+[INFO] [1781246399.374881777] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246399.463409383] [coord_transform]: Deadband: HOLD at (0.199, -0.168, 0.029)
+[INFO] [1781246401.429256497] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246401.471182031] [coord_transform]: Deadband: HOLD at (0.199, -0.168, 0.029)
+[INFO] [1781246403.431075670] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246403.537425513] [coord_transform]: Deadband: HOLD at (0.199, -0.168, 0.029)
+[INFO] [1781246405.082736228] [coord_transform]: Re-sync camera init: [ 0.201 -0.16   0.041]
+[INFO] [1781246405.083033640] [coord_transform]: Trạng thái tracking: RUNNING
+[INFO] [1781246405.100693503] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.202 -0.177  0.041] → base[-0.164  0.263  0.378]
+[INFO] [1781246405.469886131] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246405.569399002] [coord_transform]: Deadband: HOLD at (0.201, -0.160, 0.041)
+[INFO] [1781246407.128316518] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.201 -0.16   0.041] → base[-0.162  0.28   0.379]
+[INFO] [1781246407.952961461] [coord_transform]: Deadband: HOLD at (0.201, -0.160, 0.041)
+[INFO] [1781246407.985686598] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246411.172028107] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246411.173370239] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.202 -0.149  0.038] → base[-0.163  0.292  0.376]
+[INFO] [1781246411.205669318] [coord_transform]: Deadband: HOLD at (0.201, -0.160, 0.041)
+[INFO] [1781246413.189185735] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.201 -0.16   0.041] → base[-0.162  0.28   0.379]
+[INFO] [1781246413.220208291] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246413.254549680] [coord_transform]: Deadband: HOLD at (0.201, -0.160, 0.041)
+[INFO] [1781246415.213890858] [coord_transform]: [GROUND_TRUTH] Transform: cam[ 0.213 -0.166  0.033] → base[-0.174  0.274  0.371]
+[INFO] [1781246415.279117364] [coord_transform]: Deadband: RELEASE — motion detected
+[INFO] [1781246415.312839099] [coord_transform]: Deadband: HOLD at (0.201, -0.160, 0.041)
