@@ -33,7 +33,7 @@ Dự án này là một hệ thống **Human-Robot Collaborative (HRC) Co-Carryi
 | `trajectory_predictor` | Node AI chứa logic dự đoán và tải mô hình Machine Learning (`gru_model_Ts3.h5`). Lấy chuỗi lịch sử XYZ và vận tốc để suy luận (Inference) ra vị trí tay N bước trong tương lai theo thời gian thực. |
 | `coord_transform` | Chuyển đổi tọa độ không gian: Mapping từ hệ trục Camera (Camera Frame) sang hệ trục gốc của Robot (Base Link Frame) bao gồm lật trục tọa độ theo hướng người đứng. |
 | `hc10dtp_bringup` | Chứa script điều khiển trung tâm `cartesian_streamer_hc10dtp.py`. Nhận tọa độ Cartesian, liên tục giải Inverse Kinematics (IK) **sử dụng nghiệm khớp trước đó (Previous Joint Seed) để chống lật khớp**, và stream Joint Angles xuống bộ điều khiển MotoROS2 (qua `QueueTrajPoint`) với tần số **25Hz**. |
-| `hc10dtp_moveit_config` | Cấu hình MoveIt 2 (SRDF, URDF, TRAC-IK) dùng cho giả lập, collision checking và giải động học nghịch (đã lược bỏ các điểm visual markers S1, T1-T3 để tối ưu hiển thị). |
+| `hc10dtp_moveit_config` | Cấu hình MoveIt 2 (SRDF, URDF, TRAC-IK) dùng cho giả lập, collision checking và giải động học nghịch |
 | `hc10dtp_simulation` | Môi trường giả lập tích hợp Gazebo/ROS Control. Bao gồm script `motoros2_mock_node.py` để giả lập các tín hiệu Service của MotoROS2 driver cho phép code streamer chạy mô phỏng 100% y như robot thật. |
 | `experiment_logger` | Lưu tọa độ thực tế của người, tọa độ dự đoán của AI, và dữ liệu khớp robot ra file `.csv`. Cung cấp báo cáo phân tích độ chính xác (MAE, MSE), tính toán thời gian phản hồi và độ giật (Jerk) sau mỗi lần thử. |
 | `predictor_ui` | Giao diện Dashboard (PyQtGraph) giám sát quỹ đạo đa trục X-Y-Z real-time. Cung cấp các nút điều khiển luồng thử nghiệm một cách an toàn và trực quan. |
