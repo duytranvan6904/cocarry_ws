@@ -1,0 +1,58 @@
+[0.000000] (-) TimerEvent: {}
+[0.000584] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.001126] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.001154] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.001175] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.001184] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.001194] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.001233] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.001241] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.001249] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.001257] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001266] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001274] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001282] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001297] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001308] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001316] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001325] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001333] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.001341] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001350] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001358] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001367] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001375] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.001386] (rula_tracker) JobQueued: {'identifier': 'rula_tracker', 'dependencies': OrderedDict()}
+[0.001398] (rula_tracker) JobStarted: {'identifier': 'rula_tracker'}
+[0.099825] (-) TimerEvent: {}
+[0.200086] (-) TimerEvent: {}
+[0.300418] (-) TimerEvent: {}
+[0.395842] (rula_tracker) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/rula_tracker', 'build', '--build-base', '/home/duy/cocarry_ws/build/rula_tracker/build', 'install', '--record', '/home/duy/cocarry_ws/build/rula_tracker/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/rula_tracker', 'env': {'USER': 'duy', 'SHLVL': '0', 'HOME': '/home/duy', '_': '/usr/bin/colcon', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/rula_tracker', 'COLCON': '1', 'PYTHONPATH': '/home/duy/cocarry_ws/build/rula_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages:'}, 'shell': False}
+[0.400480] (-) TimerEvent: {}
+[0.500752] (-) TimerEvent: {}
+[0.580066] (rula_tracker) StdoutLine: {'line': b'running egg_info\n'}
+[0.580433] (rula_tracker) StdoutLine: {'line': b'writing ../../build/rula_tracker/rula_tracker.egg-info/PKG-INFO\n'}
+[0.580635] (rula_tracker) StdoutLine: {'line': b'writing dependency_links to ../../build/rula_tracker/rula_tracker.egg-info/dependency_links.txt\n'}
+[0.580714] (rula_tracker) StdoutLine: {'line': b'writing entry points to ../../build/rula_tracker/rula_tracker.egg-info/entry_points.txt\n'}
+[0.580873] (rula_tracker) StdoutLine: {'line': b'writing requirements to ../../build/rula_tracker/rula_tracker.egg-info/requires.txt\n'}
+[0.580925] (rula_tracker) StdoutLine: {'line': b'writing top-level names to ../../build/rula_tracker/rula_tracker.egg-info/top_level.txt\n'}
+[0.582026] (rula_tracker) StdoutLine: {'line': b"reading manifest file '../../build/rula_tracker/rula_tracker.egg-info/SOURCES.txt'\n"}
+[0.582453] (rula_tracker) StdoutLine: {'line': b"writing manifest file '../../build/rula_tracker/rula_tracker.egg-info/SOURCES.txt'\n"}
+[0.582583] (rula_tracker) StdoutLine: {'line': b'running build\n'}
+[0.582687] (rula_tracker) StdoutLine: {'line': b'running build_py\n'}
+[0.582757] (rula_tracker) StdoutLine: {'line': b'copying rula_tracker/rula_tracker_node.py -> /home/duy/cocarry_ws/build/rula_tracker/build/lib/rula_tracker\n'}
+[0.582884] (rula_tracker) StdoutLine: {'line': b'running install\n'}
+[0.583025] (rula_tracker) StdoutLine: {'line': b'running install_lib\n'}
+[0.583455] (rula_tracker) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/rula_tracker/build/lib/rula_tracker/rula_tracker_node.py -> /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker\n'}
+[0.583809] (rula_tracker) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker/rula_tracker_node.py to rula_tracker_node.cpython-310.pyc\n'}
+[0.585072] (rula_tracker) StdoutLine: {'line': b'running install_data\n'}
+[0.585188] (rula_tracker) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.586274] (rula_tracker) StdoutLine: {'line': b"removing '/home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[0.586440] (rula_tracker) StdoutLine: {'line': b'Copying ../../build/rula_tracker/rula_tracker.egg-info to /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker-0.0.0-py3.10.egg-info\n'}
+[0.586759] (rula_tracker) StdoutLine: {'line': b'running install_scripts\n'}
+[0.599013] (rula_tracker) StdoutLine: {'line': b'Installing rula_tracker_node script to /home/duy/cocarry_ws/install/rula_tracker/lib/rula_tracker\n'}
+[0.599227] (rula_tracker) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/rula_tracker/install.log'\n"}
+[0.600822] (-) TimerEvent: {}
+[0.616262] (rula_tracker) CommandEnded: {'returncode': 0}
+[0.629231] (rula_tracker) JobEnded: {'identifier': 'rula_tracker', 'rc': 0}
+[0.629959] (-) EventReactorShutdown: {}

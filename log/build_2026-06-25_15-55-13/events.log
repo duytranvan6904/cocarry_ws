@@ -1,0 +1,72 @@
+[0.000000] (-) TimerEvent: {}
+[0.000778] (-) JobUnselected: {'identifier': 'coord_transform'}
+[0.001005] (-) JobUnselected: {'identifier': 'experiment_logger'}
+[0.001032] (-) JobUnselected: {'identifier': 'hc10dtp_bringup'}
+[0.001045] (-) JobUnselected: {'identifier': 'hc10dtp_moveit_config'}
+[0.001054] (-) JobUnselected: {'identifier': 'hc10dtp_simulation'}
+[0.001063] (-) JobUnselected: {'identifier': 'hrc_bringup'}
+[0.001073] (-) JobUnselected: {'identifier': 'human_hand_msgs'}
+[0.001082] (-) JobUnselected: {'identifier': 'industrial_msgs'}
+[0.001091] (-) JobUnselected: {'identifier': 'kinect2_bridge'}
+[0.001107] (-) JobUnselected: {'identifier': 'kinect2_calibration'}
+[0.001120] (-) JobUnselected: {'identifier': 'kinect2_registration'}
+[0.001129] (-) JobUnselected: {'identifier': 'libfreenect2'}
+[0.001138] (-) JobUnselected: {'identifier': 'motoman_gp4_support'}
+[0.001151] (-) JobUnselected: {'identifier': 'motoman_hc10dtp_support'}
+[0.001163] (-) JobUnselected: {'identifier': 'motoman_resources'}
+[0.001173] (-) JobUnselected: {'identifier': 'motoros2_client_interface_dependencies'}
+[0.001183] (-) JobUnselected: {'identifier': 'motoros2_interfaces'}
+[0.001193] (-) JobUnselected: {'identifier': 'predictor_ui'}
+[0.001203] (-) JobUnselected: {'identifier': 'realsense_tracker'}
+[0.001213] (-) JobUnselected: {'identifier': 'trac_ik'}
+[0.001222] (-) JobUnselected: {'identifier': 'trac_ik_kinematics'}
+[0.001232] (-) JobUnselected: {'identifier': 'trac_ik_lib'}
+[0.001242] (-) JobUnselected: {'identifier': 'trajectory_predictor'}
+[0.001256] (rula_tracker) JobQueued: {'identifier': 'rula_tracker', 'dependencies': OrderedDict()}
+[0.001271] (rula_tracker) JobStarted: {'identifier': 'rula_tracker'}
+[0.099852] (-) TimerEvent: {}
+[0.200108] (-) TimerEvent: {}
+[0.300330] (-) TimerEvent: {}
+[0.400561] (-) TimerEvent: {}
+[0.500831] (-) TimerEvent: {}
+[0.513398] (rula_tracker) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/rula_tracker', 'build', '--build-base', '/home/duy/cocarry_ws/build/rula_tracker/build', 'install', '--record', '/home/duy/cocarry_ws/build/rula_tracker/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/duy/cocarry_ws/src/rula_tracker', 'env': {'USER': 'duy', 'SHLVL': '0', 'HOME': '/home/duy', '_': '/usr/bin/colcon', 'TERM': 'dumb', 'PATH': '/home/duy/.local/bin:/home/duy/.nvm/versions/node/v20.20.2/bin:/opt/ros/humble/bin:/home/duy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/duy/libfreenect2/build/bin', 'LANG': 'en_US.UTF-8', 'TMP': '/tmp', 'SHELL': '/bin/bash', 'PWD': '/home/duy/cocarry_ws/build/rula_tracker', 'COLCON': '1', 'PYTHONPATH': '/home/duy/cocarry_ws/build/rula_tracker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages:'}, 'shell': False}
+[0.601023] (-) TimerEvent: {}
+[0.655549] (rula_tracker) StdoutLine: {'line': b'running egg_info\n'}
+[0.655891] (rula_tracker) StdoutLine: {'line': b'creating ../../build/rula_tracker/rula_tracker.egg-info\n'}
+[0.655943] (rula_tracker) StdoutLine: {'line': b'writing ../../build/rula_tracker/rula_tracker.egg-info/PKG-INFO\n'}
+[0.656018] (rula_tracker) StdoutLine: {'line': b'writing dependency_links to ../../build/rula_tracker/rula_tracker.egg-info/dependency_links.txt\n'}
+[0.656220] (rula_tracker) StdoutLine: {'line': b'writing entry points to ../../build/rula_tracker/rula_tracker.egg-info/entry_points.txt\n'}
+[0.656400] (rula_tracker) StdoutLine: {'line': b'writing requirements to ../../build/rula_tracker/rula_tracker.egg-info/requires.txt\n'}
+[0.656491] (rula_tracker) StdoutLine: {'line': b'writing top-level names to ../../build/rula_tracker/rula_tracker.egg-info/top_level.txt\n'}
+[0.656576] (rula_tracker) StdoutLine: {'line': b"writing manifest file '../../build/rula_tracker/rula_tracker.egg-info/SOURCES.txt'\n"}
+[0.657868] (rula_tracker) StdoutLine: {'line': b"reading manifest file '../../build/rula_tracker/rula_tracker.egg-info/SOURCES.txt'\n"}
+[0.658263] (rula_tracker) StdoutLine: {'line': b"writing manifest file '../../build/rula_tracker/rula_tracker.egg-info/SOURCES.txt'\n"}
+[0.658384] (rula_tracker) StdoutLine: {'line': b'running build\n'}
+[0.658487] (rula_tracker) StdoutLine: {'line': b'running build_py\n'}
+[0.658577] (rula_tracker) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/rula_tracker/build\n'}
+[0.658679] (rula_tracker) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/rula_tracker/build/lib\n'}
+[0.658748] (rula_tracker) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/build/rula_tracker/build/lib/rula_tracker\n'}
+[0.658829] (rula_tracker) StdoutLine: {'line': b'copying rula_tracker/__init__.py -> /home/duy/cocarry_ws/build/rula_tracker/build/lib/rula_tracker\n'}
+[0.658895] (rula_tracker) StdoutLine: {'line': b'copying rula_tracker/rula_tracker_node.py -> /home/duy/cocarry_ws/build/rula_tracker/build/lib/rula_tracker\n'}
+[0.658971] (rula_tracker) StdoutLine: {'line': b'running install\n'}
+[0.659037] (rula_tracker) StdoutLine: {'line': b'running install_lib\n'}
+[0.659338] (rula_tracker) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker\n'}
+[0.659434] (rula_tracker) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/rula_tracker/build/lib/rula_tracker/__init__.py -> /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker\n'}
+[0.659502] (rula_tracker) StdoutLine: {'line': b'copying /home/duy/cocarry_ws/build/rula_tracker/build/lib/rula_tracker/rula_tracker_node.py -> /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker\n'}
+[0.659772] (rula_tracker) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker/__init__.py to __init__.cpython-310.pyc\n'}
+[0.659858] (rula_tracker) StdoutLine: {'line': b'byte-compiling /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker/rula_tracker_node.py to rula_tracker_node.cpython-310.pyc\n'}
+[0.660956] (rula_tracker) StdoutLine: {'line': b'running install_data\n'}
+[0.661059] (rula_tracker) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/rula_tracker/share/ament_index\n'}
+[0.661159] (rula_tracker) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/rula_tracker/share/ament_index/resource_index\n'}
+[0.661230] (rula_tracker) StdoutLine: {'line': b'creating /home/duy/cocarry_ws/install/rula_tracker/share/ament_index/resource_index/packages\n'}
+[0.661295] (rula_tracker) StdoutLine: {'line': b'copying resource/rula_tracker -> /home/duy/cocarry_ws/install/rula_tracker/share/ament_index/resource_index/packages\n'}
+[0.661360] (rula_tracker) StdoutLine: {'line': b'copying package.xml -> /home/duy/cocarry_ws/install/rula_tracker/share/rula_tracker\n'}
+[0.661423] (rula_tracker) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.662258] (rula_tracker) StdoutLine: {'line': b'Copying ../../build/rula_tracker/rula_tracker.egg-info to /home/duy/cocarry_ws/install/rula_tracker/lib/python3.10/site-packages/rula_tracker-0.0.0-py3.10.egg-info\n'}
+[0.662649] (rula_tracker) StdoutLine: {'line': b'running install_scripts\n'}
+[0.676395] (rula_tracker) StdoutLine: {'line': b'Installing rula_tracker_node script to /home/duy/cocarry_ws/install/rula_tracker/lib/rula_tracker\n'}
+[0.676611] (rula_tracker) StdoutLine: {'line': b"writing list of installed files to '/home/duy/cocarry_ws/build/rula_tracker/install.log'\n"}
+[0.694964] (rula_tracker) CommandEnded: {'returncode': 0}
+[0.701203] (-) TimerEvent: {}
+[0.706541] (rula_tracker) JobEnded: {'identifier': 'rula_tracker', 'rc': 0}
+[0.707445] (-) EventReactorShutdown: {}
