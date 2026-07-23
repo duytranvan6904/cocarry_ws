@@ -37,6 +37,7 @@ import sys
 # Import local IK solver (cùng thư mục)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from local_ik_solver import LocalIKSolver
+from adaptive_shared_control import AdaptiveSharedControl
 
 import rclpy
 from rclpy.node import Node
@@ -44,10 +45,11 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 
 from geometry_msgs.msg import PoseStamped, Pose, Point, Quaternion
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float64MultiArray, Float32MultiArray
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectoryPoint
 from builtin_interfaces.msg import Duration
+from human_hand_msgs.msg import HandState
 
 from moveit_msgs.srv import GetPositionIK, GetPositionFK
 from moveit_msgs.msg import PositionIKRequest, RobotState
@@ -160,11 +162,13 @@ class CartesianStreamer(Node):
         retry_backoff_sec: float = QUEUE_RETRY_BACKOFF_SEC,
         auto_enable: bool = False,
         use_moveit_ik: bool = False,
+        adaptive: bool = False,
     ):
         super().__init__('cartesian_streamer')
         self._stream_hz = stream_hz
         self._stream_period_sec = 1.0 / stream_hz
         self._auto_enable = auto_enable
+        self._adaptive = adaptive
 
         self._cb = ReentrantCallbackGroup()
 
@@ -259,6 +263,20 @@ class CartesianStreamer(Node):
         self._ee_pub = self.create_publisher(
             PoseStamped, '/cartesian_streamer/current_pose', 10)
 
+        # ── Adaptive Shared Control ──────────────────────────────
+        self._current_joint_velocities: list[float] = [0.0] * 6
+        self._hand_pose_cam: Point | None = None
+        self._rula_scores: list[float] = [10.0, 0.0, 80.0, 0.0, 5.0]  # default optimal
+        
+        if self._adaptive:
+            self._adaptive_control = AdaptiveSharedControl(control_hz=stream_hz)
+            self._hand_sub = self.create_subscription(
+                PoseStamped, '/cartesian_streamer/hand_base_pose', self._on_hand_base_pose, 10, callback_group=self._cb)
+            self._rula_sub = self.create_subscription(
+                Float32MultiArray, '/rula_scores', self._on_rula_scores, 10, callback_group=self._cb)
+            self._adaptive_pub = self.create_publisher(
+                Float32MultiArray, '/cartesian_streamer/adaptive_status', 10)
+
         # ── Service clients ──────────────────────────────────────
         self._ik_cli = self.create_client(
             GetPositionIK, '/compute_ik', callback_group=self._cb)
@@ -318,7 +336,10 @@ class CartesianStreamer(Node):
     def _on_joint_state(self, msg: JointState):
         for i, name in enumerate(JOINT_NAMES):
             if name in msg.name:
-                self._current_joints[i] = msg.position[msg.name.index(name)]
+                idx = msg.name.index(name)
+                self._current_joints[i] = msg.position[idx]
+                if len(msg.velocity) > idx:
+                    self._current_joint_velocities[i] = msg.velocity[idx]
         if not self._got_joints:
             self._got_joints = True
             self._last_ok_joints = list(self._current_joints)
@@ -385,6 +406,13 @@ class CartesianStreamer(Node):
                 throttle_duration_sec=1.0
             )
         return ok
+
+    def _on_hand_base_pose(self, msg: PoseStamped):
+        self._hand_pose_cam = Point(x=msg.pose.position.x, y=msg.pose.position.y, z=msg.pose.position.z)
+
+    def _on_rula_scores(self, msg: Float32MultiArray):
+        if len(msg.data) >= 5:
+            self._rula_scores = list(msg.data[:5])
 
     # ═══════════════════════════════════════════════════════════════
     # STARTUP
@@ -637,8 +665,50 @@ class CartesianStreamer(Node):
                 self._send_joint_point(list(self._last_queued_joints), is_hold=True)
                 return
 
-            # ── Bước 1: Smooth pose (interpolate về target) ──────────
-            smoothed = self._smooth_pose(self._target_pose)
+            # ── Bước 1: Smooth pose (interpolate về target) & Adaptive Blending ──────────
+            if self._adaptive and self._hand_pose_cam is not None:
+                # Tính DT thực tế
+                now_ns = self.get_clock().now().nanoseconds
+                if not hasattr(self, '_last_smooth_time_ns'):
+                    self._last_smooth_time_ns = now_ns - int(self._stream_period_sec * 1e9)
+                dt = max((now_ns - self._last_smooth_time_ns) / 1e9, 1e-4)
+                dt = min(dt, 0.1)
+                self._last_smooth_time_ns = now_ns
+                
+                # Chuẩn bị dữ liệu cho Module A-D
+                import numpy as np
+                p_pre = np.array([self._target_pose.position.x, self._target_pose.position.y, self._target_pose.position.z])
+                p_hand = np.array([self._hand_pose_cam.x, self._hand_pose_cam.y, self._hand_pose_cam.z])
+                if self._current_ee_pose is not None:
+                    p_fb = np.array([self._current_ee_pose.position.x, self._current_ee_pose.position.y, self._current_ee_pose.position.z])
+                else:
+                    p_fb = p_hand
+                theta_arm = np.array(self._rula_scores)
+                
+                # Gọi update_cartesian (Modules A, B, C, D)
+                res_cart = self._adaptive_control.update_cartesian(p_pre, p_hand, p_fb, theta_arm, dt)
+                p_smooth = res_cart['p_smooth']
+                
+                # Cập nhật status
+                status_msg = Float32MultiArray()
+                status_msg.data = [float(res_cart['w']), float(res_cart['s_r']), float(res_cart['s_e'])]
+                self._adaptive_pub.publish(status_msg)
+                
+                smoothed = Pose()
+                smoothed.position.x = float(p_smooth[0])
+                smoothed.position.y = float(p_smooth[1])
+                smoothed.position.z = float(p_smooth[2])
+                
+                # SLERP orientation từ current -> target
+                if self._current_ee_pose is not None:
+                    orientation_speed = 5.0 # rad/s
+                    blend_factor = min(1.0, orientation_speed * dt)
+                    smoothed.orientation = self._slerp_quat(self._current_ee_pose.orientation, self._target_pose.orientation, blend_factor)
+                else:
+                    smoothed.orientation = self._target_pose.orientation
+            else:
+                smoothed = self._smooth_pose(self._target_pose)
+                
             self._current_ee_pose = smoothed  # cập nhật EE pose ngay lập tức để tick sau dùng
             
             # ── Bước 2: Publish feedback EE pose ─────────────────────
@@ -707,9 +777,20 @@ class CartesianStreamer(Node):
                 f'joints: [{", ".join(f"{j:.3f}" for j in joint_solution)}]',
                 throttle_duration_sec=2.0)
 
-            # ── Bước 5: Gửi xuống robot (motion point) ────────────────
+            # ── Bước 5: LQR Velocity Control & Gửi xuống robot ────────────────
             self._window_max_joint_delta = max(self._window_max_joint_delta, max_delta)
-            self._send_joint_point(joint_solution, is_hold=False)
+            
+            velocities = None
+            if self._adaptive:
+                import numpy as np
+                q_ref = np.array(joint_solution)
+                q_fb = np.array(self._current_joints)
+                qdot_fb = np.array(self._current_joint_velocities)
+                # Gọi update_joint (Module F - LQR)
+                _, qdot_cmd = self._adaptive_control.update_joint(q_ref, q_fb, qdot_fb)
+                velocities = qdot_cmd.tolist()
+
+            self._send_joint_point(joint_solution, is_hold=False, velocities=velocities)
         except Exception as e:
             self.get_logger().error(f'_stream_tick exception: {e}')
 
@@ -1090,6 +1171,7 @@ class CartesianStreamer(Node):
         joints: list[float],
         force_seed: bool = False,
         is_hold: bool = False,
+        velocities: list[float] | None = None,
     ):
         """
         Gửi một JointTrajectoryPoint xuống MotoROS2 queue.
@@ -1099,6 +1181,7 @@ class CartesianStreamer(Node):
             force_seed: True = seed point (t=0, v=0)
             is_hold: True = hold-point (giữ vị trí, KHÔNG tăng cumulative time).
                      Dùng khi chưa có target hoặc IK thất bại.
+            velocities: joint velocities [6], nếu None sẽ tự tính bằng sai phân.
         """
         # Thread-safe guard
         if force_seed and self._stream_state != STREAM_STATE_SEEDING:
@@ -1177,10 +1260,13 @@ class CartesianStreamer(Node):
             point.positions = [float(j) for j in joints]
             
             dt = actual_dt_ns / 1e9
-            raw_velocities = [
-                float((target - queued) / dt)
-                for target, queued in zip(joints, self._last_queued_joints)
-            ]
+            if velocities is not None:
+                raw_velocities = velocities
+            else:
+                raw_velocities = [
+                    float((target - queued) / dt)
+                    for target, queued in zip(joints, self._last_queued_joints)
+                ]
             # Clamp per-joint velocity for safety (khớp cổ tay chậm hơn)
             clamped_velocities = [
                 max(-MAX_JOINT_VELOCITIES[i], min(MAX_JOINT_VELOCITIES[i], v))
@@ -1534,6 +1620,9 @@ Ví dụ:
     parser.add_argument(
         '--use-moveit-ik', action='store_true', default=False,
         help='Sử dụng MoveIt! TRAC-IK thay vì Local IK solver (chậm hơn nhưng fallback an toàn)')
+    parser.add_argument(
+        '--adaptive', action='store_true', default=False,
+        help='Bật chế độ Adaptive Shared Control (Modules A-F)')
     args, ros_args = parser.parse_known_args()
 
     # Áp dụng CLI overrides lên các hằng số an toàn
@@ -1561,6 +1650,7 @@ Ví dụ:
         retry_backoff_sec=max(args.retry_backoff_ms, 0.0) / 1000.0,
         auto_enable=bool(args.demo),
         use_moveit_ik=args.use_moveit_ik,
+        adaptive=args.adaptive,
     )
     executor.add_node(streamer)
 

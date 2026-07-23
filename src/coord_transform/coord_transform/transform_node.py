@@ -333,6 +333,13 @@ class CoordTransformNode(Node):
             10,
         )
 
+        # Publish: tọa độ tay thực tế (base frame) dùng cho adaptive control
+        self._hand_base_pub = self.create_publisher(
+            PoseStamped,
+            '/cartesian_streamer/hand_base_pose',
+            10,
+        )
+
         # Publish: trạng thái node (để UI theo dõi)
         self._status_pub = self.create_publisher(
             String,
@@ -483,13 +490,38 @@ class CoordTransformNode(Node):
         filtered_pt.point.z = float(p_cam_filtered[2])
         self._filtered_hand_pub.publish(filtered_pt)
         
+        # Publish hand base pose for adaptive control
+        if self._p_cam_init is not None:
+            p_cam_delta = p_cam_filtered - self._p_cam_init + self._obj_offset
+            remap = self._axis_remap
+            signs = self._axis_sign
+            p_remapped = np.array([
+                signs[0] * p_cam_delta[remap[0]],
+                signs[1] * p_cam_delta[remap[1]],
+                signs[2] * p_cam_delta[remap[2]],
+            ])
+            p_base = self._R_cam_to_base @ p_remapped + self._t_cam_to_base
+            p_clamped, _ = self._clamp_to_workspace(p_base)
+            
+            hand_msg = PoseStamped()
+            hand_msg.header.frame_id = 'base_link'
+            hand_msg.header.stamp = self.get_clock().now().to_msg()
+            hand_msg.pose.position.x = float(p_clamped[0])
+            hand_msg.pose.position.y = float(p_clamped[1])
+            hand_msg.pose.position.z = float(p_clamped[2])
+            hand_msg.pose.orientation.x = float(self._ee_orient[0])
+            hand_msg.pose.orientation.y = float(self._ee_orient[1])
+            hand_msg.pose.orientation.z = float(self._ee_orient[2])
+            hand_msg.pose.orientation.w = float(self._ee_orient[3])
+            self._hand_base_pub.publish(hand_msg)
+        
         # Nếu đang ở ground_truth, dùng quỹ đạo này điều khiển robot
         if self._mode == 'ground_truth':
             self._transform_and_publish_target(p_cam_filtered)
 
     def _on_prediction(self, msg: HandPrediction):
-        """Xử lý HandPrediction khi mode = prediction"""
-        if self._mode != 'prediction':
+        """Xử lý HandPrediction khi mode = prediction hoặc ergonomics"""
+        if self._mode not in ['prediction', 'ergonomics']:
             return
 
         # Lấy tọa độ theo prediction_step
