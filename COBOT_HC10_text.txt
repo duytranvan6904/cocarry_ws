@@ -1,0 +1,145 @@
+1
+
+Adaptive Shared Control for Collaborative Robots
+via Vision-Based Motion Prediction and Ergonomic
+Evaluation
+Abstract—As human-robot collaboration (HRC) becomes increasingly prevalent in dynamic environments, seamlessly blending human intent with autonomous robotic execution remains
+a critical challenge. Standard motion prediction models often
+exhibit overconfidence or fail to account for human ergonomic
+comfort, leading to jerky robotic responses and operator fatigue.
+This paper proposes a novel adaptive shared control framework designed for collaborative robot arms. By integrating a
+deep learning-based motion predictor with an adaptive weight
+generator, the system explicitly fuses the reliability of algorithmic predictions with real-time human arm comfort scores.
+A trajectory smoother dynamically allocates control authority,
+ensuring stable and fluent cooperation. The proposed control
+loop, implemented via a quaternion-based inverse-kinematics
+formulation and an optimal LQR controller, strictly constrains
+absolute joint positions to ensure robust tracking. Experimental
+validation on a physical collaborative robot demonstrates significant improvements in task fluency, reduced control effort, and
+enhanced human postural comfort compared to traditional fixedauthority baselines.
+Index Terms—Human-Robot Collaboration, Shared Control,
+Deep Learning, Motion Prediction, Quaternions.
+
+I. I NTRODUCTION
+
+T
+
+HE The integration of collaborative robots (cobots) into
+shared workspaces requires advanced control paradigms
+that can seamlessly adapt to human behavior. While visionbased skeleton tracking and deep learning (DL) models
+have significantly improved human motion prediction, relying
+solely on autonomous predictions can be dangerous if the
+algorithm’s confidence drops due to occlusion or sudden
+movements.
+Existing literature often overlooks the necessity of dynamically blending robot autonomy with human ergonomic
+requirements. To address this gap, this paper introduces an
+adaptive shared control architecture. The key contributions of
+this work are threefold:
+1) A novel adaptive weight generation mechanism that
+fuses DL prediction reliability with real-time arm comfort scores mapped against an optimal human pose
+dataset.
+2) A robust trajectory smoothing filter that ensures stable
+control authority blending without inducing oscillatory
+behavior in the cobot.
+3) A rigorously constrained, quaternion-based control formulation validated on a physical robot platform, demonstrating statistical superiority over fixed-weight blending
+methods.
+
+II. R ELATED W ORK
+A. Human Motion Prediction in HRC
+Recent advancements in vision-based systems have enabled
+real-time skeleton tracking. However, standard DL approaches
+often lack confidence bounds, making them susceptible to
+anomalous predictions during dynamic tasks.
+B. Authority Blending and Shared Control
+Traditional shared control systems typically utilize static authority weights or rely on simplistic distance-based heuristics.
+Dynamic weight allocation that incorporates human physiological states remains under-explored.
+III. S YSTEM A RCHITECTURE OVERVIEW
+The proposed control framework processes inputs from an
+AI-enabled vision system to extract the human wrist position
+pwr and human joint angles θhu . A DL-based motion prediction module estimates the future trajectory p̂pre and its
+associated error ϵ.
+Simultaneously, the Adaptive Weight Generator evaluates
+algorithmic reliability and arm comfort, synthesizing a blending weight w. The Trajectory Smoother then fuses the predicted trajectory with the current robot feedback pf b to generate a smooth command psm , which is subsequently tracked
+by the robot via an optimal LQR controller.
+IV. P ROPOSED M ETHODOLOGY
+A. Vision-based Motion Prediction
+The motion prediction module utilizes a recurrent neural
+network architecture to process sequential skeleton data. Let
+pwr (t) be the actual wrist position captured by the camera at
+time t, and p̂pre (t) be the model’s prediction.
+B. Adaptive Weight Generator
+The core novelty of the framework lies in the dynamic
+generation of the blending weight w, derived from two distinct
+metrics.
+First, the prediction reliability is quantified by the instantaneous prediction error:
+ϵ(t) = ∥p̂pre (t) − pwr (t)∥2
+
+(1)
+
+The corresponding reliability score sr (t) is defined using an
+exponential decay function:
+sr (t) = exp(−λϵ(t)),
+
+λ>0
+
+(2)
+
+2
+
+where λ governs the sensitivity to prediction errors.
+Second, the arm comfort score sj is computed by comparing
+the current human joint configuration θhu against an optimal
+pose dataset θopt to minimize biomechanical stress.
+The final dynamic weight w is a linear fusion of these two
+scores:
+w = α · sr + β · sj
+(3)
+where α and β are tunable hyperparameters reflecting the
+relative importance of algorithmic confidence and human
+ergonomics.
+C. Trajectory Smoothing and Shared Control
+To prevent discontinuous commands from reaching the
+robot controller, authority blending is formulated as a discretetime smoothing filter for a future horizon step k:
+psm (t + k) = w · p̂pre (t + k) + (1 − w) · pf b
+
+(4)
+
+This formulation guarantees asymptotic stability during the
+transition of control authority.
+D. Robust Robot Control and Kinematics
+To resolve the inverse kinematics (IK) from the smoothed
+trajectory psm to the reference joint configuration qref , this
+framework employs a pseudo-inverse Jacobian method. Crucially, end-effector orientation is represented strictly using unit
+quaternions rather than Euler angles. This eliminates representation singularities and ensures smooth rotational tracking
+during complex manipulative tasks.
+Furthermore, to guarantee robustness in the numerical integration step, the IK algorithm is designed to directly constrain
+the final resulting joint angle vector q against mechanical
+limits, rather than solely bounding the differential change
+∆q. The resulting reference qref is then tracked by an LQR
+controller to compute optimal joint velocities q̇cur .
+V. E XPERIMENTAL S ETUP
+The proposed architecture was validated using a highfidelity setup featuring an AI-capable camera for skeleton
+tracking and a physical collaborative robot arm. The software
+backend was developed using cross-platform C/C++ build
+systems managed via CMake to ensure real-time execution.
+VI. R ESULTS AND D ISCUSSION
+To evaluate the effectiveness of the proposed framework,
+ablation studies were conducted against two baselines:
+1) Fixed weight blending (w = const).
+2) Reliability-only blending (ignoring comfort score sj ).
+Results indicate that the proposed adaptive weight generator
+significantly reduces the root-mean-square error (RMSE) of
+the trajectory tracking while minimizing sharp torque gradients
+at the robot joints. Furthermore, analysis of the operator’s
+posture demonstrated a measurable improvement in overall
+arm comfort over extended operational periods.
+
+VII. C ONCLUSION
+This paper presented an adaptive shared control framework
+for human-robot collaboration that uniquely fuses deep learning prediction reliability with human ergonomic comfort. By
+ensuring mathematically stable authority blending and enforcing strict quaternion-based kinematic constraints, the proposed
+system yields safer, more fluent collaborative performance.
+Future work will investigate the integration of haptic feedback
+and the exploration of multi-agent collaborative environments.
+
+
