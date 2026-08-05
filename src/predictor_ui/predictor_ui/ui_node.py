@@ -494,7 +494,7 @@ class DashboardWindow:
         p_rula.getAxis('left').enableAutoSIPrefix(False)
         p_rula.getAxis('bottom').enableAutoSIPrefix(False)
         p_rula.setXRange(0, 300, padding=0)
-        p_rula.setYRange(0.5, 7.5, padding=0)
+        p_rula.setYRange(2.5, 10.5, padding=0)
         self.curve_rula_total = p_rula.plot(
             pen=pg.mkPen((255, 100, 100), width=2))
 
