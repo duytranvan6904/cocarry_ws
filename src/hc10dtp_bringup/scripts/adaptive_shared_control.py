@@ -93,16 +93,16 @@ def generate_default_theta_opt() -> np.ndarray:
     rng = np.random.RandomState(42)  # reproducible
     M = 50  # 50 samples from optimal RULA ranges
     theta_opt = np.zeros((M, 5))
-    # α_s: uniform in [5, 20] (score 1 range)
-    theta_opt[:, 0] = rng.uniform(5.0, 20.0, M)
-    # α_c: uniform in [-8, 8] (no abduction penalty)
-    theta_opt[:, 1] = rng.uniform(-8.0, 8.0, M)
-    # β_s: uniform in [60, 100] (score 1 range)
+    # α_s: uniform in [0, 25] (optimal range)
+    theta_opt[:, 0] = rng.uniform(0.0, 25.0, M)
+    # α_c: uniform in [-15, 15] (optimal range, slightly relaxed for tracking noise)
+    theta_opt[:, 1] = rng.uniform(-15.0, 15.0, M)
+    # β_s: uniform in [60, 100] (optimal range)
     theta_opt[:, 2] = rng.uniform(60.0, 100.0, M)
-    # β_t: uniform in [-8, 8] (no deviation penalty)
-    theta_opt[:, 3] = rng.uniform(-8.0, 8.0, M)
-    # γ_s: uniform in [0, 15] (score 1 range)
-    theta_opt[:, 4] = rng.uniform(0.0, 15.0, M)
+    # β_t: uniform in [-15, 15] (optimal range)
+    theta_opt[:, 3] = rng.uniform(-15.0, 15.0, M)
+    # γ_s: uniform in [-15, 15] (optimal range)
+    theta_opt[:, 4] = rng.uniform(-15.0, 15.0, M)
     return theta_opt
 
 
@@ -110,7 +110,7 @@ class ArmComfortScore:
     """
     Mahalanobis distance-based comfort score.
 
-    s_e(t) = exp(-κ · d(t))
+    s_e(t) = 1.0 / (1.0 + exp(κ · (d(t) - d_tol)))
     where d(t) = √[(Θ_arm - μ_opt)ᵀ Σ_reg⁻¹ (Θ_arm - μ_opt)]
 
     Parameters
@@ -118,14 +118,17 @@ class ArmComfortScore:
     theta_opt : (M, 5) array or None
         Optimal pose dataset. If None, uses default RULA-based dataset.
     kappa : float
-        Sensitivity (default: 0.33, s_e=0.5 at d≈2.1).
+        Logistic steepness (default: 1.0).
     delta : float
-        Covariance regularization in deg² (default: 1.0).
+        Covariance regularization in deg² (default: 10.0).
+    d_tol : float
+        Midpoint of logistic curve where s_e = 0.5 (default: 8.0).
     """
 
     def __init__(self, theta_opt: Optional[np.ndarray] = None,
-                 kappa: float = 0.33, delta: float = 1.0):
+                 kappa: float = 1.0, delta: float = 10.0, d_tol: float = 8.0):
         self.kappa = kappa
+        self.d_tol = d_tol
 
         if theta_opt is None:
             theta_opt = generate_default_theta_opt()
@@ -150,7 +153,8 @@ class ArmComfortScore:
         """
         diff = theta_arm - self.mu_opt                      # (5,)
         d = float(np.sqrt(diff @ self.sigma_reg_inv @ diff))
-        s_e = float(np.exp(-self.kappa * d))
+        # Logistic curve: smooth decay from ~1.0 down to ~0.0 centered at d_tol
+        s_e = 1.0 / (1.0 + float(np.exp(self.kappa * (d - self.d_tol))))
         return s_e
 
 

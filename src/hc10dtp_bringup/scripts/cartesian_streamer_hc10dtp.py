@@ -411,8 +411,8 @@ class CartesianStreamer(Node):
         self._hand_pose_cam = Point(x=msg.pose.position.x, y=msg.pose.position.y, z=msg.pose.position.z)
 
     def _on_rula_scores(self, msg: Float32MultiArray):
-        if len(msg.data) >= 5:
-            self._rula_scores = list(msg.data[:5])
+        if len(msg.data) >= 10:
+            self._rula_scores = list(msg.data[5:10])
 
     # ═══════════════════════════════════════════════════════════════
     # STARTUP

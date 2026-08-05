@@ -83,7 +83,7 @@ def calculate_rula_score(wlm):
     cos_a_s = np.dot(trunk_vec, upper_arm_vec) / (np.linalg.norm(trunk_vec) * np.linalg.norm(upper_arm_vec) + 1e-8)
     alpha_s = np.degrees(np.arccos(np.clip(cos_a_s, -1.0, 1.0)))
     
-    if alpha_s <= 20: ua_score = 1
+    if alpha_s <= 25: ua_score = 1
     elif alpha_s <= 45: ua_score = 2
     elif alpha_s <= 90: ua_score = 3
     else: ua_score = 4
@@ -91,7 +91,7 @@ def calculate_rula_score(wlm):
     shoulder_up = r_n - r_shoulder
     cos_a_c = np.dot(shoulder_up, upper_arm_vec) / (np.linalg.norm(shoulder_up) * np.linalg.norm(upper_arm_vec) + 1e-8)
     alpha_c = np.degrees(np.arccos(np.clip(cos_a_c, -1.0, 1.0))) - 90.0
-    if abs(alpha_c) > 10.0: ua_score += 1
+    if abs(alpha_c) > 15.0: ua_score += 1
 
     # 2. Lower Arm
     forearm_vec = r_wrist - r_elbow
@@ -103,7 +103,7 @@ def calculate_rula_score(wlm):
     shoulder_axis = r_shoulder - r_n
     cos_b_t = np.dot(shoulder_axis, forearm_vec) / (np.linalg.norm(shoulder_axis) * np.linalg.norm(forearm_vec) + 1e-8)
     beta_t = 90.0 - np.degrees(np.arccos(np.clip(cos_b_t, -1.0, 1.0)))
-    if abs(beta_t) > 10.0: la_score += 1
+    if abs(beta_t) > 15.0: la_score += 1
 
     # 3. Wrist
     hand_vec = r_index - r_wrist
@@ -113,7 +113,8 @@ def calculate_rula_score(wlm):
     else: wrist_score = 2
 
     total = ua_score + la_score + wrist_score
-    return [float(ua_score), float(la_score), float(wrist_score), 0.0, float(total)], total
+    return [float(ua_score), float(la_score), float(wrist_score), 0.0, float(total),
+            float(alpha_s), float(alpha_c), float(beta_s), float(beta_t), float(gamma)], total
 
 class RealSenseTrackerNode(Node):
     def __init__(self):

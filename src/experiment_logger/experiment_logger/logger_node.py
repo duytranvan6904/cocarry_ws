@@ -110,6 +110,8 @@ class ExperimentLoggerNode(Node):
             # Dùng model name hoặc GROUND_TRUTH tùy mode
             if self._trajectory_mode == 'ground_truth':
                 model_tag = 'GROUND_TRUTH'
+            elif self._trajectory_mode == 'ergonomics':
+                model_tag = 'ERGONOMICS'
             else:
                 model_tag = str(self.current_model).upper() if self.current_model else "UNKNOWN"
             self.csv_path = os.path.join(self.log_dir, f'experiment_{model_tag}_{ts}.csv')
@@ -277,8 +279,8 @@ class ExperimentLoggerNode(Node):
                 self._rename_current_log(new_model)
 
         self.current_model = new_model
-        # Ở prediction mode: ghi row khi nhận prediction
-        if (self._trajectory_mode == 'prediction'
+        # Ở prediction mode hoặc ergonomics mode: ghi row khi nhận prediction
+        if (self._trajectory_mode in ['prediction', 'ergonomics']
                 and self.is_logging):
             self._write_row(self.last_meas, msg)
 
