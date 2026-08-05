@@ -86,7 +86,7 @@ class PredictorUiNode(Node):
         self._is_calibrated = False
         self._is_init_pose_captured = False
         self._backend_mode = 'UNKNOWN'
-        self._trajectory_mode = 'ground_truth'  # 'ground_truth' or 'prediction'
+        self._trajectory_mode = 'ground_truth'  # 'ground_truth', 'prediction', or 'ergonomics'
         self._is_running = False
         self._external_stop_requested = False
         self._lock = threading.Lock()
@@ -258,8 +258,8 @@ class PredictorUiNode(Node):
         self._is_predicting = enable
 
     def set_trajectory_mode(self, mode: str):
-        """Set trajectory mode: 'ground_truth' or 'prediction'"""
-        if mode not in ['ground_truth', 'prediction']:
+        """Set trajectory mode: 'ground_truth', 'prediction', or 'ergonomics'"""
+        if mode not in ['ground_truth', 'prediction', 'ergonomics']:
             self.get_logger().warn(f'[UI] Invalid trajectory mode: {mode}')
             return
         self._trajectory_mode = mode
@@ -269,7 +269,7 @@ class PredictorUiNode(Node):
         
         # If currently running, we must enable/disable predictor accordingly
         if self._is_running:
-            if mode == 'prediction':
+            if mode in ('prediction', 'ergonomics'):
                 self.call_predictor_toggle(True)
             else:
                 self.call_predictor_toggle(False)
@@ -421,9 +421,9 @@ class DashboardWindow:
         top.addStretch()
         main_layout.addLayout(top)
 
-        # ── Plots ─────────────────────────────────────────────────────────
+        # ── Plots: XYZ trajectory ───────────────────────────────────────
         self.gw = pg.GraphicsLayoutWidget()
-        self.gw.setFixedHeight(380)
+        self.gw.setFixedHeight(300)
         plots_data = [('X axis (m)', 'meas_x', 'pred_x'),
                       ('Y axis (m)', 'meas_y', 'pred_y'),
                       ('Z axis (m)', 'meas_z', 'pred_z')]
@@ -444,14 +444,7 @@ class DashboardWindow:
             p.getAxis('bottom').enableAutoSIPrefix(False)
 
             p.setXRange(0, 300, padding=0)
-            p.enableAutoRange(axis='y', enable=False)
-
-            if i == 0:
-                p.setYRange(-1.0, 1.0, padding=0)   # X axis
-            elif i == 1:
-                p.setYRange(-0.1, 1.5, padding=0)   # Y axis (depth)
-            elif i == 2:
-                p.setYRange(-0.2, 0.8, padding=0)   # Z axis
+            p.enableAutoRange(axis='y', enable=True)
 
             # # Raw: vẽ trước nhưng mờ (z=0 = phía sau)
             # self.curves_r[i] = p.plot(pen=pg.mkPen((120, 120, 120, 80), width=1),
@@ -465,26 +458,45 @@ class DashboardWindow:
 
         main_layout.addWidget(self.gw)
 
-        # ── Bottom Plot: Comfort Score & Adaptive Weight ──────────────
+        # ── Bottom Plots: 3 separate ergonomics charts ──────────────────
         self.gw_ergo = pg.GraphicsLayoutWidget()
-        self.gw_ergo.setFixedHeight(170)
-        p_ergo = self.gw_ergo.addPlot(row=0, col=0, title='Ergonomics & Adaptive Control')
-        p_ergo.setLabel('left', 'Score / Weight')
-        p_ergo.setLabel('bottom', 'Frames')
-        p_ergo.addLegend(offset=(5, 5))
-        p_ergo.showGrid(x=True, y=True, alpha=0.3)
-        p_ergo.getAxis('left').enableAutoSIPrefix(False)
-        p_ergo.getAxis('bottom').enableAutoSIPrefix(False)
-        p_ergo.setXRange(0, 300, padding=0)
-        p_ergo.setYRange(0.0, 1.1, padding=0)
-        self.curve_adapt_w  = p_ergo.plot(
-            pen=pg.mkPen((0, 220, 220), width=2), name='Adaptive Weight (w)')
-        self.curve_adapt_se = p_ergo.plot(
-            pen=pg.mkPen((80, 255, 80), width=2), name='Comfort Score (sₑ)')
-        self.curve_rula_total = p_ergo.plot(
-            pen=pg.mkPen((255, 100, 100), width=2, style=QtCore.Qt.PenStyle.DashLine),
-            name='RULA Total (raw)')
-        self.plot_ergo = p_ergo
+        self.gw_ergo.setFixedHeight(250)
+
+        # Plot 1: Adaptive Weight (w) — range [0, 1]
+        p_w = self.gw_ergo.addPlot(row=0, col=0, title='Adaptive Weight (w)')
+        p_w.setLabel('left', 'Weight')
+        p_w.setLabel('bottom', 'Frames')
+        p_w.showGrid(x=True, y=True, alpha=0.3)
+        p_w.getAxis('left').enableAutoSIPrefix(False)
+        p_w.getAxis('bottom').enableAutoSIPrefix(False)
+        p_w.setXRange(0, 300, padding=0)
+        p_w.setYRange(0.0, 1.05, padding=0)
+        self.curve_adapt_w = p_w.plot(
+            pen=pg.mkPen((0, 220, 220), width=2))
+
+        # Plot 2: Comfort Score (se) — range [0, 1]
+        p_se = self.gw_ergo.addPlot(row=0, col=1, title='Comfort Score (sₑ)')
+        p_se.setLabel('left', 'Score')
+        p_se.setLabel('bottom', 'Frames')
+        p_se.showGrid(x=True, y=True, alpha=0.3)
+        p_se.getAxis('left').enableAutoSIPrefix(False)
+        p_se.getAxis('bottom').enableAutoSIPrefix(False)
+        p_se.setXRange(0, 300, padding=0)
+        p_se.setYRange(0.0, 1.05, padding=0)
+        self.curve_adapt_se = p_se.plot(
+            pen=pg.mkPen((80, 255, 80), width=2))
+
+        # Plot 3: RULA Total — range [1, 7]
+        p_rula = self.gw_ergo.addPlot(row=0, col=2, title='RULA Total Score')
+        p_rula.setLabel('left', 'Score')
+        p_rula.setLabel('bottom', 'Frames')
+        p_rula.showGrid(x=True, y=True, alpha=0.3)
+        p_rula.getAxis('left').enableAutoSIPrefix(False)
+        p_rula.getAxis('bottom').enableAutoSIPrefix(False)
+        p_rula.setXRange(0, 300, padding=0)
+        p_rula.setYRange(0.5, 7.5, padding=0)
+        self.curve_rula_total = p_rula.plot(
+            pen=pg.mkPen((255, 100, 100), width=2))
 
         main_layout.addWidget(self.gw_ergo)
 
@@ -533,6 +545,13 @@ class DashboardWindow:
         self.btn_traj_pred.setStyleSheet(self._btn_style('#6c3483', '#8e44ad'))
         self.btn_traj_pred.clicked.connect(lambda: self._set_trajectory_mode('prediction'))
         traj_l.addWidget(self.btn_traj_pred)
+
+        self.btn_traj_ergo = QtWidgets.QPushButton('🦾 Ergonomics')
+        self.btn_traj_ergo.setFixedWidth(130)
+        self.btn_traj_ergo.setCheckable(True)
+        self.btn_traj_ergo.setStyleSheet(self._btn_style('#1a5276', '#2e86c1'))
+        self.btn_traj_ergo.clicked.connect(lambda: self._set_trajectory_mode('ergonomics'))
+        traj_l.addWidget(self.btn_traj_ergo)
         row_1.addWidget(traj_grp)
         row_1.addStretch()
 
@@ -643,7 +662,7 @@ class DashboardWindow:
         
         # Only enable prediction if in prediction mode
         if checked:
-            if self.node._trajectory_mode == 'prediction':
+            if self.node._trajectory_mode in ('prediction', 'ergonomics'):
                 self.node.call_predictor_toggle(True)
             else:
                 self.node.call_predictor_toggle(False)
@@ -738,14 +757,15 @@ class DashboardWindow:
     def _set_trajectory_mode(self, mode: str):
         self.node.set_trajectory_mode(mode)
         # Update button states
-        if mode == 'ground_truth':
-            self.btn_traj_gt.setChecked(True)
-            self.btn_traj_pred.setChecked(False)
-            self._set_status('State: PREPARE | Trajectory mode: GROUND TRUTH (default)')
-        else:
-            self.btn_traj_gt.setChecked(False)
-            self.btn_traj_pred.setChecked(True)
-            self._set_status('State: PREPARE | Trajectory mode: PREDICTION (requires model)')
+        self.btn_traj_gt.setChecked(mode == 'ground_truth')
+        self.btn_traj_pred.setChecked(mode == 'prediction')
+        self.btn_traj_ergo.setChecked(mode == 'ergonomics')
+        labels = {
+            'ground_truth': 'State: PREPARE | Trajectory mode: GROUND TRUTH (default)',
+            'prediction':   'State: PREPARE | Trajectory mode: PREDICTION (requires model)',
+            'ergonomics':   'State: PREPARE | Trajectory mode: ERGONOMICS (ICTA adaptive)',
+        }
+        self._set_status(labels.get(mode, f'State: PREPARE | Trajectory mode: {mode}'))
 
     def _toggle_draw(self, checked):
         self.node._is_drawing_ui = checked
@@ -789,7 +809,7 @@ class DashboardWindow:
             self.curves_m[i].setData(xm, ym)
             self.curves_p[i].setData(xp, yp)
 
-        # Update ergonomics plot
+        # Update ergonomics plots
         if adapt_w:
             xw = list(range(len(adapt_w)))
             self.curve_adapt_w.setData(xw, adapt_w)
@@ -797,10 +817,8 @@ class DashboardWindow:
             xs = list(range(len(adapt_se)))
             self.curve_adapt_se.setData(xs, adapt_se)
         if rula_total:
-            # Normalize RULA total (range 1-7) to 0-1 for display
-            rula_norm = [min(r / 7.0, 1.0) for r in rula_total]
-            xr = list(range(len(rula_norm)))
-            self.curve_rula_total.setData(xr, rula_norm)
+            xr = list(range(len(rula_total)))
+            self.curve_rula_total.setData(xr, rula_total)
 
         self._lbl_model.setText(f'Model: {model}')
         self._lbl_inf.setText(f'Inf: {inf_ms:.1f} ms')
