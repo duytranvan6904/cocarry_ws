@@ -11,10 +11,19 @@ import threading
 
 import rclpy
 from rclpy.node import Node
+from rclpy.node import Node
 from human_hand_msgs.msg import HandPrediction, HandState
 from std_srvs.srv import Trigger, SetBool
+from std_msgs.msg import Float32MultiArray
 
 RIGHT_WRIST_ID = 16
+
+# Landmark indices (MediaPipe Pose 33-landmark model)
+IDX_L_SHOULDER  = 11
+IDX_R_SHOULDER  = 12
+IDX_R_ELBOW     = 14
+IDX_R_HIP       = 24
+IDX_R_INDEX     = 20
 
 POSE_CONNECTIONS = [
     (11, 12),
@@ -52,6 +61,60 @@ def draw_skeleton(image, landmarks, w, h):
 
     return points
 
+def calculate_rula_score(wlm):
+    """Calculate RULA component scores and angles from pose_world_landmarks."""
+    def pt(idx):
+        return np.array([wlm[idx].x, wlm[idx].y, wlm[idx].z])
+
+    r_shoulder = pt(IDX_R_SHOULDER)
+    r_elbow    = pt(IDX_R_ELBOW)
+    r_wrist    = pt(RIGHT_WRIST_ID)
+    l_shoulder = pt(IDX_L_SHOULDER)
+    l_hip      = pt(23)
+    r_hip      = pt(IDX_R_HIP)
+    r_index    = pt(IDX_R_INDEX)
+    
+    r_n = (l_shoulder + r_shoulder) / 2.0  # neck
+    r_t = (l_hip + r_hip) / 2.0            # mid-hip
+
+    # 1. Upper Arm
+    trunk_vec = r_t - r_n
+    upper_arm_vec = r_elbow - r_shoulder
+    cos_a_s = np.dot(trunk_vec, upper_arm_vec) / (np.linalg.norm(trunk_vec) * np.linalg.norm(upper_arm_vec) + 1e-8)
+    alpha_s = np.degrees(np.arccos(np.clip(cos_a_s, -1.0, 1.0)))
+    
+    if alpha_s <= 20: ua_score = 1
+    elif alpha_s <= 45: ua_score = 2
+    elif alpha_s <= 90: ua_score = 3
+    else: ua_score = 4
+        
+    shoulder_up = r_n - r_shoulder
+    cos_a_c = np.dot(shoulder_up, upper_arm_vec) / (np.linalg.norm(shoulder_up) * np.linalg.norm(upper_arm_vec) + 1e-8)
+    alpha_c = np.degrees(np.arccos(np.clip(cos_a_c, -1.0, 1.0))) - 90.0
+    if abs(alpha_c) > 10.0: ua_score += 1
+
+    # 2. Lower Arm
+    forearm_vec = r_wrist - r_elbow
+    cos_b_s = np.dot(forearm_vec, upper_arm_vec) / (np.linalg.norm(forearm_vec) * np.linalg.norm(upper_arm_vec) + 1e-8)
+    beta_s = np.degrees(np.arccos(np.clip(cos_b_s, -1.0, 1.0)))
+    if 60 <= beta_s <= 100: la_score = 1
+    else: la_score = 2
+        
+    shoulder_axis = r_shoulder - r_n
+    cos_b_t = np.dot(shoulder_axis, forearm_vec) / (np.linalg.norm(shoulder_axis) * np.linalg.norm(forearm_vec) + 1e-8)
+    beta_t = 90.0 - np.degrees(np.arccos(np.clip(cos_b_t, -1.0, 1.0)))
+    if abs(beta_t) > 10.0: la_score += 1
+
+    # 3. Wrist
+    hand_vec = r_index - r_wrist
+    cos_g = np.dot(forearm_vec, hand_vec) / (np.linalg.norm(forearm_vec) * np.linalg.norm(hand_vec) + 1e-8)
+    gamma = np.degrees(np.arccos(np.clip(cos_g, -1.0, 1.0)))
+    if gamma <= 15: wrist_score = 1
+    else: wrist_score = 2
+
+    total = ua_score + la_score + wrist_score
+    return [float(ua_score), float(la_score), float(wrist_score), 0.0, float(total)], total
+
 class RealSenseTrackerNode(Node):
     def __init__(self):
         super().__init__('realsense_tracker')
@@ -67,6 +130,7 @@ class RealSenseTrackerNode(Node):
         self.offset_z = self.get_parameter('offset_z').value
 
         self.pred_pub = self.create_publisher(HandState, '/hand_position', 10)
+        self.rula_pub = self.create_publisher(Float32MultiArray, '/rula_scores', 10)
         
         self.calib_srv = self.create_service(Trigger, '/realsense/calibrate_origin', self.calibrate_cb)
 
@@ -187,9 +251,17 @@ class RealSenseTrackerNode(Node):
                 result = landmarker.detect_for_video(mp_image, timestamp_ms)
 
                 wrist_pixel = None
+                rula_total = 0.0
                 if result.pose_landmarks and len(result.pose_landmarks) > 0:
                     landmarks = result.pose_landmarks[0]
                     drawn_points = draw_skeleton(color_image, landmarks, w, h)
+                    
+                    if result.pose_world_landmarks and len(result.pose_world_landmarks) > 0:
+                        rula_scores_arr, rula_total = calculate_rula_score(result.pose_world_landmarks[0])
+                        rula_msg = Float32MultiArray()
+                        rula_msg.data = rula_scores_arr
+                        self.rula_pub.publish(rula_msg)
+
                     right_wrist = landmarks[RIGHT_WRIST_ID]
 
                     if right_wrist.visibility > 0.5:
@@ -233,11 +305,10 @@ class RealSenseTrackerNode(Node):
                             msg.z = z_ws
                             self.pred_pub.publish(msg)
 
-                # Hiển thị ảnh OpenCV
                 if wrist_pixel:
                     cv2.circle(color_image, wrist_pixel, 10, WRIST_COLOR, -1)
                     cv2.circle(color_image, wrist_pixel, 12, (255, 255, 255), 2)
-                    info_text = f"X:{self.current_raw_x:+.3f} Y:{self.current_raw_y:+.3f} Z:{self.current_raw_z:.3f} m"
+                    info_text = f"X:{self.current_raw_x:+.3f} Y:{self.current_raw_y:+.3f} Z:{self.current_raw_z:.3f} m | RULA: {rula_total:.1f}"
                     cv2.putText(color_image, info_text, (wrist_pixel[0]+20, wrist_pixel[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
 
                 cv2.imshow("RealSense Tracking (Press Q in this window to stop node)", color_image)
