@@ -18,7 +18,7 @@ from collections import deque
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
-from std_msgs.msg import String, Bool
+from std_msgs.msg import String, Bool, Float32MultiArray
 from std_srvs.srv import SetBool, Trigger
 from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
@@ -64,6 +64,12 @@ class PredictorUiNode(Node):
         # self._t_raw:  deque = deque(maxlen=n_pts)
         self._t_pred: deque = deque(maxlen=n_pts)
 
+        # ── RULA / Adaptive buffers ──────────────────────────────────────
+        self._adapt_w: deque  = deque(maxlen=n_pts)  # blending weight
+        self._adapt_se: deque = deque(maxlen=n_pts)  # comfort score
+        self._rula_total: deque = deque(maxlen=n_pts) # RULA total score
+        self._t_adapt: deque  = deque(maxlen=n_pts)
+
         # ── Stats display ────────────────────────────────────────────────────
         self._inf_ms = 0.0
         self._model_name = 'N/A'
@@ -93,6 +99,13 @@ class PredictorUiNode(Node):
             HandPrediction, '/ml/predicted_position', self._cb_pred, 10)
         self.create_subscription(
             Bool, '/run_status', self._cb_run_status, 10)
+        # RULA scores from rula_tracker
+        self.create_subscription(
+            Float32MultiArray, '/rula_scores', self._cb_rula, 10)
+        # Adaptive status from cartesian_streamer
+        self.create_subscription(
+            Float32MultiArray, '/cartesian_streamer/adaptive_status',
+            self._cb_adaptive, 10)
 
         # ── Publishers ───────────────────────────────────────────────────────
         self._model_pub = self.create_publisher(String, '/predictor/model_cmd', 5)
@@ -171,6 +184,27 @@ class PredictorUiNode(Node):
             self._buf_size = msg.buffer_size
             self._fps_counter_p += 1
 
+    def _cb_rula(self, msg: Float32MultiArray):
+        """RULA scores: [upper_arm, lower_arm, wrist, twist, total]."""
+        if not self._is_drawing_ui:
+            return
+        if len(msg.data) >= 5:
+            t = time.time()
+            with self._lock:
+                self._rula_total.append(msg.data[4])  # total score
+                # Time is shared with adapt buffer below
+
+    def _cb_adaptive(self, msg: Float32MultiArray):
+        """Adaptive status: [w, sr, se]."""
+        if not self._is_drawing_ui:
+            return
+        if len(msg.data) >= 3:
+            t = time.time()
+            with self._lock:
+                self._t_adapt.append(t)
+                self._adapt_w.append(msg.data[0])
+                self._adapt_se.append(msg.data[2])
+
     def _update_fps(self):
         now = time.time()
         dt = now - self._fps_t
@@ -192,10 +226,11 @@ class PredictorUiNode(Node):
         with self._lock:
             return (
                 list(self._meas['x']), list(self._meas['y']), list(self._meas['z']),
-                # list(self._raw['x']),  list(self._raw['y']),  list(self._raw['z']),
                 list(self._pred['x']), list(self._pred['y']), list(self._pred['z']),
                 self._inf_ms, self._model_name, self._buf_size,
                 self._fps_meas, self._fps_pred,
+                list(self._adapt_w), list(self._adapt_se),
+                list(self._rula_total),
             )
 
     # ── Service calls ────────────────────────────────────────────────────────
@@ -343,8 +378,11 @@ class PredictorUiNode(Node):
                 # self._raw[k].clear()
                 self._pred[k].clear()
             self._t_meas.clear()
-            # self._t_raw.clear()
             self._t_pred.clear()
+            self._adapt_w.clear()
+            self._adapt_se.clear()
+            self._rula_total.clear()
+            self._t_adapt.clear()
 
 
 # ── PyQtGraph Window ─────────────────────────────────────────────────────────
@@ -365,7 +403,7 @@ class DashboardWindow:
 
         self.win = QtWidgets.QWidget()
         self.win.setWindowTitle('HRC Trajectory Dashboard — Ubuntu')
-        self.win.resize(1200, 750)
+        self.win.resize(1200, 900)
         self.win.setStyleSheet('background: #1a1a2e; color: #e0e0e0;')
 
         main_layout = QtWidgets.QVBoxLayout(self.win)
@@ -385,7 +423,7 @@ class DashboardWindow:
 
         # ── Plots ─────────────────────────────────────────────────────────
         self.gw = pg.GraphicsLayoutWidget()
-        self.gw.setFixedHeight(520)
+        self.gw.setFixedHeight(380)
         plots_data = [('X axis (m)', 'meas_x', 'pred_x'),
                       ('Y axis (m)', 'meas_y', 'pred_y'),
                       ('Z axis (m)', 'meas_z', 'pred_z')]
@@ -426,6 +464,29 @@ class DashboardWindow:
             self.plots[i] = p
 
         main_layout.addWidget(self.gw)
+
+        # ── Bottom Plot: Comfort Score & Adaptive Weight ──────────────
+        self.gw_ergo = pg.GraphicsLayoutWidget()
+        self.gw_ergo.setFixedHeight(170)
+        p_ergo = self.gw_ergo.addPlot(row=0, col=0, title='Ergonomics & Adaptive Control')
+        p_ergo.setLabel('left', 'Score / Weight')
+        p_ergo.setLabel('bottom', 'Frames')
+        p_ergo.addLegend(offset=(5, 5))
+        p_ergo.showGrid(x=True, y=True, alpha=0.3)
+        p_ergo.getAxis('left').enableAutoSIPrefix(False)
+        p_ergo.getAxis('bottom').enableAutoSIPrefix(False)
+        p_ergo.setXRange(0, 300, padding=0)
+        p_ergo.setYRange(0.0, 1.1, padding=0)
+        self.curve_adapt_w  = p_ergo.plot(
+            pen=pg.mkPen((0, 220, 220), width=2), name='Adaptive Weight (w)')
+        self.curve_adapt_se = p_ergo.plot(
+            pen=pg.mkPen((80, 255, 80), width=2), name='Comfort Score (sₑ)')
+        self.curve_rula_total = p_ergo.plot(
+            pen=pg.mkPen((255, 100, 100), width=2, style=QtCore.Qt.PenStyle.DashLine),
+            name='RULA Total (raw)')
+        self.plot_ergo = p_ergo
+
+        main_layout.addWidget(self.gw_ergo)
 
         # ── Bottom bar: controls ──────────────────────────────────────────
         ctrl = QtWidgets.QVBoxLayout()
@@ -707,30 +768,39 @@ class DashboardWindow:
                 self._set_status('State: STOPPED | Auto-Snap → Robot disabled')
 
         (mx, my, mz,
-         # rx, ry, rz,
          px, py, pz,
-         inf_ms, model, buf, fps_m, fps_p) = self.node.get_buffers()
+         inf_ms, model, buf, fps_m, fps_p,
+         adapt_w, adapt_se, rula_total) = self.node.get_buffers()
 
         axes_m = [mx, my, mz]
-        # axes_r = [rx, ry, rz]
         axes_p = [px, py, pz]
 
         for i in range(3):
             ym = axes_m[i]
-            # yr = axes_r[i]
             yp = axes_p[i]
 
             xm = list(range(len(ym)))
-            # xr = list(range(len(yr)))
 
             offset = len(ym) - len(yp)
             if offset < 0:
                 offset = 0
             xp = [x + offset for x in range(len(yp))]
 
-            # self.curves_r[i].setData(xr, yr)   # Raw (mờ)
-            self.curves_m[i].setData(xm, ym)   # Filtered (chính)
-            self.curves_p[i].setData(xp, yp)   # Predicted
+            self.curves_m[i].setData(xm, ym)
+            self.curves_p[i].setData(xp, yp)
+
+        # Update ergonomics plot
+        if adapt_w:
+            xw = list(range(len(adapt_w)))
+            self.curve_adapt_w.setData(xw, adapt_w)
+        if adapt_se:
+            xs = list(range(len(adapt_se)))
+            self.curve_adapt_se.setData(xs, adapt_se)
+        if rula_total:
+            # Normalize RULA total (range 1-7) to 0-1 for display
+            rula_norm = [min(r / 7.0, 1.0) for r in rula_total]
+            xr = list(range(len(rula_norm)))
+            self.curve_rula_total.setData(xr, rula_norm)
 
         self._lbl_model.setText(f'Model: {model}')
         self._lbl_inf.setText(f'Inf: {inf_ms:.1f} ms')

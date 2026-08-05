@@ -9,7 +9,10 @@ Output CSV columns:
   pred_x, pred_y, pred_z,
   mae_x, mae_y, mae_z,
   inference_ms, buffer_size,
-  robot_ee_x, robot_ee_y, robot_ee_z
+  robot_ee_x, robot_ee_y, robot_ee_z,
+  j1_pos, ..., j6_pos, j1_vel, ..., j6_vel, j1_eff, ..., j6_eff,
+  rula_upper_arm, rula_lower_arm, rula_wrist, rula_twist, rula_total,
+  adapt_w, adapt_sr, adapt_se
 
 Author: Duy (auto-generated — extend as needed)
 """
@@ -24,7 +27,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import JointState
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32MultiArray
 from std_srvs.srv import SetBool
 
 from human_hand_msgs.msg import HandState, HandPrediction
@@ -60,6 +63,11 @@ class ExperimentLoggerNode(Node):
         # Robot Joint tracking
         self._last_joint_state = None
 
+        # RULA scores tracking [upper_arm, lower_arm, wrist, twist, total]
+        self._last_rula_scores = None
+        # Adaptive control status [w, sr, se]
+        self._last_adaptive_status = None
+
         # Task timing
         self._start_wall_time = 0.0
         self._stop_wall_time = 0.0
@@ -83,6 +91,13 @@ class ExperimentLoggerNode(Node):
             self._on_robot_ee_pose, 10)
         # Robot joint states for velocity/torque (effort)
         self.create_subscription(JointState, '/joint_states', self._on_joint_states, 10)
+        # RULA ergonomic scores from rula_tracker
+        self.create_subscription(
+            Float32MultiArray, '/rula_scores', self._on_rula_scores, 10)
+        # Adaptive control status from cartesian_streamer
+        self.create_subscription(
+            Float32MultiArray, '/cartesian_streamer/adaptive_status',
+            self._on_adaptive_status, 10)
 
         # Service to toggle recording
         self.toggle_srv = self.create_service(SetBool, '/logger/toggle', self._srv_toggle)
@@ -128,8 +143,12 @@ class ExperimentLoggerNode(Node):
                     'mae_x', 'mae_y', 'mae_z',
                     'inference_ms', 'buffer_size',
                     'robot_ee_x', 'robot_ee_y', 'robot_ee_z',
+                    'j1_pos', 'j2_pos', 'j3_pos', 'j4_pos', 'j5_pos', 'j6_pos',
                     'j1_vel', 'j2_vel', 'j3_vel', 'j4_vel', 'j5_vel', 'j6_vel',
-                    'j1_eff', 'j2_eff', 'j3_eff', 'j4_eff', 'j5_eff', 'j6_eff'
+                    'j1_eff', 'j2_eff', 'j3_eff', 'j4_eff', 'j5_eff', 'j6_eff',
+                    'rula_upper_arm', 'rula_lower_arm', 'rula_wrist',
+                    'rula_twist', 'rula_total',
+                    'adapt_w', 'adapt_sr', 'adapt_se',
                 ])
                 writer.writerows(self._log_buffer)
             self.get_logger().info(f'✓ Successfully wrote logs to disk.')
@@ -234,6 +253,14 @@ class ExperimentLoggerNode(Node):
         # nhưng order thường là 1 đến 6. Cứ lưu toàn bộ mảng.
         self._last_joint_state = msg
 
+    def _on_rula_scores(self, msg: Float32MultiArray):
+        """Lưu RULA scores [upper_arm, lower_arm, wrist, twist, total]."""
+        self._last_rula_scores = list(msg.data)
+
+    def _on_adaptive_status(self, msg: Float32MultiArray):
+        """Lưu adaptive control status [w, sr, se]."""
+        self._last_adaptive_status = list(msg.data)
+
     def _on_hand(self, msg: HandState):
         self.last_meas = msg
         # Ở ground_truth mode: ghi row ngay từ hand data (không cần chờ prediction)
@@ -301,16 +328,32 @@ class ExperimentLoggerNode(Node):
             rez = f'{self._last_robot_ee[2]:.6f}'
 
         # Robot joint states
+        jp = [''] * 6
         jv = [''] * 6
         je = [''] * 6
         if self._last_joint_state is not None:
             # Safely get up to 6 joints
+            posns = self._last_joint_state.position
             vels = self._last_joint_state.velocity
             effs = self._last_joint_state.effort
+            for i in range(min(6, len(posns))):
+                jp[i] = f'{posns[i]:.6f}'
             for i in range(min(6, len(vels))):
                 jv[i] = f'{vels[i]:.6f}'
             for i in range(min(6, len(effs))):
                 je[i] = f'{effs[i]:.6f}'
+
+        # RULA scores
+        rula = [''] * 5
+        if self._last_rula_scores is not None:
+            for i in range(min(5, len(self._last_rula_scores))):
+                rula[i] = f'{self._last_rula_scores[i]:.4f}'
+
+        # Adaptive control status
+        adapt = [''] * 3
+        if self._last_adaptive_status is not None:
+            for i in range(min(3, len(self._last_adaptive_status))):
+                adapt[i] = f'{self._last_adaptive_status[i]:.6f}'
 
         self._log_buffer.append([
             now_ns, wall, self._trajectory_mode,
@@ -318,8 +361,11 @@ class ExperimentLoggerNode(Node):
             px, py, pz, mae_x, mae_y, mae_z,
             inf_ms, buf,
             rex, rey, rez,
+            jp[0], jp[1], jp[2], jp[3], jp[4], jp[5],
             jv[0], jv[1], jv[2], jv[3], jv[4], jv[5],
-            je[0], je[1], je[2], je[3], je[4], je[5]
+            je[0], je[1], je[2], je[3], je[4], je[5],
+            rula[0], rula[1], rula[2], rula[3], rula[4],
+            adapt[0], adapt[1], adapt[2],
         ])
         self.row_count += 1
 
