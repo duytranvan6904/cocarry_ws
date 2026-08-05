@@ -57,37 +57,25 @@ ros2 topic echo /cartesian_streamer/adaptive_status
 *(Array format: [weight, reliability, comfort])*
 
 ### 4. Running the Full Experimental System
-To conduct a complete experiment with data logging and real-time visualization (e.g., using RViz simulation or the real robot):
+To conduct a complete experiment with data logging and real-time visualization, you do not need to run components separately. The entire ICTA framework (including RULA tracking, adaptive streamer, UI, and logger) has been integrated into the main launch files.
 
-1. **Start the Robot/Simulation & Camera Tracking:**
-   Launch the robot bringup (or RViz) and the realsense tracking nodes according to your standard workspace setup.
+**For Simulation / Testing:**
+```bash
+ros2 launch hrc_bringup cocarry_sim_gui.launch.py
+```
+*(This automatically enables the `--adaptive` flag for the Cartesian Streamer and launches the `rula_tracker`).*
 
-2. **Start the RULA Tracker:**
-   ```bash
-   ros2 run rula_tracker rula_tracker_node --ros-args -p model_path:=/path/to/pose_landmarker.task
-   ```
+**For Real Robot:**
+```bash
+export ROS_DOMAIN_ID=10
+ros2 launch hrc_bringup cocarry_full.launch.py
+```
 
-3. **Start the ICTA Adaptive Streamer:**
-   ```bash
-   ros2 run hc10dtp_bringup cartesian_streamer --adaptive
-   ```
-
-4. **Start the ML Predictor (if using prediction mode):**
-   ```bash
-   ros2 run ml_inference predictor_node
-   ```
-
-5. **Launch the Dashboard UI:**
-   Displays 3D trajectory tracking and the real-time Ergonomics & Adaptive Control chart ($s_e$, $w$, RULA total).
-   ```bash
-   ros2 run predictor_ui predictor_ui
-   ```
-
-6. **Start the Experiment Logger:**
-   Listens to `/joint_states`, `/rula_scores`, `/cartesian_streamer/adaptive_status`, and trajectory data. Records 43 columns of data to CSV for offline analysis.
-   ```bash
-   ros2 run experiment_logger logger
-   ```
+Then, from the UI Dashboard:
+1. Select **"Ergonomics"** mode (if mapped) or leave in **Prediction** and ensure transform node sends data to the adaptive loop.
+2. Click **Enable Robot** and **Start Run**.
+3. Watch the new RULA & Adaptive Control chart plot live data.
+4. Click **Stop Run** to export the 43-column CSV log.
 
 ## Tuning Parameters
 If the LQR or Blending is too aggressive or sluggish, you can tune the parameters directly in `adaptive_shared_control.py`:

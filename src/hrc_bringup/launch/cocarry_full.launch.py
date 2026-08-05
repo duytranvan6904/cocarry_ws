@@ -79,6 +79,16 @@ def generate_launch_description():
             'offset_z': 0.0,
         }])
 
+    # 1.5 RULA Ergonomics Tracker
+    rula_node = Node(
+        package='rula_tracker',
+        executable='rula_tracker_node',
+        name='rula_tracker',
+        output='screen',
+        parameters=[{
+            'model_path': rs_model_path,
+        }])
+
     # 2. Trajectory prediction node
     #    Cấu hình chính nằm trong all_params.yaml (filter, model files, scalers)
     #    Launch-specific overrides: model_dir (từ CLI), auto_start
@@ -108,7 +118,8 @@ def generate_launch_description():
         package='hc10dtp_bringup',
         executable='cartesian_streamer_hc10dtp.py',
         name='cartesian_streamer',
-        output='screen')
+        output='screen',
+        arguments=['--adaptive'])
 
     # 5. Experiment logger
     logger_node = Node(
@@ -136,6 +147,7 @@ def generate_launch_description():
         model_dir_arg,
         log_dir_arg,
         realsense_node,
+        rula_node,
         predictor_node,
         transform_node,
         streamer_node,
