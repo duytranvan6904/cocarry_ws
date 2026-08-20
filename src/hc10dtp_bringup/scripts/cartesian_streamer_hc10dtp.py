@@ -45,7 +45,7 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 
 from geometry_msgs.msg import PoseStamped, Pose, Point, Quaternion
-from std_msgs.msg import Float64MultiArray, Float32MultiArray
+from std_msgs.msg import Float64MultiArray, Float32MultiArray, String
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectoryPoint
 from builtin_interfaces.msg import Duration
@@ -102,18 +102,18 @@ MAX_JOINT_DELTA_PER_AXIS = [
 # Tốc độ tối đa End-Effector trong không gian Cartesian (m/s)
 # ISO 10218-2 / ISO/TS 15066: collaborative speed limit thường 0.25 m/s
 # Tăng 0.10→0.15 để giảm trễ bám theo, vẫn an toàn cộng tác
-MAX_CARTESIAN_VELOCITY = 0.15     # m/s — tăng từ 0.10 để giảm lag
-MAX_CARTESIAN_ACCELERATION = 0.50 # m/s² — tăng nhẹ cho khởng đi nhanh hơn
-MAX_CARTESIAN_JERK = 10.0          # m/s³ — tăng nhẹ cho response nhanh hơn
+MAX_CARTESIAN_VELOCITY = 0.50     # m/s — tăng từ 0.10 để giảm lag
+MAX_CARTESIAN_ACCELERATION = 2 # m/s² — tăng nhẹ cho khởng đi nhanh hơn
+MAX_CARTESIAN_JERK = 200.0          # m/s³ — tăng nhẹ cho response nhanh hơn
 
 # Tốc độ góc tối đa cho mỗi khớp (rad/s) — PER JOINT
 # Giảm từ 0.30/0.10 để conservative hơn, tránh PFL
 MAX_JOINT_VELOCITIES = [
-    0.20,   # J1 (S) — base rotation
-    0.20,   # J2 (L) — lower arm
-    0.20,   # J3 (U) — upper arm
-    0.08,   # J4 (R) — wrist roll:  RẤT CHẬM
-    0.08,   # J5 (B) — wrist pitch: RẤT CHẬM
+    0.30,   # J1 (S) — base rotation
+    0.30,   # J2 (L) — lower arm
+    0.30,   # J3 (U) — upper arm
+    0.10,   # J4 (R) — wrist roll:  RẤT CHẬM
+    0.10,   # J5 (B) — wrist pitch: RẤT CHẬM
     0.08,   # J6 (T) — wrist twist: RẤT CHẬM
 ]
 
@@ -267,6 +267,12 @@ class CartesianStreamer(Node):
         self._current_joint_velocities: list[float] = [0.0] * 6
         self._hand_pose_cam: Point | None = None
         self._rula_scores: list[float] = [10.0, 0.0, 80.0, 0.0, 5.0]  # default optimal
+        self._trajectory_mode: str = 'ground_truth'  # default mode
+        
+        # Subscribe: trajectory mode from transform_node/UI
+        self._mode_sub = self.create_subscription(
+            String, '/trajectory_mode', self._on_trajectory_mode, 10,
+            callback_group=self._cb)
         
         if self._adaptive:
             self._adaptive_control = AdaptiveSharedControl(control_hz=stream_hz)
@@ -413,6 +419,13 @@ class CartesianStreamer(Node):
     def _on_rula_scores(self, msg: Float32MultiArray):
         if len(msg.data) >= 10:
             self._rula_scores = list(msg.data[5:10])
+
+    def _on_trajectory_mode(self, msg: String):
+        new_mode = msg.data.strip().lower()
+        if new_mode != self._trajectory_mode:
+            self.get_logger().info(
+                f'Trajectory mode changed: {self._trajectory_mode} → {new_mode}')
+            self._trajectory_mode = new_mode
 
     # ═══════════════════════════════════════════════════════════════
     # STARTUP
@@ -666,8 +679,14 @@ class CartesianStreamer(Node):
                 return
 
             # ── Bước 1: Smooth pose (interpolate về target) & Adaptive Blending ──────────
-            if self._adaptive and self._hand_pose_cam is not None:
-                # Tính DT thực tế
+            use_adaptive_smooth = (
+                self._adaptive
+                and self._trajectory_mode == 'ergonomics'
+                and self._hand_pose_cam is not None
+            )
+            
+            if use_adaptive_smooth:
+                # ── Ergonomics mode: sử dụng Adaptive Shared Control (Modules A-D) ──
                 now_ns = self.get_clock().now().nanoseconds
                 if not hasattr(self, '_last_smooth_time_ns'):
                     self._last_smooth_time_ns = now_ns - int(self._stream_period_sec * 1e9)
@@ -675,7 +694,6 @@ class CartesianStreamer(Node):
                 dt = min(dt, 0.1)
                 self._last_smooth_time_ns = now_ns
                 
-                # Chuẩn bị dữ liệu cho Module A-D
                 import numpy as np
                 p_pre = np.array([self._target_pose.position.x, self._target_pose.position.y, self._target_pose.position.z])
                 p_hand = np.array([self._hand_pose_cam.x, self._hand_pose_cam.y, self._hand_pose_cam.z])
@@ -685,11 +703,9 @@ class CartesianStreamer(Node):
                     p_fb = p_hand
                 theta_arm = np.array(self._rula_scores)
                 
-                # Gọi update_cartesian (Modules A, B, C, D)
                 res_cart = self._adaptive_control.update_cartesian(p_pre, p_hand, p_fb, theta_arm, dt)
                 p_smooth = res_cart['p_smooth']
                 
-                # Cập nhật status
                 status_msg = Float32MultiArray()
                 status_msg.data = [float(res_cart['w']), float(res_cart['s_r']), float(res_cart['s_e'])]
                 self._adaptive_pub.publish(status_msg)
@@ -699,15 +715,24 @@ class CartesianStreamer(Node):
                 smoothed.position.y = float(p_smooth[1])
                 smoothed.position.z = float(p_smooth[2])
                 
-                # SLERP orientation từ current -> target
                 if self._current_ee_pose is not None:
-                    orientation_speed = 5.0 # rad/s
+                    orientation_speed = 5.0
                     blend_factor = min(1.0, orientation_speed * dt)
                     smoothed.orientation = self._slerp_quat(self._current_ee_pose.orientation, self._target_pose.orientation, blend_factor)
                 else:
                     smoothed.orientation = self._target_pose.orientation
             else:
-                smoothed = self._smooth_pose(self._target_pose)
+                # ── Ground Truth / GRU mode: BYPASS smooth, truyền thẳng target ──
+                # Robot bám trực tiếp target_pose từ transform_node.
+                # An toàn vẫn được đảm bảo bởi MAX_JOINT_DELTA_PER_AXIS clamp ở bước IK.
+                smoothed = Pose()
+                smoothed.position.x = self._target_pose.position.x
+                smoothed.position.y = self._target_pose.position.y
+                smoothed.position.z = self._target_pose.position.z
+                smoothed.orientation = self._target_pose.orientation
+                # Reset velocity/acceleration state nếu vừa chuyển mode
+                self._prev_ee_velocity = [0.0, 0.0, 0.0]
+                self._prev_ee_acceleration = [0.0, 0.0, 0.0]
                 
             self._current_ee_pose = smoothed  # cập nhật EE pose ngay lập tức để tick sau dùng
             

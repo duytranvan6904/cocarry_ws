@@ -32,7 +32,7 @@ JOINT_NAMES = [
 ]
 
 # Vị trí Home đã capture từ robot thật
-HOME_JOINTS = [1.570774, 0.124230, -1.049406, 0.000000, -0.397843, -1.443567]
+HOME_JOINTS = [1.570768, 0.124243, -1.002811, 0.000011, -0.385673, -1.879149]
 
 # Thời gian di chuyển về Home (giây)
 MOVE_DURATION_SEC = 2.5

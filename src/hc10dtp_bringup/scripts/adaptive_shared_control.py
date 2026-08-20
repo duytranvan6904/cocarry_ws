@@ -247,7 +247,7 @@ class AdaptiveTrajectorySmoother:
         Max Cartesian velocity in m/s (default: 0.15, ISO/TS 15066).
     """
 
-    def __init__(self, alpha_s: float = 0.5, v_max: float = 0.15):
+    def __init__(self, alpha_s: float = 0.5, v_max: float = 0.50):
         self.alpha_s = alpha_s
         self.v_max = v_max
         self.p_smooth: Optional[np.ndarray] = None
@@ -329,7 +329,7 @@ class LQRVelocityController:
 
         # Default per-joint velocity limits
         if qdot_max is None:
-            qdot_max = [0.20, 0.20, 0.20, 0.08, 0.08, 0.08]
+            qdot_max = [0.30, 0.30, 0.30, 0.10, 0.10, 0.10]
         self.qdot_max = np.array(qdot_max)
 
         # Default soft joint limits
@@ -445,7 +445,7 @@ class AdaptiveSharedControl:
         )
         self.mod_d = AdaptiveTrajectorySmoother(
             alpha_s=kwargs.get('alpha_s', 0.5),
-            v_max=kwargs.get('v_max', 0.15),
+            v_max=kwargs.get('v_max', 0.50),
         )
         self.mod_f = LQRVelocityController(
             dt=dt,

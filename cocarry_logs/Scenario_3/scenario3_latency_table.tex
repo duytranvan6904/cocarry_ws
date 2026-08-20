@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering
+\caption{Quantitative Latency and Tracking Performance in Scenario 3}
+\label{tab:scenario3_latency}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Metric} & \textbf{Baseline 1 (GT)} & \textbf{Baseline 2 (GRU)} & \textbf{Proposed System} & \textbf{$p$-value} \\
+\midrule
+Phase Lag (ms) & $968.42 \pm 673.69$ & $391.30 \pm 273.88$ & $\mathbf{533.50 \pm 261.41}$ & $0.017^{*}$ \\
+Position RMSE (mm) & $484.15 \pm 39.46$ & $496.14 \pm 49.89$ & $\mathbf{484.72 \pm 25.52}$ & $0.958^{n.s.}$ \\
+Speed Mismatch (m/s) & $0.18 \pm 0.04$ & $0.18 \pm 0.03$ & $\mathbf{0.15 \pm 0.02}$ & $0.008^{**}$ \\
+Task Completion Duration (s) & $9.18 \pm 0.82$ & $8.06 \pm 0.64$ & $\mathbf{8.07 \pm 0.83}$ & $< 0.001^{***}$ \\
+3D Prediction MAE (mm) & N/A & $43.77 \pm 17.26$ & $\mathbf{44.46 \pm 13.21}$ & N/A \\
+Model Inference Latency (ms) & N/A & $4.31 \pm 0.40$ & $\mathbf{4.14 \pm 0.42}$ & N/A \\
+\bottomrule
+\end{tabular}
+\end{table}
