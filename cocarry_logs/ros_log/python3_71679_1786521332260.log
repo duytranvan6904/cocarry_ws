@@ -1,0 +1,1443 @@
+[INFO] [1786521332.467598547] [cartesian_streamer]: CartesianStreamer khởi động (chờ Enable Robot từ UI).
+  Stream rate:       15 Hz (period=66.7ms)
+  Queue dt:          0.067 s
+  Prebuffer points:  3
+  Retry backoff:     66.0 ms
+  Gửi PoseStamped lên: /cartesian_streamer/target_pose
+  Gửi XYZ lên:        /cartesian_streamer/target_xyz
+  Nhận EE pose tại:   /cartesian_streamer/current_pose
+[INFO] [1786521332.473305786] [cartesian_streamer]: Nhận joint_states: ['1.571', '0.124', '-1.049', '0.000', '-0.398', '-1.444']
+[INFO] [1786521332.945500472] [cartesian_streamer]: ✓ FK cross-validation PASSED. Error = 0.0023mm
+  Local FK:  (-0.16199, 0.28005, 0.37853)
+  MoveIt FK: (-0.16199, 0.28005, 0.37853)
+[INFO] [1786521332.947472008] [cartesian_streamer]: Đã nhận joint_states. EE hiện tại: (-0.1620, 0.2801, 0.3785). IK mode: Local DLS. Chờ Enable Robot từ UI...
+[INFO] [1786521535.136006403] [cartesian_streamer]: Trajectory mode changed: ground_truth → ergonomics
+[INFO] [1786521551.815247311] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521551.815712674] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521551.825960657] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521551.826243154] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521551.877929665] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521551.878510193] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521553.379697093] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521554.858052708] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521554.858374020] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521554.913451051] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1786521554.914406699] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2800, 0.3785)
+[INFO] [1786521554.914769094] [cartesian_streamer]: Đang stream qua service: /queue_traj_point
+[INFO] [1786521554.915236385] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521554.977055606] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2800, 0.3785)
+[INFO] [1786521555.035639462] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521555.036366231] [cartesian_streamer]: Queue accepted sample#1: svc=/queue_traj_point, t_cumul=0.0000s, code=1, msg="", hold=False
+[INFO] [1786521555.055834320] [cartesian_streamer]: Queue accepted sample#2: svc=/queue_traj_point, t_cumul=0.1277s, code=1, msg="", hold=True
+[INFO] [1786521555.343957254] [cartesian_streamer]: Queue accepted sample#3: svc=/queue_traj_point, t_cumul=0.1947s, code=1, msg="", hold=True
+[INFO] [1786521555.495944401] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786521555.496253513] [cartesian_streamer]: Queue accepted sample#4: svc=/queue_traj_point, t_cumul=0.3947s, code=1, msg="", hold=True
+[INFO] [1786521555.514417222] [cartesian_streamer]: Queue accepted sample#5: svc=/queue_traj_point, t_cumul=0.5281s, code=1, msg="", hold=True
+[WARN] [1786521556.717147804] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521557.656634002] [cartesian_streamer]: QueueTrajPoint accepted #20: t=2.264s, hold=True
+[WARN] [1786521558.510289988] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521559.043294244] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521559.507102774] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521559.976640172] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=6.3, ack_hz=5.9, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=168.7, max_joint_delta=0.000, cumul_time=3.60s, hold_count=29, ik_mode=Local, ik_avg_ms=0.00, ik_fails=0
+[INFO] [1786521560.112121813] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[WARN] [1786521560.180871941] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521560.979669628] [cartesian_streamer]: IK delta clamped → joints: [1.502, 0.084, -0.979, 0.000, -0.488, -1.375]
+[INFO] [1786521561.233606348] [cartesian_streamer]: QueueTrajPoint accepted #40: t=4.742s, hold=False
+[INFO] [1786521562.178055976] [cartesian_streamer]: IK OK → Δmax=0.0198 rad, joints: [1.523, 0.057, -0.800, 0.000, -0.715, -1.396]
+[INFO] [1786521563.113126411] [cartesian_streamer]: IK delta clamped → joints: [1.454, 0.150, -0.545, 0.000, -0.876, -1.327]
+[INFO] [1786521563.191082735] [cartesian_streamer]: QueueTrajPoint accepted #60: t=6.741s, hold=False
+[INFO] [1786521564.180902460] [cartesian_streamer]: IK OK → Δmax=0.0176 rad, joints: [1.468, 0.278, -0.320, 0.000, -0.974, -1.341]
+[WARN] [1786521564.321435618] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521565.043716181] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.5, ack_hz=9.3, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=107.9, max_joint_delta=0.090, cumul_time=8.27s, hold_count=0, ik_mode=Local, ik_avg_ms=1.34, ik_fails=0
+[INFO] [1786521565.372077753] [cartesian_streamer]: QueueTrajPoint accepted #80: t=8.539s, hold=False
+[WARN] [1786521565.796621013] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521566.244992417] [cartesian_streamer]: IK OK → Δmax=0.0040 rad, joints: [1.471, 0.593, 0.084, 0.000, -1.063, -1.344]
+[INFO] [1786521567.432791874] [cartesian_streamer]: QueueTrajPoint accepted #100: t=10.337s, hold=False
+[INFO] [1786521567.713571568] [cartesian_streamer]: IK delta clamped → joints: [1.454, 0.574, 0.249, 0.000, -1.270, -1.327]
+[INFO] [1786521568.245057434] [cartesian_streamer]: IK OK → Δmax=0.0149 rad, joints: [1.458, 0.562, 0.426, 0.000, -1.436, -1.331]
+[WARN] [1786521568.929499733] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521569.430590290] [cartesian_streamer]: QueueTrajPoint accepted #120: t=12.067s, hold=False
+[INFO] [1786521569.940915499] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786521570.034072501] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521570.043729954] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.4, ack_hz=9.8, busy_hz=0.6, retry_count=3, reject_count=0, inter_ack_ms=101.2, max_joint_delta=0.090, cumul_time=12.70s, hold_count=2, ik_mode=Local, ik_avg_ms=1.81, ik_fails=2
+[WARN] [1786521570.703926563] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786521570.705779010] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.473, 0.610, 1.030, 0.000, -1.992, -1.346]
+[WARN] [1786521570.816928392] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[INFO] [1786521570.817332659] [cartesian_streamer]: IK delta clamped → joints: [1.471, 0.646, 1.050, 0.000, -2.082, -1.344]
+[INFO] [1786521572.183199506] [cartesian_streamer]: QueueTrajPoint accepted #140: t=14.533s, hold=False
+[INFO] [1786521572.714968203] [cartesian_streamer]: IK OK → Δmax=0.0545 rad, joints: [1.466, 0.502, 0.458, 0.000, -1.527, -1.339]
+[INFO] [1786521572.978543454] [cartesian_streamer]: IK delta clamped → joints: [1.475, 0.497, 0.388, 0.000, -1.440, -1.347]
+[WARN] [1786521573.283683750] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521574.715365583] [cartesian_streamer]: IK OK → Δmax=0.0036 rad, joints: [1.458, 0.585, 0.055, 0.000, -1.041, -1.331]
+[INFO] [1786521574.741063977] [cartesian_streamer]: QueueTrajPoint accepted #160: t=16.276s, hold=False
+[WARN] [1786521575.072434913] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521575.112708448] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.3, ack_hz=7.3, busy_hz=1.0, retry_count=5, reject_count=0, inter_ack_ms=136.4, max_joint_delta=0.090, cumul_time=16.54s, hold_count=0, ik_mode=Local, ik_avg_ms=4.90, ik_fails=17
+[INFO] [1786521576.045029958] [cartesian_streamer]: IK delta clamped → joints: [1.459, 0.636, 0.093, 0.000, -1.031, -1.331]
+[WARN] [1786521576.264568334] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521576.778554745] [cartesian_streamer]: IK OK → Δmax=0.0484 rad, joints: [1.492, 0.792, 0.387, 0.000, -1.165, -1.365]
+[INFO] [1786521577.362600788] [cartesian_streamer]: QueueTrajPoint accepted #180: t=17.941s, hold=False
+[WARN] [1786521577.453439916] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521578.779618890] [cartesian_streamer]: IK OK → Δmax=0.0110 rad, joints: [1.509, 0.781, 0.337, 0.000, -1.128, -1.382]
+[INFO] [1786521579.284173717] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521579.285028050] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786521610.018481778] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521610.019004120] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521610.033981011] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521610.034544093] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521610.085142820] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521610.085705574] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521611.586761653] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521612.989956057] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521612.991092534] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521613.043344867] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=1.7, queue_send_hz=1.0, ack_hz=0.9, busy_hz=0.1, retry_count=4, reject_count=0, inter_ack_ms=126.2, max_joint_delta=0.070, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.14, ik_fails=17
+[WARN] [1786521613.043695895] [cartesian_streamer]: Target stream stale: không có target mới trong 33.8s
+[WARN] [1786521613.044032244] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521613.044640149] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521613.045235755] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521613.110743606] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521613.176974227] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521613.243983233] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521613.310676204] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521613.377538388] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521613.394069930] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521613.557642878] [cartesian_streamer]: QueueTrajPoint accepted #200: t=0.200s, hold=True
+[INFO] [1786521613.721518452] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786521614.515774026] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521615.651084768] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521616.970048509] [cartesian_streamer]: QueueTrajPoint accepted #220: t=2.670s, hold=True
+[WARN] [1786521617.776401732] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786521618.043840580] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=5.8, ack_hz=5.0, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=1510.8, max_joint_delta=0.000, cumul_time=3.27s, hold_count=26, ik_mode=Local, ik_avg_ms=4.14, ik_fails=17
+[WARN] [1786521618.044472391] [cartesian_streamer]: Target stream stale: không có target mới trong 38.8s
+[WARN] [1786521618.311136929] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521618.843569571] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521619.380047057] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521619.910520260] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521620.443583918] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521620.524054860] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521620.780897438] [cartesian_streamer]: IK delta clamped → joints: [1.557, 0.167, -0.979, -0.002, -0.437, -1.428]
+[INFO] [1786521620.781225880] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.557, 0.167, -0.979, -0.002, -0.437, -1.428]
+[WARN] [1786521621.110758861] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521622.229456787] [cartesian_streamer]: QueueTrajPoint accepted #240: t=5.469s, hold=False
+[INFO] [1786521622.783033368] [cartesian_streamer]: IK delta clamped → joints: [1.520, 0.106, -0.979, 0.000, -0.488, -1.393]
+[INFO] [1786521622.783767640] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.520, 0.106, -0.979, 0.000, -0.488, -1.393]
+[WARN] [1786521622.984161927] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521623.112204511] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=5.3, ack_hz=4.5, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=250.9, max_joint_delta=0.090, cumul_time=6.27s, hold_count=0, ik_mode=Local, ik_avg_ms=3.78, ik_fails=17
+[WARN] [1786521624.706897559] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521624.845845146] [cartesian_streamer]: IK OK → Δmax=0.0614 rad, joints: [1.448, 0.289, -0.335, 0.000, -0.948, -1.321]
+[INFO] [1786521624.914279887] [cartesian_streamer]: IK delta clamped → joints: [1.449, 0.296, -0.326, 0.000, -0.957, -1.322]
+[INFO] [1786521625.059966645] [cartesian_streamer]: QueueTrajPoint accepted #260: t=7.671s, hold=False
+[INFO] [1786521626.850674466] [cartesian_streamer]: IK OK → Δmax=0.0438 rad, joints: [1.434, 0.497, -0.126, 0.000, -0.949, -1.306]
+[INFO] [1786521626.984876758] [cartesian_streamer]: IK delta clamped → joints: [1.444, 0.522, -0.099, 0.000, -0.962, -1.317]
+[WARN] [1786521627.006268355] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521627.658216897] [cartesian_streamer]: QueueTrajPoint accepted #280: t=9.546s, hold=False
+[INFO] [1786521628.176332501] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.3, ack_hz=7.3, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=133.7, max_joint_delta=0.090, cumul_time=9.88s, hold_count=0, ik_mode=Local, ik_avg_ms=3.36, ik_fails=17
+[INFO] [1786521628.911688150] [cartesian_streamer]: IK OK → Δmax=0.0093 rad, joints: [1.468, 0.519, -0.227, 0.000, -0.826, -1.341]
+[INFO] [1786521629.311347515] [cartesian_streamer]: IK delta clamped → joints: [1.453, 0.532, -0.147, 0.000, -0.894, -1.326]
+[INFO] [1786521629.998076049] [cartesian_streamer]: QueueTrajPoint accepted #300: t=11.679s, hold=False
+[WARN] [1786521630.702479416] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521630.914211076] [cartesian_streamer]: IK OK → Δmax=0.0449 rad, joints: [1.445, 0.521, 0.267, 0.000, -1.317, -1.318]
+[INFO] [1786521632.065360993] [cartesian_streamer]: QueueTrajPoint accepted #320: t=13.415s, hold=False
+[INFO] [1786521632.846433815] [cartesian_streamer]: IK delta clamped → joints: [1.450, 0.607, 0.836, 0.000, -1.811, -1.323]
+[INFO] [1786521632.978683557] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.448, 0.614, 0.858, 0.000, -1.833, -1.321]
+[INFO] [1786521633.177418741] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.4, ack_hz=9.4, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=110.7, max_joint_delta=0.083, cumul_time=14.42s, hold_count=0, ik_mode=Local, ik_avg_ms=3.03, ik_fails=17
+[INFO] [1786521634.064934453] [cartesian_streamer]: QueueTrajPoint accepted #340: t=15.352s, hold=False
+[INFO] [1786521634.847803447] [cartesian_streamer]: IK delta clamped → joints: [1.446, 0.589, 0.861, 0.000, -1.836, -1.319]
+[INFO] [1786521635.046421128] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.459, 0.558, 0.741, 0.000, -1.741, -1.332]
+[WARN] [1786521636.064028625] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521636.297638947] [cartesian_streamer]: QueueTrajPoint accepted #360: t=17.350s, hold=False
+[INFO] [1786521637.111643379] [cartesian_streamer]: IK OK → Δmax=0.0437 rad, joints: [1.457, 0.575, -0.024, 0.000, -0.972, -1.330]
+[WARN] [1786521637.335142978] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521638.243554966] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.3, ack_hz=8.3, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=119.4, max_joint_delta=0.090, cumul_time=18.55s, hold_count=0, ik_mode=Local, ik_avg_ms=2.84, ik_fails=17
+[WARN] [1786521638.398799132] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521639.165867906] [cartesian_streamer]: QueueTrajPoint accepted #380: t=19.216s, hold=False
+[INFO] [1786521639.180450721] [cartesian_streamer]: IK OK → Δmax=0.0110 rad, joints: [1.447, 0.564, -0.148, 0.000, -0.860, -1.320]
+[INFO] [1786521640.466789895] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521640.467891837] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786521660.806296158] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521660.806580934] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521660.819926913] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521660.821667003] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521660.866676731] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521660.867242874] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521662.368357645] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521663.936421794] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521663.937096641] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521663.976628113] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=1.3, queue_send_hz=0.7, ack_hz=0.6, busy_hz=0.1, retry_count=2, reject_count=0, inter_ack_ms=154.0, max_joint_delta=0.048, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=2.76, ik_fails=17
+[WARN] [1786521663.977025052] [cartesian_streamer]: Target stream stale: không có target mới trong 23.5s
+[WARN] [1786521663.977356210] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521663.978583548] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521663.979420403] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521664.043763700] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521664.111810504] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521664.176850728] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521664.203418680] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521664.777414991] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786521666.177517441] [cartesian_streamer]: QueueTrajPoint accepted #400: t=1.600s, hold=True
+[INFO] [1786521669.044864739] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=6.1, ack_hz=6.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=917.3, max_joint_delta=0.000, cumul_time=4.20s, hold_count=30, ik_mode=Local, ik_avg_ms=2.76, ik_fails=17
+[WARN] [1786521669.045229485] [cartesian_streamer]: Target stream stale: không có target mới trong 28.6s
+[INFO] [1786521669.061629897] [cartesian_streamer]: QueueTrajPoint accepted #420: t=4.335s, hold=True
+[INFO] [1786521671.401669226] [cartesian_streamer]: QueueTrajPoint accepted #440: t=6.398s, hold=True
+[WARN] [1786521671.992683179] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521672.381494981] [cartesian_streamer]: IK delta clamped → joints: [1.548, 0.171, -0.979, -0.000, -0.428, -1.421]
+[INFO] [1786521672.382119027] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.548, 0.171, -0.979, -0.000, -0.428, -1.421]
+[WARN] [1786521672.443525715] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521674.110240040] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.5, ack_hz=7.3, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=135.7, max_joint_delta=0.090, cumul_time=8.54s, hold_count=0, ik_mode=Local, ik_avg_ms=2.71, ik_fails=17
+[INFO] [1786521674.398162577] [cartesian_streamer]: QueueTrajPoint accepted #460: t=8.870s, hold=False
+[INFO] [1786521674.449941803] [cartesian_streamer]: IK delta clamped → joints: [1.474, 0.303, -0.354, 0.000, -0.940, -1.347]
+[INFO] [1786521674.450316673] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.474, 0.303, -0.354, 0.000, -0.940, -1.347]
+[WARN] [1786521675.001462629] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521676.515576968] [cartesian_streamer]: IK OK → Δmax=0.0631 rad, joints: [1.442, 0.383, -0.130, 0.000, -1.059, -1.315]
+[INFO] [1786521676.579588997] [cartesian_streamer]: IK delta clamped → joints: [1.442, 0.402, -0.111, 0.000, -1.057, -1.315]
+[INFO] [1786521676.917735782] [cartesian_streamer]: QueueTrajPoint accepted #480: t=10.405s, hold=False
+[WARN] [1786521677.566515696] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521678.578046654] [cartesian_streamer]: IK OK → Δmax=0.0018 rad, joints: [1.482, 0.634, 0.093, 0.000, -1.031, -1.355]
+[INFO] [1786521679.176887001] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.5, ack_hz=8.1, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=122.0, max_joint_delta=0.090, cumul_time=12.07s, hold_count=0, ik_mode=Local, ik_avg_ms=2.57, ik_fails=17
+[INFO] [1786521679.569505514] [cartesian_streamer]: QueueTrajPoint accepted #500: t=12.336s, hold=False
+[INFO] [1786521679.647952358] [cartesian_streamer]: IK delta clamped → joints: [1.490, 0.673, 0.276, 0.000, -1.205, -1.362]
+[WARN] [1786521680.590460188] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521680.712403848] [cartesian_streamer]: IK OK → Δmax=0.0386 rad, joints: [1.491, 0.666, 0.555, 0.000, -1.460, -1.364]
+[INFO] [1786521681.712717493] [cartesian_streamer]: IK delta clamped → joints: [1.495, 0.657, 0.885, 0.000, -1.835, -1.368]
+[INFO] [1786521681.727231116] [cartesian_streamer]: QueueTrajPoint accepted #520: t=14.332s, hold=False
+[WARN] [1786521681.798606692] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521682.021481277] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786521683.074462230] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786521683.079156029] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.496, 0.670, 1.025, 0.000, -1.930, -1.369]
+[WARN] [1786521683.636464561] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[INFO] [1786521683.752268523] [cartesian_streamer]: IK delta clamped → joints: [1.492, 0.740, 1.050, 0.000, -2.020, -1.364]
+[WARN] [1786521684.125662179] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521684.243553940] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.1, ack_hz=7.5, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=131.9, max_joint_delta=0.090, cumul_time=16.23s, hold_count=0, ik_mode=Local, ik_avg_ms=3.33, ik_fails=34
+[INFO] [1786521684.838057425] [cartesian_streamer]: QueueTrajPoint accepted #540: t=16.634s, hold=False
+[INFO] [1786521685.114692356] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.509, 0.575, 0.376, 0.000, -1.226, -1.382]
+[WARN] [1786521685.337938956] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521686.594426595] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521687.177922195] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.495, 0.657, 0.103, 0.000, -1.018, -1.368]
+[WARN] [1786521687.662145404] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521687.790525748] [cartesian_streamer]: QueueTrajPoint accepted #560: t=18.167s, hold=False
+[INFO] [1786521688.516088716] [cartesian_streamer]: IK delta clamped → joints: [1.527, 0.590, -0.067, 0.000, -0.903, -1.400]
+[INFO] [1786521689.178126183] [cartesian_streamer]: IK OK → Δmax=0.0320 rad, joints: [1.518, 0.639, 0.030, 0.000, -0.962, -1.391]
+[INFO] [1786521689.244070739] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=7.0, busy_hz=1.8, retry_count=9, reject_count=0, inter_ack_ms=147.6, max_joint_delta=0.090, cumul_time=19.04s, hold_count=0, ik_mode=Local, ik_avg_ms=3.18, ik_fails=34
+[INFO] [1786521690.324741367] [cartesian_streamer]: QueueTrajPoint accepted #580: t=20.170s, hold=False
+[INFO] [1786521691.179036221] [cartesian_streamer]: IK OK → Δmax=0.0011 rad, joints: [1.544, 0.654, 0.028, 0.000, -0.946, -1.417]
+[INFO] [1786521691.329044886] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521691.330779121] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786521711.952695637] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521711.953338394] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521711.969494379] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521711.969800741] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521712.014943568] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521712.015597146] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521713.517542303] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521715.025831908] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521715.026127367] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521715.043019652] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=1.2, queue_send_hz=0.8, ack_hz=0.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=121.8, max_joint_delta=0.061, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.11, ik_fails=34
+[WARN] [1786521715.043338205] [cartesian_streamer]: Target stream stale: không có target mới trong 23.7s
+[WARN] [1786521715.043624292] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521715.044236025] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2800, 0.3785)
+[INFO] [1786521715.044820021] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521715.110568789] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2800, 0.3785)
+[INFO] [1786521715.166732723] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521715.699690350] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786521716.935831177] [cartesian_streamer]: QueueTrajPoint accepted #600: t=1.265s, hold=True
+[WARN] [1786521719.509988100] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786521720.043222940] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=6.0, ack_hz=5.6, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=972.9, max_joint_delta=0.000, cumul_time=3.60s, hold_count=29, ik_mode=Local, ik_avg_ms=3.11, ik_fails=34
+[WARN] [1786521720.043590498] [cartesian_streamer]: Target stream stale: không có target mới trong 28.7s
+[WARN] [1786521720.043988887] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521720.576673692] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521721.109898699] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521721.643069805] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786521722.072582974] [cartesian_streamer]: QueueTrajPoint accepted #620: t=3.598s, hold=True
+[WARN] [1786521722.185875714] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521723.310056741] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786521723.513891102] [cartesian_streamer]: IK delta clamped → joints: [1.565, 0.171, -0.979, -0.000, -0.434, -1.437]
+[INFO] [1786521723.514232333] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.565, 0.171, -0.979, -0.000, -0.434, -1.437]
+[WARN] [1786521723.847531388] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521723.910050412] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1786521724.379045244] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786521724.912401976] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786521725.110302408] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.8, ack_hz=1.4, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=550.3, max_joint_delta=0.090, cumul_time=5.60s, hold_count=0, ik_mode=Local, ik_avg_ms=3.06, ik_fails=34
+[WARN] [1786521725.451642377] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786521725.514944328] [cartesian_streamer]: IK delta clamped → joints: [1.501, 0.192, -0.979, 0.000, -0.488, -1.354]
+[INFO] [1786521725.515692903] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.501, 0.192, -0.979, 0.000, -0.488, -1.354]
+[WARN] [1786521725.916848846] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521727.254137449] [cartesian_streamer]: QueueTrajPoint accepted #640: t=6.599s, hold=False
+[WARN] [1786521727.467430481] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521727.584091652] [cartesian_streamer]: IK OK → Δmax=0.0211 rad, joints: [1.392, 0.189, -0.524, 0.000, -0.858, -1.265]
+[INFO] [1786521728.512792094] [cartesian_streamer]: IK delta clamped → joints: [1.364, 0.271, -0.355, 0.000, -0.970, -1.236]
+[WARN] [1786521729.192520676] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521729.645167918] [cartesian_streamer]: IK OK → Δmax=0.0186 rad, joints: [1.438, 0.508, 0.032, 0.000, -1.095, -1.311]
+[INFO] [1786521729.996268809] [cartesian_streamer]: QueueTrajPoint accepted #660: t=8.256s, hold=False
+[INFO] [1786521730.110235395] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.2, ack_hz=7.0, busy_hz=1.8, retry_count=9, reject_count=0, inter_ack_ms=206.6, max_joint_delta=0.090, cumul_time=8.25s, hold_count=0, ik_mode=Local, ik_avg_ms=2.96, ik_fails=34
+[WARN] [1786521730.248537088] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521731.502602948] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521731.649503325] [cartesian_streamer]: IK OK → Δmax=0.0157 rad, joints: [1.405, 0.605, -0.026, 0.000, -0.940, -1.278]
+[INFO] [1786521732.050239840] [cartesian_streamer]: QueueTrajPoint accepted #680: t=9.785s, hold=False
+[INFO] [1786521732.380380296] [cartesian_streamer]: IK delta clamped → joints: [1.419, 0.629, 0.255, 0.000, -1.212, -1.292]
+[WARN] [1786521733.066549043] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521733.713007885] [cartesian_streamer]: IK OK → Δmax=0.0245 rad, joints: [1.409, 0.587, 0.596, 0.000, -1.580, -1.281]
+[INFO] [1786521734.365960454] [cartesian_streamer]: QueueTrajPoint accepted #700: t=11.718s, hold=False
+[WARN] [1786521734.518371056] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521735.176484209] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.1, ack_hz=9.5, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=106.7, max_joint_delta=0.075, cumul_time=12.39s, hold_count=0, ik_mode=Local, ik_avg_ms=2.85, ik_fails=34
+[INFO] [1786521735.781645913] [cartesian_streamer]: IK OK → Δmax=0.0496 rad, joints: [1.395, 0.609, 0.802, 0.000, -1.764, -1.268]
+[INFO] [1786521735.979242927] [cartesian_streamer]: IK delta clamped → joints: [1.403, 0.591, 0.698, 0.000, -1.675, -1.276]
+[INFO] [1786521736.515400291] [cartesian_streamer]: QueueTrajPoint accepted #720: t=13.590s, hold=False
+[WARN] [1786521736.990043875] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521737.782873943] [cartesian_streamer]: IK OK → Δmax=0.0060 rad, joints: [1.400, 0.639, 0.152, 0.000, -1.084, -1.273]
+[WARN] [1786521738.064393642] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521738.912907224] [cartesian_streamer]: IK delta clamped → joints: [1.390, 0.609, 0.062, 0.000, -1.015, -1.263]
+[INFO] [1786521739.501432591] [cartesian_streamer]: QueueTrajPoint accepted #740: t=15.516s, hold=False
+[INFO] [1786521739.844012214] [cartesian_streamer]: IK OK → Δmax=0.0155 rad, joints: [1.381, 0.554, -0.064, 0.000, -0.953, -1.254]
+[INFO] [1786521740.176756888] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=7.8, busy_hz=1.0, retry_count=5, reject_count=0, inter_ack_ms=128.5, max_joint_delta=0.090, cumul_time=16.25s, hold_count=0, ik_mode=Local, ik_avg_ms=2.76, ik_fails=34
+[INFO] [1786521741.456446040] [cartesian_streamer]: QueueTrajPoint accepted #760: t=17.581s, hold=False
+[INFO] [1786521741.844561760] [cartesian_streamer]: IK OK → Δmax=0.0039 rad, joints: [1.391, 0.599, 0.000, 0.000, -0.973, -1.264]
+[INFO] [1786521742.400906760] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521742.401744285] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786521791.232010666] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521791.232356127] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521791.240506080] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521791.241228898] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521791.287285019] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521791.288031289] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521792.789290656] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521794.270734853] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521794.271301822] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521794.309923110] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.6, queue_send_hz=0.4, ack_hz=0.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=114.4, max_joint_delta=0.024, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=2.72, ik_fails=34
+[WARN] [1786521794.310255502] [cartesian_streamer]: Target stream stale: không có target mới trong 51.9s
+[WARN] [1786521794.310563985] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521794.311155338] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521794.311668419] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521794.319452337] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521794.896365799] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786521795.932024639] [cartesian_streamer]: QueueTrajPoint accepted #780: t=1.331s, hold=True
+[WARN] [1786521797.388780476] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521798.522758986] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521799.032322290] [cartesian_streamer]: QueueTrajPoint accepted #800: t=3.665s, hold=True
+[INFO] [1786521799.312980443] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.0, ack_hz=6.6, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=1719.3, max_joint_delta=0.000, cumul_time=3.80s, hold_count=32, ik_mode=Local, ik_avg_ms=2.72, ik_fails=34
+[WARN] [1786521799.313328536] [cartesian_streamer]: Target stream stale: không có target mới trong 56.9s
+[INFO] [1786521801.589825969] [cartesian_streamer]: QueueTrajPoint accepted #820: t=5.994s, hold=True
+[INFO] [1786521804.376641833] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.3, ack_hz=7.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=138.4, max_joint_delta=0.000, cumul_time=8.26s, hold_count=69, ik_mode=Local, ik_avg_ms=2.72, ik_fails=34
+[WARN] [1786521804.376990757] [cartesian_streamer]: Target stream stale: không có target mới trong 62.0s
+[INFO] [1786521804.517773472] [cartesian_streamer]: QueueTrajPoint accepted #840: t=8.461s, hold=True
+[INFO] [1786521807.028524932] [cartesian_streamer]: QueueTrajPoint accepted #860: t=10.728s, hold=True
+[INFO] [1786521807.247376647] [cartesian_streamer]: IK delta clamped → joints: [1.531, 0.156, -0.979, -0.000, -0.440, -1.404]
+[INFO] [1786521807.247786149] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.531, 0.156, -0.979, -0.000, -0.440, -1.404]
+[WARN] [1786521807.310390419] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1786521808.658991391] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521809.312577037] [cartesian_streamer]: IK OK → Δmax=0.0220 rad, joints: [1.484, 0.220, -0.434, 0.000, -0.918, -1.357]
+[INFO] [1786521809.334912756] [cartesian_streamer]: QueueTrajPoint accepted #880: t=12.662s, hold=False
+[INFO] [1786521809.443969088] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.7, ack_hz=8.5, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=118.3, max_joint_delta=0.090, cumul_time=12.73s, hold_count=0, ik_mode=Local, ik_avg_ms=2.69, ik_fails=34
+[WARN] [1786521810.163897383] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521810.512399159] [cartesian_streamer]: IK delta clamped → joints: [1.407, 0.315, -0.252, 0.000, -1.004, -1.278]
+[INFO] [1786521811.313806892] [cartesian_streamer]: IK OK → Δmax=0.0303 rad, joints: [1.411, 0.478, -0.017, 0.000, -1.077, -1.284]
+[WARN] [1786521811.536268058] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521811.768028937] [cartesian_streamer]: QueueTrajPoint accepted #900: t=14.329s, hold=False
+[INFO] [1786521813.315156891] [cartesian_streamer]: IK OK → Δmax=0.0397 rad, joints: [1.480, 0.655, -0.012, 0.000, -0.905, -1.353]
+[INFO] [1786521813.447539257] [cartesian_streamer]: IK delta clamped → joints: [1.478, 0.641, -0.042, 0.000, -0.878, -1.351]
+[WARN] [1786521814.066942546] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521814.205496002] [cartesian_streamer]: QueueTrajPoint accepted #920: t=16.126s, hold=False
+[INFO] [1786521814.444437479] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.4, ack_hz=8.4, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=121.4, max_joint_delta=0.072, cumul_time=16.19s, hold_count=0, ik_mode=Local, ik_avg_ms=2.62, ik_fails=34
+[INFO] [1786521815.380474884] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.476, 0.594, 0.223, 0.000, -1.236, -1.349]
+[INFO] [1786521815.515200444] [cartesian_streamer]: IK delta clamped → joints: [1.474, 0.586, 0.223, 0.000, -1.263, -1.346]
+[WARN] [1786521816.133060275] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521816.520478064] [cartesian_streamer]: QueueTrajPoint accepted #940: t=17.726s, hold=False
+[INFO] [1786521817.381620718] [cartesian_streamer]: IK OK → Δmax=0.0141 rad, joints: [1.479, 0.521, 0.742, 0.000, -1.793, -1.352]
+[WARN] [1786521817.969682170] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521818.913855532] [cartesian_streamer]: IK delta clamped → joints: [1.464, 0.536, 0.762, 0.000, -1.796, -1.337]
+[INFO] [1786521819.002876050] [cartesian_streamer]: QueueTrajPoint accepted #960: t=19.266s, hold=False
+[INFO] [1786521819.446735172] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.474, 0.470, 0.466, 0.000, -1.566, -1.346]
+[INFO] [1786521819.510454638] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.9, ack_hz=8.7, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=114.1, max_joint_delta=0.090, cumul_time=19.87s, hold_count=0, ik_mode=Local, ik_avg_ms=2.56, ik_fails=34
+[WARN] [1786521820.263950397] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521820.987228484] [cartesian_streamer]: QueueTrajPoint accepted #980: t=21.000s, hold=False
+[INFO] [1786521821.447301897] [cartesian_streamer]: IK OK → Δmax=0.0164 rad, joints: [1.434, 0.534, -0.149, 0.000, -0.889, -1.307]
+[WARN] [1786521821.727390299] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521822.798043219] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521823.511863233] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.439, 0.596, -0.131, 0.000, -0.844, -1.311]
+[INFO] [1786521823.977282517] [cartesian_streamer]: QueueTrajPoint accepted #1000: t=22.866s, hold=False
+[INFO] [1786521824.509786266] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=7.4, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=131.1, max_joint_delta=0.089, cumul_time=23.33s, hold_count=0, ik_mode=Local, ik_avg_ms=2.49, ik_fails=34
+[INFO] [1786521825.017474645] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521825.018140415] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786521859.918408094] [cartesian_streamer]: Trajectory mode changed: ergonomics → prediction
+[INFO] [1786521867.814830871] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521867.815155863] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521867.847197542] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521867.847841108] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521867.898112015] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521867.898714876] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521869.404068982] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521873.424614319] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521873.425228920] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521873.445051670] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.2, queue_send_hz=0.1, ack_hz=0.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=175.1, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=2.47, ik_fails=34
+[WARN] [1786521873.445738068] [cartesian_streamer]: Target stream stale: không có target mới trong 48.4s
+[WARN] [1786521873.446466408] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521873.447515593] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521873.448461845] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521873.474000922] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521873.658678315] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786521874.447436186] [cartesian_streamer]: IK OK → Δmax=0.0008 rad, joints: [1.571, 0.123, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786521874.506077890] [cartesian_streamer]: QueueTrajPoint accepted #1020: t=0.929s, hold=True
+[INFO] [1786521874.515196920] [cartesian_streamer]: IK delta clamped → joints: [1.501, 0.103, -0.979, 0.000, -0.488, -1.364]
+[WARN] [1786521876.330880626] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521876.449600935] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.498, 0.273, -0.359, 0.000, -0.951, -1.371]
+[INFO] [1786521876.468402708] [cartesian_streamer]: QueueTrajPoint accepted #1040: t=2.794s, hold=False
+[INFO] [1786521876.580175976] [cartesian_streamer]: IK delta clamped → joints: [1.499, 0.303, -0.329, 0.000, -0.975, -1.372]
+[WARN] [1786521877.331393647] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521878.444389570] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.6, ack_hz=8.4, busy_hz=1.0, retry_count=5, reject_count=0, inter_ack_ms=1265.0, max_joint_delta=0.090, cumul_time=3.52s, hold_count=0, ik_mode=Local, ik_avg_ms=2.44, ik_fails=34
+[INFO] [1786521878.512470688] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.432, 0.579, 0.056, 0.000, -1.101, -1.305]
+[INFO] [1786521878.646031190] [cartesian_streamer]: IK delta clamped → joints: [1.437, 0.618, 0.126, 0.000, -1.113, -1.310]
+[WARN] [1786521878.932139211] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521879.729491431] [cartesian_streamer]: QueueTrajPoint accepted #1060: t=4.453s, hold=False
+[WARN] [1786521880.396694559] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521880.514807638] [cartesian_streamer]: IK OK → Δmax=0.0458 rad, joints: [1.463, 0.574, 0.114, 0.000, -1.111, -1.336]
+[INFO] [1786521880.647865476] [cartesian_streamer]: IK delta clamped → joints: [1.465, 0.574, 0.160, 0.000, -1.159, -1.338]
+[INFO] [1786521881.682672279] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786521881.815971263] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521882.480268284] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786521882.547746998] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.487, 0.687, 0.690, 0.000, -1.679, -1.360]
+[INFO] [1786521882.698802013] [cartesian_streamer]: IK delta clamped → joints: [1.487, 0.687, 0.760, 0.000, -1.769, -1.360]
+[INFO] [1786521882.981928547] [cartesian_streamer]: QueueTrajPoint accepted #1080: t=6.713s, hold=False
+[INFO] [1786521883.510218712] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.7, ack_hz=6.7, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=155.4, max_joint_delta=0.090, cumul_time=7.16s, hold_count=0, ik_mode=Local, ik_avg_ms=2.82, ik_fails=54
+[WARN] [1786521883.711482429] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521884.219743668] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[INFO] [1786521884.582431215] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.439, 0.570, 0.835, 0.000, -1.757, -1.312]
+[INFO] [1786521884.717659407] [cartesian_streamer]: IK delta clamped → joints: [1.447, 0.542, 0.765, 0.000, -1.667, -1.319]
+[WARN] [1786521885.966053755] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521886.333404017] [cartesian_streamer]: QueueTrajPoint accepted #1100: t=8.964s, hold=False
+[INFO] [1786521886.645619735] [cartesian_streamer]: IK OK → Δmax=0.0232 rad, joints: [1.447, 0.592, 0.032, 0.000, -1.011, -1.320]
+[WARN] [1786521886.994380443] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521888.240976445] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521888.510460569] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.6, ack_hz=5.4, busy_hz=2.0, retry_count=10, reject_count=0, inter_ack_ms=168.6, max_joint_delta=0.090, cumul_time=9.63s, hold_count=0, ik_mode=Local, ik_avg_ms=2.96, ik_fails=60
+[INFO] [1786521888.645930736] [cartesian_streamer]: IK OK → Δmax=0.0056 rad, joints: [1.452, 0.570, -0.016, 0.000, -0.986, -1.325]
+[INFO] [1786521889.433167803] [cartesian_streamer]: QueueTrajPoint accepted #1120: t=10.563s, hold=False
+[WARN] [1786521889.625907777] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521889.886867355] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521889.887982895] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786521913.444063626] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521913.445942809] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521913.463564847] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521913.464118567] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521913.513746993] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521913.514177216] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521915.015070545] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521916.454396894] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521916.454704966] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521916.509427973] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.8, queue_send_hz=0.5, ack_hz=0.5, busy_hz=0.0, retry_count=1, reject_count=0, inter_ack_ms=157.5, max_joint_delta=0.048, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=2.94, ik_fails=60
+[WARN] [1786521916.509764004] [cartesian_streamer]: Target stream stale: không có target mới trong 26.6s
+[WARN] [1786521916.510061866] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521916.510655538] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521916.511246430] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521916.577137299] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521916.628330362] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521917.069504089] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786521918.767624984] [cartesian_streamer]: QueueTrajPoint accepted #1140: t=1.932s, hold=True
+[WARN] [1786521919.188090840] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521921.509688444] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=6.8, ack_hz=6.4, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=979.8, max_joint_delta=0.000, cumul_time=4.07s, hold_count=32, ik_mode=Local, ik_avg_ms=2.94, ik_fails=60
+[WARN] [1786521921.510247899] [cartesian_streamer]: Target stream stale: không có target mới trong 31.6s
+[WARN] [1786521921.781163854] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521922.194533689] [cartesian_streamer]: QueueTrajPoint accepted #1160: t=4.600s, hold=True
+[INFO] [1786521923.512393177] [cartesian_streamer]: IK OK → Δmax=0.0001 rad, joints: [1.571, 0.124, -1.049, -0.000, -0.398, -1.443]
+[WARN] [1786521923.645888302] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521924.449807780] [cartesian_streamer]: IK delta clamped → joints: [1.501, 0.056, -0.979, 0.000, -0.488, -1.356]
+[INFO] [1786521924.999163974] [cartesian_streamer]: QueueTrajPoint accepted #1180: t=7.003s, hold=False
+[INFO] [1786521925.580052578] [cartesian_streamer]: IK OK → Δmax=0.0566 rad, joints: [1.429, 0.176, -0.588, 0.000, -0.808, -1.302]
+[WARN] [1786521925.597963980] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521926.514013672] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.0, ack_hz=7.4, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=133.3, max_joint_delta=0.090, cumul_time=8.07s, hold_count=0, ik_mode=Local, ik_avg_ms=2.90, ik_fails=60
+[INFO] [1786521926.517121509] [cartesian_streamer]: IK delta clamped → joints: [1.517, 0.327, -0.326, 0.000, -0.983, -1.390]
+[WARN] [1786521926.641911101] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521927.590494487] [cartesian_streamer]: QueueTrajPoint accepted #1200: t=8.604s, hold=False
+[INFO] [1786521927.649562365] [cartesian_streamer]: IK OK → Δmax=0.0384 rad, joints: [1.450, 0.589, 0.201, 0.000, -1.184, -1.323]
+[WARN] [1786521928.171219035] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521929.179108874] [cartesian_streamer]: IK delta clamped → joints: [1.472, 0.645, 0.100, 0.000, -1.022, -1.344]
+[WARN] [1786521929.334215393] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521929.711089789] [cartesian_streamer]: IK OK → Δmax=0.0286 rad, joints: [1.455, 0.581, -0.059, 0.000, -0.931, -1.328]
+[WARN] [1786521930.387116639] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521930.638668259] [cartesian_streamer]: QueueTrajPoint accepted #1220: t=10.005s, hold=False
+[INFO] [1786521931.244967275] [cartesian_streamer]: IK delta clamped → joints: [1.458, 0.542, 0.557, 0.000, -1.583, -1.331]
+[INFO] [1786521931.576821299] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.3, ack_hz=7.1, busy_hz=2.2, retry_count=11, reject_count=0, inter_ack_ms=145.4, max_joint_delta=0.090, cumul_time=10.54s, hold_count=0, ik_mode=Local, ik_avg_ms=2.86, ik_fails=60
+[WARN] [1786521931.660543654] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521931.780253195] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.467, 0.573, 0.764, 0.000, -1.818, -1.339]
+[INFO] [1786521932.024815829] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786521932.986513858] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521933.142230014] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786521933.283950982] [cartesian_streamer]: IK delta clamped → joints: [1.465, 0.613, 0.883, 0.000, -1.946, -1.337]
+[INFO] [1786521933.821076897] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.465, 0.613, 0.953, 0.000, -1.946, -1.337]
+[INFO] [1786521934.215701604] [cartesian_streamer]: QueueTrajPoint accepted #1240: t=11.694s, hold=False
+[WARN] [1786521934.216047255] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[WARN] [1786521934.660102050] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521935.315652453] [cartesian_streamer]: IK delta clamped → joints: [1.441, 0.474, 0.770, 0.000, -1.730, -1.314]
+[WARN] [1786521935.719028037] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521935.851603431] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.423, 0.560, 0.490, 0.000, -1.370, -1.296]
+[INFO] [1786521936.576817930] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.2, ack_hz=5.0, busy_hz=2.2, retry_count=11, reject_count=0, inter_ack_ms=191.7, max_joint_delta=0.090, cumul_time=13.05s, hold_count=0, ik_mode=Local, ik_avg_ms=3.35, ik_fails=80
+[WARN] [1786521937.365481197] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521937.593214590] [cartesian_streamer]: QueueTrajPoint accepted #1260: t=13.517s, hold=False
+[INFO] [1786521937.912447099] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.439, 0.626, 0.180, 0.000, -1.125, -1.312]
+[WARN] [1786521938.766951504] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521939.977423190] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.439, 0.626, 0.180, 0.000, -1.125, -1.312]
+[WARN] [1786521940.063807949] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521940.933633322] [cartesian_streamer]: QueueTrajPoint accepted #1280: t=15.248s, hold=False
+[INFO] [1786521941.643509806] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.1, ack_hz=6.5, busy_hz=1.6, retry_count=8, reject_count=0, inter_ack_ms=159.9, max_joint_delta=0.070, cumul_time=15.85s, hold_count=0, ik_mode=Local, ik_avg_ms=3.23, ik_fails=80
+[INFO] [1786521941.977793559] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.439, 0.626, 0.180, 0.000, -1.125, -1.312]
+[INFO] [1786521942.912061702] [cartesian_streamer]: IK delta clamped → joints: [1.508, 0.601, 0.244, 0.000, -1.224, -1.380]
+[INFO] [1786521943.178582191] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521943.181474723] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786521943.207367919] [cartesian_streamer]: QueueTrajPoint accepted #1300: t=17.449s, hold=False
+[INFO] [1786521967.365812013] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786521967.366132992] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786521967.378502689] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786521967.380048364] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786521967.423503639] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786521967.423797544] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786521968.926152441] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786521970.527664718] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786521970.528310077] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786521970.576405161] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.8, queue_send_hz=0.5, ack_hz=0.5, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=114.6, max_joint_delta=0.090, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.20, ik_fails=80
+[WARN] [1786521970.576779275] [cartesian_streamer]: Target stream stale: không có target mới trong 27.4s
+[WARN] [1786521970.578368406] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786521970.579667949] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786521970.581757955] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786521970.595267574] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786521971.213786169] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786521971.860292931] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521973.936128374] [cartesian_streamer]: QueueTrajPoint accepted #1320: t=2.330s, hold=True
+[INFO] [1786521974.322312933] [cartesian_streamer]: IK OK → Δmax=0.0007 rad, joints: [1.571, 0.124, -1.050, -0.001, -0.398, -1.443]
+[INFO] [1786521974.583216076] [cartesian_streamer]: IK delta clamped → joints: [1.641, 0.103, -0.980, -0.000, -0.488, -1.533]
+[WARN] [1786521974.718664105] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521975.578021463] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.0, ack_hz=6.6, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=979.2, max_joint_delta=0.090, cumul_time=3.74s, hold_count=0, ik_mode=Local, ik_avg_ms=3.20, ik_fails=80
+[INFO] [1786521976.129464257] [cartesian_streamer]: QueueTrajPoint accepted #1340: t=4.332s, hold=False
+[WARN] [1786521976.323197745] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521976.446501417] [cartesian_streamer]: IK OK → Δmax=0.0384 rad, joints: [1.486, 0.476, 0.034, 0.000, -1.129, -1.359]
+[INFO] [1786521976.717661021] [cartesian_streamer]: IK delta clamped → joints: [1.478, 0.518, 0.074, 0.000, -1.181, -1.351]
+[WARN] [1786521977.715658418] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521978.447295204] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.508, 0.679, 0.334, 0.000, -1.316, -1.381]
+[WARN] [1786521978.724921207] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521978.845959070] [cartesian_streamer]: IK delta clamped → joints: [1.511, 0.749, 0.404, 0.000, -1.385, -1.384]
+[WARN] [1786521979.785306772] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521980.329885273] [cartesian_streamer]: QueueTrajPoint accepted #1360: t=5.597s, hold=False
+[INFO] [1786521980.513987382] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.446, 0.834, 0.979, 0.000, -1.784, -1.318]
+[INFO] [1786521980.643690254] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.3, ack_hz=5.3, busy_hz=3.0, retry_count=15, reject_count=0, inter_ack_ms=178.1, max_joint_delta=0.090, cumul_time=5.53s, hold_count=0, ik_mode=Local, ik_avg_ms=3.14, ik_fails=80
+[INFO] [1786521980.670606438] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786521980.869828951] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521981.616744433] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[WARN] [1786521982.219512382] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521982.613732264] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.446, 0.834, 1.047, 0.000, -1.784, -1.318]
+[WARN] [1786521983.677792032] [cartesian_streamer]: Local IK failed 26x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786521984.359558019] [cartesian_streamer]: QueueTrajPoint accepted #1380: t=7.972s, hold=False
+[INFO] [1786521984.678039451] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.446, 0.834, 1.047, 0.000, -1.784, -1.318]
+[INFO] [1786521985.114156429] [cartesian_streamer]: IK delta clamped → joints: [1.510, 0.896, 0.977, 0.000, -1.694, -1.383]
+[INFO] [1786521985.710442392] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=6.9, ack_hz=5.7, busy_hz=1.0, retry_count=5, reject_count=0, inter_ack_ms=183.0, max_joint_delta=0.090, cumul_time=9.32s, hold_count=0, ik_mode=Local, ik_avg_ms=3.89, ik_fails=118
+[WARN] [1786521986.340649474] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521986.712760898] [cartesian_streamer]: IK OK → Δmax=0.0283 rad, joints: [1.476, 0.831, 0.464, 0.000, -1.205, -1.349]
+[INFO] [1786521986.996623556] [cartesian_streamer]: QueueTrajPoint accepted #1400: t=10.262s, hold=False
+[WARN] [1786521987.365542574] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786521988.568840195] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521988.779359160] [cartesian_streamer]: IK OK → Δmax=0.0181 rad, joints: [1.469, 0.763, 0.332, 0.000, -1.141, -1.342]
+[INFO] [1786521989.571757071] [cartesian_streamer]: QueueTrajPoint accepted #1420: t=11.920s, hold=False
+[WARN] [1786521989.667338042] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786521990.715321365] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.2, ack_hz=8.2, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=122.3, max_joint_delta=0.090, cumul_time=12.92s, hold_count=0, ik_mode=Local, ik_avg_ms=3.81, ik_fails=118
+[INFO] [1786521990.779359038] [cartesian_streamer]: IK OK → Δmax=0.0024 rad, joints: [1.455, 0.735, 0.284, 0.000, -1.120, -1.328]
+[INFO] [1786521990.803014028] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786521990.803898564] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522032.534817712] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522032.535149103] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522032.556367887] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522032.556657779] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522032.607345342] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522032.607617936] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522034.108519325] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522035.634057935] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522035.634403672] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522035.646875746] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=385.2, max_joint_delta=0.002, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.81, ik_fails=118
+[WARN] [1786522035.647593119] [cartesian_streamer]: Target stream stale: không có target mới trong 44.9s
+[WARN] [1786522035.648340686] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522035.649390402] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522035.650354952] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522035.669043241] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522035.920293457] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786522036.566187324] [cartesian_streamer]: QueueTrajPoint accepted #1440: t=0.793s, hold=True
+[INFO] [1786522039.180761243] [cartesian_streamer]: IK OK → Δmax=0.0027 rad, joints: [1.570, 0.124, -1.050, -0.002, -0.396, -1.441]
+[INFO] [1786522039.464453064] [cartesian_streamer]: QueueTrajPoint accepted #1460: t=3.530s, hold=False
+[INFO] [1786522039.848359439] [cartesian_streamer]: IK delta clamped → joints: [1.500, 0.056, -0.980, 0.000, -0.486, -1.352]
+[INFO] [1786522040.643639153] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.2, ack_hz=8.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=1237.4, max_joint_delta=0.090, cumul_time=4.67s, hold_count=0, ik_mode=Local, ik_avg_ms=3.78, ik_fails=118
+[INFO] [1786522041.182199107] [cartesian_streamer]: IK OK → Δmax=0.0107 rad, joints: [1.413, 0.155, -0.586, 0.000, -0.830, -1.286]
+[WARN] [1786522041.195650291] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522041.468922650] [cartesian_streamer]: QueueTrajPoint accepted #1480: t=5.265s, hold=False
+[INFO] [1786522041.980265433] [cartesian_streamer]: IK delta clamped → joints: [1.459, 0.300, -0.236, 0.000, -1.045, -1.332]
+[WARN] [1786522042.436003515] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522043.244820676] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.432, 0.613, 0.200, 0.000, -1.180, -1.304]
+[INFO] [1786522043.972757292] [cartesian_streamer]: QueueTrajPoint accepted #1500: t=6.930s, hold=False
+[WARN] [1786522043.989260394] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522044.847608988] [cartesian_streamer]: IK delta clamped → joints: [1.469, 0.692, 0.111, 0.000, -0.984, -1.342]
+[INFO] [1786522045.245724116] [cartesian_streamer]: IK OK → Δmax=0.0274 rad, joints: [1.464, 0.628, -0.013, 0.000, -0.930, -1.337]
+[WARN] [1786522045.701743899] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522045.710306921] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.3, ack_hz=8.1, busy_hz=1.4, retry_count=7, reject_count=0, inter_ack_ms=122.1, max_joint_delta=0.070, cumul_time=8.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.71, ik_fails=118
+[INFO] [1786522046.604780311] [cartesian_streamer]: QueueTrajPoint accepted #1520: t=8.596s, hold=False
+[WARN] [1786522047.233160421] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522047.311285686] [cartesian_streamer]: IK delta clamped → joints: [1.496, 0.541, 0.472, 0.000, -1.503, -1.369]
+[INFO] [1786522047.314734624] [cartesian_streamer]: IK OK → Δmax=0.0751 rad, joints: [1.496, 0.541, 0.472, 0.000, -1.503, -1.369]
+[INFO] [1786522048.005533206] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786522048.553819023] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522048.940004368] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786522049.337630210] [cartesian_streamer]: IK delta clamped → joints: [1.494, 0.595, 0.911, 0.000, -1.911, -1.367]
+[INFO] [1786522049.337981975] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.494, 0.595, 0.911, 0.000, -1.911, -1.367]
+[INFO] [1786522049.831470966] [cartesian_streamer]: QueueTrajPoint accepted #1540: t=10.340s, hold=False
+[WARN] [1786522050.414816239] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[WARN] [1786522050.566144685] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522050.710709942] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.2, ack_hz=6.4, busy_hz=1.6, retry_count=8, reject_count=0, inter_ack_ms=156.5, max_joint_delta=0.090, cumul_time=10.96s, hold_count=0, ik_mode=Local, ik_avg_ms=4.09, ik_fails=143
+[INFO] [1786522051.382538113] [cartesian_streamer]: IK delta clamped → joints: [1.441, 0.690, 0.700, 0.000, -1.547, -1.314]
+[INFO] [1786522051.383019410] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.441, 0.690, 0.700, 0.000, -1.547, -1.314]
+[WARN] [1786522051.662940681] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522052.796664541] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522053.030505804] [cartesian_streamer]: QueueTrajPoint accepted #1560: t=12.422s, hold=False
+[INFO] [1786522053.511259186] [cartesian_streamer]: IK OK → Δmax=0.0475 rad, joints: [1.441, 0.658, 0.177, 0.000, -1.091, -1.314]
+[WARN] [1786522053.810127204] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522055.514271145] [cartesian_streamer]: IK OK → Δmax=0.0056 rad, joints: [1.439, 0.686, 0.204, 0.000, -1.090, -1.312]
+[INFO] [1786522055.740541649] [cartesian_streamer]: QueueTrajPoint accepted #1580: t=14.362s, hold=False
+[INFO] [1786522055.777503572] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.5, ack_hz=7.1, busy_hz=1.6, retry_count=8, reject_count=0, inter_ack_ms=144.4, max_joint_delta=0.090, cumul_time=14.36s, hold_count=0, ik_mode=Local, ik_avg_ms=4.01, ik_fails=143
+[INFO] [1786522056.461699510] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522056.464176323] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522077.678184862] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522077.678933876] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522077.694110182] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522077.694786980] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522077.744491716] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522077.745151865] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522079.246096405] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522080.795009513] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522080.795331358] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522080.843107057] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.4, queue_send_hz=0.2, ack_hz=0.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=121.5, max_joint_delta=0.037, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.00, ik_fails=143
+[WARN] [1786522080.843430840] [cartesian_streamer]: Target stream stale: không có target mới trong 24.4s
+[WARN] [1786522080.843734230] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522080.844487170] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522080.845452744] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522080.910584580] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522080.966519990] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522081.229756620] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786522082.229220394] [cartesian_streamer]: QueueTrajPoint accepted #1600: t=1.264s, hold=True
+[INFO] [1786522085.000849801] [cartesian_streamer]: QueueTrajPoint accepted #1620: t=3.598s, hold=True
+[INFO] [1786522085.382339629] [cartesian_streamer]: IK OK → Δmax=0.0006 rad, joints: [1.571, 0.124, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786522085.910094797] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.1, ack_hz=8.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=716.8, max_joint_delta=0.001, cumul_time=4.54s, hold_count=0, ik_mode=Local, ik_avg_ms=3.99, ik_fails=143
+[WARN] [1786522085.910926433] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522087.444907934] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786522087.533370702] [cartesian_streamer]: QueueTrajPoint accepted #1640: t=5.937s, hold=False
+[INFO] [1786522089.444960439] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786522089.716920559] [cartesian_streamer]: IK delta clamped → joints: [1.502, 0.062, -0.980, 0.000, -0.488, -1.375]
+[INFO] [1786522090.122509632] [cartesian_streamer]: QueueTrajPoint accepted #1660: t=8.404s, hold=False
+[INFO] [1786522090.910282814] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=8.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=113.6, max_joint_delta=0.090, cumul_time=9.14s, hold_count=0, ik_mode=Local, ik_avg_ms=3.88, ik_fails=143
+[WARN] [1786522091.127571437] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522091.514408676] [cartesian_streamer]: IK OK → Δmax=0.0871 rad, joints: [1.446, 0.367, -0.207, 0.000, -1.085, -1.319]
+[INFO] [1786522091.778521847] [cartesian_streamer]: IK delta clamped → joints: [1.446, 0.439, -0.067, 0.000, -1.117, -1.319]
+[INFO] [1786522092.062112132] [cartesian_streamer]: QueueTrajPoint accepted #1680: t=9.938s, hold=False
+[WARN] [1786522092.595339363] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522093.578734548] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.431, 0.622, 0.088, 0.000, -1.054, -1.304]
+[WARN] [1786522094.501416626] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522094.581357209] [cartesian_streamer]: IK delta clamped → joints: [1.415, 0.546, 0.350, 0.000, -1.381, -1.288]
+[INFO] [1786522095.501927773] [cartesian_streamer]: QueueTrajPoint accepted #1700: t=11.405s, hold=False
+[INFO] [1786522095.581256873] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.434, 0.534, 0.728, 0.000, -1.832, -1.307]
+[WARN] [1786522095.724236788] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522095.880473176] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[INFO] [1786522095.910987076] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.6, ack_hz=6.4, busy_hz=2.2, retry_count=11, reject_count=0, inter_ack_ms=157.5, max_joint_delta=0.090, cumul_time=11.67s, hold_count=0, ik_mode=Local, ik_avg_ms=3.84, ik_fails=144
+[WARN] [1786522096.957501204] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522096.957669096] [cartesian_streamer]: Local IK không hội tụ (fail #9)
+[WARN] [1786522097.089065757] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786522097.089962611] [cartesian_streamer]: IK delta clamped → joints: [1.435, 0.592, 0.938, 0.000, -1.968, -1.308]
+[WARN] [1786522097.622878876] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[INFO] [1786522097.623644856] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.416, 0.662, 1.050, 0.000, -2.058, -1.289]
+[WARN] [1786522098.252128859] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522098.837011071] [cartesian_streamer]: QueueTrajPoint accepted #1720: t=13.299s, hold=False
+[INFO] [1786522099.112587585] [cartesian_streamer]: IK delta clamped → joints: [1.394, 0.567, 0.370, 0.000, -1.274, -1.267]
+[INFO] [1786522099.644638226] [cartesian_streamer]: IK OK → Δmax=0.0070 rad, joints: [1.397, 0.619, 0.150, 0.000, -1.102, -1.270]
+[WARN] [1786522099.868777764] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522100.868783573] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522100.980580111] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.5, ack_hz=6.1, busy_hz=2.4, retry_count=12, reject_count=0, inter_ack_ms=158.0, max_joint_delta=0.090, cumul_time=14.36s, hold_count=0, ik_mode=Local, ik_avg_ms=4.00, ik_fails=157
+[INFO] [1786522101.113350551] [cartesian_streamer]: IK delta clamped → joints: [1.399, 0.616, 0.108, 0.000, -1.053, -1.272]
+[INFO] [1786522101.713879996] [cartesian_streamer]: IK OK → Δmax=0.0153 rad, joints: [1.391, 0.556, -0.035, 0.000, -0.980, -1.263]
+[INFO] [1786522101.866121137] [cartesian_streamer]: QueueTrajPoint accepted #1740: t=14.830s, hold=False
+[WARN] [1786522102.390279267] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522103.008819064] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522103.009851625] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522125.549813963] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522125.550549981] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522125.562627731] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522125.563285730] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522125.610604715] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522125.611248851] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522127.112187758] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522129.811703564] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522129.812272010] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522129.843202957] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=1.1, queue_send_hz=0.7, ack_hz=0.5, busy_hz=0.1, retry_count=4, reject_count=0, inter_ack_ms=163.6, max_joint_delta=0.090, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.97, ik_fails=157
+[WARN] [1786522129.843843295] [cartesian_streamer]: Target stream stale: không có target mới trong 26.8s
+[WARN] [1786522129.844496447] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522129.845738287] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522129.848594796] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522129.857339688] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522130.048498073] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786522130.528113701] [cartesian_streamer]: QueueTrajPoint accepted #1760: t=0.663s, hold=True
+[INFO] [1786522132.763248889] [cartesian_streamer]: QueueTrajPoint accepted #1780: t=2.596s, hold=True
+[INFO] [1786522134.843476055] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.0, ack_hz=8.8, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=713.2, max_joint_delta=0.000, cumul_time=4.40s, hold_count=44, ik_mode=Local, ik_avg_ms=3.97, ik_fails=157
+[WARN] [1786522134.844124237] [cartesian_streamer]: Target stream stale: không có target mới trong 31.8s
+[INFO] [1786522135.048091284] [cartesian_streamer]: IK OK → Δmax=0.0002 rad, joints: [1.571, 0.124, -1.049, -0.000, -0.398, -1.443]
+[WARN] [1786522135.110062801] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522135.386800446] [cartesian_streamer]: QueueTrajPoint accepted #1800: t=5.064s, hold=False
+[INFO] [1786522135.845115648] [cartesian_streamer]: IK delta clamped → joints: [1.501, 0.054, -0.979, 0.000, -0.488, -1.353]
+[INFO] [1786522137.115941499] [cartesian_streamer]: IK OK → Δmax=0.0048 rad, joints: [1.403, 0.270, -0.519, 0.000, -0.783, -1.276]
+[WARN] [1786522137.195157257] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522137.569661442] [cartesian_streamer]: QueueTrajPoint accepted #1820: t=6.867s, hold=False
+[INFO] [1786522137.914469229] [cartesian_streamer]: IK delta clamped → joints: [1.443, 0.367, -0.359, 0.000, -0.849, -1.316]
+[WARN] [1786522138.332113395] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522139.181213579] [cartesian_streamer]: IK OK → Δmax=0.0057 rad, joints: [1.401, 0.578, -0.051, 0.000, -0.943, -1.274]
+[INFO] [1786522139.844786682] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=7.6, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=134.6, max_joint_delta=0.090, cumul_time=8.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.91, ik_fails=157
+[WARN] [1786522139.905174409] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522140.179113748] [cartesian_streamer]: IK delta clamped → joints: [1.361, 0.538, -0.205, 0.000, -0.823, -1.234]
+[INFO] [1786522141.246079846] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.348, 0.497, -0.176, 0.000, -0.880, -1.221]
+[INFO] [1786522141.523804215] [cartesian_streamer]: QueueTrajPoint accepted #1840: t=8.932s, hold=False
+[WARN] [1786522141.699956378] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522142.181843795] [cartesian_streamer]: IK delta clamped → joints: [1.396, 0.426, 0.136, 0.000, -1.278, -1.269]
+[INFO] [1786522143.311009730] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.377, 0.459, 0.708, 0.000, -1.926, -1.249]
+[WARN] [1786522143.320594588] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522144.499358272] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522144.699665794] [cartesian_streamer]: QueueTrajPoint accepted #1860: t=10.403s, hold=False
+[INFO] [1786522144.910310229] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.9, ack_hz=5.9, busy_hz=2.2, retry_count=11, reject_count=0, inter_ack_ms=166.2, max_joint_delta=0.090, cumul_time=10.47s, hold_count=0, ik_mode=Local, ik_avg_ms=3.84, ik_fails=157
+[INFO] [1786522145.314966067] [cartesian_streamer]: IK OK → Δmax=0.0539 rad, joints: [1.352, 0.452, 0.696, 0.000, -1.816, -1.225]
+[WARN] [1786522145.726136418] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522145.844691903] [cartesian_streamer]: IK delta clamped → joints: [1.357, 0.492, 0.588, 0.000, -1.645, -1.230]
+[WARN] [1786522147.004112166] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522147.381343583] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.353, 0.464, -0.160, 0.000, -0.917, -1.226]
+[INFO] [1786522147.465647916] [cartesian_streamer]: QueueTrajPoint accepted #1880: t=12.000s, hold=False
+[WARN] [1786522148.205639899] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522149.325511384] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522149.445455601] [cartesian_streamer]: IK OK → Δmax=0.0446 rad, joints: [1.353, 0.496, -0.306, 0.000, -0.769, -1.226]
+[INFO] [1786522149.977523325] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.9, ack_hz=6.3, busy_hz=2.4, retry_count=12, reject_count=0, inter_ack_ms=160.3, max_joint_delta=0.090, cumul_time=13.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.79, ik_fails=157
+[INFO] [1786522150.599066463] [cartesian_streamer]: QueueTrajPoint accepted #1900: t=13.667s, hold=False
+[INFO] [1786522151.156544353] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522151.157243141] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522179.779938768] [cartesian_streamer]: Trajectory mode changed: prediction → ground_truth
+[INFO] [1786522185.628795183] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522185.629396564] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522185.637651868] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522185.637959027] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522185.693113076] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522185.693678984] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522187.194894037] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522188.711821831] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522188.712393628] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522188.776692009] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.5, queue_send_hz=0.3, ack_hz=0.3, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=109.1, max_joint_delta=0.023, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.78, ik_fails=157
+[WARN] [1786522188.777058525] [cartesian_streamer]: Target stream stale: không có target mới trong 37.6s
+[WARN] [1786522188.777433645] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522188.778135875] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522188.778689109] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522188.844543836] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522188.910671365] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522188.977189394] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522189.044094573] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522189.111088928] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522189.122379870] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522189.388290710] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786522189.846874061] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522191.131829611] [cartesian_streamer]: QueueTrajPoint accepted #1920: t=1.599s, hold=True
+[WARN] [1786522191.718941535] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522192.317050900] [cartesian_streamer]: IK OK → Δmax=0.0003 rad, joints: [1.571, 0.124, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786522193.178396015] [cartesian_streamer]: IK delta clamped → joints: [1.515, 0.054, -0.980, 0.000, -0.488, -1.387]
+[INFO] [1786522193.731961094] [cartesian_streamer]: QueueTrajPoint accepted #1940: t=4.004s, hold=False
+[INFO] [1786522193.843785131] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.5, ack_hz=7.1, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=1184.1, max_joint_delta=0.090, cumul_time=4.07s, hold_count=0, ik_mode=Local, ik_avg_ms=3.76, ik_fails=157
+[INFO] [1786522194.379667397] [cartesian_streamer]: IK OK → Δmax=0.0145 rad, joints: [1.484, 0.046, -0.757, 0.000, -0.768, -1.356]
+[INFO] [1786522195.386076765] [cartesian_streamer]: QueueTrajPoint accepted #1960: t=5.670s, hold=False
+[INFO] [1786522195.645738797] [cartesian_streamer]: IK delta clamped → joints: [1.435, 0.261, -0.254, 0.000, -1.084, -1.308]
+[WARN] [1786522196.187945483] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522196.448383082] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.458, 0.446, 0.047, 0.000, -1.194, -1.331]
+[WARN] [1786522197.455971558] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522198.001830607] [cartesian_streamer]: QueueTrajPoint accepted #1980: t=7.474s, hold=False
+[INFO] [1786522198.244974191] [cartesian_streamer]: IK delta clamped → joints: [1.431, 0.451, 0.206, 0.000, -1.335, -1.304]
+[INFO] [1786522198.511504367] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.417, 0.459, 0.252, 0.000, -1.387, -1.290]
+[INFO] [1786522198.803446446] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[INFO] [1786522198.909452822] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.7, ack_hz=8.9, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=113.0, max_joint_delta=0.090, cumul_time=8.08s, hold_count=0, ik_mode=Local, ik_avg_ms=3.73, ik_fails=159
+[WARN] [1786522199.353644223] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522199.547910016] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[WARN] [1786522199.683576519] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[INFO] [1786522200.366558016] [cartesian_streamer]: IK delta clamped → joints: [1.476, 0.536, 0.882, 0.000, -2.090, -1.349]
+[WARN] [1786522200.710900367] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[INFO] [1786522200.720097422] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.475, 0.533, 0.952, 0.000, -2.090, -1.348]
+[WARN] [1786522200.764851933] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522200.894985623] [cartesian_streamer]: QueueTrajPoint accepted #2000: t=9.741s, hold=False
+[WARN] [1786522202.303875907] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522202.381075984] [cartesian_streamer]: IK delta clamped → joints: [1.489, 0.582, 0.454, 0.000, -1.407, -1.362]
+[INFO] [1786522202.782593527] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.478, 0.561, 0.244, 0.000, -1.137, -1.350]
+[WARN] [1786522203.338920521] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522203.910044367] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.4, ack_hz=6.6, busy_hz=1.6, retry_count=8, reject_count=0, inter_ack_ms=150.0, max_joint_delta=0.090, cumul_time=11.30s, hold_count=0, ik_mode=Local, ik_avg_ms=4.01, ik_fails=180
+[INFO] [1786522203.964599287] [cartesian_streamer]: QueueTrajPoint accepted #2020: t=11.305s, hold=False
+[WARN] [1786522204.382707972] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522204.911566083] [cartesian_streamer]: IK OK → Δmax=0.0050 rad, joints: [1.470, 0.575, -0.222, 0.000, -0.775, -1.342]
+[WARN] [1786522205.397719183] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522206.722894880] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522206.913950679] [cartesian_streamer]: IK OK → Δmax=0.0070 rad, joints: [1.462, 0.567, -0.248, 0.000, -0.756, -1.335]
+[INFO] [1786522207.660104159] [cartesian_streamer]: QueueTrajPoint accepted #2040: t=12.905s, hold=False
+[INFO] [1786522208.432177055] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522208.433475935] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522229.074618859] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522229.074911653] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522229.080476733] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522229.081095505] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522229.126967069] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522229.127496338] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522230.628482484] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522232.117657054] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522232.117975556] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522232.177614508] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=2.4, queue_send_hz=1.3, ack_hz=1.0, busy_hz=0.4, retry_count=10, reject_count=0, inter_ack_ms=164.2, max_joint_delta=0.054, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=3.95, ik_fails=180
+[WARN] [1786522232.178225742] [cartesian_streamer]: Target stream stale: không có target mới trong 23.8s
+[WARN] [1786522232.179014961] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522232.180390049] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522232.181434974] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522232.244469510] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522232.299703613] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522232.518720136] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786522233.789955360] [cartesian_streamer]: QueueTrajPoint accepted #2060: t=1.462s, hold=True
+[INFO] [1786522236.390844494] [cartesian_streamer]: QueueTrajPoint accepted #2080: t=3.729s, hold=True
+[INFO] [1786522237.051916621] [cartesian_streamer]: IK OK → Δmax=0.0003 rad, joints: [1.571, 0.124, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786522237.243637122] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.1, ack_hz=8.1, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=701.7, max_joint_delta=0.000, cumul_time=4.53s, hold_count=0, ik_mode=Local, ik_avg_ms=3.95, ik_fails=180
+[WARN] [1786522237.244057525] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522237.647852349] [cartesian_streamer]: IK delta clamped → joints: [1.535, 0.092, -0.980, 0.000, -0.488, -1.408]
+[INFO] [1786522238.786681723] [cartesian_streamer]: QueueTrajPoint accepted #2100: t=5.932s, hold=False
+[INFO] [1786522239.111738439] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.519, 0.249, -0.381, 0.000, -0.947, -1.391]
+[WARN] [1786522239.600376635] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522240.711364607] [cartesian_streamer]: IK delta clamped → joints: [1.436, 0.573, -0.029, 0.000, -0.982, -1.309]
+[WARN] [1786522240.984017818] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522241.112823550] [cartesian_streamer]: IK OK → Δmax=0.0461 rad, joints: [1.457, 0.628, 0.053, 0.000, -0.996, -1.330]
+[INFO] [1786522241.231673648] [cartesian_streamer]: QueueTrajPoint accepted #2120: t=7.667s, hold=False
+[INFO] [1786522242.246562327] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.6, ack_hz=7.8, busy_hz=0.8, retry_count=4, reject_count=0, inter_ack_ms=128.1, max_joint_delta=0.090, cumul_time=8.33s, hold_count=0, ik_mode=Local, ik_avg_ms=3.89, ik_fails=180
+[INFO] [1786522242.779291067] [cartesian_streamer]: IK delta clamped → joints: [1.433, 0.611, 0.047, 0.000, -1.003, -1.306]
+[INFO] [1786522243.113548293] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.431, 0.563, 0.311, 0.000, -1.342, -1.304]
+[INFO] [1786522243.474182156] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786522243.616265245] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522243.987955560] [cartesian_streamer]: QueueTrajPoint accepted #2140: t=9.894s, hold=True
+[WARN] [1786522244.503002312] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[WARN] [1786522244.618392386] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[WARN] [1786522244.639152342] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522244.882552314] [cartesian_streamer]: IK delta clamped → joints: [1.467, 0.650, 0.521, 0.000, -1.612, -1.339]
+[INFO] [1786522245.138013322] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.463, 0.627, 0.661, 0.000, -1.792, -1.336]
+[WARN] [1786522245.671725815] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[WARN] [1786522246.344086850] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522247.113760237] [cartesian_streamer]: IK delta clamped → joints: [1.423, 0.581, 0.674, 0.000, -1.639, -1.296]
+[INFO] [1786522247.178543242] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.422, 0.584, 0.674, 0.000, -1.639, -1.295]
+[INFO] [1786522247.309764020] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.3, ack_hz=6.1, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=163.2, max_joint_delta=0.090, cumul_time=11.90s, hold_count=0, ik_mode=Local, ik_avg_ms=4.28, ik_fails=209
+[INFO] [1786522247.714225307] [cartesian_streamer]: QueueTrajPoint accepted #2160: t=12.030s, hold=False
+[WARN] [1786522247.970637102] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522249.178564415] [cartesian_streamer]: IK OK → Δmax=0.0089 rad, joints: [1.423, 0.625, -0.037, 0.000, -0.909, -1.296]
+[WARN] [1786522249.334630938] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522250.526674555] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522251.136462864] [cartesian_streamer]: QueueTrajPoint accepted #2180: t=13.626s, hold=False
+[INFO] [1786522251.244754411] [cartesian_streamer]: IK OK → Δmax=0.0057 rad, joints: [1.423, 0.621, -0.060, 0.000, -0.890, -1.296]
+[INFO] [1786522252.309827496] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.2, ack_hz=6.2, busy_hz=2.0, retry_count=10, reject_count=0, inter_ack_ms=161.0, max_joint_delta=0.090, cumul_time=14.43s, hold_count=0, ik_mode=Local, ik_avg_ms=4.23, ik_fails=209
+[INFO] [1786522253.310941968] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.457, 0.639, -0.038, 0.000, -0.894, -1.329]
+[INFO] [1786522253.401835474] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522253.402648288] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522253.638277951] [cartesian_streamer]: QueueTrajPoint accepted #2200: t=15.560s, hold=False
+[INFO] [1786522274.328300228] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522274.328897515] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522274.343352031] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522274.343663829] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522274.389897407] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522274.390497308] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522275.891536654] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522277.323100802] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522277.323669630] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522277.377235214] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.7, queue_send_hz=0.4, ack_hz=0.4, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=126.5, max_joint_delta=0.007, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.21, ik_fails=209
+[WARN] [1786522277.377642425] [cartesian_streamer]: Target stream stale: không có target mới trong 24.0s
+[WARN] [1786522277.377985750] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522277.378597662] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522277.379164187] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522277.444463311] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522277.499426579] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522277.728634744] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786522279.446168498] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522279.776852545] [cartesian_streamer]: QueueTrajPoint accepted #2220: t=2.064s, hold=True
+[INFO] [1786522281.116904318] [cartesian_streamer]: IK OK → Δmax=0.0003 rad, joints: [1.571, 0.124, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786522281.978000955] [cartesian_streamer]: IK delta clamped → joints: [1.548, 0.061, -0.980, 0.000, -0.488, -1.421]
+[INFO] [1786522282.196263052] [cartesian_streamer]: QueueTrajPoint accepted #2240: t=4.131s, hold=False
+[INFO] [1786522282.380016252] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.8, ack_hz=8.2, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=698.0, max_joint_delta=0.090, cumul_time=4.27s, hold_count=0, ik_mode=Local, ik_avg_ms=4.19, ik_fails=209
+[WARN] [1786522282.380789923] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522283.177093347] [cartesian_streamer]: IK OK → Δmax=0.0279 rad, joints: [1.522, 0.154, -0.689, 0.000, -0.728, -1.395]
+[INFO] [1786522283.978209154] [cartesian_streamer]: IK delta clamped → joints: [1.431, 0.291, -0.485, 0.000, -0.815, -1.304]
+[INFO] [1786522284.167005288] [cartesian_streamer]: QueueTrajPoint accepted #2260: t=5.936s, hold=False
+[WARN] [1786522284.923001091] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522285.177842347] [cartesian_streamer]: IK OK → Δmax=0.0117 rad, joints: [1.440, 0.482, -0.169, 0.000, -0.921, -1.313]
+[INFO] [1786522286.195613343] [cartesian_streamer]: QueueTrajPoint accepted #2280: t=7.871s, hold=False
+[WARN] [1786522286.250059785] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522287.047716036] [cartesian_streamer]: IK delta clamped → joints: [1.385, 0.522, -0.145, 0.000, -0.883, -1.258]
+[INFO] [1786522287.180076041] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.374, 0.475, -0.108, 0.000, -0.939, -1.247]
+[INFO] [1786522287.443904047] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.7, ack_hz=9.3, busy_hz=0.4, retry_count=2, reject_count=0, inter_ack_ms=106.0, max_joint_delta=0.090, cumul_time=8.74s, hold_count=0, ik_mode=Local, ik_avg_ms=4.13, ik_fails=209
+[WARN] [1786522288.383907461] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522289.031094443] [cartesian_streamer]: QueueTrajPoint accepted #2300: t=9.737s, hold=False
+[INFO] [1786522289.111711008] [cartesian_streamer]: IK delta clamped → joints: [1.421, 0.456, 0.802, 0.000, -2.070, -1.293]
+[INFO] [1786522289.245627462] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.416, 0.453, 0.872, 0.000, -2.058, -1.289]
+[WARN] [1786522289.385210099] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522290.663463660] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522291.113326457] [cartesian_streamer]: IK delta clamped → joints: [1.357, 0.505, 0.695, 0.000, -1.773, -1.230]
+[INFO] [1786522291.247420819] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.363, 0.575, 0.555, 0.000, -1.593, -1.235]
+[INFO] [1786522292.319579751] [cartesian_streamer]: QueueTrajPoint accepted #2320: t=11.405s, hold=False
+[INFO] [1786522292.443577293] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.4, ack_hz=6.4, busy_hz=2.0, retry_count=10, reject_count=0, inter_ack_ms=158.8, max_joint_delta=0.090, cumul_time=11.47s, hold_count=0, ik_mode=Local, ik_avg_ms=4.09, ik_fails=209
+[WARN] [1786522292.587810690] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522293.179139803] [cartesian_streamer]: IK delta clamped → joints: [1.358, 0.586, -0.075, 0.000, -0.783, -1.231]
+[INFO] [1786522293.249623462] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.357, 0.585, -0.075, 0.000, -0.783, -1.230]
+[WARN] [1786522293.613618629] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522294.924718894] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522295.311607079] [cartesian_streamer]: IK OK → Δmax=0.0054 rad, joints: [1.346, 0.574, -0.231, 0.000, -0.766, -1.219]
+[INFO] [1786522296.195800593] [cartesian_streamer]: QueueTrajPoint accepted #2340: t=12.597s, hold=False
+[INFO] [1786522297.114328044] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522297.115215768] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522317.496012145] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522317.496656485] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522317.505619715] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522317.505945910] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522317.561086257] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522317.561380873] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522319.062281938] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522320.541294197] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522320.541924275] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522320.576484538] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=2.5, queue_send_hz=1.4, ack_hz=1.0, busy_hz=0.4, retry_count=11, reject_count=0, inter_ack_ms=170.0, max_joint_delta=0.090, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.03, ik_fails=209
+[WARN] [1786522320.576992188] [cartesian_streamer]: Target stream stale: không có target mới trong 23.5s
+[WARN] [1786522320.577378198] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522320.578133835] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522320.578713916] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522320.643344530] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522320.693627702] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522321.055954058] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786522322.034014849] [cartesian_streamer]: QueueTrajPoint accepted #2360: t=1.198s, hold=True
+[WARN] [1786522322.052138578] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522324.445690948] [cartesian_streamer]: IK OK → Δmax=0.0003 rad, joints: [1.571, 0.124, -1.050, -0.000, -0.398, -1.443]
+[INFO] [1786522324.845025386] [cartesian_streamer]: IK delta clamped → joints: [1.523, 0.153, -0.980, 0.000, -0.454, -1.396]
+[INFO] [1786522325.132141059] [cartesian_streamer]: QueueTrajPoint accepted #2380: t=3.800s, hold=False
+[INFO] [1786522325.576948530] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.2, ack_hz=7.0, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=807.8, max_joint_delta=0.090, cumul_time=4.20s, hold_count=0, ik_mode=Local, ik_avg_ms=4.02, ik_fails=209
+[INFO] [1786522326.447412594] [cartesian_streamer]: IK OK → Δmax=0.0517 rad, joints: [1.557, 0.368, -0.296, 0.000, -0.907, -1.430]
+[WARN] [1786522326.636129310] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522326.978205763] [cartesian_streamer]: IK delta clamped → joints: [1.515, 0.443, -0.204, 0.000, -1.005, -1.388]
+[INFO] [1786522327.263712206] [cartesian_streamer]: QueueTrajPoint accepted #2400: t=5.471s, hold=False
+[WARN] [1786522327.998947169] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522328.512762983] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.462, 0.696, 0.238, 0.000, -1.112, -1.335]
+[INFO] [1786522329.178190679] [cartesian_streamer]: IK delta clamped → joints: [1.439, 0.679, 0.404, 0.000, -1.302, -1.312]
+[INFO] [1786522329.456719104] [cartesian_streamer]: QueueTrajPoint accepted #2420: t=7.003s, hold=False
+[WARN] [1786522329.529092875] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522329.672604319] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786522330.476714495] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786522330.602577302] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.433, 0.699, 0.793, 0.000, -1.727, -1.306]
+[INFO] [1786522330.643970808] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=10.3, ack_hz=8.5, busy_hz=1.6, retry_count=8, reject_count=0, inter_ack_ms=114.2, max_joint_delta=0.090, cumul_time=7.53s, hold_count=0, ik_mode=Local, ik_avg_ms=4.06, ik_fails=220
+[WARN] [1786522331.293913641] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522332.318101801] [cartesian_streamer]: IK delta clamped → joints: [1.407, 0.756, 0.925, 0.000, -1.817, -1.280]
+[INFO] [1786522332.645207524] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.401, 0.727, 0.855, 0.000, -1.727, -1.274]
+[INFO] [1786522333.027406237] [cartesian_streamer]: QueueTrajPoint accepted #2440: t=9.216s, hold=False
+[WARN] [1786522333.332507756] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522334.468109290] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522334.712509698] [cartesian_streamer]: IK OK → Δmax=0.0026 rad, joints: [1.440, 0.721, 0.137, 0.000, -0.987, -1.313]
+[INFO] [1786522335.709942899] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.9, ack_hz=6.3, busy_hz=1.6, retry_count=8, reject_count=0, inter_ack_ms=159.2, max_joint_delta=0.090, cumul_time=10.62s, hold_count=0, ik_mode=Local, ik_avg_ms=4.19, ik_fails=236
+[INFO] [1786522335.816842067] [cartesian_streamer]: QueueTrajPoint accepted #2460: t=10.618s, hold=False
+[WARN] [1786522336.521686191] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522336.714660378] [cartesian_streamer]: IK OK → Δmax=0.0030 rad, joints: [1.419, 0.696, 0.010, 0.000, -0.886, -1.292]
+[INFO] [1786522338.368377380] [cartesian_streamer]: QueueTrajPoint accepted #2480: t=12.811s, hold=False
+[INFO] [1786522338.487354569] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522338.488256044] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522360.407717969] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522360.408388268] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522360.417275577] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522360.417946413] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522360.464005556] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522360.464663991] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522361.965614666] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522363.416085434] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522363.416387748] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522363.444315749] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=1.5, queue_send_hz=0.8, ack_hz=0.8, busy_hz=0.0, retry_count=1, reject_count=0, inter_ack_ms=139.6, max_joint_delta=0.057, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.15, ik_fails=236
+[WARN] [1786522363.445059347] [cartesian_streamer]: Target stream stale: không có target mới trong 25.0s
+[WARN] [1786522363.445775318] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522363.447134919] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2800, 0.3785)
+[INFO] [1786522363.448250734] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522363.510369308] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2800, 0.3785)
+[INFO] [1786522363.571427104] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522363.915818542] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786522365.251155665] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522365.919514207] [cartesian_streamer]: QueueTrajPoint accepted #2500: t=2.061s, hold=True
+[INFO] [1786522367.580188815] [cartesian_streamer]: IK OK → Δmax=0.0010 rad, joints: [1.571, 0.124, -1.050, -0.001, -0.398, -1.443]
+[INFO] [1786522368.172742115] [cartesian_streamer]: QueueTrajPoint accepted #2520: t=4.062s, hold=False
+[INFO] [1786522368.246148808] [cartesian_streamer]: IK delta clamped → joints: [1.571, 0.124, -1.053, -0.000, -0.398, -1.444]
+[INFO] [1786522368.509727458] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.7, ack_hz=8.5, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=694.4, max_joint_delta=0.070, cumul_time=4.46s, hold_count=0, ik_mode=Local, ik_avg_ms=4.14, ik_fails=236
+[INFO] [1786522369.644509927] [cartesian_streamer]: IK OK → Δmax=0.0246 rad, joints: [1.539, 0.133, -0.526, 0.000, -0.913, -1.412]
+[WARN] [1786522370.002006342] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522370.247542053] [cartesian_streamer]: IK delta clamped → joints: [1.495, 0.226, -0.344, 0.000, -1.008, -1.368]
+[INFO] [1786522370.330356898] [cartesian_streamer]: QueueTrajPoint accepted #2540: t=5.856s, hold=False
+[WARN] [1786522371.399813412] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522371.716562707] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.424, 0.533, 0.034, 0.000, -1.069, -1.297]
+[INFO] [1786522372.973713557] [cartesian_streamer]: QueueTrajPoint accepted #2560: t=7.450s, hold=False
+[WARN] [1786522373.000229078] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522373.510499582] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=9.0, ack_hz=7.4, busy_hz=1.6, retry_count=8, reject_count=0, inter_ack_ms=132.3, max_joint_delta=0.090, cumul_time=7.65s, hold_count=0, ik_mode=Local, ik_avg_ms=4.09, ik_fails=236
+[INFO] [1786522373.580299716] [cartesian_streamer]: IK delta clamped → joints: [1.433, 0.604, 0.136, 0.000, -1.070, -1.306]
+[INFO] [1786522373.779599459] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.419, 0.558, 0.194, 0.000, -1.176, -1.292]
+[INFO] [1786522374.149563221] [cartesian_streamer]: Local IK không hội tụ (fail #1)
+[WARN] [1786522374.680559093] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522374.933518772] [cartesian_streamer]: Local IK failed 10x liên tiếp! Fallback sang MoveIt! IK...
+[INFO] [1786522375.683993522] [cartesian_streamer]: IK delta clamped → joints: [1.427, 0.610, 0.614, 0.000, -1.716, -1.300]
+[INFO] [1786522375.826041774] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.427, 0.610, 0.684, 0.000, -1.806, -1.300]
+[WARN] [1786522376.155668149] [cartesian_streamer]: IK solution ngoài soft limit. Đã clamp vào biên để bảo vệ robot.
+[WARN] [1786522376.180791797] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522376.764946891] [cartesian_streamer]: QueueTrajPoint accepted #2580: t=9.798s, hold=False
+[WARN] [1786522377.316334231] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522377.713049271] [cartesian_streamer]: IK delta clamped → joints: [1.436, 0.632, 0.194, 0.000, -1.142, -1.308]
+[INFO] [1786522377.844540318] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.437, 0.638, 0.124, 0.000, -1.052, -1.309]
+[INFO] [1786522378.577061992] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=7.7, ack_hz=6.1, busy_hz=1.4, retry_count=7, reject_count=0, inter_ack_ms=166.1, max_joint_delta=0.090, cumul_time=10.93s, hold_count=0, ik_mode=Local, ik_avg_ms=4.25, ik_fails=258
+[WARN] [1786522378.768077923] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522379.847297257] [cartesian_streamer]: IK OK → Δmax=0.0120 rad, joints: [1.434, 0.612, -0.026, 0.000, -0.934, -1.307]
+[WARN] [1786522379.865743780] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522380.195930866] [cartesian_streamer]: QueueTrajPoint accepted #2600: t=11.402s, hold=False
+[INFO] [1786522381.757900412] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522381.758555640] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522841.819969456] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522841.821270920] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786522852.530648697] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786522852.531419295] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786522852.607662143] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786522852.608204125] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786522852.667996290] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786522852.670200240] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786522854.174676939] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786522855.645498065] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786522855.646267341] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786522855.710808932] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.1, queue_send_hz=0.1, ack_hz=0.0, busy_hz=0.0, retry_count=5, reject_count=0, inter_ack_ms=148.7, max_joint_delta=0.030, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.22, ik_fails=258
+[WARN] [1786522855.711327317] [cartesian_streamer]: Target stream stale: không có target mới trong 474.0s
+[WARN] [1786522855.713122859] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786522855.714759230] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786522855.715396886] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786522855.752607239] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786522856.333087435] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786522856.867224857] [cartesian_streamer]: QueueTrajPoint accepted #2620: t=0.729s, hold=True
+[WARN] [1786522857.451808261] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786522857.977142015] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786522858.514922595] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786522859.055668495] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786522859.186266863] [cartesian_streamer]: IK OK → Δmax=0.0003 rad, joints: [1.571, 0.124, -1.049, -0.000, -0.398, -1.443]
+[WARN] [1786522859.578434179] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786522860.104527717] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522860.519806472] [cartesian_streamer]: IK delta clamped → joints: [1.559, 0.054, -0.979, -0.000, -0.488, -1.431]
+[INFO] [1786522860.716512458] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=3.2, ack_hz=1.4, busy_hz=1.0, retry_count=5, reject_count=0, inter_ack_ms=68332.4, max_joint_delta=0.090, cumul_time=1.80s, hold_count=0, ik_mode=Local, ik_avg_ms=4.20, ik_fails=258
+[WARN] [1786522860.717887851] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1786522861.196185921] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522861.316809187] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.531, 0.034, -0.909, 0.000, -0.578, -1.404]
+[WARN] [1786522862.352761994] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522862.585521248] [cartesian_streamer]: IK delta clamped → joints: [1.488, 0.087, -0.718, 0.000, -0.848, -1.361]
+[INFO] [1786522863.391559205] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.520, 0.087, -0.718, 0.000, -0.848, -1.393]
+[WARN] [1786522863.405741666] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522864.462970783] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522864.712384628] [cartesian_streamer]: IK delta clamped → joints: [1.507, 0.216, -0.578, 0.000, -0.998, -1.380]
+[INFO] [1786522865.461611876] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.491, 0.278, -0.508, 0.000, -0.997, -1.364]
+[WARN] [1786522865.466703838] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522865.777468312] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=8.1, ack_hz=1.6, busy_hz=6.5, retry_count=33, reject_count=0, inter_ack_ms=594.3, max_joint_delta=0.090, cumul_time=0.12s, hold_count=0, ik_mode=Local, ik_avg_ms=4.19, ik_fails=258
+[WARN] [1786522865.778240770] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1786522866.527840298] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522866.780652489] [cartesian_streamer]: IK delta clamped → joints: [1.490, 0.315, -0.438, 0.000, -1.002, -1.363]
+[INFO] [1786522867.584388149] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.483, 0.286, -0.298, 0.000, -0.988, -1.356]
+[WARN] [1786522867.605981683] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786522868.670883546] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786522869.068605452] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786522869.070322024] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786523159.700314566] [cartesian_streamer]: Trajectory mode changed: ground_truth → prediction
+[INFO] [1786523170.065669925] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786523170.075805997] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786523198.117567128] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786523198.117870490] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786523198.198271817] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786523198.199261894] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786523198.252614695] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786523198.253237666] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786523199.754552366] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786523201.391692610] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786523201.392308163] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786523201.447121070] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.1, queue_send_hz=0.1, ack_hz=0.0, busy_hz=0.1, retry_count=20, reject_count=0, inter_ack_ms=852.1, max_joint_delta=0.070, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.18, ik_fails=258
+[WARN] [1786523201.447940560] [cartesian_streamer]: Target stream stale: không có target mới trong 332.4s
+[WARN] [1786523201.448660269] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786523201.450237495] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786523201.451772985] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786523201.513892075] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786523201.579134822] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786523201.633505131] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786523202.361176998] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786523202.678812420] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523204.248714594] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523204.926659388] [cartesian_streamer]: QueueTrajPoint accepted #2640: t=0.926s, hold=True
+[WARN] [1786523205.325286503] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523206.469311496] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523206.511463113] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=4.1, ack_hz=1.8, busy_hz=2.4, retry_count=12, reject_count=0, inter_ack_ms=37619.4, max_joint_delta=0.000, cumul_time=0.79s, hold_count=9, ik_mode=Local, ik_avg_ms=4.18, ik_fails=258
+[WARN] [1786523206.511755078] [cartesian_streamer]: Target stream stale: không có target mới trong 337.4s
+[INFO] [1786523207.395044604] [cartesian_streamer]: IK OK → Δmax=0.0001 rad, joints: [1.571, 0.124, -1.050, 0.000, -0.398, -1.444]
+[WARN] [1786523207.580642236] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1786523207.648830522] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523208.386137570] [cartesian_streamer]: IK delta clamped → joints: [1.641, 0.136, -1.075, -0.000, -0.360, -1.534]
+[WARN] [1786523208.939429628] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523209.511757396] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.641, 0.093, -0.980, -0.000, -0.488, -1.534]
+[WARN] [1786523210.218910282] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523210.387879786] [cartesian_streamer]: IK delta clamped → joints: [1.581, 0.110, -0.965, -0.000, -0.447, -1.454]
+[INFO] [1786523211.514816994] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.571, 0.142, -0.965, 0.000, -0.447, -1.444]
+[INFO] [1786523211.577055900] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=4.1, ack_hz=0.8, busy_hz=3.2, retry_count=16, reject_count=0, inter_ack_ms=1049.7, max_joint_delta=0.090, cumul_time=0.47s, hold_count=0, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523211.687025465] [cartesian_streamer]: ⚠ Queue mode bị drop! Auto-recovery lần 1/3...
+[INFO] [1786523212.188027021] [cartesian_streamer]: Auto-recovery: bắt đầu re-enable queue mode...
+[INFO] [1786523212.191148286] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786523212.212052819] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786523212.212364504] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786523212.256954574] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786523212.257649829] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786523213.763080596] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786523213.884522169] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786523213.889843559] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786523215.382572252] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786523215.383716629] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786523215.445371938] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.447129944] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786523215.512797411] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.580692001] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.653839080] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.710428845] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.778905974] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.851426576] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.913663488] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523215.977641692] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523216.049452915] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523216.113442775] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523216.178448661] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523216.244319130] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[WARN] [1786523216.247354051] [cartesian_streamer]: ⚠ Queue mode bị drop! Auto-recovery lần 2/3...
+[INFO] [1786523216.748499050] [cartesian_streamer]: Auto-recovery: bắt đầu re-enable queue mode...
+[INFO] [1786523216.748780152] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786523217.020188548] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786523217.020931150] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786523217.429431524] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786523217.430395414] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786523218.932605141] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786523219.356504612] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786523219.357171561] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786523219.379561625] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=1.9, queue_send_hz=0.1, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=2, inter_ack_ms=0.0, max_joint_delta=0.090, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523219.384368755] [cartesian_streamer]: Target stream stale: không có target mới trong 7.7s
+[WARN] [1786523219.385763382] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786523219.387709281] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523219.389469363] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786523219.449061849] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523219.517434239] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523219.577345477] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523219.619369171] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786523219.923227728] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[INFO] [1786523222.530668985] [cartesian_streamer]: QueueTrajPoint accepted #2660: t=2.261s, hold=True
+[WARN] [1786523222.608491955] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523223.312446674] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523224.118714159] [cartesian_streamer]: ⚠ Queue mode bị drop! Auto-recovery lần 1/3...
+[INFO] [1786523224.628174518] [cartesian_streamer]: Auto-recovery: bắt đầu re-enable queue mode...
+[INFO] [1786523224.629084386] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786523224.635617759] [cartesian_streamer]: reset_error: code=105, msg="Pendant is not in REMOTE mode"
+[INFO] [1786523224.636231886] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786523224.987969141] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786523224.988244550] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786523226.489131458] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786523229.652953919] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786523229.653536579] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786523229.717014699] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=7.0, queue_send_hz=2.0, ack_hz=1.7, busy_hz=0.1, retry_count=1, reject_count=2, inter_ack_ms=752.5, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523229.717747278] [cartesian_streamer]: Target stream stale: không có target mới trong 18.0s
+[WARN] [1786523229.718454122] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786523229.719787661] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523229.720871914] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786523229.781747000] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523229.846887260] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523229.914964160] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523229.979346604] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523230.045848312] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523230.101227556] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[WARN] [1786523230.610072824] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523232.021638146] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523233.320413341] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523234.728080227] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523234.777648191] [cartesian_streamer]: Runtime rate: state=prebuffering, tick_hz=15.0, queue_send_hz=2.8, ack_hz=0.6, busy_hz=2.2, retry_count=11, reject_count=0, inter_ack_ms=2584.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=3, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523234.778645341] [cartesian_streamer]: Target stream stale: không có target mới trong 23.1s
+[WARN] [1786523235.938796107] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523236.580468364] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523237.110987886] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523237.462957800] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523238.719139893] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786523239.052865915] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523239.711867008] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523239.777281558] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.2, ack_hz=0.2, busy_hz=1.2, retry_count=6, reject_count=0, inter_ack_ms=7238.1, max_joint_delta=0.000, cumul_time=0.13s, hold_count=4, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523239.777802920] [cartesian_streamer]: Target stream stale: không có target mới trong 28.1s
+[WARN] [1786523240.447951144] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523240.980399452] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523241.115359792] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523243.212477599] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523244.253498681] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523244.844513918] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=3.0, ack_hz=0.6, busy_hz=2.0, retry_count=10, reject_count=0, inter_ack_ms=1321.3, max_joint_delta=0.000, cumul_time=0.46s, hold_count=9, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523244.845331731] [cartesian_streamer]: Target stream stale: không có target mới trong 33.2s
+[WARN] [1786523245.385042058] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523246.631169764] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523247.245380667] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523248.110096138] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523248.250593227] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523249.374535637] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523249.844530852] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=3.0, ack_hz=0.6, busy_hz=2.2, retry_count=11, reject_count=0, inter_ack_ms=2346.6, max_joint_delta=0.000, cumul_time=0.40s, hold_count=13, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523249.845248888] [cartesian_streamer]: Target stream stale: không có target mới trong 38.2s
+[WARN] [1786523251.388869346] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523252.395216857] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523253.445113572] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523254.523280624] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523254.845538855] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.8, ack_hz=0.4, busy_hz=2.2, retry_count=11, reject_count=0, inter_ack_ms=620.3, max_joint_delta=0.000, cumul_time=0.06s, hold_count=15, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523254.851263837] [cartesian_streamer]: Target stream stale: không có target mới trong 43.2s
+[WARN] [1786523255.323001517] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523255.858327430] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523257.016787573] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523258.348640605] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523259.400357767] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523259.912477362] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=3.4, ack_hz=0.8, busy_hz=2.8, retry_count=14, reject_count=0, inter_ack_ms=2022.6, max_joint_delta=0.000, cumul_time=0.13s, hold_count=19, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523259.913738489] [cartesian_streamer]: Target stream stale: không có target mới trong 48.2s
+[WARN] [1786523260.445792518] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523260.507172092] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523261.190460437] [cartesian_streamer]: QueueTrajPoint accepted #2680: t=0.333s, hold=True
+[WARN] [1786523261.606505555] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523262.865205351] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523264.976208349] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=3.9, ack_hz=1.0, busy_hz=2.8, retry_count=14, reject_count=0, inter_ack_ms=1135.1, max_joint_delta=0.000, cumul_time=0.73s, hold_count=24, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523264.976495319] [cartesian_streamer]: Target stream stale: không có target mới trong 53.3s
+[WARN] [1786523265.194422637] [cartesian_streamer]: ⚠ Queue mode bị drop! Auto-recovery lần 1/3...
+[INFO] [1786523265.695839420] [cartesian_streamer]: Auto-recovery: bắt đầu re-enable queue mode...
+[INFO] [1786523265.696824895] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786523267.051144181] [cartesian_streamer]: reset_error: code=105, msg="Pendant is not in REMOTE mode"
+[INFO] [1786523267.053670139] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786523269.286677408] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786523269.287283631] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786523270.792976376] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786523272.217282832] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786523272.218428492] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786523272.257814812] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.6, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=1, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523272.258505937] [cartesian_streamer]: Target stream stale: không có target mới trong 60.6s
+[WARN] [1786523272.258966119] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786523272.259870004] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.260516942] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786523272.312516229] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.381775036] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.447099494] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.512600632] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.581373292] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.645103500] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.714227659] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.782055648] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.850658187] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.914273194] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523272.980071704] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523273.046493909] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523273.115690622] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523273.177575107] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523273.246349285] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523273.313133898] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523273.380483409] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1771, 0.2881, 0.3680)
+[INFO] [1786523273.431215564] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[WARN] [1786523273.981178998] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523274.817674898] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523275.448650255] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523276.177278022] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523276.644992971] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786523277.178289311] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523277.310260290] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.0, ack_hz=0.8, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=2976.7, max_joint_delta=0.000, cumul_time=1.33s, hold_count=7, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523277.311112615] [cartesian_streamer]: Target stream stale: không có target mới trong 65.6s
+[WARN] [1786523277.711411118] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523278.246366529] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523278.779293546] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523279.313270600] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523279.844191939] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523280.377943255] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523280.911843918] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523281.447917520] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523281.990432660] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523282.315381935] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.8, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=3.13s, hold_count=16, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523282.316589935] [cartesian_streamer]: Target stream stale: không có target mới trong 70.6s
+[WARN] [1786523282.910048169] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523283.445885304] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523283.980740333] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523284.512515445] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523285.048025949] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523285.590672870] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523286.112867707] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523286.646576472] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523287.179448770] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523287.376398912] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.0, ack_hz=0.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=5729.1, max_joint_delta=0.000, cumul_time=5.13s, hold_count=26, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523287.377106987] [cartesian_streamer]: Target stream stale: không có target mới trong 75.7s
+[WARN] [1786523287.711875238] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523288.243414746] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523288.776297101] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523289.309560563] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523289.843782135] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523290.376868387] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523290.910152380] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523291.443716842] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523292.379327777] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.8, ack_hz=0.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=9454.3, max_joint_delta=0.000, cumul_time=6.93s, hold_count=35, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523292.380249535] [cartesian_streamer]: Target stream stale: không có target mới trong 80.7s
+[WARN] [1786523292.380998058] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523292.913122794] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523293.443901088] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523293.979039379] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523294.509891770] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523295.043517549] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523295.577664434] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523296.119058252] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523296.619972777] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523297.243737503] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523297.450129144] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.0, ack_hz=0.0, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=8.46s, hold_count=43, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523297.451504353] [cartesian_streamer]: Target stream stale: không có target mới trong 85.8s
+[WARN] [1786523298.045125508] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523298.580219296] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523299.111506084] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523299.645126878] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523300.186852249] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523300.712965749] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523301.245336845] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523301.783093406] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523302.310180652] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523302.510176228] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.0, ack_hz=0.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=5670.0, max_joint_delta=0.000, cumul_time=10.46s, hold_count=53, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523302.510960887] [cartesian_streamer]: Target stream stale: không có target mới trong 90.8s
+[WARN] [1786523302.845348593] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523303.381328872] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523303.912668492] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523304.443839514] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523304.976176898] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523305.514184111] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523305.515780538] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1786523306.578551776] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1786523307.513280755] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=11.46s, hold_count=58, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523307.514890063] [cartesian_streamer]: Target stream stale: không có target mới trong 95.8s
+[WARN] [1786523307.582827842] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1786523308.643469879] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1786523309.712260470] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1786523310.713536574] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[WARN] [1786523311.780043433] [cartesian_streamer]: Service queue_point/queue_traj_point chưa sẵn sàng.
+[INFO] [1786523312.580056241] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=0.2, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=11.66s, hold_count=59, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523312.581057964] [cartesian_streamer]: Target stream stale: không có target mới trong 100.9s
+[WARN] [1786523312.778504371] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523313.311498722] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523313.845533242] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523314.383069548] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523314.910171513] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523315.444737281] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523315.978454275] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523316.512009041] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523317.047953194] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523317.580989961] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.8, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=13.46s, hold_count=68, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523317.582097339] [cartesian_streamer]: Target stream stale: không có target mới trong 105.9s
+[WARN] [1786523317.583024476] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523318.112713057] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523318.644288039] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523319.181244927] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523319.710158045] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523320.243287648] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523320.780149391] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523321.312490377] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523321.845708688] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523322.378911108] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523322.643467791] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=15.46s, hold_count=78, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523322.644123277] [cartesian_streamer]: Target stream stale: không có target mới trong 111.0s
+[WARN] [1786523322.911485806] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523323.449975073] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523323.979215435] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523324.512464817] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523325.042897947] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523325.578261178] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523326.110943866] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523326.979343092] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523327.513577250] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523327.644328944] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.0, ack_hz=0.2, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=28946.9, max_joint_delta=0.000, cumul_time=17.46s, hold_count=88, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523327.645088952] [cartesian_streamer]: Target stream stale: không có target mới trong 116.0s
+[WARN] [1786523328.045632243] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523328.577878669] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523329.115904500] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523329.644043977] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523330.176613846] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523330.713974508] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523331.246475337] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523331.778336428] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523332.315396831] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523332.710781487] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=1.8, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=19.26s, hold_count=97, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523332.711670734] [cartesian_streamer]: Target stream stale: không có target mới trong 121.0s
+[WARN] [1786523332.846878513] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523333.378397696] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523334.377982070] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523335.310184656] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523335.845446310] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523336.377673644] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523336.566186733] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523337.183509882] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523337.712112492] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.4, ack_hz=1.0, busy_hz=0.2, retry_count=1, reject_count=0, inter_ack_ms=2022.1, max_joint_delta=0.000, cumul_time=21.12s, hold_count=107, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523337.713063076] [cartesian_streamer]: Target stream stale: không có target mới trong 126.0s
+[WARN] [1786523337.713855582] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523338.247201237] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523338.785198684] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523339.313914945] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523339.844259952] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523340.377183218] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523340.909963477] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523341.443531055] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523341.977828318] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523342.514606534] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[INFO] [1786523342.712430253] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=2.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=0, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=21.12s, hold_count=107, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523342.713530387] [cartesian_streamer]: Target stream stale: không có target mới trong 131.0s
+[WARN] [1786523343.047011194] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523343.185462043] [cartesian_streamer]: ⚠ Queue mode bị drop! Auto-recovery lần 1/3...
+[INFO] [1786523343.687002701] [cartesian_streamer]: Auto-recovery: bắt đầu re-enable queue mode...
+[INFO] [1786523343.688027633] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786523344.013482206] [cartesian_streamer]: reset_error: code=105, msg="Pendant is not in REMOTE mode"
+[INFO] [1786523344.014126561] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786523344.520092186] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786523344.524477642] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786523346.026181573] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786523353.013870851] [cartesian_streamer]: StartPointQueueMode response: code=115, msg="AUTO cycle mode not set. Please set the cycle mode to AUTO"
+[ERROR] [1786523353.014709224] [cartesian_streamer]: StartPointQueueMode FAILED: AUTO cycle mode not set. Please set the cycle mode to AUTO
+[INFO] [1786523775.772566016] [cartesian_streamer]: Enable Robot: bắt đầu chuỗi khởi động...
+[INFO] [1786523775.773735935] [cartesian_streamer]: Enable: reset_error...
+[INFO] [1786523775.835730153] [cartesian_streamer]: reset_error: code=1, msg="success"
+[INFO] [1786523775.836439826] [cartesian_streamer]: Enable: stop_traj_mode (giải phóng mode cũ)...
+[INFO] [1786523775.894642208] [cartesian_streamer]: stop_traj_mode: success=True, code=N/A, msg=""
+[INFO] [1786523775.895719698] [cartesian_streamer]: Enable: chờ 1.5s để hệ thống ổn định trước khi start queue...
+[INFO] [1786523777.406495584] [cartesian_streamer]: Enable: StartPointQueueMode...
+[INFO] [1786523778.903270239] [cartesian_streamer]: StartPointQueueMode response: code=1, msg=""
+[INFO] [1786523778.904011013] [cartesian_streamer]: ✓ Robot ENABLED — Point Queue Mode active. Servo ON!
+[INFO] [1786523778.911525937] [cartesian_streamer]: Runtime rate: state=seeding, tick_hz=0.0, queue_send_hz=0.0, ack_hz=0.0, busy_hz=0.0, retry_count=0, reject_count=1, inter_ack_ms=0.0, max_joint_delta=0.000, cumul_time=0.00s, hold_count=0, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[WARN] [1786523778.912350446] [cartesian_streamer]: Target stream stale: không có target mới trong 567.2s
+[WARN] [1786523778.913104990] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[INFO] [1786523778.914446837] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786523778.916071709] [cartesian_streamer]: Đã gửi seed point (current joints, t=0), chờ ACK...
+[INFO] [1786523778.980441254] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786523779.046492471] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786523779.111024355] [cartesian_streamer]: Bootstrap EE pose via FK: (-0.1620, 0.2801, 0.3785)
+[INFO] [1786523779.165302124] [cartesian_streamer]: Seed ACK nhận được, bắt đầu prebuffer.
+[INFO] [1786523779.547656870] [cartesian_streamer]: QueueTrajPoint accepted #2700: t=0.400s, hold=True
+[INFO] [1786523779.622626179] [cartesian_streamer]: Pre-buffer hoàn tất (3 points), bắt đầu stream ổn định. Đang chờ target...
+[WARN] [1786523780.090280744] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523781.186350637] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523782.325784398] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523783.674623933] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523783.976179893] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=4.1, ack_hz=2.4, busy_hz=1.8, retry_count=9, reject_count=0, inter_ack_ms=37281.6, max_joint_delta=0.000, cumul_time=1.06s, hold_count=11, ik_mode=Local, ik_avg_ms=4.16, ik_fails=258
+[INFO] [1786523783.978104259] [cartesian_streamer]: IK OK → Δmax=0.0000 rad, joints: [1.571, 0.124, -1.049, 0.000, -0.398, -1.444]
+[WARN] [1786523784.043160355] [cartesian_streamer]: QueueTrajPoint đã được accept nhưng joint_states hầu như không đổi. Kiểm tra: 1) Robot ở mode AUTO? 2) Servo ON? 3) E-stop cleared?
+[WARN] [1786523785.185108899] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523785.715524954] [cartesian_streamer]: IK delta clamped → joints: [1.517, 0.054, -0.979, 0.000, -0.488, -1.390]
+[INFO] [1786523785.983140110] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.507, 0.054, -0.979, 0.000, -0.488, -1.380]
+[WARN] [1786523786.313501002] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523787.378310630] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523787.507238381] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523787.781428167] [cartesian_streamer]: IK delta clamped → joints: [1.456, 0.066, -0.909, 0.000, -0.578, -1.329]
+[INFO] [1786523788.048353634] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.459, 0.073, -0.909, 0.000, -0.578, -1.332]
+[WARN] [1786523788.543574528] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523788.977877904] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=3.6, ack_hz=0.8, busy_hz=2.8, retry_count=14, reject_count=0, inter_ack_ms=1070.3, max_joint_delta=0.090, cumul_time=1.33s, hold_count=0, ik_mode=Local, ik_avg_ms=4.12, ik_fails=258
+[WARN] [1786523789.552004914] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523789.847556392] [cartesian_streamer]: IK delta clamped → joints: [1.461, 0.107, -0.769, 0.000, -0.758, -1.334]
+[INFO] [1786523790.114332931] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.461, 0.107, -0.769, 0.000, -0.758, -1.334]
+[WARN] [1786523790.615977016] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[WARN] [1786523791.685248998] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523791.916436857] [cartesian_streamer]: IK delta clamped → joints: [1.525, 0.175, -0.699, 0.000, -0.848, -1.412]
+[INFO] [1786523792.177811483] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.525, 0.175, -0.699, 0.000, -0.848, -1.418]
+[WARN] [1786523792.845547064] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523793.920648301] [cartesian_streamer]: IK delta clamped → joints: [1.572, 0.266, -0.559, -0.000, -1.028, -1.473]
+[INFO] [1786523793.981112562] [cartesian_streamer]: Runtime rate: state=streaming, tick_hz=15.0, queue_send_hz=4.6, ack_hz=0.8, busy_hz=3.6, retry_count=18, reject_count=0, inter_ack_ms=1382.7, max_joint_delta=0.090, cumul_time=0.92s, hold_count=0, ik_mode=Local, ik_avg_ms=4.10, ik_fails=258
+[WARN] [1786523794.147830814] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523794.253263582] [cartesian_streamer]: IK OK → Δmax=0.0900 rad, joints: [1.572, 0.266, -0.559, -0.000, -1.028, -1.472]
+[WARN] [1786523795.517429467] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523795.924395440] [cartesian_streamer]: IK delta clamped → joints: [1.593, 0.266, -0.559, -0.000, -1.028, -1.466]
+[INFO] [1786523796.259016912] [cartesian_streamer]: IK OK → Δmax=0.0700 rad, joints: [1.600, 0.266, -0.419, -0.000, -1.049, -1.472]
+[WARN] [1786523796.390816655] [cartesian_streamer]: Service call timeout (500ms). Resetting inflight flag.
+[WARN] [1786523796.595393685] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523797.688428763] [cartesian_streamer]: QueueTrajPoint accepted #2720: t=0.709s, hold=False
+[WARN] [1786523797.758933989] [cartesian_streamer]: Queue BUSY, sẽ resend (backoff 66ms): msg="Busy processing the previous trajectory point. Please resend the next point shortly"
+[INFO] [1786523797.893899468] [cartesian_streamer]: Disable Robot: dừng stream, tắt traj mode...
+[INFO] [1786523797.894669562] [cartesian_streamer]: ✗ Robot DISABLED.
+[INFO] [1786524379.947872948] [cartesian_streamer]: Graceful shutdown: tắt Point Queue Mode trước khi thoát...
+[INFO] [1786524379.948849153] [cartesian_streamer]: Robot chưa enable, không cần stop_traj_mode.
+[INFO] [1786524379.949651492] [cartesian_streamer]: Shutdown hoàn tất. Tủ điện sẽ KHÔNG bị alarm.

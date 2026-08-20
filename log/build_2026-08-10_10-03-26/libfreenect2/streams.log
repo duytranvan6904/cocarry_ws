@@ -1,0 +1,101 @@
+[0.024s] Invoking command in '/home/duy/cocarry_ws/build/libfreenect2': /usr/bin/cmake --build /home/duy/cocarry_ws/build/libfreenect2 -- -j16 -l16
+[0.116s] [  2%] [32mBuilding CXX object CMakeFiles/generate_resources_tool.dir/tools/generate_resources.cpp.o[0m
+[3.871s] [  5%] [32m[1mLinking CXX executable bin/generate_resources_tool[0m
+[4.276s] [  5%] Built target generate_resources_tool
+[4.342s] [  7%] [34m[1mGenerating resources.inc.h[0m
+[4.464s] [ 10%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/transfer_pool.cpp.o[0m
+[4.479s] [ 15%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/event_loop.cpp.o[0m
+[4.483s] [ 15%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/usb_control.cpp.o[0m
+[4.491s] [ 18%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/frame_listener_impl.cpp.o[0m
+[4.497s] [ 23%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/allocator.cpp.o[0m
+[4.502s] [ 21%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/packet_pipeline.cpp.o[0m
+[4.506s] [ 26%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/rgb_packet_processor.cpp.o[0m
+[4.510s] [ 28%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/rgb_packet_stream_parser.cpp.o[0m
+[4.517s] [ 31%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/depth_packet_stream_parser.cpp.o[0m
+[4.534s] [ 34%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/depth_packet_processor.cpp.o[0m
+[4.552s] [ 36%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/cpu_depth_packet_processor.cpp.o[0m
+[4.561s] [ 39%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/resource.cpp.o[0m
+[4.581s] [ 42%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/command_transaction.cpp.o[0m
+[4.587s] [ 44%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/logging.cpp.o[0m
+[4.587s] [ 47%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/registration.cpp.o[0m
+[4.599s] [ 50%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/libfreenect2.cpp.o[0m
+[6.304s] [ 52%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/tinythread/tinythread.cpp.o[0m
+[6.549s] [ 55%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/vaapi_rgb_packet_processor.cpp.o[0m
+[6.675s] [ 57%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/turbo_jpeg_rgb_packet_processor.cpp.o[0m
+[6.726s] [ 60%] [32mBuilding CXX object CMakeFiles/freenect2.dir/src/opengl_depth_packet_processor.cpp.o[0m
+[7.946s] [01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:[m[K In member function ‘[01m[Kvirtual void libfreenect2::CpuDepthPacketProcessor::loadP0TablesFromCommandResponse(unsigned char*, size_t)[m[K’:
+[7.947s] [01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:844:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+[7.947s]   844 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table0[m[K), impl_->p0_table0);
+[7.947s]       |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[7.947s] [01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:845:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+[7.947s]   845 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table1[m[K), impl_->p0_table1);
+[7.952s]       |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[7.952s] [01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:846:53:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+[7.953s]   846 |     flipHorizontal(Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table2[m[K), impl_->p0_table2);
+[7.953s]       |                                            [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[7.953s] [01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:850:42:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+[7.953s]   850 |     Mat<uint16_t> p00(424, 512, [01;35m[Kp0table->p0table0[m[K);
+[7.953s]       |                                 [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[7.953s] [01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:852:38:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+[7.953s]   852 |     Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table1[m[K).copyTo(impl_->p0_table1);
+[7.961s]       |                             [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[7.961s] [01m[K/home/duy/cocarry_ws/libfreenect2/src/cpu_depth_packet_processor.cpp:853:38:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[Klibfreenect2::protocol::P0TablesResponse[m[K’ may result in an unaligned pointer value [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Waddress-of-packed-member-Waddress-of-packed-member]8;;[m[K]
+[7.961s]   853 |     Mat<uint16_t>(424, 512, [01;35m[Kp0table->p0table2[m[K).copyTo(impl_->p0_table2);
+[7.961s]       |                             [01;35m[K~~~~~~~~~^~~~~~~~[m[K
+[14.020s] [ 63%] [32m[1mLinking CXX shared library lib/libfreenect2.so[0m
+[14.453s] [ 65%] Built target freenect2
+[14.513s] [ 68%] [32mBuilding CXX object examples/CMakeFiles/Protonect.dir/Protonect.cpp.o[0m
+[14.517s] [ 71%] [32mBuilding CXX object examples/CMakeFiles/Protonect.dir/viewer.cpp.o[0m
+[14.517s] [ 73%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/DeviceDriver.cpp.o[0m
+[14.517s] [ 76%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/Registration.cpp.o[0m
+[14.517s] [ 78%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/DepthStream.cpp.o[0m
+[14.517s] [ 81%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/Utility.cpp.o[0m
+[14.517s] [ 84%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/ColorStream.cpp.o[0m
+[14.523s] [ 86%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/VideoStream.cpp.o[0m
+[14.524s] [ 89%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/openni2/IrStream.cpp.o[0m
+[14.526s] [ 92%] [32mBuilding CXX object CMakeFiles/freenect2-openni2.dir/src/tinythread/tinythread.cpp.o[0m
+[15.958s] [01m[K/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[15.958s] [01m[K/home/duy/cocarry_ws/libfreenect2/examples/Protonect.cpp:157:7:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KdeviceId[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[15.959s]   157 |   int [01;35m[KdeviceId[m[K = -1;
+[15.959s]       |       [01;35m[K^~~~~~~~[m[K
+[16.715s] [ 94%] [32m[1mLinking CXX executable ../bin/Protonect[0m
+[16.862s] [ 97%] Built target Protonect
+[17.280s] In file included from [01m[K/usr/include/string.h:535[m[K,
+[17.280s]                  from [01m[K/usr/include/openni2/Linux-x86/OniPlatformLinux-x86.h:34[m[K,
+[17.280s]                  from [01m[K/usr/include/openni2/OniPlatform.h:42[m[K,
+[17.280s]                  from [01m[K/usr/include/openni2/Driver/OniDriverAPI.h:24[m[K,
+[17.280s]                  from [01m[K/home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:35[m[K:
+[17.281s] In function ‘[01m[Kchar* strncpy(char*, const char*, size_t)[m[K’,
+[17.281s]     inlined from ‘[01m[Kvoid Freenect2Driver::Driver::register_uri(std::string)[m[K’ at [01m[K/home/duy/cocarry_ws/libfreenect2/src/openni2/DeviceDriver.cpp:404:14[m[K:
+[17.281s] [01m[K/usr/include/x86_64-linux-gnu/bits/string_fortified.h:95:34:[m[K [01;35m[Kwarning: [m[K‘[01m[Kchar* __builtin_strncpy(char*, const char*, long unsigned int)[m[K’ specified bound 256 equals destination size [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wstringop-truncation-Wstringop-truncation]8;;[m[K]
+[17.281s]    95 |   return [01;35m[K__builtin___strncpy_chk (__dest, __src, __len,[m[K
+[17.281s]       |          [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[17.281s]    96 | [01;35m[K                                  __glibc_objsize (__dest))[m[K;
+[17.281s]       |                                   [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[18.035s] [100%] [32m[1mLinking CXX shared library lib/libfreenect2-openni2.so[0m
+[18.162s] [100%] Built target freenect2-openni2
+[18.177s] Invoked command in '/home/duy/cocarry_ws/build/libfreenect2' returned '0': /usr/bin/cmake --build /home/duy/cocarry_ws/build/libfreenect2 -- -j16 -l16
+[18.179s] Invoking command in '/home/duy/cocarry_ws/build/libfreenect2': /usr/bin/cmake --install /home/duy/cocarry_ws/build/libfreenect2
+[18.191s] -- Install configuration: "RelWithDebInfo"
+[18.192s] -- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2.0
+[18.198s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so.0.2
+[18.198s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/libfreenect2.so
+[18.198s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+[18.198s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/registration.h
+[18.198s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/packet_pipeline.h
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/libfreenect2.hpp
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener_impl.h
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/led_settings.h
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/frame_listener.hpp
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/logger.h
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/color_settings.h
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2
+[18.199s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/config.h
+[18.200s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/include/libfreenect2/export.h
+[18.200s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2Config.cmake
+[18.200s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/cmake/freenect2/freenect2ConfigVersion.cmake
+[18.200s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/pkgconfig/freenect2.pc
+[18.200s] -- Installing: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so.0
+[18.203s] -- Set runtime path of "/home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so.0" to "/home/duy/cocarry_ws/install/libfreenect2/lib"
+[18.203s] -- Up-to-date: /home/duy/cocarry_ws/install/libfreenect2/lib/OpenNI2/Drivers/libfreenect2-openni2.so
+[18.206s] Invoked command in '/home/duy/cocarry_ws/build/libfreenect2' returned '0': /usr/bin/cmake --install /home/duy/cocarry_ws/build/libfreenect2

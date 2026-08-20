@@ -167,7 +167,7 @@ class RulaTrackerNode(Node):
         cos_a_c = np.dot(shoulder_up, upper_arm_vec) / (np.linalg.norm(shoulder_up) * np.linalg.norm(upper_arm_vec) + 1e-8)
         alpha_c = np.degrees(np.arccos(np.clip(cos_a_c, -1.0, 1.0))) - 90.0
         
-        if abs(alpha_c) > 10.0:
+        if abs(alpha_c) > 20.0:
             ua_score += 1
 
         # ---- Step 2: Lower Arm Angles ----
@@ -182,11 +182,17 @@ class RulaTrackerNode(Node):
             la_score = 2
             
         # 2b. Transversal angle (beta_t) - Deviation
-        shoulder_axis = r_shoulder - r_n
-        cos_b_t = np.dot(shoulder_axis, forearm_vec) / (np.linalg.norm(shoulder_axis) * np.linalg.norm(forearm_vec) + 1e-8)
-        beta_t = 90.0 - np.degrees(np.arccos(np.clip(cos_b_t, -1.0, 1.0)))
+        n1 = np.cross(r_shoulder - r_n, upper_arm_vec)
+        n2 = np.cross(upper_arm_vec, forearm_vec)
+        norm1 = np.linalg.norm(n1)
+        norm2 = np.linalg.norm(n2)
+        if norm1 < 1e-5 or norm2 < 1e-5:
+            beta_t = 0.0
+        else:
+            sin_b_t = np.dot(n1, n2) / (norm1 * norm2)
+            beta_t = np.degrees(np.arcsin(np.clip(sin_b_t, -1.0, 1.0)))
         
-        if abs(beta_t) > 10.0:
+        if abs(beta_t) > 30.0:
             la_score += 1
 
         # ---- Step 3: Wrist Angle ----
@@ -198,10 +204,27 @@ class RulaTrackerNode(Node):
         # gamma measures deviation from straight (0 degrees)
         if gamma <= 15:
             wrist_score = 1
-        else:
+        elif gamma <= 25:
             wrist_score = 2
+        else:
+            wrist_score = 3
 
-        total = ua_score + la_score + wrist_score
+        # RULA Table A (Posture Score A) lookup, assuming wrist twist = 1
+        def get_score_a(ua, la, wr):
+            ua = max(1, min(6, ua))
+            la = max(1, min(3, la))
+            wr = max(1, min(4, wr))
+            table = [
+                [[1, 2, 2, 3], [2, 2, 2, 3], [2, 3, 3, 4]], # UA=1
+                [[2, 3, 3, 4], [3, 3, 3, 4], [3, 4, 4, 5]], # UA=2
+                [[3, 4, 4, 5], [3, 4, 4, 5], [4, 4, 4, 5]], # UA=3
+                [[4, 4, 4, 5], [4, 4, 4, 5], [4, 4, 5, 6]], # UA=4
+                [[5, 5, 5, 6], [5, 6, 6, 7], [6, 6, 7, 7]], # UA=5
+                [[7, 7, 7, 8], [8, 8, 8, 9], [9, 9, 9, 9]]  # UA=6
+            ]
+            return table[ua-1][la-1][wr-1]
+
+        total = get_score_a(ua_score, la_score, wrist_score)
 
         return dict(
             upper_arm_score=ua_score,

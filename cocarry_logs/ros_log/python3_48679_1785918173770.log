@@ -1,0 +1,86 @@
+[INFO] [1785918173.960223728] [trajectory_predictor]: [Predictor] Worker launched (pid=48905)
+[INFO] [1785918173.960902898] [trajectory_predictor]: [Predictor] Started | model=gru | window=20 | auto_start=True
+  Output Filter: enabled=True, ema_alpha=0.2, max_dev=0.08, max_rate=0.04
+[WARN] [1785918175.627407648] [trajectory_predictor]: [Worker STDERR] /usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[WARN] [1785918175.627678810] [trajectory_predictor]: [Worker STDERR] warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+[INFO] [1785918176.642989134] [trajectory_predictor]: [Worker] TF 2.21.0 and sklearn loaded
+[WARN] [1785918176.644030443] [trajectory_predictor]: [Worker STDERR] /home/duy/.local/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+[WARN] [1785918176.644606047] [trajectory_predictor]: [Worker STDERR] https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+[WARN] [1785918176.645119599] [trajectory_predictor]: [Worker STDERR] warnings.warn(
+[INFO] [1785918177.464093362] [trajectory_predictor]: [Predictor] Worker READY | model=gru
+[INFO] [1785918185.345875446] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.4mm). Khóa tại (-0.2731, -0.7333, -0.2230)
+[INFO] [1785918185.346569317] [trajectory_predictor]: [Filter] raw=(-0.2731,-0.7333,-0.2230) → filt=(-0.2731,-0.7333,-0.2230) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918192.883046041] [trajectory_predictor]: [Filter] raw=(-0.2731,-0.7333,-0.2230) → filt=(-0.2731,-0.7333,-0.2230) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918198.911833322] [trajectory_predictor]: [Predictor] Auto-disabled prediction mode via /trajectory_mode
+[INFO] [1785918199.552995829] [trajectory_predictor]: [Filter] raw=(-0.2731,-0.7333,-0.2230) → filt=(-0.2731,-0.7333,-0.2230) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918201.864969221] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=105.7mm). Thả hold.
+[INFO] [1785918210.075102672] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.0mm). Khóa tại (-0.1358, -1.4161, -0.1806)
+[INFO] [1785918210.641460569] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=31.7mm). Thả hold.
+[INFO] [1785918210.913059818] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.9mm). Khóa tại (-0.1739, -1.4176, -0.1824)
+[INFO] [1785918212.307206285] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=30.7mm). Thả hold.
+[INFO] [1785918213.164182974] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.3mm). Khóa tại (-0.1659, -1.3953, -0.2027)
+[INFO] [1785918213.359403090] [trajectory_predictor]: [Filter] raw=(-0.1659,-1.3953,-0.2027) → filt=(-0.1659,-1.3953,-0.2027) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918214.446925376] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=34.1mm). Thả hold.
+[INFO] [1785918215.009671011] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.0mm). Khóa tại (-0.1627, -1.3391, -0.0990)
+[INFO] [1785918216.367014260] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=36.9mm). Thả hold.
+[INFO] [1785918216.820356423] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.3mm). Khóa tại (-0.0914, -1.3379, -0.1249)
+[INFO] [1785918218.278511293] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=30.2mm). Thả hold.
+[INFO] [1785918218.902377008] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.0mm). Khóa tại (-0.0765, -1.3267, -0.1053)
+[INFO] [1785918220.458995174] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=36.3mm). Thả hold.
+[INFO] [1785918221.339561801] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.6mm). Khóa tại (-0.3017, -1.2899, -0.0941)
+[INFO] [1785918222.908130667] [trajectory_predictor]: [Filter] raw=(-0.3017,-1.2899,-0.0941) → filt=(-0.3017,-1.2899,-0.0941) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918223.008875144] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=31.2mm). Thả hold.
+[INFO] [1785918223.690227035] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.8mm). Khóa tại (-0.1934, -1.4420, -0.2083)
+[INFO] [1785918225.048896629] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=35.8mm). Thả hold.
+[INFO] [1785918226.996839764] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.7mm). Khóa tại (-0.0890, -1.4884, -0.1766)
+[INFO] [1785918228.184339646] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=37.0mm). Thả hold.
+[INFO] [1785918228.693005355] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.1mm). Khóa tại (-0.0940, -1.5502, -0.1969)
+[INFO] [1785918229.483027911] [trajectory_predictor]: [Filter] raw=(-0.0940,-1.5502,-0.1969) → filt=(-0.0940,-1.5502,-0.1969) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918233.234712088] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=35.3mm). Thả hold.
+[INFO] [1785918233.662551582] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.4mm). Khóa tại (-0.0925, -1.4814, -0.1658)
+[INFO] [1785918236.798224968] [trajectory_predictor]: [Filter] raw=(-0.0925,-1.4814,-0.1658) → filt=(-0.0925,-1.4814,-0.1658) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918237.432964308] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=160.9mm). Thả hold.
+[INFO] [1785918237.885741999] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.2mm). Khóa tại (0.0002, 0.0039, 0.0002)
+[INFO] [1785918240.782704170] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1785918244.115791452] [trajectory_predictor]: [Filter] raw=(0.0002,0.0039,0.0002) → filt=(0.0002,0.0039,0.0002) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918246.363699608] [trajectory_predictor]: [Predictor] Predicting STARTED
+[INFO] [1785918247.524416955] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=33.0mm). Thả hold.
+[INFO] [1785918249.669306056] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.9mm). Khóa tại (-0.0472, 0.2636, 0.1480)
+[INFO] [1785918250.095695654] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=31.1mm). Thả hold.
+[INFO] [1785918250.300176470] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=2.2mm). Khóa tại (-0.0601, 0.2982, 0.1591)
+[INFO] [1785918250.854263504] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=32.7mm). Thả hold.
+[INFO] [1785918251.233747397] [trajectory_predictor]: [Filter] raw=(-0.0647,0.4357,0.2311) → filt=(-0.0669,0.3837,0.2195) Δ=(0.0022,0.0520,0.0116)
+[INFO] [1785918253.786948545] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.2mm). Khóa tại (-0.1649, 0.3291, 0.0721)
+[INFO] [1785918254.095897656] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=33.4mm). Thả hold.
+[INFO] [1785918257.010570651] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.8mm). Khóa tại (0.1003, 0.3024, 0.0634)
+[INFO] [1785918258.129818963] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=32.0mm). Thả hold.
+[INFO] [1785918258.646901562] [trajectory_predictor]: [Filter] raw=(-0.0300,0.2440,0.2600) → filt=(-0.0074,0.2792,0.1834) Δ=(0.0226,0.0352,0.0766)
+[INFO] [1785918260.598971433] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.6mm). Khóa tại (-0.0383, 0.0420, 0.0525)
+[INFO] [1785918261.228869339] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=33.8mm). Thả hold.
+[INFO] [1785918266.130430025] [trajectory_predictor]: [Filter] raw=(0.0974,0.4279,0.1156) → filt=(0.1093,0.4011,0.1177) Δ=(0.0119,0.0268,0.0021)
+[INFO] [1785918266.159696830] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=2.0mm). Khóa tại (0.0968, 0.4555, 0.1169)
+[INFO] [1785918267.423135309] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=31.2mm). Thả hold.
+[INFO] [1785918271.655525629] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=5.1mm). Khóa tại (-0.0306, -0.0363, 0.0091)
+[INFO] [1785918272.961812128] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=30.1mm). Thả hold.
+[INFO] [1785918273.569973320] [trajectory_predictor]: [Filter] raw=(0.0186,0.3125,0.1506) → filt=(0.0361,0.0882,0.1132) Δ=(0.0175,0.2244,0.0375)
+[INFO] [1785918276.286501240] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.9mm). Khóa tại (0.0614, 0.2819, 0.0648)
+[INFO] [1785918276.602608664] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=33.7mm). Thả hold.
+[INFO] [1785918278.200195221] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.4mm). Khóa tại (-0.0889, 0.0055, 0.0334)
+[INFO] [1785918279.901511986] [trajectory_predictor]: [Predictor] Predicting STOPPED
+[INFO] [1785918280.135978379] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=30.4mm). Thả hold.
+[INFO] [1785918284.294453836] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=3.7mm). Khóa tại (-0.2033, 0.7500, -0.0508)
+[INFO] [1785918284.959295209] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=31.3mm). Thả hold.
+[INFO] [1785918285.152477808] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=2.8mm). Khóa tại (-0.1801, 0.7280, -0.0682)
+[INFO] [1785918285.153175038] [trajectory_predictor]: [Filter] raw=(-0.1801,0.7280,-0.0682) → filt=(-0.1801,0.7280,-0.0682) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918292.006037901] [trajectory_predictor]: [Filter] raw=(-0.1801,0.7280,-0.0682) → filt=(-0.1801,0.7280,-0.0682) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918299.198965906] [trajectory_predictor]: [Filter] raw=(-0.1801,0.7280,-0.0682) → filt=(-0.1801,0.7280,-0.0682) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918306.012423817] [trajectory_predictor]: [Filter] raw=(-0.1801,0.7280,-0.0682) → filt=(-0.1801,0.7280,-0.0682) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918313.129682519] [trajectory_predictor]: [Filter] raw=(-0.1801,0.7280,-0.0682) → filt=(-0.1801,0.7280,-0.0682) Δ=(0.0000,0.0000,0.0000)
+[INFO] [1785918319.064790495] [trajectory_predictor]: [Pred HOLD OFF] Tay di chuyển (dev=39.0mm). Thả hold.
+[INFO] [1785918319.618466307] [trajectory_predictor]: [Pred HOLD ON] Tay đứng yên (std=4.3mm). Khóa tại (-0.1901, 0.7325, -0.0625)
+[WARN] [1785918320.360791778] [trajectory_predictor]: [Worker STDERR] Traceback (most recent call last):
+[WARN] [1785918320.365254654] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 255, in <module>
+[WARN] [1785918320.366148958] [trajectory_predictor]: [Worker STDERR] main()
+[WARN] [1785918320.368324250] [trajectory_predictor]: [Worker STDERR] File "/home/duy/cocarry_ws/install/trajectory_predictor/lib/python3.10/site-packages/trajectory_predictor/inference_worker.py", line 190, in main
+[WARN] [1785918320.368968600] [trajectory_predictor]: [Worker STDERR] for line in sys.stdin:
+[WARN] [1785918320.369531064] [trajectory_predictor]: [Worker STDERR] KeyboardInterrupt

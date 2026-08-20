@@ -1,0 +1,29 @@
+[INFO] [1786331059.806714663] [experiment_logger]: Logger ready.
+[INFO] [1786331202.111312295] [experiment_logger]: Trajectory mode: ergonomics
+[INFO] [1786331210.556376527] [experiment_logger]: Service called: /logger/toggle with data=True
+[INFO] [1786331210.557170612] [experiment_logger]: ✓ STARTED in-memory logging. Target file: /home/duy/cocarry_ws/cocarry_logs/experiment_ERGONOMICS_20260810_100650.csv
+[INFO] [1786331276.042896643] [experiment_logger]: Service called: /logger/toggle with data=False
+[INFO] [1786331276.043380647] [experiment_logger]: Writing 1860 rows from memory to /home/duy/cocarry_ws/cocarry_logs/experiment_ERGONOMICS_20260810_100650.csv...
+[INFO] [1786331276.062302109] [experiment_logger]: ✓ Successfully wrote logs to disk.
+[INFO] [1786331276.064740897] [experiment_logger]: Stopped logging. Saved 1860 rows to /home/duy/cocarry_ws/cocarry_logs/experiment_ERGONOMICS_20260810_100650.csv
+[INFO] [1786331276.092450232] [experiment_logger]: 
+============================================================
+EXPERIMENT METRICS
+  File: experiment_ERGONOMICS_20260810_100650.csv
+  Total samples: 1860
+  Task completion time: 65.49 s
+  --- Prediction Accuracy (over 1860 samples) ---
+  Avg Inference Time: 2.39 ms
+  Mean Squared Error (MSE): 0.002357 m²
+  Mean Absolute Error (MAE - 3D): 0.0347 m
+      MAE X: 0.0165 m
+      MAE Y: 0.0218 m
+      MAE Z: 0.0114 m
+  --- Trajectory Smoothness (Robot EE) ---
+  Mean Jerk (3D): 14.9761 m/s³
+      Jerk X: 6.5149 m/s³
+      Jerk Y: 9.3099 m/s³
+      Jerk Z: 6.6179 m/s³
+  Max Jerk (3D): 136.5762 m/s³
+  RMS Jerk (3D): 28.4920 m/s³
+============================================================

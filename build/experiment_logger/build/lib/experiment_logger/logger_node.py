@@ -9,7 +9,15 @@ Output CSV columns:
   pred_x, pred_y, pred_z,
   mae_x, mae_y, mae_z,
   inference_ms, buffer_size,
-  robot_ee_x, robot_ee_y, robot_ee_z
+  robot_ee_x, robot_ee_y, robot_ee_z,
+  hand_base_x, hand_base_y, hand_base_z,
+  target_cmd_x, target_cmd_y, target_cmd_z,
+  hand_vel_x, hand_vel_y, hand_vel_z, hand_speed,
+  ee_vel_x, ee_vel_y, ee_vel_z, ee_speed,
+  j1_pos, ..., j6_pos, j1_vel, ..., j6_vel, j1_eff, ..., j6_eff,
+  rula_upper_arm, rula_lower_arm, rula_wrist, rula_twist, rula_total,
+  rula_alpha_s, rula_alpha_c, rula_beta_s, rula_beta_t, rula_gamma_s,
+  adapt_w, adapt_sr, adapt_se
 
 Author: Duy (auto-generated — extend as needed)
 """
@@ -24,7 +32,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import JointState
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32MultiArray
 from std_srvs.srv import SetBool
 
 from human_hand_msgs.msg import HandState, HandPrediction
@@ -56,9 +64,28 @@ class ExperimentLoggerNode(Node):
 
         # Robot EE pose tracking (for jerk calculation)
         self._last_robot_ee = None  # (x, y, z)
-        
+        self._prev_robot_ee = None  # previous tick for velocity
+        self._prev_robot_ee_time_ns = 0
+
+        # Hand position in robot base frame (from coord_transform)
+        self._last_hand_base = None  # (x, y, z)
+        self._prev_hand_base = None  # previous tick for velocity
+        self._prev_hand_base_time_ns = 0
+
+        # Target command pose (what is sent to robot)
+        self._last_target_cmd = None  # (x, y, z)
+
         # Robot Joint tracking
         self._last_joint_state = None
+
+        # RULA scores tracking [ua, la, wrist, twist, total, alpha_s, alpha_c, beta_s, beta_t, gamma]
+        self._last_rula_scores = None
+        # Adaptive control status [w, sr, se]
+        self._last_adaptive_status = None
+
+        # Velocity cache (inline computed)
+        self._hand_velocity = (0.0, 0.0, 0.0, 0.0)  # vx, vy, vz, speed
+        self._ee_velocity = (0.0, 0.0, 0.0, 0.0)    # vx, vy, vz, speed
 
         # Task timing
         self._start_wall_time = 0.0
@@ -81,8 +108,23 @@ class ExperimentLoggerNode(Node):
         self.create_subscription(
             PoseStamped, '/cartesian_streamer/current_pose',
             self._on_robot_ee_pose, 10)
+        # Hand position in robot base frame (from coord_transform)
+        self.create_subscription(
+            PoseStamped, '/cartesian_streamer/hand_base_pose',
+            self._on_hand_base_pose, 10)
+        # Target command pose sent to robot (from coord_transform)
+        self.create_subscription(
+            PoseStamped, '/cartesian_streamer/target_pose',
+            self._on_target_cmd_pose, 10)
         # Robot joint states for velocity/torque (effort)
         self.create_subscription(JointState, '/joint_states', self._on_joint_states, 10)
+        # RULA ergonomic scores from rula_tracker (10 fields: 5 scores + 5 angles)
+        self.create_subscription(
+            Float32MultiArray, '/rula_scores', self._on_rula_scores, 10)
+        # Adaptive control status from cartesian_streamer
+        self.create_subscription(
+            Float32MultiArray, '/cartesian_streamer/adaptive_status',
+            self._on_adaptive_status, 10)
 
         # Service to toggle recording
         self.toggle_srv = self.create_service(SetBool, '/logger/toggle', self._srv_toggle)
@@ -95,6 +137,8 @@ class ExperimentLoggerNode(Node):
             # Dùng model name hoặc GROUND_TRUTH tùy mode
             if self._trajectory_mode == 'ground_truth':
                 model_tag = 'GROUND_TRUTH'
+            elif self._trajectory_mode == 'ergonomics':
+                model_tag = 'ERGONOMICS'
             else:
                 model_tag = str(self.current_model).upper() if self.current_model else "UNKNOWN"
             self.csv_path = os.path.join(self.log_dir, f'experiment_{model_tag}_{ts}.csv')
@@ -128,8 +172,18 @@ class ExperimentLoggerNode(Node):
                     'mae_x', 'mae_y', 'mae_z',
                     'inference_ms', 'buffer_size',
                     'robot_ee_x', 'robot_ee_y', 'robot_ee_z',
+                    'hand_base_x', 'hand_base_y', 'hand_base_z',
+                    'target_cmd_x', 'target_cmd_y', 'target_cmd_z',
+                    'hand_vel_x', 'hand_vel_y', 'hand_vel_z', 'hand_speed',
+                    'ee_vel_x', 'ee_vel_y', 'ee_vel_z', 'ee_speed',
+                    'j1_pos', 'j2_pos', 'j3_pos', 'j4_pos', 'j5_pos', 'j6_pos',
                     'j1_vel', 'j2_vel', 'j3_vel', 'j4_vel', 'j5_vel', 'j6_vel',
-                    'j1_eff', 'j2_eff', 'j3_eff', 'j4_eff', 'j5_eff', 'j6_eff'
+                    'j1_eff', 'j2_eff', 'j3_eff', 'j4_eff', 'j5_eff', 'j6_eff',
+                    'rula_upper_arm', 'rula_lower_arm', 'rula_wrist',
+                    'rula_twist', 'rula_total',
+                    'rula_alpha_s', 'rula_alpha_c', 'rula_beta_s',
+                    'rula_beta_t', 'rula_gamma_s',
+                    'adapt_w', 'adapt_sr', 'adapt_se',
                 ])
                 writer.writerows(self._log_buffer)
             self.get_logger().info(f'✓ Successfully wrote logs to disk.')
@@ -221,8 +275,48 @@ class ExperimentLoggerNode(Node):
         self.get_logger().info(f'Trajectory mode: {self._trajectory_mode}')
 
     def _on_robot_ee_pose(self, msg: PoseStamped):
-        """Lưu vị trí EE hiện tại của robot (dùng cho jerk calculation)."""
-        self._last_robot_ee = (
+        """Lưu vị trí EE hiện tại và tính vận tốc inline."""
+        now_ns = self.get_clock().now().nanoseconds
+        new_ee = (
+            msg.pose.position.x,
+            msg.pose.position.y,
+            msg.pose.position.z,
+        )
+        # Compute EE velocity from consecutive positions
+        if self._last_robot_ee is not None and self._prev_robot_ee_time_ns > 0:
+            dt = (now_ns - self._prev_robot_ee_time_ns) / 1e9
+            if dt > 1e-4:
+                vx = (new_ee[0] - self._last_robot_ee[0]) / dt
+                vy = (new_ee[1] - self._last_robot_ee[1]) / dt
+                vz = (new_ee[2] - self._last_robot_ee[2]) / dt
+                speed = math.sqrt(vx*vx + vy*vy + vz*vz)
+                self._ee_velocity = (vx, vy, vz, speed)
+        self._prev_robot_ee_time_ns = now_ns
+        self._last_robot_ee = new_ee
+
+    def _on_hand_base_pose(self, msg: PoseStamped):
+        """Lưu vị trí tay người trong robot base frame và tính vận tốc inline."""
+        now_ns = self.get_clock().now().nanoseconds
+        new_hand = (
+            msg.pose.position.x,
+            msg.pose.position.y,
+            msg.pose.position.z,
+        )
+        # Compute hand velocity from consecutive positions
+        if self._last_hand_base is not None and self._prev_hand_base_time_ns > 0:
+            dt = (now_ns - self._prev_hand_base_time_ns) / 1e9
+            if dt > 1e-4:
+                vx = (new_hand[0] - self._last_hand_base[0]) / dt
+                vy = (new_hand[1] - self._last_hand_base[1]) / dt
+                vz = (new_hand[2] - self._last_hand_base[2]) / dt
+                speed = math.sqrt(vx*vx + vy*vy + vz*vz)
+                self._hand_velocity = (vx, vy, vz, speed)
+        self._prev_hand_base_time_ns = now_ns
+        self._last_hand_base = new_hand
+
+    def _on_target_cmd_pose(self, msg: PoseStamped):
+        """Lưu target command pose (tọa độ đích gửi xuống robot)."""
+        self._last_target_cmd = (
             msg.pose.position.x,
             msg.pose.position.y,
             msg.pose.position.z,
@@ -233,6 +327,14 @@ class ExperimentLoggerNode(Node):
         # MotoROS2 thường publish tên khớp kiểu joint_1_s, joint_2_l...
         # nhưng order thường là 1 đến 6. Cứ lưu toàn bộ mảng.
         self._last_joint_state = msg
+
+    def _on_rula_scores(self, msg: Float32MultiArray):
+        """Lưu RULA scores [ua, la, wrist, twist, total, alpha_s, alpha_c, beta_s, beta_t, gamma]."""
+        self._last_rula_scores = list(msg.data)
+
+    def _on_adaptive_status(self, msg: Float32MultiArray):
+        """Lưu adaptive control status [w, sr, se]."""
+        self._last_adaptive_status = list(msg.data)
 
     def _on_hand(self, msg: HandState):
         self.last_meas = msg
@@ -250,8 +352,8 @@ class ExperimentLoggerNode(Node):
                 self._rename_current_log(new_model)
 
         self.current_model = new_model
-        # Ở prediction mode: ghi row khi nhận prediction
-        if (self._trajectory_mode == 'prediction'
+        # Ở prediction mode hoặc ergonomics mode: ghi row khi nhận prediction
+        if (self._trajectory_mode in ['prediction', 'ergonomics']
                 and self.is_logging):
             self._write_row(self.last_meas, msg)
 
@@ -300,17 +402,63 @@ class ExperimentLoggerNode(Node):
             rey = f'{self._last_robot_ee[1]:.6f}'
             rez = f'{self._last_robot_ee[2]:.6f}'
 
+        # Hand position in robot base frame
+        hbx = hby = hbz = ''
+        if self._last_hand_base is not None:
+            hbx = f'{self._last_hand_base[0]:.6f}'
+            hby = f'{self._last_hand_base[1]:.6f}'
+            hbz = f'{self._last_hand_base[2]:.6f}'
+
+        # Target command pose
+        tcx = tcy = tcz = ''
+        if self._last_target_cmd is not None:
+            tcx = f'{self._last_target_cmd[0]:.6f}'
+            tcy = f'{self._last_target_cmd[1]:.6f}'
+            tcz = f'{self._last_target_cmd[2]:.6f}'
+
+        # Hand velocity (inline computed)
+        hvx = f'{self._hand_velocity[0]:.6f}'
+        hvy = f'{self._hand_velocity[1]:.6f}'
+        hvz = f'{self._hand_velocity[2]:.6f}'
+        hspd = f'{self._hand_velocity[3]:.6f}'
+
+        # Robot EE velocity (inline computed)
+        evx = f'{self._ee_velocity[0]:.6f}'
+        evy = f'{self._ee_velocity[1]:.6f}'
+        evz = f'{self._ee_velocity[2]:.6f}'
+        espd = f'{self._ee_velocity[3]:.6f}'
+
         # Robot joint states
+        jp = [''] * 6
         jv = [''] * 6
         je = [''] * 6
         if self._last_joint_state is not None:
             # Safely get up to 6 joints
+            posns = self._last_joint_state.position
             vels = self._last_joint_state.velocity
             effs = self._last_joint_state.effort
+            for i in range(min(6, len(posns))):
+                jp[i] = f'{posns[i]:.6f}'
             for i in range(min(6, len(vels))):
                 jv[i] = f'{vels[i]:.6f}'
             for i in range(min(6, len(effs))):
                 je[i] = f'{effs[i]:.6f}'
+
+        # RULA scores (5 scores) + raw angles (5 angles)
+        rula_scores = [''] * 5
+        rula_angles = [''] * 5
+        if self._last_rula_scores is not None:
+            for i in range(min(5, len(self._last_rula_scores))):
+                rula_scores[i] = f'{self._last_rula_scores[i]:.4f}'
+            # Raw biomechanical angles (fields 5-9): alpha_s, alpha_c, beta_s, beta_t, gamma_s
+            for i in range(5, min(10, len(self._last_rula_scores))):
+                rula_angles[i - 5] = f'{self._last_rula_scores[i]:.4f}'
+
+        # Adaptive control status
+        adapt = [''] * 3
+        if self._last_adaptive_status is not None:
+            for i in range(min(3, len(self._last_adaptive_status))):
+                adapt[i] = f'{self._last_adaptive_status[i]:.6f}'
 
         self._log_buffer.append([
             now_ns, wall, self._trajectory_mode,
@@ -318,8 +466,18 @@ class ExperimentLoggerNode(Node):
             px, py, pz, mae_x, mae_y, mae_z,
             inf_ms, buf,
             rex, rey, rez,
+            hbx, hby, hbz,
+            tcx, tcy, tcz,
+            hvx, hvy, hvz, hspd,
+            evx, evy, evz, espd,
+            jp[0], jp[1], jp[2], jp[3], jp[4], jp[5],
             jv[0], jv[1], jv[2], jv[3], jv[4], jv[5],
-            je[0], je[1], je[2], je[3], je[4], je[5]
+            je[0], je[1], je[2], je[3], je[4], je[5],
+            rula_scores[0], rula_scores[1], rula_scores[2],
+            rula_scores[3], rula_scores[4],
+            rula_angles[0], rula_angles[1], rula_angles[2],
+            rula_angles[3], rula_angles[4],
+            adapt[0], adapt[1], adapt[2],
         ])
         self.row_count += 1
 
